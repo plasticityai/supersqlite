@@ -1,0 +1,33 @@
+# Compiled python modules.
+*.pyc
+
+# Setuptools distribution folder.
+/build/
+/dist/
+MANIFEST
+
+# Python egg metadata, regenerated from source files by setuptools.
+/supersqlite-*
+/*.egg-info
+/*.egg
+/.eggs/
+
+# Third Party Folders
+/supersqlite/third_party/_apsw/src/sqlite3.h
+/supersqlite/third_party/_apsw/src/sqlite3.c
+
+# Third Party Build Folders
+/supersqlite/third_party/**/build
+/supersqlite/third_party/internal/**/*
+/supersqlite/third_party/internal/*
+!/supersqlite/third_party/internal/__init__.py
+
+# Wheel Folder
+/supersqlite/req_wheels/**/*
+/supersqlite/req_wheels/*
+!/supersqlite/req_wheels/.gitkeep
+
+# Weird files
+
+.DS_Store
+**/.DS_Store

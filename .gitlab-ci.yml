@@ -1,0 +1,130 @@
+image: registry.gitlab.com/plasticity/ubuntu-dind:16.04
+
+services:
+  - docker:dind
+
+stages:
+  - Test
+  - Deploy to PyPI
+  - Deploy Linux Wheels
+
+before_script:
+  # Setup package manager
+  - apt-get update 2>&1 >/dev/null
+  - apt-get install curl wget git -y
+  - apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran -y
+  - apt-get install python -y
+  - apt-get install python-pip -y
+  - apt-get install python-setuptools -y
+  - apt-get install python3-setuptools python3-dev -y
+  - apt-get install python-dev -y
+  - apt-get install openssh-server -y
+  # Setup SSH configuration
+  - mkdir -p ~/.ssh
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  # Install gettext for envsubst
+  - apt-get install gettext -y
+
+Lint:
+  stage: Test
+  script:
+    - apt-get install python3 -y
+    - apt-get install python3-pip -y
+    - pip3 install flake8
+    - pip3 install pep8-naming
+    - flake8 --version
+    - flake8 
+
+
+Test Python 2:
+  stage: Test
+  script:
+    - apt-get install python-pip -y
+    - pip2 install -U pip setuptools
+    - python2 setup.py install
+    - pip install gensim
+    - python2 -m tests.tests -- -v
+
+Test Python 3:
+  stage: Test
+  script:
+    - apt-get install build-essential -y
+    - apt-get install libffi-dev libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev  -y
+    - apt-get install libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev tk-dev -y
+    - wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
+    - tar xf Python-3.7.1.tar.xz
+    - cd Python-3.7.1 && ./configure --enable-shared && make -j 8 && make altinstall && cd ../
+    - echo $(pwd)/Python-3.7.1
+    - ls $(pwd)/Python-3.7.1
+    - export LD_LIBRARY_PATH=$(pwd)/Python-3.7.1:$LD_LIBRARY_PATH
+    - echo $LD_LIBRARY_PATH
+    - curl https://bootstrap.pypa.io/get-pip.py | python3.7
+    - python3.7 -m pip install -U wheel setuptools # TEMP: removing upgrading of pip here, because the newest one is broken for Python 3
+    - python3.7 setup.py install
+    - python3.7 -m pip install gensim
+    - python3.7 -m tests.tests -- -v
+
+Deploy to PyPI:
+  stage: Deploy to PyPI
+  script:
+    # Add GitLab SSH private deploy key
+    - eval $(ssh-agent -s)
+    - tmpfile=$(mktemp ~/pk.XXXXXX)
+    - echo "$SSH_PRIVATE_KEY" > $tmpfile
+    - ssh-add $tmpfile
+    - rm $tmpfile
+    # Tag the release on GitLab
+    - rm -rf ../tagger
+    - mkdir -p ../tagger
+    - cd ../tagger
+    - git clone git@gitlab.com:$CI_PROJECT_PATH.git
+    - cd $CI_PROJECT_NAME
+    - git config --global user.email "dev_ci_bot@plasticity.ai"
+    - git config --global user.name "Plasticity Developer Bot"
+    - git tag -a $(python setup.py -V) -m "Release $(python setup.py -V)"
+    - git push origin --tags
+    - cd $CI_PROJECT_DIR
+    - rm -rf ../tagger
+    - sleep 60 # Wait for GitLab to mirror to GitHub
+    # Create a release on GitHub
+    - curl -u plasticity-admin:$GITHUB_TOKEN -d "{\"tag_name\":\"$(python setup.py -V)\", \"name\":\"Release $(python setup.py -V)\"}" -H "Content-Type:"" application/json" -X POST https://api.github.com/repos/plasticityai/$CI_PROJECT_NAME/releases
+    # Upload to PyPI
+    - envsubst < deployment/.pypirc > ~/.pypirc
+    - chmod 600 ~/.pypirc
+    - python setup.py sdist upload -r pypitest
+    - python setup.py sdist upload -r pypi
+    # Trigger Travis CI
+    - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Travis-API-Version:3" -H "Authorization:token $TRAVIS_CI_TOKEN" -d '{"request":{"branch":"master"}}' https://api.travis-ci.org/repo/plasticityai%2Fsupersqlite/requests
+    # Trigger Appveyor CI
+    - curl -s -X POST -H "Content-Type:application/json" -H "Accept:application/json" -H "Authorization:Bearer $APPVEYOR_CI_TOKEN" -d '{"accountName":"plasticity-admin","projectSlug":"supersqlite","branch":"master"}' https://ci.appveyor.com/api/builds
+
+  only:
+    - master
+
+Deploy Linux Wheels:
+  stage: Deploy Linux Wheels
+  script:
+    - export SHARED_PATH=/builds/shared/$CI_PROJECT_PATH
+    - mkdir -p ${SHARED_PATH}
+    - touch ${SHARED_PATH}/setup.py
+    - echo $SHARED_PATH
+    - cp -a $CI_PROJECT_DIR/. /$SHARED_PATH/
+    - mkdir -p /.awsstore
+    - touch /.awsstore/credentials
+    - echo "[default]" >> /.awsstore/credentials
+    - echo "aws_access_key_id = $AWS_ACCESS_KEY_ID" >> /.awsstore/credentials
+    - echo "aws_secret_access_key = $AWS_SECRET_ACCESS_KEY" >> /.awsstore/credentials
+    - eval "copytocibuildwheel() { export CIBUILDWHEEL_CONTAINER=\$(docker ps --format 'table {{.ID}}\t{{.Names}}\t{{.Image}}' | grep 'quay.io/pypa/manylinux1' | head -n1 | awk '{print \$2}') && (docker cp $CI_PROJECT_DIR/. \$CIBUILDWHEEL_CONTAINER:/project || true) && docker exec \$CIBUILDWHEEL_CONTAINER mkdir -p /root/.aws && docker cp /.awsstore/credentials \$CIBUILDWHEEL_CONTAINER:/root/.aws/credentials; }"
+    - eval "repeatcopytocibuildwheel() { while sleep 1; do copytocibuildwheel || (echo 'Could not locate container:' && docker ps); done }"
+    - export -f copytocibuildwheel
+    - export -f repeatcopytocibuildwheel
+    - export CIBW_PLATFORM=linux
+    - export CIBW_BUILD_VERBOSITY=3
+    - export CIBW_BEFORE_BUILD="echo 'Installing AWS...'; pip install awscli --upgrade; echo 'Sleeping...waiting for copy to complete...'; sleep 90; echo 'Project Directory After Copy:'; ls /project; echo 'AWS After Copy:'; ls /root/.aws/;"
+    - export CIBW_TEST_COMMAND="echo 'Uploading to AWS:'; ls /output; aws s3 sync /output/ s3://supersqlite.plasticity.ai/wheelhouse/"
+    - pip2 install pip setuptools -U
+    - pip2 install cibuildwheel==0.10.0
+    - /bin/bash -c "set -m; cibuildwheel --output-dir wheelhouse $SHARED_PATH & sleep 30 && echo 'Copying to sub-Docker container...' && repeatcopytocibuildwheel& sleep 28 && echo 'Done copying.' && fg 1"
+
+  only:
+    - master

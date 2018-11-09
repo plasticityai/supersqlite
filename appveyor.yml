@@ -1,0 +1,18 @@
+environment:
+  global:
+    CIBW_SKIP: cp27-* cp33-* cp34-* *-win32
+    CIBW_BUILD_VERBOSITY: 3
+
+build_script:
+  - c:\python27\python.exe -m pip install pip setuptools -U
+  - pip install cibuildwheel==0.10.0
+  - cibuildwheel --output-dir wheelhouse
+  - dir wheelhouse
+  - pip install awscli --upgrade --user
+  - aws s3 sync ./wheelhouse/ s3://supersqlite.plasticity.ai/wheelhouse/
+artifacts:
+  - path: "wheelhouse\\*.whl"
+    name: Wheels
+branches:
+  only:
+    - appveyor-never-build-branch-automatically-dont-use-this-name

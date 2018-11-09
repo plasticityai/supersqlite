@@ -1,0 +1,13 @@
+include version.py
+include glibc.py
+include pep425tags.py
+include LICENSE.txt
+include requirements.txt
+include supersqlite/third_party/*
+include supersqlite/third_party/**/*
+recursive-include supersqlite/third_party *
+recursive-include supersqlite/third_party *.txt *.py *.c *.yml *.cfg *.h *.ini Makefile *.whl *.so *.o *.dll *.pyd .gitkeep
+include supersqlite/req_wheels/*
+include supersqlite/req_wheels/**/*
+recursive-include supersqlite/req_wheels *
+recursive-include supersqlite/req_wheels *.txt *.py *.c *.yml *.cfg *.h *.ini Makefile *.whl *.so *.o *.dll *.pyd .gitkeep

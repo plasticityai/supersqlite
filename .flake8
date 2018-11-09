@@ -1,0 +1,4 @@
+[flake8]
+ignore = E261,E402,W504
+exclude = .git,__pycache__,docs/source/conf.py,old,build,dist,setup.py,supersqlite/third_party,supersqlite/third_party_mock,benchmark.py,supersqlite/req_wheels
+max-line-length = 80
