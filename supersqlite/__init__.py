@@ -13,6 +13,7 @@ import sys
 import tempfile
 import threading
 import time
+import types
 import uuid
 
 from time import sleep
@@ -53,11 +54,24 @@ pysqlite = sqlite3
 apsw = apsw
 
 
-class SuperSQLite(apsw):
+class SuperSQLite():
     pass
 
 
+class SuperSQLiteConnection(apsw.Connection):
+    pass
+
+
+for prop in dir(apsw):
+    value = getattr(apsw, prop)
+    if prop.startswith('__') or isinstance(value, types.ModuleType):
+        continue
+    setattr(SuperSQLite, prop, value)
+setattr(SuperSQLite, 'connect', SuperSQLiteConnection)
+
 # KeyList helper class
+
+
 class KeyList(object):
     def __init__(self, ls, key):
         self.ls = ls

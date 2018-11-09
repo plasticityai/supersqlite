@@ -42,7 +42,6 @@ Test Python 2:
     - apt-get install python-pip -y
     - pip2 install -U pip setuptools
     - python2 setup.py install
-    - pip install gensim
     - python2 -m tests.tests -- -v
 
 Test Python 3:
@@ -61,7 +60,6 @@ Test Python 3:
     - curl https://bootstrap.pypa.io/get-pip.py | python3.7
     - python3.7 -m pip install -U wheel setuptools # TEMP: removing upgrading of pip here, because the newest one is broken for Python 3
     - python3.7 setup.py install
-    - python3.7 -m pip install gensim
     - python3.7 -m tests.tests -- -v
 
 Deploy to PyPI:

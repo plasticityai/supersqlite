@@ -43,7 +43,8 @@ class MagnitudeTest(unittest.TestCase):
         self.assertTrue(apsw)
 
     def test_ssqlite_subclass(self):
-        self.assertTrue(issubclass(SuperSQLite, apsw))
+        self.assertTrue(issubclass(SuperSQLite.Connection, apsw.Connection))
+        self.assertTrue(issubclass(SuperSQLite.connect, apsw.Connection))
 
 
 if __name__ == '__main__':
