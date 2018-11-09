@@ -521,9 +521,13 @@ class CustomInstallCommand(install):
             install_req_wheels()
             open(BUILT_LOCAL, 'w+').close()
         print("Running install...")
-        p = Process(target=install.run, args=(self,))
-        p.start()
-        p.join()
+        try:
+            p = Process(target=install.run, args=(self,))
+            p.start()
+            p.join()
+        except BaseException:
+            print("Dumping install")
+            print(dir(install))
         print("Done running install")
         if not(download_and_install_wheel()):
             print("Running egg_install...")
