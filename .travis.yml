@@ -16,7 +16,6 @@ matrix:
     - os: linux
 
 script:
-  - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   - $PIP install pip setuptools -U
   - $PIP install cibuildwheel==0.10.0
   - eval "buildwheel() { cibuildwheel --output-dir wheelhouse >>buildwheel.log 2>&1; }"
@@ -24,5 +23,4 @@ script:
   - tail -c 3670016 buildwheel.log
   - ls wheelhouse
   - $PIP install awscli --upgrade
-  - brew install awscli || true
   - aws s3 sync ./wheelhouse/ s3://supersqlite.plasticity.ai/wheelhouse/

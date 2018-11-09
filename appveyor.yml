@@ -1,6 +1,5 @@
 environment:
   global:
-    CIBW_SKIP: cp27-* cp33-* cp34-* *-win32
     CIBW_BUILD_VERBOSITY: 3
 
 build_script:
