@@ -4,7 +4,6 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 import bisect
-import http.client
 import hashlib
 import heapq
 import mmap
@@ -20,8 +19,10 @@ from time import sleep
 
 try:
     from http.client import CannotSendRequest, ResponseNotReady
+    import http.client as httplib
 except BaseException:
     from httplib import CannotSendRequest, ResponseNotReady
+    import httplib
 
 try:
     from urllib.parse import urlparse
@@ -772,10 +773,10 @@ if APSW_LIB == 'internal':
         def _new_connection(self):
             """Creates an HTTP connection"""
             if self.parsed_url.scheme.lower() == 'http':
-                return http.client.HTTPConnection(
+                return httplib.HTTPConnection(
                     self.parsed_url.netloc, timeout=60)
             else:
-                return http.client.HTTPSConnection(
+                return httplib.HTTPSConnection(
                     self.parsed_url.netloc, timeout=60)
 
         def _prepare_connection(self, new=True):
