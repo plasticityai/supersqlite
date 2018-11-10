@@ -94,7 +94,6 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
         outfile.write('#define SQLITE_MAX_EXPR_DEPTH 0' + '\n')
         outfile.write('#define SQLITE_OMIT_DECLTYPE 1' + '\n')
         outfile.write('#define SQLITE_OMIT_PROGRESS_CALLBACK 1' + '\n')
-        outfile.write('#define SQLITE_OMIT_SHARED_CACHE 1' + '\n')
         outfile.write('#define SQLITE_USE_ALLOCA 1' + '\n')
         outfile.write('#define SQLITE_MAX_LENGTH 2147483647' + '\n')
         outfile.write('#define SQLITE_MAX_COLUMN 32767' + '\n')
