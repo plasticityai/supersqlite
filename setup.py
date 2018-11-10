@@ -55,7 +55,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
     APSW = INTERNAL + '/apsw'
     PYSQLITE = THIRD_PARTY + '/_pysqlite'
     APSW_TP = THIRD_PARTY + '/_apsw'
-    SQLITE3 = INTERNAL + '/sqlite3'
+    SQLITE3 = THIRD_PARTY + '/sqlite3'
 
     SQLITE_PRE = os.path.relpath(
         os.path.join(SQLITE3, 'sqlite3.c.pre.c'), PROJ_PATH)
@@ -171,7 +171,7 @@ def install_custom_sqlite3(THIRD_PARTY, INTERNAL):
     APSW = INTERNAL + '/apsw'
     PYSQLITE = THIRD_PARTY + '/_pysqlite'
     APSW_TP = THIRD_PARTY + '/_apsw'
-    SQLITE3 = INTERNAL + '/sqlite3'
+    SQLITE3 = THIRD_PARTY + '/sqlite3'
 
     print("Installing custom SQLite 3 (pysqlite) ....")
     install_env = os.environ.copy()
