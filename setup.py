@@ -72,7 +72,6 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
         outfile.write('#define SQLITE_ENABLE_FTS4 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_FTS5 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_GEOPOLY 1' + '\n')
-        outfile.write('#define SQLITE_ENABLE_ICU 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_IOTRACE 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_JSON1 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_RBU 1' + '\n')
@@ -140,13 +139,13 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
                           include_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)]))
         return miscs
 
-    async = sqlite_extension('async')
+    async_m = sqlite_extension('async')
     expert = sqlite_extension('expert')
     # fts1 = sqlite_extension('fts1') deprecated
     # fts2 = sqlite_extension('fts2') deprecated
     fts3 = sqlite_extension('fts3', skip=['fts3_test.c'])
     fts5 = sqlite_extension('fts5built', name='fts5')
-    icu = sqlite_extension('icu')
+    # icu = sqlite_extension('icu') requires a library
     lsm1 = sqlite_extension('lsm1')
     rbu = sqlite_extension('rbu')
     rtree = sqlite_extension('rtree', skip=['geopoly.c'])
@@ -154,8 +153,8 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
                                                 'session_speed_test.c'])
     userauth = sqlite_extension('userauth')
 
-    return ([sqlite3, async, async, expert, fts3,
-             fts5, icu, lsm1, rbu, rtree, session, userauth] +
+    return ([sqlite3, async_m, expert, fts3,
+             fts5, lsm1, rbu, rtree, session, userauth] +
             sqlite_misc_extensions())
 
 
