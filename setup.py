@@ -39,7 +39,7 @@ PACKAGE_SHORT_NAME = 'supersqlite'
 DOWNLOAD_REQ_WHEELS = []
 
 
-def copy_sqlite(src, dest):
+def copy_sqlite(src, dest, apsw=False):
     shutil.copy(
         os.path.join(src, 'sqlite3.c'), os.path.join(dest, 'sqlite3.c'))
     shutil.copy(
@@ -48,6 +48,9 @@ def copy_sqlite(src, dest):
         os.path.join(src, 'sqlite3ext.h'), os.path.join(dest, 'sqlite3ext.h'))
     shutil.copy(
         os.path.join(src, 'shell.c'), os.path.join(dest, 'shell.c'))
+    if apsw:
+        shutil.copy(
+            os.path.join(src, 'apsw_shell.c'), os.path.join(dest, 'shell.c'))
 
 
 def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
@@ -177,7 +180,7 @@ def install_custom_sqlite3(THIRD_PARTY, INTERNAL):
     install_env["PYTHONPATH"] = INTERNAL + \
         (':' + install_env["PYTHONPATH"] if "PYTHONPATH" in install_env else "")
     copy_sqlite(SQLITE3, PYSQLITE)
-    copy_sqlite(SQLITE3, os.path.join(APSW_TP, 'src'))
+    copy_sqlite(SQLITE3, os.path.join(APSW_TP, 'src'), apsw=True)
     rc = subprocess.Popen([
         sys.executable,
         PYSQLITE + '/setup.py',
