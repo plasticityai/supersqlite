@@ -13,14 +13,23 @@ MANIFEST
 /.eggs/
 
 # Third Party Folders
+/supersqlite/third_party/internal/sqlite3/sqlite3.c
+/supersqlite/third_party/_pysqlite/src/sqlite3.h
+/supersqlite/third_party/_pysqlite/src/sqlite3.c
+/supersqlite/third_party/_pysqlite/src/sqlite3ext.h
+/supersqlite/third_party/_pysqlite/src/shell.c
 /supersqlite/third_party/_apsw/src/sqlite3.h
 /supersqlite/third_party/_apsw/src/sqlite3.c
+/supersqlite/third_party/_apsw/src/sqlite3ext.h
+/supersqlite/third_party/_apsw/src/shell.c
 
 # Third Party Build Folders
 /supersqlite/third_party/**/build
 /supersqlite/third_party/internal/**/*
 /supersqlite/third_party/internal/*
 !/supersqlite/third_party/internal/__init__.py
+!/supersqlite/third_party/internal/sqlite3/*
+!/supersqlite/third_party/internal/sqlite3/**/*
 
 # Wheel Folder
 /supersqlite/req_wheels/**/*

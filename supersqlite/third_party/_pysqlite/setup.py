@@ -187,13 +187,6 @@ class MyBuildExt(build_ext):
 
     def build_extension(self, ext):
         if self.amalgamation:
-            ext.define_macros += [
-                    ("SQLITE_ENABLE_FTS3", "1"),
-                    ("SQLITE_ENABLE_FTS3_PARENTHESIS", "1"),
-                    ("SQLITE_ENABLE_FTS4", "1"),
-                    ("SQLITE_ENABLE_RTREE", "1"),
-                    ("SQLITE_MAX_COLUMN", "32767"), # PLASTICITY
-                    ("SQLITE_MAX_VARIABLE_NUMBER", "99999")] # PLASTICITY
             ext.sources.append("sqlite3.c")
         try:
             raise Exception("skip") # PLASTICITY
@@ -230,41 +223,6 @@ class CustomInstallCommand(install):
         # Hail mary try to install all python development libraries / headers for the user
         # across all platforms
         exitcodes = []
-        if platform == "darwin":
-            exitcodes.append(self.run_build_process()) # Try installing with built in compiler
-            if os.system("which brew 1>/dev/null 2>/dev/null"):
-                os.system('echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || true')
-            system_with_output('brew install gcc --without-multilib || true')
-            system_with_output('sudo -u $SUDO_USER "brew install gcc --without-multilib" || true')
-            GCC_PATH = system_with_output('ls /usr/local/Cellar/gcc/*/bin/gcc* | head -1').strip().decode('utf8')
-            print("The found Mac Brew GCC Path is: ", GCC_PATH)
-            if len(GCC_PATH) > 0:
-                os.environ["CC"] = GCC_PATH
-        elif platform == "linux" or platform == "linux2" or "linux" in platform:
-            os.system('apt-get update || true')
-            os.system('apk update || true')
-            os.system('apk upgrade || true')
-            os.system('yum update || true')
-            os.system('apt-get install build-essential -y || true')
-            os.system('apt-get install gcc -y || true')
-            os.system('apt-get install make -y || true')
-            os.system('apt-get install python-dev -y || true')
-            os.system('apt-get install python3-dev -y || true')
-            os.system('apt-get install python3.5-dev -y || true')
-            os.system("yum groupinstall -y 'development tools' || true")
-            os.system('yum install gcc -y || true')
-            os.system('yum install gcc-c++ -y || true')
-            os.system('yum install make -y || true')
-            os.system('yum install python-dev -y || true')
-            os.system('yum install python3-dev -y || true')
-            os.system('yum install python-devel -y || true')
-            os.system('yum install python3-devel -y || true')
-            os.system('apk add --update build-base || true')
-            os.system('apk add --update gcc || true')
-            os.system('apk add --update make || true')
-            os.system('apk add --update python-dev || true')
-        elif platform == "win32":
-            pass
         exitcodes.append(self.run_build_process())
         best_exitcode = min(exitcodes)
         if best_exitcode > 0:

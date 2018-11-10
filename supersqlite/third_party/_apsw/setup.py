@@ -579,9 +579,6 @@ class apsw_build_ext(beparent):
         # fork checker?
         if hasattr(os, "fork"):
             ext.define_macros.append( ('APSW_FORK_CHECKER', '1') )
-        
-        ext.define_macros.append( ("SQLITE_MAX_COLUMN", "32767") ) # PLASTICITY
-        ext.define_macros.append( ("SQLITE_MAX_VARIABLE_NUMBER", "99999") ) # PLASTICITY
 
         # SQLite 3
         # Look for amalgamation in our directory or in sqlite3 subdirectory

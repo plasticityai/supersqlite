@@ -13,7 +13,7 @@ import distutils.sysconfig as dsc
 
 from glob import glob
 from setuptools import find_packages
-from distutils.core import setup
+from distutils.core import setup, Extension
 from setuptools.command.install import install
 from setuptools.command.egg_info import egg_info
 from setuptools import setup, Distribution
@@ -39,29 +39,146 @@ PACKAGE_SHORT_NAME = 'supersqlite'
 DOWNLOAD_REQ_WHEELS = []
 
 
+def copy_sqlite(src, dest):
+    shutil.copy(
+        os.path.join(src, 'sqlite3.c'), os.path.join(dest, 'sqlite3.c'))
+    shutil.copy(
+        os.path.join(src, 'sqlite3.h'), os.path.join(dest, 'sqlite3.h'))
+    shutil.copy(
+        os.path.join(src, 'sqlite3ext.h'), os.path.join(dest, 'sqlite3ext.h'))
+    shutil.copy(
+        os.path.join(src, 'shell.c'), os.path.join(dest, 'shell.c'))
+
+
+def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
+    PYSQLITE2 = INTERNAL + '/pysqlite2'
+    APSW = INTERNAL + '/apsw'
+    PYSQLITE = THIRD_PARTY + '/_pysqlite'
+    APSW_TP = THIRD_PARTY + '/_apsw'
+    SQLITE3 = INTERNAL + '/sqlite3'
+
+    SQLITE_PRE = os.path.relpath(
+        os.path.join(SQLITE3, 'sqlite3.c.pre.c'), PROJ_PATH)
+    SQLITE_POST = os.path.relpath(
+        os.path.join(SQLITE3, 'sqlite3.c'), PROJ_PATH)
+    SQLITE_EXT = os.path.relpath(
+        os.path.join(SQLITE3, 'ext'), PROJ_PATH)
+
+    with open(SQLITE_POST, 'w+') as outfile:
+        outfile.write('#define SQLITE_ENABLE_DBPAGE_VTAB 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_DBSTAT_VTAB 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_FTS3 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_FTS3_PARENTHESIS 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_FTS4 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_FTS5 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_GEOPOLY 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_ICU 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_IOTRACE 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_JSON1 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_RBU 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_RTREE 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_SESSION 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_SNAPSHOT 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_STMTVTAB 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_STAT2 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_STAT3 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_STAT4 1' + '\n')
+        outfile.write('#define SQLITE_INTROSPECTION_PRAGMAS 1' + '\n')
+        outfile.write('#define SQLITE_SOUNDEX 1' + '\n')
+        outfile.write('#define SQLITE_THREADSAFE 0' + '\n')
+        outfile.write('#define SQLITE_DEFAULT_MEMSTATUS 0' + '\n')
+        outfile.write('#define SQLITE_DEFAULT_WAL_SYNCHRONOUS 1' + '\n')
+        outfile.write('#define SQLITE_LIKE_DOESNT_MATCH_BLOBS 1' + '\n')
+        outfile.write('#define SQLITE_MAX_EXPR_DEPTH 0' + '\n')
+        outfile.write('#define SQLITE_OMIT_DECLTYPE 1' + '\n')
+        outfile.write('#define SQLITE_OMIT_PROGRESS_CALLBACK 1' + '\n')
+        outfile.write('#define SQLITE_OMIT_SHARED_CACHE 1' + '\n')
+        outfile.write('#define SQLITE_USE_ALLOCA 1' + '\n')
+        outfile.write('#define SQLITE_MAX_LENGTH 2147483647' + '\n')
+        outfile.write('#define SQLITE_MAX_COLUMN 32767' + '\n')
+        outfile.write('#define SQLITE_MAX_SQL_LENGTH 2147483647' + '\n')
+        outfile.write('#define SQLITE_MAX_FUNCTION_ARG 127' + '\n')
+        outfile.write('#define SQLITE_MAX_COMPOUND_SELECT 65536' + '\n')
+        outfile.write(
+            '#define SQLITE_MAX_LIKE_PATTERN_LENGTH 2147483647' +
+            '\n')
+        outfile.write('#define SQLITE_MAX_VARIABLE_NUMBER 1000000000' + '\n')
+        outfile.write('#define SQLITE_MAX_TRIGGER_DEPTH 2147483647' + '\n')
+        outfile.write('#define SQLITE_MAX_ATTACHED 125' + '\n')
+        outfile.write('#define SQLITE_MAX_PAGE_COUNT 2147483646' + '\n')
+        outfile.write('\n\n\n')
+        with open(SQLITE_PRE, 'r') as infile:
+            for line in infile:
+                outfile.write(line)
+
+    so_suffix = '00000' + ''.join(format(ord(x), 'b') for x in PACKAGE_NAME)
+    sqlite3 = Extension('sqlite3' + so_suffix,
+                        sources=[SQLITE_POST],
+                        include_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)])
+
+    def sqlite_extension(ext, skip=[], name=None):
+        name = name or ext
+        return Extension(
+            name + so_suffix,
+            sources=[
+                g for g in glob(
+                    os.path.join(
+                        SQLITE_EXT,
+                        ext,
+                        '*.c')) if os.path.basename(g) not in skip],
+            include_dirs=[
+                os.path.relpath(
+                    SQLITE3,
+                    PROJ_PATH)])
+
+    def sqlite_misc_extensions():
+        miscs = []
+        for source in glob(os.path.join(SQLITE_EXT, 'misc', '*.c')):
+            miscs.append(
+                Extension(os.path.basename(source)[:-2] + so_suffix,
+                          sources=[source],
+                          include_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)]))
+        return miscs
+
+    async = sqlite_extension('async')
+    expert = sqlite_extension('expert')
+    # fts1 = sqlite_extension('fts1') deprecated
+    # fts2 = sqlite_extension('fts2') deprecated
+    fts3 = sqlite_extension('fts3', skip=['fts3_test.c'])
+    fts5 = sqlite_extension('fts5built', name='fts5')
+    icu = sqlite_extension('icu')
+    lsm1 = sqlite_extension('lsm1')
+    rbu = sqlite_extension('rbu')
+    rtree = sqlite_extension('rtree', skip=['geopoly.c'])
+    session = sqlite_extension('session', skip=['changeset.c',
+                                                'session_speed_test.c'])
+    userauth = sqlite_extension('userauth')
+
+    return ([sqlite3, async, async, expert, fts3,
+             fts5, icu, lsm1, rbu, rtree, session, userauth] +
+            sqlite_misc_extensions())
+
+
 def install_custom_sqlite3(THIRD_PARTY, INTERNAL):
     """ Begin install custom SQLite
     Can be safely ignored even if it fails, however, system SQLite
     imitations may prevent large database files with many columns
     from working."""
+    if built_local():
+        return
+
     PYSQLITE2 = INTERNAL + '/pysqlite2'
     APSW = INTERNAL + '/apsw'
     PYSQLITE = THIRD_PARTY + '/_pysqlite'
     APSW_TP = THIRD_PARTY + '/_apsw'
-    if built_local():
-        return
+    SQLITE3 = INTERNAL + '/sqlite3'
+
     print("Installing custom SQLite 3 (pysqlite) ....")
     install_env = os.environ.copy()
     install_env["PYTHONPATH"] = INTERNAL + \
         (':' + install_env["PYTHONPATH"] if "PYTHONPATH" in install_env else "")
-    shutil.copy(
-        os.path.join(
-            PYSQLITE, 'sqlite3.c'), os.path.join(
-            APSW_TP, 'src', 'sqlite3.c'))
-    shutil.copy(
-        os.path.join(
-            PYSQLITE, 'sqlite3.h'), os.path.join(
-            APSW_TP, 'src', 'sqlite3.h'))
+    copy_sqlite(SQLITE3, PYSQLITE)
+    copy_sqlite(SQLITE3, os.path.join(APSW_TP, 'src'))
     rc = subprocess.Popen([
         sys.executable,
         PYSQLITE + '/setup.py',
@@ -666,6 +783,7 @@ if __name__ == '__main__':
             'Programming Language :: Python :: 3.7'],
         cmdclass=cmdclass,
         distclass=BinaryDistribution,
+        ext_modules=get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH)
     )
 
     # Delete pip files
