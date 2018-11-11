@@ -136,7 +136,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
     def sqlite_misc_extensions(skip):
         miscs = []
         for source in glob(os.path.join(SQLITE_EXT, 'misc', '*.c')):
-            if source in skip:
+            if os.path.basename(source) in skip:
                 continue
             miscs.append(
                 Extension(os.path.basename(source)[:-2] + so_suffix,
