@@ -576,24 +576,27 @@ def copy_custom_compile():
     for good measure"""
 
     # Copy root SOs
-    for root, dirnames, filenames in os.walk(BUILD_PATH):
+    for root, dirnames, filenames in list(os.walk(BUILD_PATH)):
         for filename in fnmatch.filter(filenames, '*.so'):
             so = os.path.join(root, filename)
-            so_base = os.path.basename(so)
-            dest_1 = os.path.join(BUILD_THIRD_PARTY, so_base)
-            dest_2 = os.path.join(THIRD_PARTY, so_base)
-            try:
-                os.makedirs(os.path.dirname(dest_1))
-            except:
-                pass
-            try:
-                os.makedirs(os.path.dirname(dest_2))
-            except:
-                pass
-            print("Copying from", so, "-->", dest_1)
-            shutil.copyfile(so, dest_1)
-            print("Copying from", so, "-->", dest_2)
-            shutil.copyfile(so, dest_2)
+            if "/third_party/" not in so.lower():
+                so_base = os.path.basename(so)
+                dest_1 = os.path.join(BUILD_THIRD_PARTY, so_base)
+                dest_2 = os.path.join(THIRD_PARTY, so_base)
+                try:
+                    os.makedirs(os.path.dirname(dest_1))
+                except:
+                    pass
+                try:
+                    os.makedirs(os.path.dirname(dest_2))
+                except:
+                    pass
+                print("Copying from", so, "-->", dest_1)
+                shutil.copyfile(so, dest_1)
+                print("Copying from", so, "-->", dest_2)
+                shutil.copyfile(so, dest_2)
+                print("Deleting", so)
+                os.remove(so)
 
     # Copy locally installed libraries
     from distutils.dir_util import copy_tree
