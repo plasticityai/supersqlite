@@ -568,13 +568,13 @@ def install_requirements():
 
 def copy_custom_compile():
     """Copy the third party folders into site-packages under
-    PACKAGE_NAME/third_party/internal/ and
-    ./build/lib/PACKAGE_NAME/third_party/internal/
+    PACKAGE_NAME/third_party/ and
+    ./build/lib/PACKAGE_NAME/third_party/
     for good measure"""
     from distutils.dir_util import copy_tree
     try:
         import site
-        cp_from = INTERNAL + '/'
+        cp_from = THIRD_PARTY + '/'
         if hasattr(site, 'getsitepackages'):
             site_packages = site.getsitepackages()
         else:
@@ -586,7 +586,7 @@ def copy_custom_compile():
             for globbed in glob(sitepack + '/' + PACKAGE_NAME + '*/'):
                 try:
                     cp_to = (globbed + '/' + PACKAGE_NAME +
-                             '/third_party/internal/')
+                             '/third_party/')
                 except IndexError as e:
                     print(
                         "Site Package: '" +
@@ -599,8 +599,8 @@ def copy_custom_compile():
         print("Error copying internal pysqlite folder to site packages:")
         traceback.print_exc(e)
     try:
-        cp_from = INTERNAL + '/'
-        cp_to = BUILD_THIRD_PARTY + '/internal/'
+        cp_from = THIRD_PARTY + '/'
+        cp_to = BUILD_THIRD_PARTY + '/'
         print("Copying from: ", cp_from, " --> to: ", cp_to)
         copy_tree(cp_from, cp_to)
     except Exception as e:
