@@ -582,8 +582,14 @@ def copy_custom_compile():
             so_base = os.path.basename(so)
             dest_1 = os.path.join(BUILD_THIRD_PARTY, so_base)
             dest_2 = os.path.join(THIRD_PARTY, so_base)
-            os.makedirs(os.path.dirname(dest_1))
-            os.makedirs(os.path.dirname(dest_2))
+            try:
+                os.makedirs(os.path.dirname(dest_1))
+            except:
+                pass
+            try:
+                os.makedirs(os.path.dirname(dest_2))
+            except:
+                pass
             print("Copying from", so, "-->", dest_1)
             shutil.copyfile(so, dest_1)
             print("Copying from", so, "-->", dest_2)
