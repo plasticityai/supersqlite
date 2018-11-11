@@ -160,7 +160,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
 
     return ([sqlite3, async_m, expert, fts3,
              fts5, lsm1, rbu, rtree, session, userauth] +
-            sqlite_misc_extensions(skip=['zipfile.c']))
+            sqlite_misc_extensions(skip=['zipfile.c', 'sqlar.c', 'compress.c']))
 
 
 def install_custom_sqlite3(THIRD_PARTY, INTERNAL):
