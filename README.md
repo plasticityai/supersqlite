@@ -59,7 +59,7 @@ See [Appropriate Uses For SQLite](https://www.sqlite.org/whentouse.html) for mor
 ### Export SQLite Resources
 
 ## Other Documentation
-SuperSQLite is a subclass of the [apsw](https://github.com/rogerbinns/apsw) Python SQLite wrapper and extends its functionality. You can find the full documentation for that library [here](https://rogerbinns.github.io/apsw/), which in turn attempts to implement [PEP 249 (DB API)](https://www.python.org/dev/peps/pep-0249/).
+SuperSQLite extends the [apsw](https://github.com/rogerbinns/apsw) Python SQLite wrapper and adds on to its functionality. You can find the full documentation for that library [here](https://rogerbinns.github.io/apsw/), which in turn attempts to implement [PEP 249 (DB API)](https://www.python.org/dev/peps/pep-0249/). The connection object, cursor object, etc. are all [`apsw.Connection`](https://rogerbinns.github.io/apsw/connection.html), [`apsw.Cursor`](https://rogerbinns.github.io/apsw/cursor.html). Note, however, that some monkey-patching has been done to make the library more in-line and compatible as a drop-in replacement for Python's built-in `sqlite3` module.
 
 Other documentation is not available at this time. See the source file directly (it is well commented) if you need more information about a method's arguments or want to see all supported features.
 
