@@ -319,7 +319,8 @@ sys.stderr = TeeUnbuffered(sys.stderr)
 # Setup path constants
 PROJ_PATH = os.path.abspath(os.path.dirname(os.path.realpath(__file__)))
 THIRD_PARTY = PROJ_PATH + '/' + PACKAGE_NAME + '/third_party'
-BUILD_THIRD_PARTY = PROJ_PATH + '/build/lib/' + PACKAGE_NAME + '/third_party'
+BUILD_PATH = PROJ_PATH + '/build'
+BUILD_THIRD_PARTY = BUILD_PATH + '/lib/' + PACKAGE_NAME + '/third_party'
 INTERNAL = THIRD_PARTY + '/internal'
 
 # Get the package version
@@ -573,6 +574,16 @@ def copy_custom_compile():
     PACKAGE_NAME/third_party/ and
     ./build/lib/PACKAGE_NAME/third_party/
     for good measure"""
+
+    # Copy root SOs
+    for root, dirnames, filenames in os.walk(BUILD_PATH):
+        for filename in fnmatch.filter(filenames, '*.so'):
+            so = os.path.join(root, filename)
+            so_base = os.path.basename(so)
+            shutil.copyfile(so, os.path.join(BUILD_THIRD_PARTY, so_base))
+            shutil.copyfile(so, os.path.join(THIRD_PARTY, so_base))
+
+    # Copy locally installed libraries
     from distutils.dir_util import copy_tree
     try:
         import site
