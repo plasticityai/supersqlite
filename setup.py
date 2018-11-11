@@ -133,9 +133,11 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
                     SQLITE3,
                     PROJ_PATH)])
 
-    def sqlite_misc_extensions():
+    def sqlite_misc_extensions(skip):
         miscs = []
         for source in glob(os.path.join(SQLITE_EXT, 'misc', '*.c')):
+            if source in skip:
+                continue
             miscs.append(
                 Extension(os.path.basename(source)[:-2] + so_suffix,
                           sources=[source],
@@ -158,7 +160,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
 
     return ([sqlite3, async_m, expert, fts3,
              fts5, lsm1, rbu, rtree, session, userauth] +
-            sqlite_misc_extensions())
+            sqlite_misc_extensions(skip=['zipfile.c']))
 
 
 def install_custom_sqlite3(THIRD_PARTY, INTERNAL):
