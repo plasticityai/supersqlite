@@ -705,30 +705,13 @@ def copy_shared_objects():
     delete_shared_objects()
 
 
-def touch_shared_objects():
-    print("Touching shared objects...")
-    for module in MODULES:
-        if SO_SUFFIX in module.name:
-            ext = get_shared_object_ext()
-            so_base = module.name + '.so'
-            so_base_new = so_base.replace(SO_SUFFIX, '.' + PACKAGE_NAME)
-            so_base_new = '.'.join(so_base_new.split('.')[:-1]) + ext
-            dest_1 = os.path.join(BUILD_THIRD_PARTY, so_base_new)
-            dest_2 = os.path.join(THIRD_PARTY, so_base_new)
-            try:
-                os.makedirs(os.path.dirname(dest_1))
-            except BaseException:
-                pass
-            try:
-                os.makedirs(os.path.dirname(dest_2))
-            except BaseException:
-                pass
-            print("Touching", dest_1)
-            if not os.path.exists(dest_1):
-                open(dest_1, 'w+').close()
-            print("Touching", dest_2)
-            if not os.path.exists(dest_2):
-                open(dest_2, 'w+').close()
+def early_build_shared_objects():
+    print("Early building of shared objects...")
+    rc = subprocess.Popen([
+        sys.executable,
+        os.path.abspath(__file__),
+        'build_ext'
+    ]).wait()
 
 
 def copy_custom_compile():
@@ -807,7 +790,7 @@ try:
         def run(self):
             if not(download_and_install_wheel()):
                 custom_compile(THIRD_PARTY, INTERNAL)
-                touch_shared_objects()
+                early_build_shared_objects()
                 copy_shared_objects()
                 build_req_wheels()
                 open(BUILT_LOCAL, 'w+').close()
@@ -826,7 +809,7 @@ class CustomInstallCommand(install):
     def run(self):
         if not(download_and_install_wheel()):
             custom_compile(THIRD_PARTY, INTERNAL)
-            touch_shared_objects()
+            early_build_shared_objects()
             copy_shared_objects()
             install_req_wheels()
             open(BUILT_LOCAL, 'w+').close()
