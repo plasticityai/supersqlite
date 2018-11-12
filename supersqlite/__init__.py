@@ -48,7 +48,6 @@ try:
     db.close()
     APSW_LIB = 'internal'
 except Exception as e:
-    raise(e)
     APSW_LIB = 'none'
 
 # Exportable modules

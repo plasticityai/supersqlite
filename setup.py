@@ -104,7 +104,6 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
         outfile.write('#define SQLITE_STMTJRNL_SPILL -1' + '\n')
         outfile.write('#define SQLITE_TEMP_STORE 1' + '\n')
         outfile.write('#define SQLITE_USE_URI 1' + '\n')
-        outfile.write('#define SQLITE_ENABLE_COLUMN_METADATA 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_EXPLAIN_COMMENTS 1' + '\n')
         outfile.write('#define SQLITE_DEFAULT_FOREIGN_KEYS 1' + '\n')
         outfile.write('#define SQLITE_MAX_LENGTH 2147483647' + '\n')
@@ -119,27 +118,28 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
         outfile.write('#define SQLITE_MAX_TRIGGER_DEPTH 2147483647' + '\n')
         outfile.write('#define SQLITE_MAX_ATTACHED 125' + '\n')
         outfile.write('#define SQLITE_MAX_PAGE_COUNT 2147483646' + '\n')
+        outfile.write('#include "sqlite3.h"\n')
         outfile.write(
-            'void sqlite3_progress_handler(sqlite3* a, int b, int(*)(void*) c, void* d){ }' +
+            'void sqlite3_progress_handler(sqlite3* a, int b, int (*c)(void*), void* d){ }' +
             '\n')
         outfile.write('''
-        #include "sqlite3.h"
         const char *sqlite3_column_decltype(sqlite3_stmt* stmt, int col) {
             int datatype = sqlite3_column_type(stmt, col);
             if (datatype == SQLITE_INTEGER) {
                 return "integer";
             } else if (datatype == SQLITE_FLOAT) {
-                return "float"
+                return "float";
             } else if (datatype == SQLITE_TEXT) {
-                return "text"
+                return "text";
             } else if (datatype == SQLITE_BLOB) {
-                return "blob"
+                return "blob";
             } else if (datatype == SQLITE_NULL) {
-                return "null"
+                return "null";
             } else {
                 return "other";
             }
-        }
+        }''' + '\n')
+        outfile.write('''
         int sqlite3_enable_shared_cache(int a) {
             return SQLITE_ERROR;
         }
@@ -153,7 +153,8 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
                         sources=[SQLITE_POST],
                         include_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)],
                         library_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)],
-                        extra_compile_args = ["-O4"])
+                        extra_compile_args=["-O4"],
+                        extra_link_args=["-flto"])
 
     def sqlite_extension(ext, skip=[], name=None):
         name = name or ext
@@ -170,7 +171,8 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
                     SQLITE3,
                     PROJ_PATH)],
             library_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)],
-            extra_compile_args = ["-O4"])
+            extra_compile_args=["-O4"],
+            extra_link_args=["-flto"])
 
     def sqlite_misc_extensions(skip=[]):
         miscs = []
@@ -181,7 +183,8 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
                 Extension(os.path.basename(source)[:-2] + SO_SUFFIX,
                           sources=[source],
                           include_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)],
-                          extra_compile_args = ["-O4"]))
+                          extra_compile_args=["-O4"],
+                          extra_link_args=["-flto"]))
         return miscs
 
     async_m = sqlite_extension('async')

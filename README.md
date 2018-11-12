@@ -58,6 +58,8 @@ See [Appropriate Uses For SQLite](https://www.sqlite.org/whentouse.html) for mor
 #### FTS3, FTS4, FTS5
 #### LSM1
 #### R\*Tree
+#### Other
+#### Custom
 
 
 ### Export SQLite Resources

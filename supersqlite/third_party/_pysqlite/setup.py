@@ -285,7 +285,9 @@ def get_setup_args():
                                       runtime_library_dirs=runtime_library_dirs,
                                       libraries=libraries,
                                       extra_objects=extra_objects,
-                                      define_macros=define_macros
+                                      define_macros=define_macros,
+                                      extra_compile_args=["-O4"], # PLASTICITY
+                                      extra_link_args=["-flto"], # PLASTICITY
                                       )],
             classifiers = [
             "Development Status :: 5 - Production/Stable",
