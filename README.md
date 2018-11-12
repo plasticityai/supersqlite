@@ -31,6 +31,8 @@ The Python bindings, however, often are compiled against an out-of-date copy of 
 
 SuperSQLite aims to solve these problems by packaging a newer version of SQLite natively pre-compiled for every platform along with natively pre-compiled SQLite extensions. SuperSQLite also adds useful unique new features like [remote streaming over HTTP](#remote-streaming-over-http) to read from a centralized SQLite database.
 
+Moreover, by default, SQLite does not enable some optimizations that can result in speedups. SuperSQLite compiles SQLite with various [optimizations](#optimizations) and allows you to select your [workload at runtime](#workload-optimizations) to further automatically configure the connection to be optimized for your workload.
+
 ## When to use SuperSQLite?
 
 SQLite is [extremely reliable and durable](https://www.sqlite.org/hirely.html) for large amounts of data ([up to 140TB](https://www.sqlite.org/limits.html)). It is considered one of the most [well-engineered and well-tested](https://www.sqlite.org/testing.html) software solutions today, with 711x more test code than implementation code. 
@@ -49,6 +51,8 @@ See [Appropriate Uses For SQLite](https://www.sqlite.org/whentouse.html) for mor
 
 ### Remote Streaming over HTTP
 
+### Workload Optimizations
+
 ### Extensions
 #### JSON1
 #### FTS3, FTS4, FTS5
@@ -57,6 +61,8 @@ See [Appropriate Uses For SQLite](https://www.sqlite.org/whentouse.html) for mor
 
 
 ### Export SQLite Resources
+
+### Optimizations
 
 ## Other Documentation
 SuperSQLite extends the [apsw](https://github.com/rogerbinns/apsw) Python SQLite wrapper and adds on to its functionality. You can find the full documentation for that library [here](https://rogerbinns.github.io/apsw/), which in turn attempts to implement [PEP 249 (DB API)](https://www.python.org/dev/peps/pep-0249/). The connection object, cursor object, etc. are all [`apsw.Connection`](https://rogerbinns.github.io/apsw/connection.html), [`apsw.Cursor`](https://rogerbinns.github.io/apsw/cursor.html). Note, however, that some monkey-patching has been done to make the library more in-line and compatible as a drop-in replacement for Python's built-in `sqlite3` module.
