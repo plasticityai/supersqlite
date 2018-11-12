@@ -15,6 +15,7 @@ from glob import glob
 from setuptools import find_packages
 from distutils.core import setup, Extension
 from setuptools.command.install import install
+from setuptools.command.build_ext import build_ext
 from setuptools.command.egg_info import egg_info
 from setuptools import setup, Distribution
 from multiprocessing import Process
@@ -35,11 +36,11 @@ except BaseException:
 
 PACKAGE_NAME = 'supersqlite'
 PACKAGE_SHORT_NAME = 'supersqlite'
-
 DOWNLOAD_REQ_WHEELS = []
 
 
 def copy_sqlite(src, dest, apsw=False):
+    """ Copy the SQLite amalgamation """
     shutil.copy(
         os.path.join(src, 'sqlite3.c'), os.path.join(dest, 'sqlite3.c'))
     shutil.copy(
@@ -53,7 +54,8 @@ def copy_sqlite(src, dest, apsw=False):
             os.path.join(src, 'apsw_shell.c'), os.path.join(dest, 'shell.c'))
 
 
-def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
+def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
+    """ Get all modules this package needs compiled """
     PYSQLITE2 = INTERNAL + '/pysqlite2'
     APSW = INTERNAL + '/apsw'
     PYSQLITE = THIRD_PARTY + '/_pysqlite'
@@ -113,15 +115,15 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
             for line in infile:
                 outfile.write(line)
 
-    so_suffix = '00000' + ''.join(format(ord(x), 'b') for x in PACKAGE_NAME)
-    sqlite3 = Extension('sqlite3' + so_suffix,
+    sqlite3 = Extension('sqlite3' + SO_SUFFIX,
                         sources=[SQLITE_POST],
-                        include_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)])
+                        include_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)],
+                        library_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)])
 
     def sqlite_extension(ext, skip=[], name=None):
         name = name or ext
         return Extension(
-            name + so_suffix,
+            name + SO_SUFFIX,
             sources=[
                 g for g in glob(
                     os.path.join(
@@ -131,7 +133,8 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
             include_dirs=[
                 os.path.relpath(
                     SQLITE3,
-                    PROJ_PATH)])
+                    PROJ_PATH)],
+            library_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)])
 
     def sqlite_misc_extensions(skip):
         miscs = []
@@ -139,7 +142,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
             if os.path.basename(source) in skip:
                 continue
             miscs.append(
-                Extension(os.path.basename(source)[:-2] + so_suffix,
+                Extension(os.path.basename(source)[:-2] + SO_SUFFIX,
                           sources=[source],
                           include_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)]))
         return miscs
@@ -160,7 +163,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH):
 
     return ([sqlite3, async_m, expert, fts3,
              fts5, lsm1, rbu, rtree, session, userauth] +
-            sqlite_misc_extensions(skip=['zipfile.c', 'sqlar.c', 'compress.c']))
+            sqlite_misc_extensions())
 
 
 def install_custom_sqlite3(THIRD_PARTY, INTERNAL):
@@ -285,6 +288,7 @@ def install_custom_sqlite3(THIRD_PARTY, INTERNAL):
 
 
 def custom_compile(THIRD_PARTY, INTERNAL):
+    """ Compile resources this package needs """
     install_custom_sqlite3(THIRD_PARTY, INTERNAL)
 
 
@@ -322,6 +326,7 @@ THIRD_PARTY = PROJ_PATH + '/' + PACKAGE_NAME + '/third_party'
 BUILD_PATH = PROJ_PATH + '/build'
 BUILD_THIRD_PARTY = BUILD_PATH + '/lib/' + PACKAGE_NAME + '/third_party'
 INTERNAL = THIRD_PARTY + '/internal'
+SO_SUFFIX = '00000' + ''.join(format(ord(x), 'b') for x in PACKAGE_NAME)
 
 # Get the package version
 __version__ = None
@@ -361,6 +366,7 @@ BUILT_LOCAL = os.path.join(
 
 
 def try_list_dir(d):
+    """ Return a list of files in a directory """
     try:
         return os.listdir(d)
     except BaseException:
@@ -569,40 +575,10 @@ def install_requirements():
     print("Done installing requirements")
 
 
-def copy_custom_compile():
-    """Copy the third party folders into site-packages under
-    PACKAGE_NAME/third_party/ and
-    ./build/lib/PACKAGE_NAME/third_party/
-    for good measure"""
-
-    # Copy root SOs
-    for root, dirnames, filenames in list(os.walk(BUILD_PATH)):
-        for filename in fnmatch.filter(filenames, '*.so'):
-            so = os.path.join(root, filename)
-            if "/third_party/" not in so.lower():
-                so_base = os.path.basename(so)
-                dest_1 = os.path.join(BUILD_THIRD_PARTY, so_base)
-                dest_2 = os.path.join(THIRD_PARTY, so_base)
-                try:
-                    os.makedirs(os.path.dirname(dest_1))
-                except:
-                    pass
-                try:
-                    os.makedirs(os.path.dirname(dest_2))
-                except:
-                    pass
-                print("Copying from", so, "-->", dest_1)
-                shutil.copyfile(so, dest_1)
-                print("Copying from", so, "-->", dest_2)
-                shutil.copyfile(so, dest_2)
-                print("Deleting", so)
-                os.remove(so)
-
-    # Copy locally installed libraries
-    from distutils.dir_util import copy_tree
+def get_site_packages():
+    """ Gets all site_packages paths """
     try:
         import site
-        cp_from = THIRD_PARTY + '/'
         if hasattr(site, 'getsitepackages'):
             site_packages = site.getsitepackages()
         else:
@@ -610,15 +586,84 @@ def copy_custom_compile():
             site_packages = [get_python_lib()]
         if hasattr(site, 'getusersitepackages'):
             site_packages = site_packages + [site.getusersitepackages()]
-        for sitepack in site_packages:
-            for globbed in glob(sitepack + '/' + PACKAGE_NAME + '*/'):
+        return site_packages
+    except BaseException:
+        return []
+
+
+def delete_shared_objects():
+    """ Deletes shared object files made with build_ext from site_packages """
+    site_packages = get_site_packages()
+    for site_pack in site_packages:
+        print("Deleting shared objects...", os.path.abspath(site_pack))
+        for root, dirnames, filenames in list(os.walk(site_pack)):
+            for filename in filenames:
+                if filename.lower().endswith(('.so', '.pyd', '.dll', '.o')):
+                    so = os.path.join(root, filename)
+                    so_base = os.path.basename(so)
+                    if SO_SUFFIX in so_base:
+                        print("Deleting", so)
+                        os.remove(so)
+
+
+def get_shared_object_ext():
+    """ Return the extension of shared objects on the current system """
+    if sys.platform == 'win32':
+        return '.dll'
+    else:
+        return '.so'
+
+
+def copy_shared_objects():
+    """ Copies shared object files made with build_ext to /third_party/ """
+    print("Copying shared objects...", os.path.abspath(BUILD_PATH))
+    for root, dirnames, filenames in list(os.walk(BUILD_PATH)):
+        for filename in filenames:
+            if filename.lower().endswith(('.so', '.pyd', '.dll', '.o')):
+                so = os.path.join(root, filename)
+                so_base = os.path.basename(so)
+                if SO_SUFFIX in so_base:
+                    ext = get_shared_object_ext()
+                    so_base_new = so_base.replace(SO_SUFFIX, '.' + PACKAGE_NAME)
+                    so_base_new = os.path.splitext(so_base_new)[0] + ext
+                    dest_1 = os.path.join(BUILD_THIRD_PARTY, so_base_new)
+                    dest_2 = os.path.join(THIRD_PARTY, so_base_new)
+                    try:
+                        os.makedirs(os.path.dirname(dest_1))
+                    except BaseException:
+                        pass
+                    try:
+                        os.makedirs(os.path.dirname(dest_2))
+                    except BaseException:
+                        pass
+                    print("Copying from", so, "-->", dest_1)
+                    shutil.copyfile(so, dest_1)
+                    print("Copying from", so, "-->", dest_2)
+                    shutil.copyfile(so, dest_2)
+                    print("Deleting", so)
+                    os.remove(so)
+
+
+def copy_custom_compile():
+    """Copy the third party folders into site-packages under
+    PACKAGE_NAME/third_party/ and
+    ./build/lib/PACKAGE_NAME/third_party/
+    for good measure"""
+
+    # Copy locally installed libraries
+    from distutils.dir_util import copy_tree
+    try:
+        site_packages = get_site_packages()
+        cp_from = THIRD_PARTY + '/'
+        for site_pack in site_packages:
+            for globbed in glob(site_pack + '/' + PACKAGE_NAME + '*/'):
                 try:
                     cp_to = (globbed + '/' + PACKAGE_NAME +
                              '/third_party/')
                 except IndexError as e:
                     print(
                         "Site Package: '" +
-                        sitepack +
+                        site_pack +
                         "' did not have " + PACKAGE_NAME)
                     continue
                 print("Copying from: ", cp_from, " --> to: ", cp_to)
@@ -654,16 +699,9 @@ def delete_pip_files():
             except BaseException:
                 pass
     try:
-        import site
-        if hasattr(site, 'getsitepackages'):
-            site_packages = site.getsitepackages()
-        else:
-            from distutils.sysconfig import get_python_lib
-            site_packages = [get_python_lib()]
-        if hasattr(site, 'getusersitepackages'):
-            site_packages = site_packages + [site.getusersitepackages()]
-        for sitepack in site_packages:
-            for globbed in glob(sitepack + '/' + PACKAGE_NAME + '*/'):
+        site_packages = get_site_packages()
+        for site_pack in site_packages:
+            for globbed in glob(site_pack + '/' + PACKAGE_NAME + '*/'):
                 try:
                     if globbed.endswith('.dist-info/'):
                         shutil.rmtree(globbed)
@@ -682,6 +720,7 @@ try:
         def run(self):
             if not(download_and_install_wheel()):
                 custom_compile(THIRD_PARTY, INTERNAL)
+                copy_shared_objects()
                 build_req_wheels()
                 open(BUILT_LOCAL, 'w+').close()
             print("Running wheel...")
@@ -699,6 +738,7 @@ class CustomInstallCommand(install):
     def run(self):
         if not(download_and_install_wheel()):
             custom_compile(THIRD_PARTY, INTERNAL)
+            copy_shared_objects()
             install_req_wheels()
             open(BUILT_LOCAL, 'w+').close()
         print("Running install...")
@@ -723,7 +763,14 @@ class CustomInstallCommand(install):
             self.install_lib = self.install_platlib
 
 
+class CustomBuildExtCommand(build_ext):
+    def run(self):
+        build_ext.run(self)
+        copy_shared_objects()
+
+
 cmdclass['install'] = CustomInstallCommand
+cmdclass['build_ext'] = CustomBuildExtCommand
 
 
 class BinaryDistribution(Distribution):
@@ -813,7 +860,7 @@ if __name__ == '__main__':
             'Programming Language :: Python :: 3.7'],
         cmdclass=cmdclass,
         distclass=BinaryDistribution,
-        ext_modules=get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH)
+        ext_modules=get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX)
     )
 
     # Delete pip files

@@ -24,6 +24,8 @@ MANIFEST
 /supersqlite/third_party/_apsw/src/shell.c
 
 # Third Party Build Folders
+/supersqlite/third_party/*.so
+/supersqlite/third_party/*.pyd
 /supersqlite/third_party/**/build
 /supersqlite/third_party/internal/**/*
 /supersqlite/third_party/internal/*
