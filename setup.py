@@ -422,6 +422,15 @@ BUILT_LOCAL = os.path.join(
     hashlib.md5(PROJ_PATH.encode('utf-8')).hexdigest() +
     '.buildlocal'
 )
+BUILT_EXT = os.path.join(
+    tempfile.gettempdir(),
+    PACKAGE_NAME +
+    '-' +
+    __version__ +
+    '-' +
+    hashlib.md5(PROJ_PATH.encode('utf-8')).hexdigest() +
+    '.buildext'
+)
 MODULES = get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX)
 
 
@@ -486,6 +495,11 @@ def tried_downloading_wheel():
 def built_local():
     """Checks if built out the project locally"""
     return os.path.exists(BUILT_LOCAL)
+
+
+def built_ext():
+    """Checks if built out the extensions"""
+    return os.path.exists(BUILT_EXT)
 
 
 def download_and_install_wheel():
@@ -837,8 +851,12 @@ class CustomInstallCommand(install):
 
 class CustomBuildExtCommand(build_ext):
     def run(self):
-        build_ext.run(self)
-        copy_shared_objects()
+        if not built_ext():
+            build_ext.run(self)
+            copy_shared_objects()
+        else:
+            print("Skipping built_ext, already built")
+        open(BUILT_EXT, 'w+').close()
 
 
 cmdclass['install'] = CustomInstallCommand
