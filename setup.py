@@ -94,9 +94,9 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
         outfile.write('#define SQLITE_DEFAULT_WAL_SYNCHRONOUS 1' + '\n')
         outfile.write('#define SQLITE_LIKE_DOESNT_MATCH_BLOBS 1' + '\n')
         outfile.write('#define SQLITE_MAX_EXPR_DEPTH 0' + '\n')
-        outfile.write('#define SQLITE_OMIT_DECLTYPE 1' + '\n')
-        outfile.write('#define SQLITE_OMIT_PROGRESS_CALLBACK 1' + '\n')
-        outfile.write('#define SQLITE_OMIT_SHARED_CACHE 1' + '\n')
+        # outfile.write('#define SQLITE_OMIT_DECLTYPE 1' + '\n')
+        # outfile.write('#define SQLITE_OMIT_PROGRESS_CALLBACK 1' + '\n')
+        # outfile.write('#define SQLITE_OMIT_SHARED_CACHE 1' + '\n')
         outfile.write('#define SQLITE_USE_ALLOCA 1' + '\n')
         outfile.write('#define SQLITE_ALLOW_COVERING_INDEX_SCAN 1' + '\n')
         outfile.write('#define SQLITE_DISABLE_DIRSYNC 1' + '\n')
@@ -118,32 +118,32 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
         outfile.write('#define SQLITE_MAX_TRIGGER_DEPTH 2147483647' + '\n')
         outfile.write('#define SQLITE_MAX_ATTACHED 125' + '\n')
         outfile.write('#define SQLITE_MAX_PAGE_COUNT 2147483646' + '\n')
-        outfile.write('#include "sqlite3.h"\n')
-        outfile.write(
-            'void sqlite3_progress_handler(sqlite3* a, int b, int (*c)(void*), void* d){ }' +
-            '\n')
-        outfile.write('''
-        const char *sqlite3_column_decltype(sqlite3_stmt* stmt, int col) {
-            int datatype = sqlite3_column_type(stmt, col);
-            if (datatype == SQLITE_INTEGER) {
-                return "integer";
-            } else if (datatype == SQLITE_FLOAT) {
-                return "float";
-            } else if (datatype == SQLITE_TEXT) {
-                return "text";
-            } else if (datatype == SQLITE_BLOB) {
-                return "blob";
-            } else if (datatype == SQLITE_NULL) {
-                return "null";
-            } else {
-                return "other";
-            }
-        }''' + '\n')
-        outfile.write('''
-        int sqlite3_enable_shared_cache(int a) {
-            return SQLITE_ERROR;
-        }
-        ''' + '\n')
+        # outfile.write('#include "sqlite3.h"\n')
+        # outfile.write(
+        #     'void sqlite3_progress_handler(sqlite3* a, int b, int (*c)(void*), void* d){ }' +
+        #     '\n')
+        # outfile.write('''
+        # const char *sqlite3_column_decltype(sqlite3_stmt* stmt, int col) {
+        #     int datatype = sqlite3_column_type(stmt, col);
+        #     if (datatype == SQLITE_INTEGER) {
+        #         return "integer";
+        #     } else if (datatype == SQLITE_FLOAT) {
+        #         return "float";
+        #     } else if (datatype == SQLITE_TEXT) {
+        #         return "text";
+        #     } else if (datatype == SQLITE_BLOB) {
+        #         return "blob";
+        #     } else if (datatype == SQLITE_NULL) {
+        #         return "null";
+        #     } else {
+        #         return "other";
+        #     }
+        # }''' + '\n')
+        # outfile.write('''
+        # int sqlite3_enable_shared_cache(int a) {
+        #     return SQLITE_ERROR;
+        # }
+        # ''' + '\n')
         outfile.write('\n\n\n')
         with open(SQLITE_PRE, 'r') as infile:
             for line in infile:
