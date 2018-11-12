@@ -70,7 +70,7 @@ def copy_sqlite(src, dest, apsw=False):
             #ifdef sqlite3_enable_shared_cache
               #undef sqlite3_enable_shared_cache
             #endif\n
-        '''+'\n')
+        ''' + '\n')
         outfile.write(
             'void sqlite3_progress_handler(sqlite3* a, int b, int (*c)(void*), void* d){ }' +
             '\n')
@@ -97,6 +97,7 @@ def copy_sqlite(src, dest, apsw=False):
         }
         ''' + '\n')
         outfile.write('#endif\n')
+
 
 def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
     """ Get all modules this package needs compiled """
@@ -421,6 +422,7 @@ BUILT_LOCAL = os.path.join(
     hashlib.md5(PROJ_PATH.encode('utf-8')).hexdigest() +
     '.buildlocal'
 )
+MODULES = get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX)
 
 
 def try_list_dir(d):
@@ -683,7 +685,7 @@ def copy_shared_objects():
                 if SO_SUFFIX in so_base:
                     ext = get_shared_object_ext()
                     so_base_new = so_base.replace(SO_SUFFIX, '.' + PACKAGE_NAME)
-                    so_base_new = os.path.splitext(so_base_new)[0] + ext
+                    so_base_new = '.'.join(so_base_new.split('.')[:-2]) + ext
                     dest_1 = os.path.join(BUILD_THIRD_PARTY, so_base_new)
                     dest_2 = os.path.join(THIRD_PARTY, so_base_new)
                     try:
@@ -700,6 +702,33 @@ def copy_shared_objects():
                     shutil.copyfile(so, dest_2)
                     print("Deleting", so)
                     os.remove(so)
+    delete_shared_objects()
+
+
+def touch_shared_objects():
+    print("Touching shared objects...")
+    for module in MODULES:
+        if SO_SUFFIX in module.name:
+            ext = get_shared_object_ext()
+            so_base = module.name + '.so'
+            so_base_new = so_base.replace(SO_SUFFIX, '.' + PACKAGE_NAME)
+            so_base_new = '.'.join(so_base_new.split('.')[:-1]) + ext
+            dest_1 = os.path.join(BUILD_THIRD_PARTY, so_base_new)
+            dest_2 = os.path.join(THIRD_PARTY, so_base_new)
+            try:
+                os.makedirs(os.path.dirname(dest_1))
+            except BaseException:
+                pass
+            try:
+                os.makedirs(os.path.dirname(dest_2))
+            except BaseException:
+                pass
+            print("Touching", dest_1)
+            if not os.path.exists(dest_1):
+                open(dest_1, 'w+').close()
+            print("Touching", dest_2)
+            if not os.path.exists(dest_2):
+                open(dest_2, 'w+').close()
 
 
 def copy_custom_compile():
@@ -778,6 +807,7 @@ try:
         def run(self):
             if not(download_and_install_wheel()):
                 custom_compile(THIRD_PARTY, INTERNAL)
+                touch_shared_objects()
                 copy_shared_objects()
                 build_req_wheels()
                 open(BUILT_LOCAL, 'w+').close()
@@ -796,6 +826,7 @@ class CustomInstallCommand(install):
     def run(self):
         if not(download_and_install_wheel()):
             custom_compile(THIRD_PARTY, INTERNAL)
+            touch_shared_objects()
             copy_shared_objects()
             install_req_wheels()
             open(BUILT_LOCAL, 'w+').close()
@@ -918,7 +949,7 @@ if __name__ == '__main__':
             'Programming Language :: Python :: 3.7'],
         cmdclass=cmdclass,
         distclass=BinaryDistribution,
-        ext_modules=get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX)
+        ext_modules=MODULES
     )
 
     # Delete pip files
