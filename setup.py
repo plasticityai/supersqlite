@@ -697,9 +697,13 @@ def copy_shared_objects():
                 so = os.path.join(root, filename)
                 so_base = os.path.basename(so)
                 if SO_SUFFIX in so_base:
+                    p_ext = '.' + PACKAGE_NAME
                     ext = get_shared_object_ext()
-                    so_base_new = so_base.replace(SO_SUFFIX, '.' + PACKAGE_NAME)
-                    so_base_new = '.'.join(so_base_new.split('.')[:-2]) + ext
+                    so_base_new = so_base.replace(SO_SUFFIX, p_ext)
+                    so_base_new = '.'.join(so_base_new.split('.')[:-2])
+                    if not so_base_new.endswith(p_ext):
+                        so_base_new += p_ext
+                    so_base_new = so_base_new + ext
                     dest_1 = os.path.join(BUILD_THIRD_PARTY, so_base_new)
                     dest_2 = os.path.join(THIRD_PARTY, so_base_new)
                     try:
