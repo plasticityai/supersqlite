@@ -859,7 +859,7 @@ class CustomBuildExtCommand(build_ext):
             build_ext.run(self)
             copy_shared_objects()
         else:
-            print("Skipping built_ext, already built")
+            print("Skipping build_ext, already built")
         open(BUILT_EXT, 'w+').close()
 
 
