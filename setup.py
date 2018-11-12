@@ -136,7 +136,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
                     PROJ_PATH)],
             library_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)])
 
-    def sqlite_misc_extensions(skip):
+    def sqlite_misc_extensions(skip=[]):
         miscs = []
         for source in glob(os.path.join(SQLITE_EXT, 'misc', '*.c')):
             if os.path.basename(source) in skip:
