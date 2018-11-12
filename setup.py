@@ -42,7 +42,7 @@ DOWNLOAD_REQ_WHEELS = []
 def copy_sqlite(src, dest, apsw=False):
     """ Copy the SQLite amalgamation """
     shutil.copy(
-        os.path.join(src, 'sqlite3.c'), os.path.join(dest, 'sqlite3.c'))
+        os.path.join(src, 'sqlite3.c'), os.path.join(dest, 'sqlite3.c.pre.c'))
     shutil.copy(
         os.path.join(src, 'sqlite3.h'), os.path.join(dest, 'sqlite3.h'))
     shutil.copy(
@@ -52,7 +52,51 @@ def copy_sqlite(src, dest, apsw=False):
     if apsw:
         shutil.copy(
             os.path.join(src, 'apsw_shell.c'), os.path.join(dest, 'shell.c'))
-
+    SQLITE_PRE = os.path.join(dest, 'sqlite3.c.pre.c')
+    SQLITE_POST = os.path.join(dest, 'sqlite3.c')
+    with open(SQLITE_POST, 'w+') as outfile:
+        with open(SQLITE_PRE, 'r') as infile:
+            for line in infile:
+                outfile.write(line)
+        outfile.write('''
+        #ifndef PLASTICITY_SUPERSQLITE_SQLITE3_C_SHIM
+            # define PLASTICITY_SUPERSQLITE_SQLITE3_C_SHIM 1
+            #ifdef sqlite3_progress_handler
+              #undef sqlite3_progress_handler
+            #endif
+            #ifdef sqlite3_column_decltype
+              #undef sqlite3_column_decltype
+            #endif
+            #ifdef sqlite3_enable_shared_cache
+              #undef sqlite3_enable_shared_cache
+            #endif\n
+        '''+'\n')
+        outfile.write(
+            'void sqlite3_progress_handler(sqlite3* a, int b, int (*c)(void*), void* d){ }' +
+            '\n')
+        outfile.write('''
+        const char *sqlite3_column_decltype(sqlite3_stmt* stmt, int col) {
+            int datatype = sqlite3_column_type(stmt, col);
+            if (datatype == SQLITE_INTEGER) {
+                return "integer";
+            } else if (datatype == SQLITE_FLOAT) {
+                return "float";
+            } else if (datatype == SQLITE_TEXT) {
+                return "text";
+            } else if (datatype == SQLITE_BLOB) {
+                return "blob";
+            } else if (datatype == SQLITE_NULL) {
+                return "null";
+            } else {
+                return "other";
+            }
+        }''' + '\n')
+        outfile.write('''
+        int sqlite3_enable_shared_cache(int a) {
+            return SQLITE_ERROR;
+        }
+        ''' + '\n')
+        outfile.write('#endif\n')
 
 def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
     """ Get all modules this package needs compiled """
@@ -122,36 +166,6 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
         with open(SQLITE_PRE, 'r') as infile:
             for line in infile:
                 outfile.write(line)
-        outfile.write('''
-        #ifndef PLASTICITY_SUPERSQLITE_SQLITE3_C_SHIM
-            # define PLASTICITY_SUPERSQLITE_SQLITE3_C_SHIM 1
-        '''+'\n')
-        outfile.write(
-            'void sqlite3_progress_handler(sqlite3* a, int b, int (*c)(void*), void* d){ }' +
-            '\n')
-        outfile.write('''
-        const char *sqlite3_column_decltype(sqlite3_stmt* stmt, int col) {
-            int datatype = sqlite3_column_type(stmt, col);
-            if (datatype == SQLITE_INTEGER) {
-                return "integer";
-            } else if (datatype == SQLITE_FLOAT) {
-                return "float";
-            } else if (datatype == SQLITE_TEXT) {
-                return "text";
-            } else if (datatype == SQLITE_BLOB) {
-                return "blob";
-            } else if (datatype == SQLITE_NULL) {
-                return "null";
-            } else {
-                return "other";
-            }
-        }''' + '\n')
-        outfile.write('''
-        int sqlite3_enable_shared_cache(int a) {
-            return SQLITE_ERROR;
-        }
-        ''' + '\n')
-        outfile.write('#endif\n')
 
     sqlite3 = Extension('sqlite3' + SO_SUFFIX,
                         sources=[SQLITE_POST],
