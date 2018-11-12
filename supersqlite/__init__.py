@@ -47,7 +47,8 @@ try:
     db = apsw.Connection(':memory:')
     db.close()
     APSW_LIB = 'internal'
-except Exception:
+except Exception as e:
+    raise(e)
     APSW_LIB = 'none'
 
 # Exportable modules
