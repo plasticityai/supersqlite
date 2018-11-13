@@ -153,6 +153,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'stringtriebuilder.cpp',
         'uvector.cpp',
         'ustrenum.cpp',
+        'uenum.cpp',
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']
