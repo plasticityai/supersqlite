@@ -190,6 +190,11 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'uniset.cpp', # modified due to duplicate symbol `compareUnicodeString2`
         'stringpiece.cpp',
         'locutil.cpp',
+        'unifilt.cpp',
+        'util.cpp',
+        'bmpset.cpp',
+        'unifunct.cpp',
+        'unisetspan.cpp',
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']
