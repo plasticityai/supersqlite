@@ -99,13 +99,21 @@ def copy_sqlite(src, dest, apsw=False):
         outfile.write('#endif\n')
 
 
-def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
+def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
+                SO_SUFFIX, source_for_module_with_pyinit):
     """ Get all modules this package needs compiled """
     PYSQLITE2 = INTERNAL + '/pysqlite2'
     APSW = INTERNAL + '/apsw'
     PYSQLITE = THIRD_PARTY + '/_pysqlite'
     APSW_TP = THIRD_PARTY + '/_apsw'
     SQLITE3 = THIRD_PARTY + '/sqlite3'
+    ICU_UNIX = SQLITE3 + '/icu_unix'
+    ICU_WIN32 = SQLITE3 + '/icu_win32'
+    libraries = [os.path.relpath(SQLITE3, PROJ_PATH)]
+    if sys.platform == 'win32':
+        libraries.append(ICU_WIN32)
+    else:
+        libraries.append(ICU_UNIX)
 
     SQLITE_PRE = os.path.relpath(
         os.path.join(SQLITE3, 'sqlite3.c.pre.c'), PROJ_PATH)
@@ -167,29 +175,32 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
         with open(SQLITE_PRE, 'r') as infile:
             for line in infile:
                 outfile.write(line)
-
+    module = 'sqlite3'
+    pyinit_source = source_for_module_with_pyinit(module)
     sqlite3 = Extension('sqlite3' + SO_SUFFIX,
-                        sources=[SQLITE_POST],
+                        sources=[SQLITE_POST] + [pyinit_source],
                         include_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)],
-                        library_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)],
+                        library_dirs=libraries,
                         extra_compile_args=["-O4"],
                         extra_link_args=["-flto"])
 
-    def sqlite_extension(ext, skip=[], name=None):
-        name = name or ext
+    def sqlite_extension(ext, skip=[], module=None):
+        module = module or ext
+        pyinit_source = source_for_module_with_pyinit(module)
         return Extension(
-            name + SO_SUFFIX,
-            sources=[
+            module + SO_SUFFIX,
+            sources=([
                 g for g in glob(
                     os.path.join(
                         SQLITE_EXT,
                         ext,
-                        '*.c')) if os.path.basename(g) not in skip],
+                        '*.c')) if os.path.basename(g) not in skip] +
+                     [pyinit_source]),
             include_dirs=[
                 os.path.relpath(
                     SQLITE3,
                     PROJ_PATH)],
-            library_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)],
+            library_dirs=libraries,
             extra_compile_args=["-O4"],
             extra_link_args=["-flto"])
 
@@ -198,10 +209,13 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
         for source in glob(os.path.join(SQLITE_EXT, 'misc', '*.c')):
             if os.path.basename(source) in skip:
                 continue
+            module = os.path.basename(source)[:-2]
+            pyinit_source = source_for_module_with_pyinit(module)
             miscs.append(
-                Extension(os.path.basename(source)[:-2] + SO_SUFFIX,
-                          sources=[source],
+                Extension(module + SO_SUFFIX,
+                          sources=[source] + [pyinit_source],
                           include_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)],
+                          library_dirs=libraries,
                           extra_compile_args=["-O4"],
                           extra_link_args=["-flto"]))
         return miscs
@@ -211,8 +225,8 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
     # fts1 = sqlite_extension('fts1') deprecated
     # fts2 = sqlite_extension('fts2') deprecated
     fts3 = sqlite_extension('fts3', skip=['fts3_test.c'])
-    fts5 = sqlite_extension('fts5built', name='fts5')
-    # icu = sqlite_extension('icu') requires a library
+    fts5 = sqlite_extension('fts5built', module='fts5')
+    icu = sqlite_extension('icu')
     lsm1 = sqlite_extension('lsm1')
     rbu = sqlite_extension('rbu')
     rtree = sqlite_extension('rtree', skip=['geopoly.c'])
@@ -221,7 +235,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX):
     userauth = sqlite_extension('userauth')
 
     return ([sqlite3, async_m, expert, fts3,
-             fts5, lsm1, rbu, rtree, session, userauth] +
+             fts5, icu, lsm1, rbu, rtree, session, userauth] +
             sqlite_misc_extensions())
 
 
@@ -386,6 +400,7 @@ BUILD_PATH = PROJ_PATH + '/build'
 BUILD_THIRD_PARTY = BUILD_PATH + '/lib/' + PACKAGE_NAME + '/third_party'
 INTERNAL = THIRD_PARTY + '/internal'
 SO_SUFFIX = '00000' + ''.join(format(ord(x), 'b') for x in PACKAGE_NAME)
+BINARY_EXTENSIONS = ('.so', '.pyd', '.dll', '.o', '.obj', '.lib')
 
 # Get the package version
 __version__ = None
@@ -431,7 +446,6 @@ BUILT_EXT = os.path.join(
     hashlib.md5(PROJ_PATH.encode('utf-8')).hexdigest() +
     '.buildext'
 )
-MODULES = get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH, SO_SUFFIX)
 
 
 def try_list_dir(d):
@@ -665,6 +679,18 @@ def get_site_packages():
         return []
 
 
+def source_for_module_with_pyinit(module):
+    """ Create PyInit symbols for shared objects compiled with Python's
+        Extension()"""
+    source_file = os.path.join(tempfile.mkdtemp(), module + '.c')
+    with open(source_file, 'w+') as outfile:
+        outfile.write('''
+            void init''' + (module + SO_SUFFIX) + '''() {} //Python 2.7
+            void PyInit_''' + (module + SO_SUFFIX) + '''() {} //Python 3.5
+        ''')
+    return os.path.relpath(source_file, PROJ_PATH)
+
+
 def delete_shared_objects():
     """ Deletes shared object files made with build_ext from site_packages """
     site_packages = get_site_packages()
@@ -672,7 +698,7 @@ def delete_shared_objects():
         print("Deleting shared objects...", os.path.abspath(site_pack))
         for root, dirnames, filenames in list(os.walk(site_pack)):
             for filename in filenames:
-                if filename.lower().endswith(('.so', '.pyd', '.dll', '.o')):
+                if filename.lower().endswith(BINARY_EXTENSIONS):
                     so = os.path.join(root, filename)
                     so_base = os.path.basename(so)
                     if SO_SUFFIX in so_base:
@@ -693,7 +719,7 @@ def copy_shared_objects():
     print("Copying shared objects...", os.path.abspath(BUILD_PATH))
     for root, dirnames, filenames in list(os.walk(BUILD_PATH)):
         for filename in filenames:
-            if filename.lower().endswith(('.so', '.pyd', '.dll', '.o')):
+            if filename.lower().endswith(BINARY_EXTENSIONS):
                 so = os.path.join(root, filename)
                 so_base = os.path.basename(so)
                 if SO_SUFFIX in so_base:
@@ -871,6 +897,9 @@ class BinaryDistribution(Distribution):
     def has_ext_modules(foo):
         return True
 
+
+MODULES = get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
+                      SO_SUFFIX, source_for_module_with_pyinit)
 
 if __name__ == '__main__':
 
