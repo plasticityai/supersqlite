@@ -685,11 +685,16 @@ def get_site_packages():
 def source_for_module_with_pyinit(module):
     """ Create PyInit symbols for shared objects compiled with Python's
         Extension()"""
-    source_file = os.path.join(tempfile.mkdtemp(), module + '.c')
+    source_path = os.path.join(BUILD_PATH, 'entrypoints')
+    try:
+        os.makedirs(source_path)
+    except BaseException:
+        pass
+    source_file = os.path.join(source_path, module + '.c')
     with open(source_file, 'w+') as outfile:
         outfile.write('''
-            void init''' + (module + SO_SUFFIX) + '''() {} //Python 2.7
-            void PyInit_''' + (module + SO_SUFFIX) + '''() {} //Python 3.5
+            void init''' + (module + SO_SUFFIX) + '''(void) {} //Python 2.7
+            void PyInit_''' + (module + SO_SUFFIX) + '''(void) {} //Python 3.5
         ''')
     return os.path.relpath(source_file, PROJ_PATH)
 
