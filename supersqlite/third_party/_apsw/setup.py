@@ -856,6 +856,20 @@ if "bdist_msi" in sys.argv:
 
     version=".".join([str(v) for v in version])
 
+# BEGIN PLASTICITY
+SQLITE3 = "../sqlite3"
+include_plasticity = [SQLITE3]
+lib_plasticity = [SQLITE3] 
+ICU_UNIX = SQLITE3 + '/icu_unix'
+ICU_WIN32 = SQLITE3 + '/icu_win32'
+if sys.platform == 'win32':
+    lib_plasticity.append(ICU_WIN32)
+    include_plasticity.append(ICU_WIN32)
+else:
+    lib_plasticity.append(ICU_UNIX)
+    include_plasticity.append(ICU_UNIX)
+# END PLASTICITY
+
 setup(name="apsw",
       version=version,
       description="Another Python SQLite Wrapper",
@@ -882,8 +896,8 @@ complete SQLite API into Python.""",
 
       ext_modules=[Extension("apsw",
                              ["src/apsw.c", "src/sqlite3.c"], # PLASTICITY
-                             include_dirs=include_dirs,
-                             library_dirs=library_dirs,
+                             include_dirs=include_dirs + include_plasticity, # PLASTICITY
+                             library_dirs=library_dirs + lib_plasticity, # PLASTICITY
                              libraries=libraries,
                              define_macros=define_macros,
                              extra_compile_args=["-O4"], # PLASTICITY

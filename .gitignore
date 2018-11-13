@@ -15,7 +15,7 @@ MANIFEST
 # Third Party Folders
 /supersqlite/third_party/sqlite3/sqlite3.c
 /supersqlite/third_party/_pysqlite/src/sqlite3.h
-/supersqlite/third_party/_pysqlite/src/sqlite3.c.pre.c
+/supersqlite/third_party/_pysqlite/sqlite3.c.pre.c
 /supersqlite/third_party/_pysqlite/src/sqlite3.c
 /supersqlite/third_party/_pysqlite/src/sqlite3ext.h
 /supersqlite/third_party/_pysqlite/src/shell.c

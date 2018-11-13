@@ -68,7 +68,7 @@
 
 /* Character classes for tokenizing
 **
-** In the sqlite3GetToken() function, a switch() on aiClass[c] is implemented
+** In the sqlite3GetToken2() function, a switch() on aiClass2[c] is implemented
 ** using a lookup table, whereas a switch() directly on c uses a binary search.
 ** The lookup table is much faster.  To maximize speed, and to ensure that
 ** a lookup table is used, all of the classes need to be small integers and
@@ -103,7 +103,7 @@
 #define CC_DOT       26    /* '.' */
 #define CC_ILLEGAL   27    /* Illegal character */
 
-static const unsigned char aiClass[] = {
+static const unsigned char aiClass2[] = {
 /*         x0  x1  x2  x3  x4  x5  x6  x7  x8  x9  xa  xb  xc  xd  xe  xf */
 /* 0x */   27, 27, 27, 27, 27, 27, 27, 27, 27,  7,  7, 27,  7,  7, 27, 27,
 /* 1x */   27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27,
@@ -130,7 +130,7 @@ static const unsigned char aiClass[] = {
 ** handle case conversions for the UTF character set since the tables
 ** involved are nearly as big or bigger than SQLite itself.
 */
-static const unsigned char sqlite3UpperToLower[] = {
+static const unsigned char sqlite3UpperToLower2[] = {
       0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17,
      18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,
      36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53,
@@ -168,7 +168,7 @@ static const unsigned char sqlite3UpperToLower[] = {
 **
 **   (x & ~(map[x]&0x20))
 **
-** The equivalent of tolower() is implemented using the sqlite3UpperToLower[]
+** The equivalent of tolower() is implemented using the sqlite3UpperToLower2[]
 ** array. tolower() is used more often than toupper() by SQLite.
 **
 ** Bit 0x40 is set if the character is non-alphanumeric and can be used in an 
@@ -176,7 +176,7 @@ static const unsigned char sqlite3UpperToLower[] = {
 ** non-ASCII UTF character. Hence the test for whether or not a character is
 ** part of an identifier is 0x46.
 */
-static const unsigned char sqlite3CtypeMap[256] = {
+static const unsigned char sqlite3CtypeMap2[256] = {
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  /* 00..07    ........ */
   0x00, 0x01, 0x01, 0x01, 0x01, 0x01, 0x00, 0x00,  /* 08..0f    ........ */
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  /* 10..17    ........ */
@@ -213,15 +213,16 @@ static const unsigned char sqlite3CtypeMap[256] = {
   0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40,  /* f0..f7    ........ */
   0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40   /* f8..ff    ........ */
 };
-#define sqlite3Toupper(x)   ((x)&~(sqlite3CtypeMap[(unsigned char)(x)]&0x20))
-#define sqlite3Isspace(x)   (sqlite3CtypeMap[(unsigned char)(x)]&0x01)
-#define sqlite3Isalnum(x)   (sqlite3CtypeMap[(unsigned char)(x)]&0x06)
-#define sqlite3Isalpha(x)   (sqlite3CtypeMap[(unsigned char)(x)]&0x02)
-#define sqlite3Isdigit(x)   (sqlite3CtypeMap[(unsigned char)(x)]&0x04)
-#define sqlite3Isxdigit(x)  (sqlite3CtypeMap[(unsigned char)(x)]&0x08)
-#define sqlite3Tolower(x)   (sqlite3UpperToLower[(unsigned char)(x)])
-#define sqlite3Isquote(x)   (sqlite3CtypeMap[(unsigned char)(x)]&0x80)
-
+#ifndef sqlite3Toupper
+#define sqlite3Toupper(x)   ((x)&~(sqlite3CtypeMap2[(unsigned char)(x)]&0x20))
+#define sqlite3Isspace(x)   (sqlite3CtypeMap2[(unsigned char)(x)]&0x01)
+#define sqlite3Isalnum(x)   (sqlite3CtypeMap2[(unsigned char)(x)]&0x06)
+#define sqlite3Isalpha(x)   (sqlite3CtypeMap2[(unsigned char)(x)]&0x02)
+#define sqlite3Isdigit(x)   (sqlite3CtypeMap2[(unsigned char)(x)]&0x04)
+#define sqlite3Isxdigit(x)  (sqlite3CtypeMap2[(unsigned char)(x)]&0x08)
+#define sqlite3Tolower(x)   (sqlite3UpperToLower2[(unsigned char)(x)])
+#define sqlite3Isquote(x)   (sqlite3CtypeMap2[(unsigned char)(x)]&0x80)
+#endif
 
 /*
 ** If X is a character that can be used in an identifier then
@@ -239,7 +240,7 @@ static const unsigned char sqlite3CtypeMap[256] = {
 ** SQLite will allow '$' in identifiers for compatibility.
 ** But the feature is undocumented.
 */
-#define IdChar(C)  ((sqlite3CtypeMap[(unsigned char)C]&0x46)!=0)
+#define IdChar(C)  ((sqlite3CtypeMap2[(unsigned char)C]&0x46)!=0)
 
 /*
 ** Ignore testcase() macros
@@ -290,9 +291,9 @@ static const unsigned char sqlite3CtypeMap[256] = {
 ** Return the length (in bytes) of the token that begins at z[0]. 
 ** Store the token type in *tokenType before returning.
 */
-static int sqlite3GetToken(const unsigned char *z, int *tokenType){
+static int sqlite3GetToken2(const unsigned char *z, int *tokenType){
   int i, c;
-  switch( aiClass[*z] ){  /* Switch on the character-class of the first byte
+  switch( aiClass2[*z] ){  /* Switch on the character-class of the first byte
                           ** of the token. See the comment on the CC_ defines
                           ** above. */
     case CC_SPACE: {
@@ -503,7 +504,7 @@ static int sqlite3GetToken(const unsigned char *z, int *tokenType){
       return i;
     }
     case CC_KYWD: {
-      for(i=1; aiClass[z[i]]<=CC_KYWD; i++){}
+      for(i=1; aiClass2[z[i]]<=CC_KYWD; i++){}
       if( IdChar(z[i]) ){
         /* This token started out using characters that can appear in keywords,
         ** but z[i] is a character not allowed within keywords, so this must
@@ -558,7 +559,7 @@ char *sqlite3_normalize(const char *zSql){
   z = sqlite3_malloc64( nZ+2 );
   if( z==0 ) return 0;
   for(i=j=0; zSql[i]; i += n){
-    n = sqlite3GetToken((unsigned char*)zSql+i, &tokenType);
+    n = sqlite3GetToken2((unsigned char*)zSql+i, &tokenType);
     switch( tokenType ){
       case TK_SPACE: {
         break;
