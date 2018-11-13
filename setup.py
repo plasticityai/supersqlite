@@ -119,7 +119,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     else:
         libraries.append(ICU_UNIX)
         includes.append(ICU_UNIX)
-        link_args.append('-L' + ICU_WIN32)
+        link_args.append('-L' + ICU_UNIX)
 
     SQLITE_PRE = os.path.relpath(
         os.path.join(SQLITE3, 'sqlite3.c.pre.c'), PROJ_PATH)
