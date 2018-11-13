@@ -145,10 +145,14 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             # ifndef PLASTICITY_SUPERSQLITE_ICU_CPP
             # define PLASTICITY_SUPERSQLITE_ICU_CPP 1
 
+            #define U_COMMON_IMPLEMENTATION
+            #define U_COMBINED_IMPLEMENTATION
+
             ''' + '\n'.join(['#include "' + source + '"' for source in icu_sources]) + '''
             # endif
         ''')
     with open(SQLITE_POST, 'w+') as outfile:
+        outfile.write('#define U_DISABLE_RENAMING 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_DBPAGE_VTAB 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_DBSTAT_VTAB 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_FTS3 1' + '\n')
