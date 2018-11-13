@@ -132,16 +132,16 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     SQLITE_EXT = os.path.relpath(
         os.path.join(SQLITE3, 'ext'), PROJ_PATH)
 
-    icu_sources = []
-    icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp', 
-                'ucnv_u7.cpp', 'ucnv2022.cpp']
-    for root, dirnames, filenames in list(os.walk(ICU)):
-        for filename in filenames:
-            if filename.lower().endswith('.cpp'):
-                source = os.path.relpath(os.path.join(root, filename), ICU)
-                if os.path.basename(source) in icu_skip:
-                    continue
-                icu_sources.append(source)
+    icu_sources = ['ucase.cpp', 'ubrk.cpp']
+    # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp', 
+    #             'ucnv_u7.cpp', 'ucnv2022.cpp']
+    # for root, dirnames, filenames in list(os.walk(ICU)):
+    #     for filename in filenames:
+    #         if filename.lower().endswith('.cpp'):
+    #             source = os.path.relpath(os.path.join(root, filename), ICU)
+    #             if os.path.basename(source) in icu_skip:
+    #                 continue
+    #             icu_sources.append(source)
 
     with open(ICU_POST, 'w+') as outfile:
         outfile.write(
@@ -153,7 +153,9 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             #define U_COMMON_IMPLEMENTATION
             #define U_COMBINED_IMPLEMENTATION
 
-            ''' + '\n'.join(['#include "' + source + '"' for source in icu_sources]) + '''
+            ''' + '\n'.join(
+                    ['#include "' + source + '"' for source in icu_sources]
+                ) + '''
             # endif
         ''')
     with open(SQLITE_POST, 'w+') as outfile:
