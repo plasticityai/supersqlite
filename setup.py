@@ -195,6 +195,11 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'bmpset.cpp',
         'unifunct.cpp',
         'unisetspan.cpp',
+        'uniset_props.cpp',
+        'patternprops.cpp',
+        'bytesinkutil.cpp',
+        'dictbe.cpp',
+        'rbbirb.cpp',
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']
