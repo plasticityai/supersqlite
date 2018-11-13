@@ -187,6 +187,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             # define PLASTICITY_SUPERSQLITE_SQLITE3_C_EXT_SHIM 1
         ''' + '\n')
         outfile.write('''
+        # include <unicode/urename.h>
         # include "ext/async/sqlite3async.c"
         # include "ext/expert/sqlite3expert.c"
         # include "ext/lsm1/lsm_ckpt.c"
