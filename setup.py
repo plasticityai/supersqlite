@@ -127,9 +127,27 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         os.path.join(SQLITE3, 'sqlite3.c.pre.c'), PROJ_PATH)
     SQLITE_POST = os.path.relpath(
         os.path.join(SQLITE3, 'sqlite3.c'), PROJ_PATH)
+    ICU_POST = os.path.relpath(
+        os.path.join(SQLITE3, 'icu.cpp'), PROJ_PATH)
     SQLITE_EXT = os.path.relpath(
         os.path.join(SQLITE3, 'ext'), PROJ_PATH)
 
+    icu_sources = []
+    for root, dirnames, filenames in list(os.walk(ICU)):
+        for filename in filenames:
+            if filename.lower().endswith('.cpp'):
+                source = os.path.relpath(os.path.join(root, filename), ICU)
+                icu_sources.append(source)
+
+    with open(ICU_POST, 'w+') as outfile:
+        outfile.write(
+            '''
+            # ifndef PLASTICITY_SUPERSQLITE_ICU_CPP
+            # define PLASTICITY_SUPERSQLITE_ICU_CPP 1
+
+            ''' + '\n'.join(['#include "' + source + '"' for source in icu_sources]) + '''
+            # endif
+        ''')
     with open(SQLITE_POST, 'w+') as outfile:
         outfile.write('#define SQLITE_ENABLE_DBPAGE_VTAB 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_DBSTAT_VTAB 1' + '\n')
