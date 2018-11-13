@@ -59,17 +59,17 @@ def copy_sqlite(src, dest, apsw=False):
             for line in infile:
                 outfile.write(line)
         outfile.write('''
-        #ifndef PLASTICITY_SUPERSQLITE_SQLITE3_C_SHIM
+        # ifndef PLASTICITY_SUPERSQLITE_SQLITE3_C_SHIM
             # define PLASTICITY_SUPERSQLITE_SQLITE3_C_SHIM 1
-            #ifdef sqlite3_progress_handler
-              #undef sqlite3_progress_handler
-            #endif
-            #ifdef sqlite3_column_decltype
-              #undef sqlite3_column_decltype
-            #endif
-            #ifdef sqlite3_enable_shared_cache
-              #undef sqlite3_enable_shared_cache
-            #endif\n
+            # ifdef sqlite3_progress_handler
+              # undef sqlite3_progress_handler
+            # endif
+            # ifdef sqlite3_column_decltype
+              # undef sqlite3_column_decltype
+            # endif
+            # ifdef sqlite3_enable_shared_cache
+              # undef sqlite3_enable_shared_cache
+            # endif\n
         ''' + '\n')
         outfile.write(
             'void sqlite3_progress_handler(sqlite3* a, int b, int (*c)(void*), void* d){ }' +
@@ -136,6 +136,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         outfile.write('#define SQLITE_ENABLE_FTS4 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_FTS5 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_GEOPOLY 1' + '\n')
+        outfile.write('#define SQLITE_ENABLE_ICU 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_IOTRACE 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_JSON1 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_RBU 1' + '\n')
@@ -181,6 +182,37 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         with open(SQLITE_PRE, 'r') as infile:
             for line in infile:
                 outfile.write(line)
+        outfile.write('''
+        # ifndef PLASTICITY_SUPERSQLITE_SQLITE3_C_EXT_SHIM
+            # define PLASTICITY_SUPERSQLITE_SQLITE3_C_EXT_SHIM 1
+        ''' + '\n')
+        outfile.write('''
+        # include "ext/async/sqlite3async.c"
+        # include "ext/expert/sqlite3expert.c"
+        # include "ext/expert/expert.c"
+        # include "ext/lsm/lsm_ckpt.c"
+        # include "ext/lsm/lsm_file.c"
+        # include "ext/lsm/lsm_log.c"
+        # include "ext/lsm/lsm_main.c"
+        # include "ext/lsm/lsm_mem.c"
+        # include "ext/lsm/lsm_mutex.c"
+        # include "ext/lsm/lsm_shared.c"
+        # include "ext/lsm/lsm_sorted.c"
+        # include "ext/lsm/lsm_str.c"
+        # include "ext/lsm/lsm_tree.c"
+        # include "ext/lsm/lsm_unix.c"
+        # include "ext/lsm/lsm_win32.c"
+        # include "ext/lsm/lsm_varint.c"
+        # include "ext/lsm/lsm_vtab.c"
+        # include "ext/userauth/userauth.c"
+        # include "ext/misc/dbdump.c"
+        # include "ext/misc/mmapwarm.c"
+        # include "ext/misc/normalize.c"
+        # include "ext/misc/scrub.c"
+        # include "ext/misc/vfslog.c"
+        ''' + '\n')
+        outfile.write('#endif\n')
+
     module = 'sqlite3'
     pyinit_source = source_for_module_with_pyinit(module)
     sqlite3 = Extension('sqlite3' + SO_SUFFIX,
@@ -223,22 +255,10 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                           extra_link_args=link_args))
         return miscs
 
-    async_m = sqlite_extension('async')
-    expert = sqlite_extension('expert')
-    # fts1 = sqlite_extension('fts1') deprecated
-    # fts2 = sqlite_extension('fts2') deprecated
-    fts3 = sqlite_extension('fts3', skip=['fts3_test.c'])
-    fts5 = sqlite_extension('fts5built', module='fts5')
-    icu = sqlite_extension('icu')
     lsm1 = sqlite_extension('lsm1')
-    rbu = sqlite_extension('rbu')
-    rtree = sqlite_extension('rtree', skip=['geopoly.c'])
-    session = sqlite_extension('session', skip=['changeset.c',
-                                                'session_speed_test.c'])
     userauth = sqlite_extension('userauth')
 
-    return ([sqlite3, async_m, expert, fts3,
-             fts5, icu, lsm1, rbu, rtree, session, userauth] +
+    return ([sqlite3, lsm1] +
             sqlite_misc_extensions())
 
 
