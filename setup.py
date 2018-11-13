@@ -133,10 +133,14 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         os.path.join(SQLITE3, 'ext'), PROJ_PATH)
 
     icu_sources = []
+    icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp', 
+                'ucnv_u7.cpp']
     for root, dirnames, filenames in list(os.walk(ICU)):
         for filename in filenames:
             if filename.lower().endswith('.cpp'):
                 source = os.path.relpath(os.path.join(root, filename), ICU)
+                if os.path.basename(source) in icu_skip:
+                    continue
                 icu_sources.append(source)
 
     with open(ICU_POST, 'w+') as outfile:
@@ -145,6 +149,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             # ifndef PLASTICITY_SUPERSQLITE_ICU_CPP
             # define PLASTICITY_SUPERSQLITE_ICU_CPP 1
 
+            #define U_DISABLE_RENAMING 1
             #define U_COMMON_IMPLEMENTATION
             #define U_COMBINED_IMPLEMENTATION
 
