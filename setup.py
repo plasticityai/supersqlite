@@ -111,12 +111,15 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     ICU_WIN32 = SQLITE3 + '/icu_win32'
     includes = [os.path.relpath(SQLITE3, PROJ_PATH)]
     libraries = [os.path.relpath(SQLITE3, PROJ_PATH)]
+    link_args = ["-flto"]
     if sys.platform == 'win32':
         libraries.append(ICU_WIN32)
         includes.append(ICU_WIN32)
+        link_args.append('-L' + ICU_WIN32)
     else:
         libraries.append(ICU_UNIX)
         includes.append(ICU_UNIX)
+        link_args.append('-L' + ICU_WIN32)
 
     SQLITE_PRE = os.path.relpath(
         os.path.join(SQLITE3, 'sqlite3.c.pre.c'), PROJ_PATH)
@@ -185,7 +188,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                         include_dirs=includes,
                         library_dirs=libraries,
                         extra_compile_args=["-O4"],
-                        extra_link_args=["-flto"])
+                        extra_link_args=link_args)
 
     def sqlite_extension(ext, skip=[], module=None):
         module = module or ext
@@ -202,7 +205,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             include_dirs=includes,
             library_dirs=libraries,
             extra_compile_args=["-O4"],
-            extra_link_args=["-flto"])
+            extra_link_args=link_args)
 
     def sqlite_misc_extensions(skip=[]):
         miscs = []
@@ -217,7 +220,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                           include_dirs=includes,
                           library_dirs=libraries,
                           extra_compile_args=["-O4"],
-                          extra_link_args=["-flto"]))
+                          extra_link_args=link_args))
         return miscs
 
     async_m = sqlite_extension('async')
