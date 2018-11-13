@@ -42,8 +42,7 @@ Test Python 2:
     - apt-get install python-pip -y
     - pip2 install -U pip setuptools
     - python2 setup.py install
-    - python2 -c "import supersqlite; print supersqlite.__file__"
-    # - nm -an /DATA/build/lib/supersqlite/third_party/_apsw/build/lib.linux-x86_64-3.6/apsw.cpython-36m-x86_64-linux-gnu.so | c++filt
+    - nm -an supersqlite/third_party/internal/apsw/apsw.so | c++filt
     - python2 -m tests.tests -- -v
 
 Test Python 3:
