@@ -63,7 +63,7 @@ static const struct {
     int32_t length;
     UChar nul;
     UChar pad;
-} gEmptyString={ 0, 0, 0 };
+} gEmptyString2={ 0, 0, 0 };
 
 /*
  * All the type-access functions assume that
@@ -332,7 +332,7 @@ res_getString(const ResourceData *pResData, Resource res, int32_t *pLength) {
             p+=3;
         }
     } else if(res==offset) /* RES_GET_TYPE(res)==URES_STRING */ {
-        const int32_t *p32= res==0 ? &gEmptyString.length : pResData->pRoot+res;
+        const int32_t *p32= res==0 ? &gEmptyString2.length : pResData->pRoot+res;
         length=*p32++;
         p=(const UChar *)p32;
     } else {
@@ -420,7 +420,7 @@ res_getAlias(const ResourceData *pResData, Resource res, int32_t *pLength) {
     uint32_t offset=RES_GET_OFFSET(res);
     int32_t length;
     if(RES_GET_TYPE(res)==URES_ALIAS) {
-        const int32_t *p32= offset==0 ? &gEmptyString.length : pResData->pRoot+offset;
+        const int32_t *p32= offset==0 ? &gEmptyString2.length : pResData->pRoot+offset;
         length=*p32++;
         p=(const UChar *)p32;
     } else {
