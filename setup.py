@@ -109,11 +109,14 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     SQLITE3 = THIRD_PARTY + '/sqlite3'
     ICU_UNIX = SQLITE3 + '/icu_unix'
     ICU_WIN32 = SQLITE3 + '/icu_win32'
+    includes = [os.path.relpath(SQLITE3, PROJ_PATH)]
     libraries = [os.path.relpath(SQLITE3, PROJ_PATH)]
     if sys.platform == 'win32':
         libraries.append(ICU_WIN32)
+        includes.append(ICU_WIN32)
     else:
         libraries.append(ICU_UNIX)
+        includes.append(ICU_UNIX)
 
     SQLITE_PRE = os.path.relpath(
         os.path.join(SQLITE3, 'sqlite3.c.pre.c'), PROJ_PATH)
@@ -179,7 +182,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     pyinit_source = source_for_module_with_pyinit(module)
     sqlite3 = Extension('sqlite3' + SO_SUFFIX,
                         sources=[SQLITE_POST] + [pyinit_source],
-                        include_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)],
+                        include_dirs=includes,
                         library_dirs=libraries,
                         extra_compile_args=["-O4"],
                         extra_link_args=["-flto"])
@@ -196,10 +199,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                         ext,
                         '*.c')) if os.path.basename(g) not in skip] +
                      [pyinit_source]),
-            include_dirs=[
-                os.path.relpath(
-                    SQLITE3,
-                    PROJ_PATH)],
+            include_dirs=includes,
             library_dirs=libraries,
             extra_compile_args=["-O4"],
             extra_link_args=["-flto"])
@@ -214,7 +214,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             miscs.append(
                 Extension(module + SO_SUFFIX,
                           sources=[source] + [pyinit_source],
-                          include_dirs=[os.path.relpath(SQLITE3, PROJ_PATH)],
+                          include_dirs=includes,
                           library_dirs=libraries,
                           extra_compile_args=["-O4"],
                           extra_link_args=["-flto"]))
