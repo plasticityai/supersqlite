@@ -173,6 +173,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'uinvchar.cpp',
         'uresbund.cpp',
         'uresdata.cpp',
+        'resource.cpp',
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']
