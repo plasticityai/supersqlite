@@ -129,6 +129,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         os.path.join(SQLITE3, 'ext'), PROJ_PATH)
 
     with open(SQLITE_POST, 'w+') as outfile:
+        outfile.write('#define U_DISABLE_RENAMING 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_DBPAGE_VTAB 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_DBSTAT_VTAB 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_FTS3 1' + '\n')
@@ -187,7 +188,6 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             # define PLASTICITY_SUPERSQLITE_SQLITE3_C_EXT_SHIM 1
         ''' + '\n')
         outfile.write('''
-        # include <unicode/urename.h>
         # include "ext/async/sqlite3async.c"
         # include "ext/expert/sqlite3expert.c"
         # include "ext/lsm1/lsm_ckpt.c"
