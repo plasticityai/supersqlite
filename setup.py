@@ -155,6 +155,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'ustrenum.cpp',
         'uenum.cpp',
         'unistr.cpp',
+        'appendable.cpp',
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']
