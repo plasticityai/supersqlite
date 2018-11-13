@@ -172,7 +172,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'udataswp.cpp',
         'uinvchar.cpp',
         'uresbund.cpp',
-        'uresdata.cpp',
+        'uresdata.cpp', # modified due to duplicate symbol `gEmptyString2`
         'resource.cpp',
         'locavailable.cpp',
         'utrie2.cpp',
@@ -187,7 +187,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'bytestrie.cpp',
         'ustack.cpp',
         'umutex.cpp',
-        'uniset.cpp',
+        'uniset.cpp', # modified due to duplicate symbol `compareUnicodeString2`
         'stringpiece.cpp',
         'locutil.cpp',
         ]

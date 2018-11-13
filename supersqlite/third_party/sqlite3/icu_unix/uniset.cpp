@@ -131,7 +131,7 @@ static void U_CALLCONV cloneUnicodeString(UElement *dst, UElement *src) {
     dst->pointer = new UnicodeString(*(UnicodeString*)src->pointer);
 }
 
-static int8_t U_CALLCONV compareUnicodeString(UElement t1, UElement t2) {
+static int8_t U_CALLCONV compareUnicodeString2(UElement t1, UElement t2) {
     const UnicodeString &a = *(const UnicodeString*)t1.pointer;
     const UnicodeString &b = *(const UnicodeString*)t2.pointer;
     return a.compare(b);
@@ -1039,7 +1039,7 @@ void UnicodeSet::_add(const UnicodeString& s) {
         return;
     }
     UErrorCode ec = U_ZERO_ERROR;
-    strings->sortedInsert(t, compareUnicodeString, ec);
+    strings->sortedInsert(t, compareUnicodeString2, ec);
     if (U_FAILURE(ec)) {
         setToBogus();
         delete t;
