@@ -134,7 +134,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
 
     icu_sources = []
     icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp', 
-                'ucnv_u7.cpp']
+                'ucnv_u7.cpp', 'ucnv2022.cpp']
     for root, dirnames, filenames in list(os.walk(ICU)):
         for filename in filenames:
             if filename.lower().endswith('.cpp'):
