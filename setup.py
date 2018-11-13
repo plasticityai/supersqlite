@@ -49,6 +49,8 @@ def copy_sqlite(src, dest, apsw=False):
         os.path.join(src, 'sqlite3ext.h'), os.path.join(dest, 'sqlite3ext.h'))
     shutil.copy(
         os.path.join(src, 'shell.c'), os.path.join(dest, 'shell.c'))
+    shutil.copy(
+        os.path.join(src, 'icu.cpp'), os.path.join(dest, 'icu.cpp'))
     if apsw:
         shutil.copy(
             os.path.join(src, 'apsw_shell.c'), os.path.join(dest, 'shell.c'))
@@ -107,19 +109,19 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     PYSQLITE = THIRD_PARTY + '/_pysqlite'
     APSW_TP = THIRD_PARTY + '/_apsw'
     SQLITE3 = THIRD_PARTY + '/sqlite3'
-    ICU_UNIX = SQLITE3 + '/icu_unix'
-    ICU_WIN32 = SQLITE3 + '/icu_win32'
+    ICU = None
+    ICU_UNIX = os.path.relpath(SQLITE3 + '/icu_unix', PROJ_PATH)
+    ICU_WIN32 = os.path.relpath(SQLITE3 + '/icu_win32', PROJ_PATH)
     includes = [os.path.relpath(SQLITE3, PROJ_PATH)]
     libraries = [os.path.relpath(SQLITE3, PROJ_PATH)]
     link_args = ["-flto"]
     if sys.platform == 'win32':
-        libraries.append(ICU_WIN32)
-        includes.append(ICU_WIN32)
-        link_args.append('-L' + ICU_WIN32)
+        ICU = ICU_WIN32
     else:
-        libraries.append(ICU_UNIX)
-        includes.append(ICU_UNIX)
-        link_args.append('-L' + ICU_UNIX)
+        ICU = ICU_UNIX
+    libraries.append(ICU)
+    includes.append(ICU)
+    link_args.append('-L' + ICU)
 
     SQLITE_PRE = os.path.relpath(
         os.path.join(SQLITE3, 'sqlite3.c.pre.c'), PROJ_PATH)
@@ -210,14 +212,14 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         # include "ext/misc/normalize.c"
         # include "ext/misc/scrub.c"
         # include "ext/misc/vfslog.c"
-        # include "ucase.cpp"
         ''' + '\n')
         outfile.write('#endif\n')
 
     module = 'sqlite3'
     pyinit_source = source_for_module_with_pyinit(module)
+    icu_sources = [os.path.relpath(SQLITE3, 'icu.cpp')]
     sqlite3 = Extension('sqlite3' + SO_SUFFIX,
-                        sources=[SQLITE_POST] + [pyinit_source],
+                        sources=[SQLITE_POST] + icu_sources + [pyinit_source],
                         include_dirs=includes,
                         library_dirs=libraries,
                         extra_compile_args=["-O4"],

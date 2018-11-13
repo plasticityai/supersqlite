@@ -188,6 +188,7 @@ class MyBuildExt(build_ext):
     def build_extension(self, ext):
         if self.amalgamation:
             ext.sources.append("sqlite3.c")
+            ext.sources.append("icu.cpp") # PLASTICITY
         try:
             raise Exception("skip") # PLASTICITY
             ext.include_dirs = self._pkgconfig_include_dirs("sqlite3")

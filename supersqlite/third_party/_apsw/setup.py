@@ -892,7 +892,7 @@ complete SQLite API into Python.""",
       license="OSI Approved ::",
 
       ext_modules=[Extension("apsw",
-                             ["src/apsw.c", "src/sqlite3.c"], # PLASTICITY
+                             ["src/apsw.c", "src/sqlite3.c", "src/icu.cpp"], # PLASTICITY
                              include_dirs=include_dirs + include_plasticity, # PLASTICITY
                              library_dirs=library_dirs,
                              libraries=libraries,
