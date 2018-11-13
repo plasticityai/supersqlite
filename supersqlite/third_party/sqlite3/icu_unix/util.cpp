@@ -17,9 +17,9 @@
 
 // Define UChar constants using hex for EBCDIC compatibility
 
-static const UChar BACKSLASH  = 0x005C; /*\*/
-static const UChar UPPER_U    = 0x0055; /*U*/
-static const UChar LOWER_U    = 0x0075; /*u*/
+static const UChar BACKSLASH2  = 0x005C; /*\*/
+static const UChar UPPER_U2    = 0x0055; /*U*/
+static const UChar LOWER_U2    = 0x0075; /*u*/
 static const UChar APOSTROPHE = 0x0027; // '\''
 static const UChar SPACE      = 0x0020; // ' '
 
@@ -80,15 +80,15 @@ UBool ICU_Utility::isUnprintable(UChar32 c) {
  */
 UBool ICU_Utility::escapeUnprintable(UnicodeString& result, UChar32 c) {
     if (isUnprintable(c)) {
-        result.append(BACKSLASH);
+        result.append(BACKSLASH2);
         if (c & ~0xFFFF) {
-            result.append(UPPER_U);
+            result.append(UPPER_U2);
             result.append(DIGITS[0xF&(c>>28)]);
             result.append(DIGITS[0xF&(c>>24)]);
             result.append(DIGITS[0xF&(c>>20)]);
             result.append(DIGITS[0xF&(c>>16)]);
         } else {
-            result.append(LOWER_U);
+            result.append(LOWER_U2);
         }
         result.append(DIGITS[0xF&(c>>12)]);
         result.append(DIGITS[0xF&(c>>8)]);
@@ -111,7 +111,7 @@ int32_t ICU_Utility::quotedIndexOf(const UnicodeString& text,
                                UChar charToFind) {
     for (int32_t i=start; i<limit; ++i) {
         UChar c = text.charAt(i);
-        if (c == BACKSLASH) {
+        if (c == BACKSLASH2) {
             ++i;
         } else if (c == APOSTROPHE) {
             while (++i < limit
@@ -315,7 +315,7 @@ void ICU_Utility::appendToRule(UnicodeString& rule,
             while (quoteBuf.length() >= 2 &&
                    quoteBuf.charAt(0) == APOSTROPHE &&
                    quoteBuf.charAt(1) == APOSTROPHE) {
-                rule.append(BACKSLASH).append(APOSTROPHE);
+                rule.append(BACKSLASH2).append(APOSTROPHE);
                 quoteBuf.remove(0, 2);
             }
             // If the last thing in the quoteBuf is APOSTROPHE
@@ -334,7 +334,7 @@ void ICU_Utility::appendToRule(UnicodeString& rule,
                 quoteBuf.truncate(0);
             }
             while (trailingCount-- > 0) {
-                rule.append(BACKSLASH).append(APOSTROPHE);
+                rule.append(BACKSLASH2).append(APOSTROPHE);
             }
         }
         if (c != (UChar32)-1) {
@@ -356,8 +356,8 @@ void ICU_Utility::appendToRule(UnicodeString& rule,
 
     // Escape ' and '\' and don't begin a quote just for them
     else if (quoteBuf.length() == 0 &&
-             (c == APOSTROPHE || c == BACKSLASH)) {
-        rule.append(BACKSLASH);
+             (c == APOSTROPHE || c == BACKSLASH2)) {
+        rule.append(BACKSLASH2);
         rule.append(c);
     }
 
