@@ -651,7 +651,7 @@ class apsw_build_ext(beparent):
             ext.define_macros.append( ("SQLITE_OMIT_LOAD_EXTENSION", 1) )
 
         # icu
-        if addicuinclib:
+        if addicuinclib and False: # PLASTICITY
             foundicu=False
             kwargs={}
             if sys.version_info>=(2, 6):
