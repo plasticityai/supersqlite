@@ -131,7 +131,6 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         os.path.join(SQLITE3, 'ext'), PROJ_PATH)
 
     with open(SQLITE_POST, 'w+') as outfile:
-        outfile.write('#define U_DISABLE_RENAMING 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_DBPAGE_VTAB 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_DBSTAT_VTAB 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_FTS3 1' + '\n')
