@@ -222,7 +222,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                         sources=[SQLITE_POST] + icu_sources + [pyinit_source],
                         include_dirs=includes,
                         library_dirs=libraries,
-                        extra_compile_args=["-O4"],
+                        extra_compile_args=["-O4", "-std=c++11"],
                         extra_link_args=link_args)
 
     def sqlite_extension(ext, skip=[], module=None):

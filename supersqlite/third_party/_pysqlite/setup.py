@@ -298,7 +298,7 @@ def get_setup_args():
                                       libraries=libraries,
                                       extra_objects=extra_objects,
                                       define_macros=define_macros,
-                                      extra_compile_args=["-O4"], # PLASTICITY
+                                      extra_compile_args=["-O4", "-std=c++11"], # PLASTICITY
                                       extra_link_args=["-flto"], # PLASTICITY
                                       )],
             classifiers = [
