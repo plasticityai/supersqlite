@@ -180,6 +180,8 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'utrie_swap.cpp',
         'schriter.cpp',
         'uchriter.cpp',
+        'locid.cpp',
+        'locbased.cpp',
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']
