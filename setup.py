@@ -212,6 +212,16 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'uhash_us.cpp',
         'uprops.cpp',
         'uchar.cpp', # modified due to duplicate symbol `_enumPropertyStartsRange`
+        'parsepos.cpp',
+        'ruleiter.cpp',
+        'rbbitblb.cpp',
+        'edits.cpp',
+        'rbbinode.cpp',
+        'bytestream.cpp',
+        'rbbiscan.cpp',
+        'loadednormalizer2impl.cpp',
+        'characterproperties.cpp',
+        'locresdata.cpp',
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']
