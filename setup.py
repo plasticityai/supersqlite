@@ -326,8 +326,8 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                 ['#include "' + source + '"' for source in icu_sources]
             ) + '''
 
-            int status;
-            udata_setCommonData("", &status);
+            UErrorCode _PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS;
+            udata_setCommonData((void*)"", &_PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS);
 
             # endif
         ''')
