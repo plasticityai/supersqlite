@@ -731,7 +731,7 @@ UBool RegexCompile::doParseActions(int32_t action)
 
     case doConditionalExpr2:
         // Conditionals such as (?(1)a:b)
-    case doPerlInline:
+    case doPerlInline2:
         //2 Perl inline-condtionals.  (?{perl code}a|b) We're not perl, no way to do them.
         error(U_REGEX_UNIMPLEMENTED);
         break;
@@ -750,8 +750,8 @@ UBool RegexCompile::doParseActions(int32_t action)
 
 
     case doBadOpenParenType2:
-    case doRuleError:
-        error2(U_REGEX_RULE_SYNTAX);
+    case doRuleError2:
+        error(U_REGEX_RULE_SYNTAX);
         break;
 
 
@@ -1326,7 +1326,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
             
-    case doContinueNamedBackRef:2
+    case doContinueNamedBackRef2:
         fCaptureName->append(fC.fChar);
         break;
 
@@ -1542,14 +1542,14 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-     case doSetBackslash_s:
+     case doSetBackslash_s2:
         {
          UnicodeSet *set = (UnicodeSet *)fSetStack.peek();
          set->addAll(*RegexStaticSets::gStaticSets->fPropSets[URX_ISSPACE_SET]);
          break;
         }
 
-     case doSetBackslash_S:
+     case doSetBackslash_S2:
         {
             UnicodeSet *set = (UnicodeSet *)fSetStack.peek();
             UnicodeSet SSet(*RegexStaticSets::gStaticSets->fPropSets[URX_ISSPACE_SET]);
@@ -1740,7 +1740,7 @@ UBool RegexCompile::doParseActions(int32_t action)
             break;
         }
 
-        case doSetNamedChar:
+        case doSetNamedChar2:
         // Scanning a \N{UNICODE CHARACTER NAME}
         //  Aside from the source of the character, the processing is identical to doSetLiteral,
         //    above.
@@ -1771,7 +1771,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
 
 
-    case  doSetNegate:
+    case  doSetNegate2:
         // Scanned a '^' at the start of a set.
         // Push the negation operator onto the set op stack.
         // A twist for case-insensitive matching:
