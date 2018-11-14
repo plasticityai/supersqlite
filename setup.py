@@ -327,7 +327,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             ) + '''
 
             UErrorCode _PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS;
-            udata_setCommonData((void*)"", &_PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS);
+            udata_setCommonData((const void*)"", &_PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS);
 
             # endif
         ''')
