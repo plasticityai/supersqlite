@@ -316,11 +316,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             # ifndef PLASTICITY_SUPERSQLITE_ICU_CPP
             # define PLASTICITY_SUPERSQLITE_ICU_CPP 1
 
-            #define UCONFIG_NO_FILE_IO 0
-            #define U_PLATFORM_USES_ONLY_WIN32_API 0
-            #define U_HAVE_MMAP 0
-            #define U_PLATFORM -1
-            #define dllqueryvar(...) 0
+            const char* icudt63_dat() { return "icudt63l.dat" }
             #define UCONFIG_NO_REGULAR_EXPRESSIONS 0
             #define U_DISABLE_RENAMING 1
             #define U_COMMON_IMPLEMENTATION
