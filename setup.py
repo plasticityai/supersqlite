@@ -327,29 +327,10 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                 ['#include "' + source + '"' for source in icu_sources]
             ) + '''
 
-            #ifdef _MSC_VER
-            #define INITIALIZER(f) \
-                static void f();\
-                static int __f1(){f();return 0;}\
-                __pragma(data_seg(".CRT$XIU"))\
-                static int(*__f2) () = __f1;\
-                __pragma(data_seg())\
-                static void f()
-            #else
-            #define INITIALIZER(f) \
-                __attribute__((constructor)) static void f()
-            #endif
-
             int _supersqlite_load_icu_data(void) {
                 UErrorCode _PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS;
                 udata_setCommonData((const void*)"", &_PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS);
                 return (int) _PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS;
-            }
-
-            INITIALIZER( initialize)
-            {
-                printf( "initialize\n");
-                _supersqlite_load_icu_data();
             }
 
             # endif
