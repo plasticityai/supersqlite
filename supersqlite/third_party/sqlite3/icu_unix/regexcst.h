@@ -72,7 +72,7 @@ enum Regex_PatternParseAction {
     doBackslashw2,
     doBackslashR2,
     doRuleError2,
-    doDotAny
+    doDotAny2,
     doMatchMode2,
     doSetBackslash_W2,
     doNGPlus2,
