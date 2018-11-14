@@ -643,7 +643,7 @@ ublock_getCode(UChar32 c) {
 /* property starts for UnicodeSet ------------------------------------------- */
 
 static UBool U_CALLCONV
-_enumPropertyStartsRange(const void *context, UChar32 start, UChar32 end, uint32_t value) {
+_enumPropertyStartsRange2(const void *context, UChar32 start, UChar32 end, uint32_t value) {
     /* add the start code point to the USet */
     const USetAdder *sa=(const USetAdder *)context;
     sa->add(sa->set, start);
@@ -661,7 +661,7 @@ uchar_addPropertyStarts(const USetAdder *sa, UErrorCode *pErrorCode) {
     }
 
     /* add the start code point of each same-value range of the main trie */
-    utrie2_enum(&propsTrie, NULL, _enumPropertyStartsRange, sa);
+    utrie2_enum(&propsTrie, NULL, _enumPropertyStartsRange2, sa);
 
     /* add code points with hardcoded properties, plus the ones following them */
 
@@ -721,5 +721,5 @@ upropsvec_addPropertyStarts(const USetAdder *sa, UErrorCode *pErrorCode) {
     }
 
     /* add the start code point of each same-value range of the properties vectors trie */
-    utrie2_enum(&propsVectorsTrie, NULL, _enumPropertyStartsRange, sa);
+    utrie2_enum(&propsVectorsTrie, NULL, _enumPropertyStartsRange2, sa);
 }

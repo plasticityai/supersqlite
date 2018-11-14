@@ -200,7 +200,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'bytesinkutil.cpp', # modified due to duplicate include `bytesinkutil.h`
         'dictbe.cpp',
         'rbbirb.cpp',
-        'utext.cpp',
+        'utext.cpp', # modified due to duplicate symbol `gEmptyString3`
         'utf_impl.cpp',
         'propsvec.cpp',
         'locmap.cpp',
@@ -211,7 +211,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'putil.cpp',
         'uhash_us.cpp',
         'uprops.cpp',
-        'uchar.cpp',
+        'uchar.cpp', # modified due to duplicate symbol `_enumPropertyStartsRange`
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']

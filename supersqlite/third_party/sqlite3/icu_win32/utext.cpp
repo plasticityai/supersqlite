@@ -1623,7 +1623,7 @@ static const struct UTextFuncs utf8Funcs =
 };
 
 
-static const char gEmptyString[] = {0};
+static const char gEmptyString3[] = {0};
 
 U_CAPI UText * U_EXPORT2
 utext_openUTF8(UText *ut, const char *s, int64_t length, UErrorCode *status) {
@@ -1631,7 +1631,7 @@ utext_openUTF8(UText *ut, const char *s, int64_t length, UErrorCode *status) {
         return NULL;
     }
     if(s==NULL && length==0) {
-        s = gEmptyString;
+        s = gEmptyString3;
     }
 
     if(s==NULL || length<-1 || length>INT32_MAX) {
