@@ -9,6 +9,7 @@ stages:
   - Deploy Linux Wheels
 
 before_script:
+  - cat /etc/apt/sources.list
   # Setup package manager
   - apt-get update 2>&1 >/dev/null
   - apt-get install curl wget git -y
