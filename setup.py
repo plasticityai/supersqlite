@@ -325,6 +325,10 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             ''' + '\n'.join(
                 ['#include "' + source + '"' for source in icu_sources]
             ) + '''
+
+            int status;
+            udata_setCommonData("", &status);
+
             # endif
         ''')
     with open(SQLITE_POST, 'w+') as outfile:
