@@ -11,7 +11,7 @@ stages:
 before_script:
   - cat /etc/apt/sources.list
   - cp /etc/apt/sources.list /etc/apt/sources.list.bak
-  - cat /etc/apt/sources.list.bak | sed 's/\\/archive/uk.archive/g' > /etc/apt/sources.list
+  - cat /etc/apt/sources.list.bak | sed 's/archive./uk.archive./g' > /etc/apt/sources.list
   - cat /etc/apt/sources.list
   # Setup package manager
   - apt-get update 2>&1 >/dev/null
