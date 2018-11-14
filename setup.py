@@ -200,6 +200,18 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'bytesinkutil.cpp', # modified due to duplicate include `bytesinkutil.h`
         'dictbe.cpp',
         'rbbirb.cpp',
+        'utext.cpp',
+        'utf_impl.cpp',
+        'propsvec.cpp',
+        'locmap.cpp',
+        'loclikely.cpp',
+        'uloc_tag.cpp',
+        'ustrtrns.cpp',
+        'udatamem.cpp',
+        'putil.cpp',
+        'uhash_us.cpp',
+        'uprops.cpp',
+        'uchar.cpp',
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']
