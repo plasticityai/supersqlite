@@ -357,7 +357,7 @@ UBool RegexCompile::doParseActions(int32_t action)
 
     switch ((Regex_PatternParseAction)action) {
 
-    case doPatStart:
+    case doPatStart2:
         // Start of pattern compiles to:
         //0   SAVE   2        Fall back to position of FAIL
         //1   jmp    3
@@ -375,7 +375,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         doParseActions(doOpenNonCaptureParen);
         break;
 
-    case doPatFinish:
+    case doPatFinish2:
         // We've scanned to the end of the pattern
         //  The end of pattern compiles to:
         //        URX_END
@@ -399,7 +399,7 @@ UBool RegexCompile::doParseActions(int32_t action)
 
 
 
-    case doOrOperator:
+    case doOrOperator2:
         // Scanning a '|', as in (A|B)
         {
             // Generate code for any pending literals preceding the '|'
@@ -434,7 +434,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         break;
 
 
-    case doBeginNamedCapture:
+    case doBeginNamedCapture2:
         // Scanning (?<letter.
         //   The first letter of the name will come through again under doConinueNamedCapture.
         fCaptureName = new UnicodeString();
@@ -447,11 +447,11 @@ UBool RegexCompile::doParseActions(int32_t action)
         fCaptureName->append(fC.fChar);
         break;
 
-    case doBadNamedCapture:
+    case doBadNamedCapture2:
         error(U_REGEX_INVALID_CAPTURE_GROUP_NAME);
         break;
         
-    case doOpenCaptureParen:
+    case doOpenCaptureParen:2
         // Open Capturing Paren, possibly named.
         //   Compile to a
         //      - NOP, which later may be replaced by a save-state if the
@@ -500,7 +500,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doOpenNonCaptureParen:
+    case doOpenNonCaptureParen2:
         // Open non-caputuring (grouping only) Paren.
         //   Compile to a
         //      - NOP, which later may be replaced by a save-state if the
@@ -522,7 +522,7 @@ UBool RegexCompile::doParseActions(int32_t action)
          break;
 
 
-    case doOpenAtomicParen:
+    case doOpenAtomicParen2:
         // Open Atomic Paren.  (?>
         //   Compile to a
         //      - NOP, which later may be replaced if the parenthesized group
@@ -549,7 +549,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         break;
 
 
-    case doOpenLookAhead:
+    case doOpenLookAhead2:
         // Positive Look-ahead   (?=  stuff  )
         //
         //   Note:   Addition of transparent input regions, with the need to
@@ -596,7 +596,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doOpenLookAheadNeg:
+    case doOpenLookAheadNeg2:
         // Negated Lookahead.   (?! stuff )
         // Compiles to
         //    1.    START_LA    dataloc
@@ -626,7 +626,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doOpenLookBehind:
+    case doOpenLookBehind2:
         {
             //   Compile a (?<= look-behind open paren.
             //
@@ -677,7 +677,7 @@ UBool RegexCompile::doParseActions(int32_t action)
 
         break;
 
-    case doOpenLookBehindNeg:
+    case doOpenLookBehindNeg2:
         {
             //   Compile a (?<! negated look-behind open paren.
             //
@@ -729,15 +729,15 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doConditionalExpr:
+    case doConditionalExpr2:
         // Conditionals such as (?(1)a:b)
     case doPerlInline:
-        // Perl inline-condtionals.  (?{perl code}a|b) We're not perl, no way to do them.
+        //2 Perl inline-condtionals.  (?{perl code}a|b) We're not perl, no way to do them.
         error(U_REGEX_UNIMPLEMENTED);
         break;
 
 
-    case doCloseParen:
+    case doCloseParen2:
         handleCloseParen();
         if (fParenStack.size() <= 0) {
             //  Extra close paren, or missing open paren.
@@ -749,17 +749,17 @@ UBool RegexCompile::doParseActions(int32_t action)
         break;
 
 
-    case doBadOpenParenType:
-    case doRuleError2:
-        error(U_REGEX_RULE_SYNTAX);
+    case doBadOpenParenType2:
+    case doRuleError:
+        error2(U_REGEX_RULE_SYNTAX);
         break;
 
 
-    case doMismatchedParenErr:
+    case doMismatchedParenErr2:
         error(U_REGEX_MISMATCHED_PAREN);
         break;
 
-    case doPlus:
+    case doPlus2:
         //  Normal '+'  compiles to
         //     1.   stuff to be repeated  (already built)
         //     2.   jmp-sav 1
@@ -833,7 +833,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doNGPlus:
+    case doNGPlus2:
         //  Non-greedy '+?'  compiles to
         //     1.   stuff to be repeated  (already built)
         //     2.   state-save  1
@@ -845,7 +845,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         break;
 
 
-    case doOpt:
+    case doOpt2:
         // Normal (greedy) ? quantifier.
         //  Compiles to
         //     1. state save 3
@@ -859,7 +859,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doNGOpt:
+    case doNGOpt2:
         // Non-greedy ?? quantifier
         //   compiles to
         //    1.  jmp   4
@@ -883,7 +883,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         break;
 
 
-    case doStar:
+    case doStar2:
         // Normal (greedy) * quantifier.
         // Compiles to
         //       1.   STATE_SAVE   4
@@ -974,7 +974,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doNGStar:
+    case doNGStar2:
         // Non-greedy *? quantifier
         // compiles to
         //     1.   JMP    3
@@ -991,7 +991,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         break;
 
 
-    case doIntervalInit:
+    case doIntervalInit2:
         // The '{' opening an interval quantifier was just scanned.
         // Init the counter varaiables that will accumulate the values as the digits
         //    are scanned.
@@ -999,7 +999,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         fIntervalUpper = -1;
         break;
 
-    case doIntevalLowerDigit:
+    case doIntevalLowerDigit2:
         // Scanned a digit from the lower value of an {lower,upper} interval
         {
             int32_t digitValue = u_charDigitValue(fC.fChar);
@@ -1013,7 +1013,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doIntervalUpperDigit:
+    case doIntervalUpperDigit2:
         // Scanned a digit from the upper value of an {lower,upper} interval
         {
             if (fIntervalUpper < 0) {
@@ -1030,19 +1030,19 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doIntervalSame:
+    case doIntervalSame2:
         // Scanned a single value interval like {27}.  Upper = Lower.
         fIntervalUpper = fIntervalLow;
         break;
 
-    case doInterval:
+    case doInterval2:
         // Finished scanning a normal {lower,upper} interval.  Generate the code for it.
         if (compileInlineInterval() == FALSE) {
             compileInterval(URX_CTR_INIT, URX_CTR_LOOP);
         }
         break;
 
-    case doPossessiveInterval:
+    case doPossessiveInterval2:
         // Finished scanning a Possessive {lower,upper}+ interval.  Generate the code for it.
         {
             // Remember the loc for the top of the block being looped over.
@@ -1075,22 +1075,22 @@ UBool RegexCompile::doParseActions(int32_t action)
 
         break;
 
-    case doNGInterval:
+    case doNGInterval2:
         // Finished scanning a non-greedy {lower,upper}? interval.  Generate the code for it.
         compileInterval(URX_CTR_INIT_NG, URX_CTR_LOOP_NG);
         break;
 
-    case doIntervalError:
+    case doIntervalError2:
         error(U_REGEX_BAD_INTERVAL);
         break;
 
-    case doLiteralChar:
+    case doLiteralChar2:
         // We've just scanned a "normal" character from the pattern,
         literalChar(fC.fChar);
         break;
 
 
-    case doEscapedLiteralChar:
+    case doEscapedLiteralChar2:
         // We've just scanned an backslashed escaped character with  no
         //   special meaning.  It represents itself.
         if ((fModeFlags & UREGEX_ERROR_ON_UNKNOWN_ESCAPES) != 0 &&
@@ -1116,7 +1116,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doCaret:
+    case doCaret2:
         {
             fixLiterals(FALSE);
             if (       (fModeFlags & UREGEX_MULTILINE) == 0 && (fModeFlags & UREGEX_UNIX_LINES) == 0) {
@@ -1131,7 +1131,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doDollar:
+    case doDollar2:
         {
             fixLiterals(FALSE);
             if (       (fModeFlags & UREGEX_MULTILINE) == 0 && (fModeFlags & UREGEX_UNIX_LINES) == 0) {
@@ -1146,12 +1146,12 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doBackslashA:
+    case doBackslashA2:
         fixLiterals(FALSE);
         appendOp(URX_CARET, 0);
         break;
 
-    case doBackslashB:
+    case doBackslashB2:
         {
             #if  UCONFIG_NO_BREAK_ITERATION==1
             if (fModeFlags & UREGEX_UWORD) {
@@ -1164,7 +1164,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doBackslashb:
+    case doBackslashb2:
         {
             #if  UCONFIG_NO_BREAK_ITERATION==1
             if (fModeFlags & UREGEX_UWORD) {
@@ -1177,83 +1177,83 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doBackslashD:
+    case doBackslashD2:
         fixLiterals(FALSE);
         appendOp(URX_BACKSLASH_D, 1);
         break;
 
-    case doBackslashd:
+    case doBackslashd2:
         fixLiterals(FALSE);
         appendOp(URX_BACKSLASH_D, 0);
         break;
 
-    case doBackslashG:
+    case doBackslashG2:
         fixLiterals(FALSE);
         appendOp(URX_BACKSLASH_G, 0);
         break;
 
-    case doBackslashH:
+    case doBackslashH2:
         fixLiterals(FALSE);
         appendOp(URX_BACKSLASH_H, 1);
         break;
 
-    case doBackslashh:
+    case doBackslashh2:
         fixLiterals(FALSE);
         appendOp(URX_BACKSLASH_H, 0);
         break;
 
-    case doBackslashR:
+    case doBackslashR2:
         fixLiterals(FALSE);
         appendOp(URX_BACKSLASH_R, 0);
         break;
 
-    case doBackslashS:
+    case doBackslashS2:
         fixLiterals(FALSE);
         appendOp(URX_STAT_SETREF_N, URX_ISSPACE_SET);
         break;
 
-    case doBackslashs:
+    case doBackslashs2:
         fixLiterals(FALSE);
         appendOp(URX_STATIC_SETREF, URX_ISSPACE_SET);
         break;
 
-    case doBackslashV:
+    case doBackslashV2:
         fixLiterals(FALSE);
         appendOp(URX_BACKSLASH_V, 1);
         break;
 
-    case doBackslashv:
+    case doBackslashv2:
         fixLiterals(FALSE);
         appendOp(URX_BACKSLASH_V, 0);
         break;
 
-    case doBackslashW:
+    case doBackslashW2:
         fixLiterals(FALSE);
         appendOp(URX_STAT_SETREF_N, URX_ISWORD_SET);
         break;
 
-    case doBackslashw:
+    case doBackslashw2:
         fixLiterals(FALSE);
         appendOp(URX_STATIC_SETREF, URX_ISWORD_SET);
         break;
 
-    case doBackslashX:
+    case doBackslashX2:
         fixLiterals(FALSE);
         appendOp(URX_BACKSLASH_X, 0);
         break;
 
 
-    case doBackslashZ:
+    case doBackslashZ2:
         fixLiterals(FALSE);
         appendOp(URX_DOLLAR, 0);
         break;
 
-    case doBackslashz:
+    case doBackslashz2:
         fixLiterals(FALSE);
         appendOp(URX_BACKSLASH_Z, 0);
         break;
 
-    case doEscapeError:
+    case doEscapeError2:
         error(U_REGEX_BAD_ESCAPE_SEQUENCE);
         break;
 
@@ -1262,7 +1262,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         returnVal = FALSE;
         break;
 
-    case doProperty:
+    case doProperty2:
         {
             fixLiterals(FALSE);
             UnicodeSet *theSet = scanProp();
@@ -1270,7 +1270,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doNamedChar:
+    case doNamedChar2:
         {
             UChar32 c = scanNamedChar();
             literalChar(c);
@@ -1278,7 +1278,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         break;
 
 
-    case doBackRef:
+    case doBackRef2:
         // BackReference.  Somewhat unusual in that the front-end can not completely parse
         //                 the regular expression, because the number of digits to be consumed
         //                 depends on the number of capture groups that have been defined.  So
@@ -1318,7 +1318,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doBeginNamedBackRef:
+    case doBeginNamedBackRef2:
         U_ASSERT(fCaptureName == NULL);
         fCaptureName = new UnicodeString;
         if (fCaptureName == NULL) {
@@ -1326,11 +1326,11 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
             
-    case doContinueNamedBackRef:
+    case doContinueNamedBackRef:2
         fCaptureName->append(fC.fChar);
         break;
 
-    case doCompleteNamedBackRef:
+    case doCompleteNamedBackRef2:
         {
         int32_t groupNumber = uhash_geti(fRXPat->fNamedCaptureMap, fCaptureName);
         if (groupNumber == 0) {
@@ -1353,7 +1353,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         break;
         }
        
-    case doPossessivePlus:
+    case doPossessivePlus2:
         // Possessive ++ quantifier.
         // Compiles to
         //       1.   STO_SP
@@ -1384,7 +1384,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doPossessiveStar:
+    case doPossessiveStar2:
         // Possessive *+ quantifier.
         // Compiles to
         //       1.   STO_SP       loc
@@ -1417,7 +1417,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doPossessiveOpt:
+    case doPossessiveOpt2:
         // Possessive  ?+ quantifier.
         //  Compiles to
         //     1. STO_SP      loc
@@ -1447,12 +1447,12 @@ UBool RegexCompile::doParseActions(int32_t action)
         break;
 
 
-    case doBeginMatchMode:
+    case doBeginMatchMode2:
         fNewModeFlags = fModeFlags;
         fSetModeFlag  = TRUE;
         break;
 
-    case doMatchMode:   //  (?i)    and similar
+    case doMatchMode2:   //  (?i)    and similar
         {
             int32_t  bit = 0;
             switch (fC.fChar) {
@@ -1476,7 +1476,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doSetMatchMode:
+    case doSetMatchMode2:
         // Emit code to match any pending literals, using the not-yet changed match mode.
         fixLiterals();
 
@@ -1488,7 +1488,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         break;
 
 
-    case doMatchModeParen:
+    case doMatchModeParen2:
         // We've got a (?i: or similar.  Begin a parenthesized block, save old
         //   mode flags so they can be restored at the close of the block.
         //
@@ -1516,11 +1516,11 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doBadModeFlag:
+    case doBadModeFlag2:
         error(U_REGEX_INVALID_FLAG);
         break;
 
-    case doSuppressComments:
+    case doSuppressComments2:
         // We have just scanned a '(?'.  We now need to prevent the character scanner from
         // treating a '#' as a to-the-end-of-line comment.
         //   (This Perl compatibility just gets uglier and uglier to do...)
@@ -1528,14 +1528,14 @@ UBool RegexCompile::doParseActions(int32_t action)
         break;
 
 
-    case doSetAddAmp:
+    case doSetAddAmp2:
         {
           UnicodeSet *set = (UnicodeSet *)fSetStack.peek();
           set->add(chAmp);
         }
         break;
 
-    case doSetAddDash:
+    case doSetAddDash2:
         {
           UnicodeSet *set = (UnicodeSet *)fSetStack.peek();
           set->add(chDash);
@@ -1558,7 +1558,7 @@ UBool RegexCompile::doParseActions(int32_t action)
             break;
         }
 
-    case doSetBackslash_d:
+    case doSetBackslash_d2:
         {
             UnicodeSet *set = (UnicodeSet *)fSetStack.peek();
             // TODO - make a static set, ticket 6058.
@@ -1566,7 +1566,7 @@ UBool RegexCompile::doParseActions(int32_t action)
             break;
         }
 
-    case doSetBackslash_D:
+    case doSetBackslash_D2:
         {
             UnicodeSet *set = (UnicodeSet *)fSetStack.peek();
             UnicodeSet digits;
@@ -1577,7 +1577,7 @@ UBool RegexCompile::doParseActions(int32_t action)
             break;
         }
 
-    case doSetBackslash_h:
+    case doSetBackslash_h2:
         {
             UnicodeSet *set = (UnicodeSet *)fSetStack.peek();
             UnicodeSet h;
@@ -1587,7 +1587,7 @@ UBool RegexCompile::doParseActions(int32_t action)
             break;
         }
 
-    case doSetBackslash_H:
+    case doSetBackslash_H2:
         {
             UnicodeSet *set = (UnicodeSet *)fSetStack.peek();
             UnicodeSet h;
@@ -1598,7 +1598,7 @@ UBool RegexCompile::doParseActions(int32_t action)
             break;
         }
 
-    case doSetBackslash_v:
+    case doSetBackslash_v2:
         {
             UnicodeSet *set = (UnicodeSet *)fSetStack.peek();
             set->add((UChar32)0x0a, (UChar32)0x0d);  // add range
@@ -1607,7 +1607,7 @@ UBool RegexCompile::doParseActions(int32_t action)
             break;
         }
 
-    case doSetBackslash_V:
+    case doSetBackslash_V2:
         {
             UnicodeSet *set = (UnicodeSet *)fSetStack.peek();
             UnicodeSet v;
@@ -1619,14 +1619,14 @@ UBool RegexCompile::doParseActions(int32_t action)
             break;
         }
 
-    case doSetBackslash_w:
+    case doSetBackslash_w2:
         {
             UnicodeSet *set = (UnicodeSet *)fSetStack.peek();
             set->addAll(*RegexStaticSets::gStaticSets->fPropSets[URX_ISWORD_SET]);
             break;
         }
 
-    case doSetBackslash_W:
+    case doSetBackslash_W2:
         {
             UnicodeSet *set = (UnicodeSet *)fSetStack.peek();
             UnicodeSet SSet(*RegexStaticSets::gStaticSets->fPropSets[URX_ISWORD_SET]);
@@ -1635,7 +1635,7 @@ UBool RegexCompile::doParseActions(int32_t action)
             break;
         }
 
-    case doSetBegin:
+    case doSetBegin2:
         fixLiterals(FALSE);
         fSetStack.push(new UnicodeSet(), *fStatus);
         fSetOpStack.push(setStart, *fStatus);
@@ -1644,7 +1644,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doSetBeginDifference1:
+    case doSetBeginDifference12:
         //  We have scanned something like [[abc]-[
         //  Set up a new UnicodeSet for the set beginning with the just-scanned '['
         //  Push a Difference operator, which will cause the new set to be subtracted from what
@@ -1656,7 +1656,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doSetBeginIntersection1:
+    case doSetBeginIntersection12:
         //  We have scanned something like  [[abc]&[
         //   Need both the '&' operator and the open '[' operator.
         setPushOp(setIntersection1);
@@ -1666,7 +1666,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doSetBeginUnion:
+    case doSetBeginUnion2:
         //  We have scanned something like  [[abc][
         //     Need to handle the union operation explicitly [[abc] | [
         setPushOp(setUnion);
@@ -1676,13 +1676,13 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doSetDifference2:
+    case doSetDifference22:
         // We have scanned something like [abc--
         //   Consider this to unambiguously be a set difference operator.
         setPushOp(setDifference2);
         break;
 
-    case doSetEnd:
+    case doSetEnd2:
         // Have encountered the ']' that closes a set.
         //    Force the evaluation of any pending operations within this set,
         //    leave the completed set on the top of the set stack.
@@ -1691,7 +1691,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         fSetOpStack.popi();
         break;
 
-    case doSetFinish:
+    case doSetFinish2:
         {
         // Finished a complete set expression, including all nested sets.
         //   The close bracket has already triggered clearing out pending set operators,
@@ -1704,12 +1704,12 @@ UBool RegexCompile::doParseActions(int32_t action)
         break;
         }
 
-    case doSetIntersection2:
+    case doSetIntersection22:
         // Have scanned something like [abc&&
         setPushOp(setIntersection2);
         break;
 
-    case doSetLiteral:
+    case doSetLiteral2:
         // Union the just-scanned literal character into the set being built.
         //    This operation is the highest precedence set operation, so we can always do
         //    it immediately, without waiting to see what follows.  It is necessary to perform
@@ -1723,7 +1723,7 @@ UBool RegexCompile::doParseActions(int32_t action)
             break;
         }
 
-    case doSetLiteralEscaped:
+    case doSetLiteralEscaped2:
         // A back-slash escaped literal character was encountered.
         // Processing is the same as with setLiteral, above, with the addition of
         //  the optional check for errors on escaped ASCII letters.
@@ -1753,7 +1753,7 @@ UBool RegexCompile::doParseActions(int32_t action)
             break;
         }
 
-    case doSetNamedRange:
+    case doSetNamedRange2:
         // We have scanned literal-\N{CHAR NAME}.  Add the range to the set.
         // The left character is already in the set, and is saved in fLastSetLiteral.
         // The right side needs to be picked up, the scan is at the 'N'.
@@ -1791,15 +1791,15 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doSetNoCloseError:
+    case doSetNoCloseError2:
         error(U_REGEX_MISSING_CLOSE_BRACKET);
         break;
 
-    case doSetOpError:
+    case doSetOpError2:
         error(U_REGEX_RULE_SYNTAX);   //  -- or && at the end of a set.  Illegal.
         break;
 
-    case doSetPosixProp:
+    case doSetPosixProp2:
         {
             UnicodeSet *s = scanPosixProp();
             if (s != NULL) {
@@ -1810,7 +1810,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doSetProp:
+    case doSetProp2:
         //  Scanned a \p \P within [brackets].
         {
             UnicodeSet *s = scanProp();
@@ -1823,7 +1823,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         break;
 
 
-    case doSetRange:
+    case doSetRange2:
         // We have scanned literal-literal.  Add the range to the set.
         // The left character is already in the set, and is saved in fLastSetLiteral.
         // The right side is the current character.
