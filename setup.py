@@ -297,6 +297,8 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'sortkey.cpp',
         'unistr_titlecase_brkiter.cpp',
         'ubidi_props.cpp', # modified due to duplicate symbol `_enumPropertyStartsRange3`
+        'bocsu.cpp',
+        'ubidiln.cpp',
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']
@@ -314,6 +316,11 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             # ifndef PLASTICITY_SUPERSQLITE_ICU_CPP
             # define PLASTICITY_SUPERSQLITE_ICU_CPP 1
 
+            #define UCONFIG_NO_FILE_IO 0
+            #define U_PLATFORM_USES_ONLY_WIN32_API 0
+            #define U_HAVE_MMAP 0
+            #define U_PLATFORM -1
+            #define dllqueryvar(...) 0
             #define UCONFIG_NO_REGULAR_EXPRESSIONS 0
             #define U_DISABLE_RENAMING 1
             #define U_COMMON_IMPLEMENTATION
