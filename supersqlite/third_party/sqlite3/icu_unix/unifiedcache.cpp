@@ -23,7 +23,7 @@
 static icu::UnifiedCache *gCache = NULL;
 static UMutex gCacheMutex = U_MUTEX_INITIALIZER;
 static UConditionVar gInProgressValueAddedCond = U_CONDITION_INITIALIZER;
-static icu::UInitOnce gCacheInitOnce = U_INITONCE_INITIALIZER;
+static icu::UInitOnce gCacheInitOnce2 = U_INITONCE_INITIALIZER;
 
 static const int32_t MAX_EVICT_ITERATIONS = 10;
 static const int32_t DEFAULT_MAX_UNUSED = 1000;
@@ -32,7 +32,7 @@ static const int32_t DEFAULT_PERCENTAGE_OF_IN_USE = 100;
 
 U_CDECL_BEGIN
 static UBool U_CALLCONV unifiedcache_cleanup() {
-    gCacheInitOnce.reset();
+    gCacheInitOnce2.reset();
     if (gCache) {
         delete gCache;
         gCache = NULL;
@@ -83,7 +83,7 @@ static void U_CALLCONV cacheInit(UErrorCode &status) {
 }
 
 UnifiedCache *UnifiedCache::getInstance(UErrorCode &status) {
-    umtx_initOnce(gCacheInitOnce, &cacheInit, status);
+    umtx_initOnce(gCacheInitOnce2, &cacheInit, status);
     if (U_FAILURE(status)) {
         return NULL;
     }

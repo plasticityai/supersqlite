@@ -83,7 +83,7 @@ static const int32_t locElementCount = UCOL_SIT_LOCELEMENT_MAX+1;
 static const int32_t locElementCapacity = 32;
 static const int32_t loc3066Capacity = 256;
 static const int32_t locProviderCapacity = 10;
-static const int32_t internalBufferSize = 512;
+static const int32_t internalBufferSize2 = 512;
 
 /* structure containing specification of a collator. Initialized
  * from a short string. Also used to construct a short string from a
@@ -455,9 +455,9 @@ ucol_prepareShortStringOpen( const char *definition,
     ucol_sit_readSpecs(&s, definition, parseError, status);
     ucol_sit_calculateWholeLocale(&s);
 
-    char buffer[internalBufferSize];
-    uprv_memset(buffer, 0, internalBufferSize);
-    uloc_canonicalize(s.locale, buffer, internalBufferSize, status);
+    char buffer[internalBufferSize2];
+    uprv_memset(buffer, 0, internalBufferSize2);
+    uloc_canonicalize(s.locale, buffer, internalBufferSize2, status);
 
     UResourceBundle *b = ures_open(U_ICUDATA_COLL, buffer, status);
     /* we try to find stuff from keyword */
@@ -526,9 +526,9 @@ ucol_openFromShortString( const char *definition,
     string = ucol_sit_readSpecs(&s, definition, parseError, status);
     ucol_sit_calculateWholeLocale(&s);
 
-    char buffer[internalBufferSize];
-    uprv_memset(buffer, 0, internalBufferSize);
-    uloc_canonicalize(s.locale, buffer, internalBufferSize, status);
+    char buffer[internalBufferSize2];
+    uprv_memset(buffer, 0, internalBufferSize2);
+    uloc_canonicalize(s.locale, buffer, internalBufferSize2, status);
 
     UCollator *result = ucol_open(buffer, status);
     int32_t i = 0;

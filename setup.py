@@ -261,7 +261,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'uiter.cpp',
         'ucln_in.cpp', # modified due to duplicate symbol `copyright2` and duplicate include `ucln_imp.h`
         'uniset_closure.cpp',
-        'unifiedcache.cpp',
+        'unifiedcache.cpp', # modified due to duplicate symbol `gCacheInitOnce2`
         'regexst.cpp',
         'collationweights.cpp',
         'caniter.cpp',
@@ -278,7 +278,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'uvectr64.cpp',
         'rulebasedcollator.cpp',
         'collationrootelements.cpp',
-        'ucol_sit.cpp',
+        'ucol_sit.cpp', # modified due to duplicate symbol `internalBufferSize2`
         'ulist.cpp',
         'uset.cpp',
         'regextxt.cpp',
