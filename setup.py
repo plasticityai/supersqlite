@@ -240,7 +240,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'uscript_props.cpp',
         'utrie.cpp', # modified due to duplicate symbol `equal_uint322` and `enumSameValue2`
         'ucmndata.cpp',
-        'udata.cpp',
+        'udata.cpp', # modified due to to comment out `extern "C" const DataHeader U_DATA_API U_ICUDATA_ENTRY_POINT;` due to stubdata.cpp being added
         'uarrsort.cpp',
         'umapfile.cpp',
         'ucln_cmn.cpp', # modified due to duplicate include `ucln_imp.h`
