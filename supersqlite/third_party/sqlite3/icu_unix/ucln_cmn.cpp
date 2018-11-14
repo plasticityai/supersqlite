@@ -26,7 +26,10 @@
 
 /**  Auto-client for UCLN_COMMON **/
 #define UCLN_TYPE_IS_COMMON
-#include "ucln_imp.h"
+# ifndef PLASTICITY_SUPERSQLITE_ICU_UCLN_IMP_H_SHIM
+    # define PLASTICITY_SUPERSQLITE_ICU_UCLN_IMP_H_SHIM 1
+    #include "ucln_imp.h"
+#endif
 
 static cleanupFunc *gCommonCleanupFunctions[UCLN_COMMON_COUNT];
 static cleanupFunc *gLibCleanupFunctions[UCLN_COMMON];

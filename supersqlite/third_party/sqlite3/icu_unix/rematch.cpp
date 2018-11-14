@@ -264,7 +264,7 @@ void RegexMatcher::init2(UText *input, UErrorCode &status) {
 }
 
 
-static const UChar BACKSLASH  = 0x5c;
+static const UChar BACKSLASH4  = 0x5c;
 static const UChar DOLLARSIGN = 0x24;
 static const UChar LEFTBRACKET = 0x7b;
 static const UChar RIGHTBRACKET = 0x7d;

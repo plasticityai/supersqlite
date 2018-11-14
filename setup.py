@@ -243,13 +243,14 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'udata.cpp',
         'uarrsort.cpp',
         'umapfile.cpp',
-        'ucln_cmn.cpp',
+        'ucln_cmn.cpp', # modified due to duplicate include `ucln_imp.h`
         'uregex.cpp', # modified due to duplicate symbol `BACKSLASH3`
         'ucol.cpp',
         'coll.cpp', # modified due to duplicate symbol `gService2`, `getService2`, `initService2`, `hasService2`, `availableLocaleList2`
         'collation.cpp',
         'ucoleitr.cpp',
-        'rematch.cpp',
+        'rematch.cpp', # modified due to duplicate symbol `BACKSLASH4`
+        'regexcmp.cpp',
         'repattrn.cpp',
         'collationroot.cpp',
         'ucol_res.cpp',
@@ -258,7 +259,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'sharedobject.cpp',
         'collationdata.cpp',
         'uiter.cpp',
-        'ucln_in.cpp',
+        'ucln_in.cpp', # modified due to duplicate symbol `copyright2` and duplicate include `ucln_imp.h`
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']

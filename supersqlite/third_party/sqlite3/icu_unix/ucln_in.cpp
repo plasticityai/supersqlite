@@ -23,17 +23,20 @@
 
 /**  Auto-client for UCLN_I18N **/
 #define UCLN_TYPE UCLN_I18N
-#include "ucln_imp.h"
+# ifndef PLASTICITY_SUPERSQLITE_ICU_UCLN_IMP_H_SHIM
+    # define PLASTICITY_SUPERSQLITE_ICU_UCLN_IMP_H_SHIM 1
+    #include "ucln_imp.h"
+#endif
 
 /* Leave this copyright notice here! It needs to go somewhere in this library. */
-static const char copyright[] = U_COPYRIGHT_STRING;
+static const char copyright2[] = U_COPYRIGHT_STRING;
 
 static cleanupFunc *gCleanupFunctions[UCLN_I18N_COUNT];
 
 static UBool U_CALLCONV i18n_cleanup(void)
 {
     int32_t libType = UCLN_I18N_START;
-    (void)copyright;   /* Suppress unused variable warning with clang. */
+    (void)copyright2;   /* Suppress unused variable warning with clang. */
 
     while (++libType<UCLN_I18N_COUNT) {
         if (gCleanupFunctions[libType])
