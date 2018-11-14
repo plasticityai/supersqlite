@@ -296,6 +296,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'utrace.cpp',
         'sortkey.cpp',
         'unistr_titlecase_brkiter.cpp',
+        'ubidi_props.cpp',
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']
