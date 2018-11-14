@@ -36,7 +36,7 @@ U_NAMESPACE_BEGIN
 /* prototypes ------------------------------------------------------------- */
 
 static const char DATA_NAME[] = "unames";
-static const char DATA_TYPE[] = "icu";
+static const char DATA_TYPE2[] = "icu";
 
 #define GROUP_SHIFT 5
 #define LINES_PER_GROUP (1L<<GROUP_SHIFT)
@@ -196,7 +196,7 @@ loadCharNames(UErrorCode &status) {
     U_ASSERT(uCharNamesData == NULL);
     U_ASSERT(uCharNames == NULL);
 
-    uCharNamesData = udata_openChoice(NULL, DATA_TYPE, DATA_NAME, isAcceptable, NULL, &status);
+    uCharNamesData = udata_openChoice(NULL, DATA_TYPE2, DATA_NAME, isAcceptable, NULL, &status);
     if(U_FAILURE(status)) {
         uCharNamesData = NULL;
     } else {

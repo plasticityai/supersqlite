@@ -699,7 +699,7 @@ utrie2_set32ForLeadSurrogateCodeUnit(UTrie2 *trie,
 }
 
 static void
-writeBlock(uint32_t *block, uint32_t value) {
+writeBlock2(uint32_t *block, uint32_t value) {
     uint32_t *limit=block+UTRIE2_DATA_BLOCK_LENGTH;
     while(block<limit) {
         *block++=value;
@@ -861,7 +861,7 @@ utrie2_setRange32(UTrie2 *trie,
                     *pErrorCode=U_MEMORY_ALLOCATION_ERROR;
                     return;
                 }
-                writeBlock(newTrie->data+repeatBlock, value);
+                writeBlock2(newTrie->data+repeatBlock, value);
             }
         }
 

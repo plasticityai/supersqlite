@@ -222,22 +222,20 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'loadednormalizer2impl.cpp',
         'characterproperties.cpp',
         'locresdata.cpp',
-        'normalizer2impl.cpp',
+        'normalizer2impl.cpp', # modified due to duplicate include `bytesinkutil.h`
         'normalizer2.cpp',
         'rbbisetb.cpp',
         'rbbistbl.cpp',
         'unistr_case.cpp',
-        'ubidi_props.cpp',
-        'unames.cpp',
+        'unames.cpp', # modified due to duplicate symbol `DATA_TYPE2`
         'propname.cpp',
         'ustrcase.cpp',
         'ustrcase_locale.cpp',
-        'ubidi_props.cpp',
         'ubidi.cpp',
         'ucptrie.cpp',
-        'umutablecptrie.cpp',
+        'umutablecptrie.cpp', # modified due to duplicate symbol `getRange2`
         'cmemory.cpp',
-        'utrie2_builder.cpp',
+        'utrie2_builder.cpp', # modified due to duplicate symbol `writeBlock2`
         'uscript.cpp',
         'uscript_props.cpp',
         ]

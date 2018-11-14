@@ -32,7 +32,10 @@
 #include "unicode/ustring.h"
 #include "unicode/utf16.h"
 #include "unicode/utf8.h"
-#include "bytesinkutil.h"
+# ifndef PLASTICITY_SUPERSQLITE_ICU_BYTESINKUTIL_H_SHIM
+    # define PLASTICITY_SUPERSQLITE_ICU_BYTESINKUTIL_H_SHIM 1
+    #include "bytesinkutil.h"
+# endif
 #include "cmemory.h"
 #include "mutex.h"
 #include "normalizer2impl.h"
