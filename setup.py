@@ -191,7 +191,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'stringpiece.cpp',
         'locutil.cpp',
         'unifilt.cpp',
-        'util.cpp',
+        'util.cpp', # modified due to duplicate symbol `BACKSLASH2`, `UPPER_U2`, and `LOWER_U2`
         'bmpset.cpp',
         'unifunct.cpp',
         'unisetspan.cpp',
@@ -238,15 +238,15 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'utrie2_builder.cpp', # modified due to duplicate symbol `writeBlock2`
         'uscript.cpp',
         'uscript_props.cpp',
-        'utrie.cpp',
+        'utrie.cpp', # modified due to duplicate symbol `equal_uint322` and `enumSameValue2`
         'ucmndata.cpp',
         'udata.cpp',
         'uarrsort.cpp',
         'umapfile.cpp',
         'ucln_cmn.cpp',
-        'uregex.cpp',
+        'uregex.cpp', # modified due to duplicate symbol `BACKSLASH3`
         'ucol.cpp',
-        'coll.cpp',
+        'coll.cpp', # modified due to duplicate symbol `gService2`, `getService2`, `initService2`, `hasService2`, `availableLocaleList2`
         'collation.cpp',
         'ucoleitr.cpp',
         ]

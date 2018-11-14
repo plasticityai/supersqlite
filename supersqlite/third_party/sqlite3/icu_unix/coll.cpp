@@ -61,10 +61,10 @@
 #include "uresimp.h"
 #include "ucln_in.h"
 
-static icu::Locale* availableLocaleList = NULL;
-static int32_t  availableLocaleListCount;
+static icu::Locale* availableLocaleList2 = NULL;
+static int32_t  availableLocaleList2Count;
 #if !UCONFIG_NO_SERVICE
-static icu::ICULocaleService* gService = NULL;
+static icu::ICULocaleService* gService2 = NULL;
 static icu::UInitOnce gServiceInitOnce = U_INITONCE_INITIALIZER;
 #endif
 static icu::UInitOnce gAvailableLocaleListInitOnce;
@@ -75,17 +75,17 @@ static icu::UInitOnce gAvailableLocaleListInitOnce;
 U_CDECL_BEGIN
 static UBool U_CALLCONV collator_cleanup(void) {
 #if !UCONFIG_NO_SERVICE
-    if (gService) {
-        delete gService;
-        gService = NULL;
+    if (gService2) {
+        delete gService2;
+        gService2 = NULL;
     }
     gServiceInitOnce.reset();
 #endif
-    if (availableLocaleList) {
-        delete []availableLocaleList;
-        availableLocaleList = NULL;
+    if (availableLocaleList2) {
+        delete []availableLocaleList2;
+        availableLocaleList2 = NULL;
     }
-    availableLocaleListCount = 0;
+    availableLocaleList2Count = 0;
     gAvailableLocaleListInitOnce.reset();
     return TRUE;
 }
@@ -196,25 +196,25 @@ ICUCollatorService::~ICUCollatorService() {}
 
 // -------------------------------------
 
-static void U_CALLCONV initService() {
-    gService = new ICUCollatorService();
+static void U_CALLCONV initService2() {
+    gService2 = new ICUCollatorService();
     ucln_i18n_registerCleanup(UCLN_I18N_COLLATOR, collator_cleanup);
 }
 
 
 static ICULocaleService* 
-getService(void)
+getService2(void)
 {
-    umtx_initOnce(gServiceInitOnce, &initService);
-    return gService;
+    umtx_initOnce(gServiceInitOnce, &initService2);
+    return gService2;
 }
 
 // -------------------------------------
 
 static inline UBool
-hasService(void) 
+hasService2(void) 
 {
-    UBool retVal = !gServiceInitOnce.isReset() && (getService() != NULL);
+    UBool retVal = !gService2InitOnce.isReset() && (getService2() != NULL);
     return retVal;
 }
 
@@ -222,8 +222,8 @@ hasService(void)
 
 static void U_CALLCONV 
 initAvailableLocaleList(UErrorCode &status) {
-    U_ASSERT(availableLocaleListCount == 0);
-    U_ASSERT(availableLocaleList == NULL);
+    U_ASSERT(availableLocaleList2Count == 0);
+    U_ASSERT(availableLocaleList2 == NULL);
     // for now, there is a hardcoded list, so just walk through that list and set it up.
     UResourceBundle *index = NULL;
     UResourceBundle installed;
@@ -234,18 +234,18 @@ initAvailableLocaleList(UErrorCode &status) {
     ures_getByKey(index, "InstalledLocales", &installed, &status);
     
     if(U_SUCCESS(status)) {
-        availableLocaleListCount = ures_getSize(&installed);
-        availableLocaleList = new Locale[availableLocaleListCount];
+        availableLocaleList2Count = ures_getSize(&installed);
+        availableLocaleList2 = new Locale[availableLocaleList2Count];
         
-        if (availableLocaleList != NULL) {
+        if (availableLocaleList2 != NULL) {
             ures_resetIterator(&installed);
             while(ures_hasNext(&installed)) {
                 const char *tempKey = NULL;
                 ures_getNextString(&installed, NULL, &tempKey, &status);
-                availableLocaleList[i++] = Locale(tempKey);
+                availableLocaleList2[i++] = Locale(tempKey);
             }
         }
-        U_ASSERT(availableLocaleListCount == i);
+        U_ASSERT(availableLocaleList2Count == i);
         ures_close(&installed);
     }
     ures_close(index);
@@ -441,9 +441,9 @@ Collator* U_EXPORT2 Collator::createInstance(const Locale& desiredLocale,
 
     Collator* coll;
 #if !UCONFIG_NO_SERVICE
-    if (hasService()) {
+    if (hasService2()) {
         Locale actualLoc;
-        coll = (Collator*)gService->get(desiredLocale, &actualLoc, status);
+        coll = (Collator*)gService2->get(desiredLocale, &actualLoc, status);
     } else
 #endif
     {
@@ -567,8 +567,8 @@ const Locale* U_EXPORT2 Collator::getAvailableLocales(int32_t& count)
     count = 0;
     if (isAvailableLocaleListInitialized(status))
     {
-        result = availableLocaleList;
-        count = availableLocaleListCount;
+        result = availableLocaleList2;
+        count = availableLocaleList2Count;
     }
     return result;
 }
@@ -578,10 +578,10 @@ UnicodeString& U_EXPORT2 Collator::getDisplayName(const Locale& objectLocale,
                                         UnicodeString& name)
 {
 #if !UCONFIG_NO_SERVICE
-    if (hasService()) {
+    if (hasService2()) {
         UnicodeString locNameStr;
         LocaleUtility::initNameFromLocale(objectLocale, locNameStr);
-        return gService->getDisplayName(locNameStr, name, displayLocale);
+        return gService2->getDisplayName(locNameStr, name, displayLocale);
     }
 #endif
     return objectLocale.getDisplayName(displayLocale, name);
@@ -684,7 +684,7 @@ Collator::registerInstance(Collator* toAdopt, const Locale& locale, UErrorCode& 
         // need not guess whether the collator's locales are already set properly
         // (as they are by the data loader).
         toAdopt->setLocales(locale, locale, locale);
-        return getService()->registerInstance(toAdopt, locale, status);
+        return getService2()->registerInstance(toAdopt, locale, status);
     }
     return NULL;
 }
@@ -778,7 +778,7 @@ Collator::registerFactory(CollatorFactory* toAdopt, UErrorCode& status)
     if (U_SUCCESS(status)) {
         CFactory* f = new CFactory(toAdopt, status);
         if (f) {
-            return getService()->registerFactory(f, status);
+            return getService2()->registerFactory(f, status);
         }
         status = U_MEMORY_ALLOCATION_ERROR;
     }
@@ -791,8 +791,8 @@ UBool U_EXPORT2
 Collator::unregister(URegistryKey key, UErrorCode& status) 
 {
     if (U_SUCCESS(status)) {
-        if (hasService()) {
-            return gService->unregister(key, status);
+        if (hasService2()) {
+            return gService2->unregister(key, status);
         }
         status = U_ILLEGAL_ARGUMENT_ERROR;
     }
@@ -826,13 +826,13 @@ public:
     }
 
     virtual int32_t count(UErrorCode &/*status*/) const {
-        return availableLocaleListCount;
+        return availableLocaleList2Count;
     }
 
     virtual const char* next(int32_t* resultLength, UErrorCode& /*status*/) {
         const char* result;
-        if(index < availableLocaleListCount) {
-            result = availableLocaleList[index++].getName();
+        if(index < availableLocaleList2Count) {
+            result = availableLocaleList2[index++].getName();
             if(resultLength != NULL) {
                 *resultLength = (int32_t)uprv_strlen(result);
             }
@@ -867,8 +867,8 @@ StringEnumeration* U_EXPORT2
 Collator::getAvailableLocales(void)
 {
 #if !UCONFIG_NO_SERVICE
-    if (hasService()) {
-        return getService()->getAvailableLocales();
+    if (hasService2()) {
+        return getService2()->getAvailableLocales();
     }
 #endif /* UCONFIG_NO_SERVICE */
     UErrorCode status = U_ZERO_ERROR;

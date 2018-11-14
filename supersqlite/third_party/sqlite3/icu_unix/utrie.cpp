@@ -34,7 +34,7 @@
 #define ABS(x) ((x)>=0 ? (x) : -(x))
 
 static inline UBool
-equal_uint32(const uint32_t *s, const uint32_t *t, int32_t length) {
+equal_uint322(const uint32_t *s, const uint32_t *t, int32_t length) {
     while(length>0 && *s==*t) {
         ++s;
         ++t;
@@ -567,7 +567,7 @@ _findSameDataBlock(const uint32_t *data, int32_t dataLength,
     dataLength-=UTRIE_DATA_BLOCK_LENGTH;
 
     for(block=0; block<=dataLength; block+=step) {
-        if(equal_uint32(data+block, data+otherBlock, UTRIE_DATA_BLOCK_LENGTH)) {
+        if(equal_uint322(data+block, data+otherBlock, UTRIE_DATA_BLOCK_LENGTH)) {
             return block;
         }
     }
@@ -652,7 +652,7 @@ utrie_compact(UNewTrie *trie, UBool overlap, UErrorCode *pErrorCode) {
         if(overlap && start>=overlapStart) {
             /* look for maximum overlap (modulo granularity) with the previous, adjacent block */
             for(i=UTRIE_DATA_BLOCK_LENGTH-UTRIE_DATA_GRANULARITY;
-                i>0 && !equal_uint32(trie->data+(newStart-i), trie->data+start, i);
+                i>0 && !equal_uint322(trie->data+(newStart-i), trie->data+start, i);
                 i-=UTRIE_DATA_GRANULARITY) {}
         } else {
             i=0;
@@ -1047,7 +1047,7 @@ utrie_unserializeDummy(UTrie *trie,
 
 /* default UTrieEnumValue() returns the input value itself */
 static uint32_t U_CALLCONV
-enumSameValue(const void * /*context*/, uint32_t value) {
+enumSameValue2(const void * /*context*/, uint32_t value) {
     return value;
 }
 
@@ -1070,7 +1070,7 @@ utrie_enum(const UTrie *trie,
         return;
     }
     if(enumValue==NULL) {
-        enumValue=enumSameValue;
+        enumValue=enumSameValue2;
     }
 
     idx=trie->index;

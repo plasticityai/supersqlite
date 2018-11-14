@@ -1315,7 +1315,7 @@ U_NAMESPACE_END
 
 
 
-static const UChar BACKSLASH  = 0x5c;
+static const UChar BACKSLASH3  = 0x5c;
 static const UChar DOLLARSIGN = 0x24;
 static const UChar LEFTBRACKET = 0x7b;
 static const UChar RIGHTBRACKET = 0x7d;
@@ -1414,14 +1414,14 @@ int32_t RegexCImpl::appendReplacement(RegularExpression    *regexp,
     while (replIdx < replacementLength && U_SUCCESS(*status)) {
         UChar  c = replacementText[replIdx];
         replIdx++;
-        if (c != DOLLARSIGN && c != BACKSLASH) {
+        if (c != DOLLARSIGN && c != BACKSLASH3) {
             // Common case, no substitution, no escaping,
             //  just copy the char to the dest buf.
             appendToBuf(c, &destIdx, dest, capacity);
             continue;
         }
 
-        if (c == BACKSLASH) {
+        if (c == BACKSLASH3) {
             // Backslash Escape.  Copy the following char out without further checks.
             //                    Note:  Surrogate pairs don't need any special handling
             //                           The second half wont be a '$' or a '\', and
