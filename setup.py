@@ -299,6 +299,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'ubidi_props.cpp', # modified due to duplicate symbol `_enumPropertyStartsRange3`
         'bocsu.cpp',
         'ubidiln.cpp',
+        'stubdata.cpp',
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']
@@ -348,7 +349,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             INITIALIZER( initialize)
             {
                 printf( "initialize\n");
-                _supersqlite_load_icu_data(void);
+                _supersqlite_load_icu_data();
             }
 
             # endif
