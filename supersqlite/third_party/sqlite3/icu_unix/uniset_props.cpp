@@ -170,7 +170,7 @@ isPOSIXClose(const UnicodeString &pattern, int32_t pos) {
 // TODO memory debugging provided inside uniset.cpp
 // could be made available here but probably obsolete with use of modern
 // memory leak checker tools
-#define _dbgct(me)
+#define _dbgct2(me)
 
 }  // namespace
 
@@ -200,7 +200,7 @@ UnicodeSet::UnicodeSet(const UnicodeString& pattern,
             applyPattern(pattern, status);
         }
     }
-    _dbgct(this);
+    _dbgct2(this);
 }
 
 //----------------------------------------------------------------

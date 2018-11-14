@@ -195,7 +195,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'bmpset.cpp',
         'unifunct.cpp',
         'unisetspan.cpp',
-        'uniset_props.cpp',
+        'uniset_props.cpp', # modified due to duplicate include `_dbgct2`
         'patternprops.cpp',
         'bytesinkutil.cpp', # modified due to duplicate include `bytesinkutil.h`
         'dictbe.cpp',
@@ -233,7 +233,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'ustrcase_locale.cpp',
         'ubidi.cpp',
         'ucptrie.cpp',
-        'umutablecptrie.cpp', # modified due to duplicate symbol `getRange2`
+        'umutablecptrie.cpp', # modified due to duplicate symbol `getRange2` and `OVERFLOW2`
         'cmemory.cpp',
         'utrie2_builder.cpp', # modified due to duplicate symbol `writeBlock2`
         'uscript.cpp',

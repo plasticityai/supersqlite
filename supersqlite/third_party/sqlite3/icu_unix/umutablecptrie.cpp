@@ -738,7 +738,7 @@ UChar32 MutableCodePointTrie::findHighStart() const {
 class AllSameBlocks {
 public:
     static constexpr int32_t NEW_UNIQUE = -1;
-    static constexpr int32_t OVERFLOW = -2;
+    static constexpr int32_t OVERFLOW2 = -2;
 
     AllSameBlocks() : length(0), mostRecent(-1) {}
 
@@ -755,7 +755,7 @@ public:
             }
         }
         if (length == CAPACITY) {
-            return OVERFLOW;
+            return OVERFLOW2;
         }
         mostRecent = length;
         indexes[length] = index;
@@ -866,7 +866,7 @@ int32_t MutableCodePointTrie::compactWholeDataBlocks(int32_t fastILimit, AllSame
         }
         // Is there another ALL_SAME block with the same value?
         int32_t other = allSameBlocks.findOrAdd(i, inc, value);
-        if (other == AllSameBlocks::OVERFLOW) {
+        if (other == AllSameBlocks::OVERFLOW2) {
             // The fixed-size array overflowed. Slow check for a duplicate block.
 #ifdef UCPTRIE_DEBUG
             if (!overflow) {
@@ -1627,7 +1627,7 @@ umutablecptrie_get(const UMutableCPTrie *trie, UChar32 c) {
 
 namespace {
 
-UChar32 getRange(const void *trie, UChar32 start,
+UChar32 getRange2(const void *trie, UChar32 start,
                  UCPMapValueFilter *filter, const void *context, uint32_t *pValue) {
     return reinterpret_cast<const MutableCodePointTrie *>(trie)->
         getRange(start, filter, context, pValue);
@@ -1639,7 +1639,7 @@ U_CAPI UChar32 U_EXPORT2
 umutablecptrie_getRange(const UMutableCPTrie *trie, UChar32 start,
                         UCPMapRangeOption option, uint32_t surrogateValue,
                         UCPMapValueFilter *filter, const void *context, uint32_t *pValue) {
-    return ucptrie_internalGetRange(getRange, trie, start,
+    return ucptrie_internalGetRange(getRange2, trie, start,
                                     option, surrogateValue,
                                     filter, context, pValue);
 }
