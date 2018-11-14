@@ -180,7 +180,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'utrie_swap.cpp',
         'schriter.cpp',
         'uchriter.cpp',
-        'locid.cpp',
+        'locid.cpp', # modified due to duplicate include `bytesinkutil.h`
         'locbased.cpp',
         'chariter.cpp',
         'uvectr32.cpp',
@@ -197,7 +197,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'unisetspan.cpp',
         'uniset_props.cpp',
         'patternprops.cpp',
-        'bytesinkutil.cpp',
+        'bytesinkutil.cpp', # modified due to duplicate include `bytesinkutil.h`
         'dictbe.cpp',
         'rbbirb.cpp',
         ]

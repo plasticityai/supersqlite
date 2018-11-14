@@ -10,7 +10,10 @@
 #include "unicode/stringoptions.h"
 #include "unicode/utf8.h"
 #include "unicode/utf16.h"
-#include "bytesinkutil.h"
+# ifndef PLASTICITY_SUPERSQLITE_ICU_BYTESINKUTIL_H_SHIM
+    # define PLASTICITY_SUPERSQLITE_ICU_BYTESINKUTIL_H_SHIM 1
+    #include "bytesinkutil.h"
+# endif
 #include "charstr.h"
 #include "cmemory.h"
 #include "uassert.h"

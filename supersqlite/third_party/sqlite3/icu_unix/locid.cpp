@@ -50,7 +50,10 @@
 #include "ucln_cmn.h"
 #include "ustr_imp.h"
 #include "charstr.h"
-#include "bytesinkutil.h"
+# ifndef PLASTICITY_SUPERSQLITE_ICU_BYTESINKUTIL_H_SHIM
+    # define PLASTICITY_SUPERSQLITE_ICU_BYTESINKUTIL_H_SHIM 1
+    #include "bytesinkutil.h"
+# endif
 
 U_CDECL_BEGIN
 static UBool U_CALLCONV locale_cleanup(void);
