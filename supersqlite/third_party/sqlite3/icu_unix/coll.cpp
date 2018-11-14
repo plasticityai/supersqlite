@@ -214,7 +214,7 @@ getService2(void)
 static inline UBool
 hasService2(void) 
 {
-    UBool retVal = !gService2InitOnce.isReset() && (getService2() != NULL);
+    UBool retVal = !gServiceInitOnce.isReset() && (getService2() != NULL);
     return retVal;
 }
 
