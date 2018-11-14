@@ -189,7 +189,7 @@ void    RegexCompile::compile(
         //    character.  The last row for each state always matches all characters, so
         //    the search will stop there, if not before.
         //
-        tableEl = &gRuleParseStateTable[state];
+        tableEl = &gRuleParseStateTable2[state];
         REGEX_SCAN_DEBUG_PRINTF(("char, line, col = (\'%c\', %d, %d)    state=%s ",
             fC.fChar, fLineNum, fCharNum, RegexStateNames[state]));
 
@@ -745,12 +745,12 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case doNOP:
+    case doNOP2:
         break;
 
 
     case doBadOpenParenType:
-    case doRuleError:
+    case doRuleError2:
         error(U_REGEX_RULE_SYNTAX);
         break;
 
@@ -1102,7 +1102,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         break;
 
 
-    case doDotAny:
+    case doDotAny2:
         // scanned a ".",  match any single character.
         {
             fixLiterals(FALSE);
@@ -1257,7 +1257,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         error(U_REGEX_BAD_ESCAPE_SEQUENCE);
         break;
 
-    case doExit:
+    case doExit2:
         fixLiterals(FALSE);
         returnVal = FALSE;
         break;
@@ -3927,9 +3927,9 @@ void RegexCompile::error(UErrorCode e) {
 //     Numeric because there is no portable way to enter them as literals.
 //     (Think EBCDIC).
 //
-static const UChar      chCR        = 0x0d;      // New lines, for terminating comments.
-static const UChar      chLF        = 0x0a;      // Line Feed
-static const UChar      chPound     = 0x23;      // '#', introduces a comment.
+static const UChar      chCR2        = 0x0d;      // New lines, for terminating comments.
+static const UChar      chLF2        = 0x0a;      // Line Feed
+static const UChar      chPound2     = 0x23;      // '#', introduces a comment.
 static const UChar      chDigit0    = 0x30;      // '0'
 static const UChar      chDigit7    = 0x37;      // '9'
 static const UChar      chColon     = 0x3A;      // ':'
@@ -3937,15 +3937,15 @@ static const UChar      chE         = 0x45;      // 'E'
 static const UChar      chQ         = 0x51;      // 'Q'
 //static const UChar      chN         = 0x4E;      // 'N'
 static const UChar      chP         = 0x50;      // 'P'
-static const UChar      chBackSlash = 0x5c;      // '\'  introduces a char escape
+static const UChar      chBackSlash2 = 0x5c;      // '\'  introduces a char escape
 //static const UChar      chLBracket  = 0x5b;      // '['
 static const UChar      chRBracket  = 0x5d;      // ']'
 static const UChar      chUp        = 0x5e;      // '^'
 static const UChar      chLowerP    = 0x70;
 static const UChar      chLBrace    = 0x7b;      // '{'
 static const UChar      chRBrace    = 0x7d;      // '}'
-static const UChar      chNEL       = 0x85;      //    NEL newline variant
-static const UChar      chLS        = 0x2028;    //    Unicode Line Separator
+static const UChar      chNEL2       = 0x85;      //    NEL newline variant
+static const UChar      chLS2        = 0x2028;    //    Unicode Line Separator
 
 
 //------------------------------------------------------------------------------
@@ -3970,10 +3970,10 @@ UChar32  RegexCompile::nextCharLL() {
         return ch;
     }
 
-    if (ch == chCR ||
-        ch == chNEL ||
-        ch == chLS   ||
-        (ch == chLF && fLastChar != chCR)) {
+    if (ch == chCR2 ||
+        ch == chNEL2 ||
+        ch == chLS2   ||
+        (ch == chLF2 && fLastChar != chCR2)) {
         // Character is starting a new line.  Bump up the line number, and
         //  reset the column to 0.
         fLineNum++;
@@ -3982,7 +3982,7 @@ UChar32  RegexCompile::nextCharLL() {
     else {
         // Character is not starting a new line.  Except in the case of a
         //   LF following a CR, increment the column position.
-        if (ch != chLF) {
+        if (ch != chLF2) {
             fCharNum++;
         }
     }
@@ -4019,7 +4019,7 @@ void RegexCompile::nextChar(RegexPatternChar &c) {
 
     if (fQuoteMode) {
         c.fQuoted = TRUE;
-        if ((c.fChar==chBackSlash && peekCharLL()==chE && ((fModeFlags & UREGEX_LITERAL) == 0)) ||
+        if ((c.fChar==chBackSlash2 && peekCharLL()==chE && ((fModeFlags & UREGEX_LITERAL) == 0)) ||
             c.fChar == (UChar32)-1) {
             fQuoteMode = FALSE;  //  Exit quote mode,
             nextCharLL();        // discard the E
@@ -4046,15 +4046,15 @@ void RegexCompile::nextChar(RegexPatternChar &c) {
                 if (c.fChar == (UChar32)-1) {
                     break;     // End of Input
                 }
-                if  (c.fChar == chPound && fEOLComments == TRUE) {
+                if  (c.fChar == chPound2 && fEOLComments == TRUE) {
                     // Start of a comment.  Consume the rest of it, until EOF or a new line
                     for (;;) {
                         c.fChar = nextCharLL();
                         if (c.fChar == (UChar32)-1 ||  // EOF
-                            c.fChar == chCR        ||
-                            c.fChar == chLF        ||
-                            c.fChar == chNEL       ||
-                            c.fChar == chLS)       {
+                            c.fChar == chCR2        ||
+                            c.fChar == chLF2        ||
+                            c.fChar == chNEL2       ||
+                            c.fChar == chLS2)       {
                             break;
                         }
                     }
@@ -4070,7 +4070,7 @@ void RegexCompile::nextChar(RegexPatternChar &c) {
         //
         //  check for backslash escaped characters.
         //
-        if (c.fChar == chBackSlash) {
+        if (c.fChar == chBackSlash2) {
             int64_t pos = UTEXT_GETNATIVEINDEX(fRXPat->fPattern);
             if (RegexStaticSets::gStaticSets->fUnescapeCharSet.contains(peekCharLL())) {
                 //

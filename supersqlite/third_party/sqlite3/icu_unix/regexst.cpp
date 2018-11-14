@@ -209,11 +209,11 @@ fEmptyText(NULL)
     }
 
     // Sets used while parsing rules, but not referenced from the parse state table
-    fRuleSets[kRuleSet_rule_char-128]   = UnicodeSet(UnicodeString(TRUE, gRuleSet_rule_char_pattern, -1),   *status);
-    fRuleSets[kRuleSet_digit_char-128].add((UChar)0x30, (UChar)0x39);    // [0-9]
+    fRuleSets[kRuleSet_rule_char2-128]   = UnicodeSet(UnicodeString(TRUE, gRuleSet_rule_char_pattern, -1),   *status);
+    fRuleSets[kRuleSet_digit_char2-128].add((UChar)0x30, (UChar)0x39);    // [0-9]
     fRuleSets[kRuleSet_ascii_letter-128].add((UChar)0x41, (UChar)0x5A);  // [A-Z]
     fRuleSets[kRuleSet_ascii_letter-128].add((UChar)0x61, (UChar)0x7A);  // [a-z]
-    fRuleDigitsAlias = &fRuleSets[kRuleSet_digit_char-128];
+    fRuleDigitsAlias = &fRuleSets[kRuleSet_digit_char2-128];
     for (i=0; i<UPRV_LENGTHOF(fRuleSets); i++) {
         fRuleSets[i].compact();
     }

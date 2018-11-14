@@ -21,8 +21,8 @@ U_NAMESPACE_BEGIN
 // Character classes for regex pattern scanning.
 //
     static const uint8_t kRuleSet_ascii_letter = 128;
-    static const uint8_t kRuleSet_digit_char = 129;
-    static const uint8_t kRuleSet_rule_char = 130;
+    static const uint8_t kRuleSet_digit_char2 = 129;
+    static const uint8_t kRuleSet_rule_char2 = 130;
 
 
 enum Regex_PatternParseAction {
@@ -40,7 +40,7 @@ enum Regex_PatternParseAction {
     doIntervalError,
     doSetLiteralEscaped,
     doSetBackslash_s,
-    doNOP,
+    doNOP2,
     doBackslashv,
     doOpenLookBehind,
     doPatStart,
@@ -71,8 +71,8 @@ enum Regex_PatternParseAction {
     doBackslashB,
     doBackslashw,
     doBackslashR,
-    doRuleError,
-    doDotAny,
+    doRuleError2,
+    doDotAny2,
     doMatchMode,
     doSetBackslash_W,
     doNGPlus,
@@ -101,7 +101,7 @@ enum Regex_PatternParseAction {
     doSetRange,
     doDollar,
     doBackslashH,
-    doExit,
+    doExit2,
     doNGOpt,
     doOpenNonCaptureParen,
     doBackslashA,
@@ -131,7 +131,7 @@ enum Regex_PatternParseAction {
     doProperty,
     doContinueNamedBackRef,
     doIntervalInit,
-    rbbiLastAction};
+    rbbiLastAction2};
 
 //-------------------------------------------------------------------------------
 //
@@ -148,21 +148,21 @@ struct RegexTableEl {
     UBool                         fNextChar;
 };
 
-static const struct RegexTableEl gRuleParseStateTable[] = {
+static const struct RegexTableEl gRuleParseStateTable2[] = {
     {doNOP, 0, 0, 0, TRUE}
     , {doPatStart, 255, 2,0,  FALSE}     //  1      start
     , {doLiteralChar, 254, 14,0,  TRUE}     //  2      term
     , {doLiteralChar, 130, 14,0,  TRUE}     //  3 
     , {doSetBegin, 91 /* [ */, 123, 205, TRUE}     //  4 
     , {doNOP, 40 /* ( */, 27,0,  TRUE}     //  5 
-    , {doDotAny, 46 /* . */, 14,0,  TRUE}     //  6 
+    , {doDotAny2, 46 /* . */, 14,0,  TRUE}     //  6 
     , {doCaret, 94 /* ^ */, 14,0,  TRUE}     //  7 
     , {doDollar, 36 /* $ */, 14,0,  TRUE}     //  8 
     , {doNOP, 92 /* \ */, 89,0,  TRUE}     //  9 
     , {doOrOperator, 124 /* | */, 2,0,  TRUE}     //  10 
     , {doCloseParen, 41 /* ) */, 255,0,  TRUE}     //  11 
     , {doPatFinish, 253, 2,0,  FALSE}     //  12 
-    , {doRuleError, 255, 206,0,  FALSE}     //  13 
+    , {doRuleError2, 255, 206,0,  FALSE}     //  13 
     , {doNOP, 42 /* * */, 68,0,  TRUE}     //  14      expr-quant
     , {doNOP, 43 /* + */, 71,0,  TRUE}     //  15 
     , {doNOP, 63 /* ? */, 74,0,  TRUE}     //  16 
@@ -279,16 +279,16 @@ static const struct RegexTableEl gRuleParseStateTable[] = {
     , {doNOP, 255, 131,0,  FALSE}     //  127 
     , {doSetEnd, 93 /* ] */, 255,0,  TRUE}     //  128      set-posix
     , {doNOP, 58 /* : */, 131,0,  FALSE}     //  129 
-    , {doRuleError, 255, 206,0,  FALSE}     //  130 
+    , {doRuleError2, 255, 206,0,  FALSE}     //  130 
     , {doSetEnd, 93 /* ] */, 255,0,  TRUE}     //  131      set-start
     , {doSetBeginUnion, 91 /* [ */, 123, 148, TRUE}     //  132 
     , {doNOP, 92 /* \ */, 191,0,  TRUE}     //  133 
     , {doNOP, 45 /* - */, 137,0,  TRUE}     //  134 
     , {doNOP, 38 /* & */, 139,0,  TRUE}     //  135 
     , {doSetLiteral, 255, 141,0,  TRUE}     //  136 
-    , {doRuleError, 45 /* - */, 206,0,  FALSE}     //  137      set-start-dash
+    , {doRuleError2, 45 /* - */, 206,0,  FALSE}     //  137      set-start-dash
     , {doSetAddDash, 255, 141,0,  FALSE}     //  138 
-    , {doRuleError, 38 /* & */, 206,0,  FALSE}     //  139      set-start-amp
+    , {doRuleError2, 38 /* & */, 206,0,  FALSE}     //  139      set-start-amp
     , {doSetAddAmp, 255, 141,0,  FALSE}     //  140 
     , {doSetEnd, 93 /* ] */, 255,0,  TRUE}     //  141      set-after-lit
     , {doSetBeginUnion, 91 /* [ */, 123, 148, TRUE}     //  142 
@@ -355,7 +355,7 @@ static const struct RegexTableEl gRuleParseStateTable[] = {
     , {doSetBackslash_V, 86 /* V */, 155,0,  TRUE}     //  203 
     , {doSetLiteralEscaped, 255, 141,0,  TRUE}     //  204 
     , {doSetFinish, 255, 14,0,  FALSE}     //  205      set-finish
-    , {doExit, 255, 206,0,  TRUE}     //  206      errorDeath
+    , {doExit2, 255, 206,0,  TRUE}     //  206      errorDeath
  };
 static const char * const RegexStateNames[] = {    0,
      "start",
