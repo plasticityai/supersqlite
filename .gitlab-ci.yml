@@ -10,6 +10,9 @@ stages:
 
 before_script:
   - cat /etc/apt/sources.list
+  - echo "deb http://mirror.cc.columbia.edu/pub/linux/ubuntu/archive/ xenial main" > /etc/apt/sources.list
+  - echo "deb-src http://mirror.cc.columbia.edu/pub/linux/ubuntu/archive/ xenial main " >> /etc/apt/sources.list
+  - cat /etc/apt/sources.list
   # Setup package manager
   - apt-get update 2>&1 >/dev/null
   - apt-get install curl wget git -y
