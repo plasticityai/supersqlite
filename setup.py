@@ -248,8 +248,6 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'ucol.cpp',
         'coll.cpp',
         'collation.cpp',
-        'collation.cpp',
-        'coleiter.cpp',
         'ucoleitr.cpp',
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
