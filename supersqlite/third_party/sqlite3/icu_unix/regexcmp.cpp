@@ -372,7 +372,7 @@ UBool RegexCompile::doParseActions(int32_t action)
 
         // Standard open nonCapture paren action emits the two NOPs and
         //   sets up the paren stack frame.
-        doParseActions(doOpenNonCaptureParen);
+        doParseActions(doOpenNonCaptureParen2);
         break;
 
     case doPatFinish2:
@@ -443,7 +443,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         }
         break;
 
-    case  doContinueNamedCapture:
+    case  doContinueNamedCapture2:
         fCaptureName->append(fC.fChar);
         break;
 
@@ -451,7 +451,7 @@ UBool RegexCompile::doParseActions(int32_t action)
         error(U_REGEX_INVALID_CAPTURE_GROUP_NAME);
         break;
         
-    case doOpenCaptureParen:2
+    case doOpenCaptureParen2:
         // Open Capturing Paren, possibly named.
         //   Compile to a
         //      - NOP, which later may be replaced by a save-state if the
