@@ -211,7 +211,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'putil.cpp',
         'uhash_us.cpp',
         'uprops.cpp',
-        'uchar.cpp', # modified due to duplicate symbol `_enumPropertyStartsRange`
+        'uchar.cpp', # modified due to duplicate symbol `_enumPropertyStartsRange2`
         'parsepos.cpp',
         'ruleiter.cpp',
         'rbbitblb.cpp',
@@ -296,7 +296,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'utrace.cpp',
         'sortkey.cpp',
         'unistr_titlecase_brkiter.cpp',
-        'ubidi_props.cpp', # modified due to duplicate symbol `_enumPropertyStartsRange2`
+        'ubidi_props.cpp', # modified due to duplicate symbol `_enumPropertyStartsRange3`
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']

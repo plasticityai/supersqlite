@@ -47,7 +47,7 @@ struct UBiDiProps {
 /* set of property starts for UnicodeSet ------------------------------------ */
 
 static UBool U_CALLCONV
-_enumPropertyStartsRange2(const void *context, UChar32 start, UChar32 end, uint32_t value) {
+_enumPropertyStartsRange3(const void *context, UChar32 start, UChar32 end, uint32_t value) {
     (void)end;
     (void)value;
     /* add the start code point to the USet */
@@ -69,7 +69,7 @@ ubidi_addPropertyStarts(const USetAdder *sa, UErrorCode *pErrorCode) {
     }
 
     /* add the start code point of each same-value range of the trie */
-    utrie2_enum(&ubidi_props_singleton.trie, NULL, _enumPropertyStartsRange2, sa);
+    utrie2_enum(&ubidi_props_singleton.trie, NULL, _enumPropertyStartsRange3, sa);
 
     /* add the code points from the bidi mirroring table */
     length=ubidi_props_singleton.indexes[UBIDI_IX_MIRROR_LENGTH];
