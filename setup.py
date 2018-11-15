@@ -15,7 +15,6 @@ from glob import glob
 from setuptools import find_packages
 from distutils.core import setup, Extension
 from setuptools.command.install import install
-from setuptools.command.build_ext import build_ext
 from setuptools.command.egg_info import egg_info
 from setuptools import setup, Distribution
 from multiprocessing import Process
@@ -102,7 +101,7 @@ def copy_sqlite(src, dest, apsw=False):
 
 
 def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
-                SO_SUFFIX, source_for_module_with_pyinit):
+                source_for_module_with_pyinit):
     """ Get all modules this package needs compiled """
     PYSQLITE2 = INTERNAL + '/pysqlite2'
     APSW = INTERNAL + '/apsw'
@@ -112,11 +111,12 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     ICU = os.path.relpath(SQLITE3 + '/icu_unix', PROJ_PATH)
     includes = [os.path.relpath(SQLITE3, PROJ_PATH)]
     libraries = [os.path.relpath(SQLITE3, PROJ_PATH)]
-    compile_args = ["-O4", "-std=c++11"]
+    compile_args = ["-O4"] + (["-std=c++11"] if sys.platform != "darwin" else [])
     link_args = ["-flto"]
     libraries.append(ICU)
     includes.append(ICU)
     link_args.append('-L' + ICU)
+    SO_PREFIX = PACKAGE_NAME+'.third_party.sqlite3'
 
     SQLITE_PRE = os.path.relpath(
         os.path.join(SQLITE3, 'sqlite3.c.pre.c'), PROJ_PATH)
@@ -424,8 +424,8 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
 
     module = 'sqlite3'
     pyinit_source = source_for_module_with_pyinit(module)
-    icu_sources = [os.path.relpath(SQLITE3, 'icu.cpp')]
-    sqlite3 = Extension('sqlite3' + SO_SUFFIX,
+    icu_sources = [os.path.relpath(os.path.join(SQLITE3, 'icu.cpp'), PROJ_PATH)]
+    sqlite3 = Extension(SO_PREFIX + 'sqlite3',
                         sources=[SQLITE_POST] + icu_sources + [pyinit_source],
                         include_dirs=includes,
                         library_dirs=libraries,
@@ -436,7 +436,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         module = module or ext
         pyinit_source = source_for_module_with_pyinit(module)
         return Extension(
-            module + SO_SUFFIX,
+            SO_PREFIX + module,
             sources=([
                 g for g in glob(
                     os.path.join(
@@ -457,7 +457,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             module = os.path.basename(source)[:-2]
             pyinit_source = source_for_module_with_pyinit(module)
             miscs.append(
-                Extension(module + SO_SUFFIX,
+                Extension(SO_PREFIX + module,
                           sources=[source] + [pyinit_source],
                           include_dirs=includes,
                           library_dirs=libraries,
@@ -633,7 +633,6 @@ THIRD_PARTY = PROJ_PATH + '/' + PACKAGE_NAME + '/third_party'
 BUILD_PATH = PROJ_PATH + '/build'
 BUILD_THIRD_PARTY = BUILD_PATH + '/lib/' + PACKAGE_NAME + '/third_party'
 INTERNAL = THIRD_PARTY + '/internal'
-SO_SUFFIX = '00000' + ''.join(format(ord(x), 'b') for x in PACKAGE_NAME)
 BINARY_EXTENSIONS = ('.so', '.pyd', '.dll', '.o', '.obj', '.lib')
 
 # Get the package version
@@ -670,15 +669,6 @@ BUILT_LOCAL = os.path.join(
     '-' +
     hashlib.md5(PROJ_PATH.encode('utf-8')).hexdigest() +
     '.buildlocal'
-)
-BUILT_EXT = os.path.join(
-    tempfile.gettempdir(),
-    PACKAGE_NAME +
-    '-' +
-    __version__ +
-    '-' +
-    hashlib.md5(PROJ_PATH.encode('utf-8')).hexdigest() +
-    '.buildext'
 )
 
 
@@ -743,11 +733,6 @@ def tried_downloading_wheel():
 def built_local():
     """Checks if built out the project locally"""
     return os.path.exists(BUILT_LOCAL)
-
-
-def built_ext():
-    """Checks if built out the extensions"""
-    return os.path.exists(BUILT_EXT)
 
 
 def download_and_install_wheel():
@@ -924,78 +909,10 @@ def source_for_module_with_pyinit(module):
     source_file = os.path.join(source_path, module + '.c')
     with open(source_file, 'w+') as outfile:
         outfile.write('''
-            void init''' + (module + SO_SUFFIX) + '''(void) {} //Python 2.7
-            void PyInit_''' + (module + SO_SUFFIX) + '''(void) {} //Python 3.5
+            void init''' + (module) + '''(void) {} //Python 2.7
+            void PyInit_''' + (module) + '''(void) {} //Python 3.5
         ''')
     return os.path.relpath(source_file, PROJ_PATH)
-
-
-def delete_shared_objects():
-    """ Deletes shared object files made with build_ext from site_packages """
-    site_packages = get_site_packages()
-    for site_pack in site_packages:
-        print("Deleting shared objects...", os.path.abspath(site_pack))
-        for root, dirnames, filenames in list(os.walk(site_pack)):
-            for filename in filenames:
-                if filename.lower().endswith(BINARY_EXTENSIONS):
-                    so = os.path.join(root, filename)
-                    so_base = os.path.basename(so)
-                    if SO_SUFFIX in so_base:
-                        print("Deleting", so)
-                        os.remove(so)
-
-
-def get_shared_object_ext():
-    """ Return the extension of shared objects on the current system """
-    if sys.platform == 'win32':
-        return '.dll'
-    else:
-        return '.so'
-
-
-def copy_shared_objects():
-    """ Copies shared object files made with build_ext to /third_party/ """
-    print("Copying shared objects...", os.path.abspath(BUILD_PATH))
-    for root, dirnames, filenames in list(os.walk(BUILD_PATH)):
-        for filename in filenames:
-            if filename.lower().endswith(BINARY_EXTENSIONS):
-                so = os.path.join(root, filename)
-                so_base = os.path.basename(so)
-                if SO_SUFFIX in so_base:
-                    p_ext = '.' + PACKAGE_NAME
-                    ext = get_shared_object_ext()
-                    so_base_new = so_base.replace(SO_SUFFIX, p_ext)
-                    so_base_new = '.'.join(so_base_new.split('.')[:-2])
-                    if not so_base_new.endswith(p_ext):
-                        so_base_new += p_ext
-                    so_base_new = so_base_new + ext
-                    dest_1 = os.path.join(BUILD_THIRD_PARTY, so_base_new)
-                    dest_2 = os.path.join(THIRD_PARTY, so_base_new)
-                    try:
-                        os.makedirs(os.path.dirname(dest_1))
-                    except BaseException:
-                        pass
-                    try:
-                        os.makedirs(os.path.dirname(dest_2))
-                    except BaseException:
-                        pass
-                    print("Copying from", so, "-->", dest_1)
-                    shutil.copyfile(so, dest_1)
-                    print("Copying from", so, "-->", dest_2)
-                    shutil.copyfile(so, dest_2)
-                    print("Deleting", so)
-                    os.remove(so)
-    delete_shared_objects()
-
-
-def early_build_shared_objects():
-    print("Early building of shared objects...")
-    rc = subprocess.Popen([
-        sys.executable,
-        os.path.abspath(__file__),
-        'build_ext'
-    ]).wait()
-
 
 def copy_custom_compile():
     """Copy the third party folders into site-packages under
@@ -1073,8 +990,6 @@ try:
         def run(self):
             if not(download_and_install_wheel()):
                 custom_compile(THIRD_PARTY, INTERNAL)
-                early_build_shared_objects()
-                copy_shared_objects()
                 build_req_wheels()
                 open(BUILT_LOCAL, 'w+').close()
             print("Running wheel...")
@@ -1092,8 +1007,6 @@ class CustomInstallCommand(install):
     def run(self):
         if not(download_and_install_wheel()):
             custom_compile(THIRD_PARTY, INTERNAL)
-            early_build_shared_objects()
-            copy_shared_objects()
             install_req_wheels()
             open(BUILT_LOCAL, 'w+').close()
         print("Running install...")
@@ -1118,19 +1031,7 @@ class CustomInstallCommand(install):
             self.install_lib = self.install_platlib
 
 
-class CustomBuildExtCommand(build_ext):
-    def run(self):
-        if not built_ext():
-            build_ext.run(self)
-            copy_shared_objects()
-        else:
-            print("Skipping build_ext, already built")
-        open(BUILT_EXT, 'w+').close()
-
-
 cmdclass['install'] = CustomInstallCommand
-cmdclass['build_ext'] = CustomBuildExtCommand
-
 
 class BinaryDistribution(Distribution):
     def has_ext_modules(foo):
@@ -1138,7 +1039,7 @@ class BinaryDistribution(Distribution):
 
 
 MODULES = get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
-                      SO_SUFFIX, source_for_module_with_pyinit)
+                      source_for_module_with_pyinit)
 
 if __name__ == '__main__':
 
