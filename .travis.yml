@@ -10,11 +10,14 @@ language: generic
 os:
   - linux
   - osx
-    osx_image: xcode10.1
 
 matrix:
   exclude:
     - os: linux
+  include:
+    - os: osx
+      osx_image: xcode10.1
+
 
 script:
   - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

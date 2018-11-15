@@ -464,7 +464,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                     os.path.join(
                         SQLITE_EXT,
                         ext,
-                        '*.c')) if os.path.basename(g) not in skip] +
+                        '*.c')) if os.path.basename(g) not in skip]
                      + zlib_sources + [pyinit_source]),
             include_dirs=includes,
             library_dirs=libraries,
