@@ -116,7 +116,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     libraries.append(ICU)
     includes.append(ICU)
     link_args.append('-L' + ICU)
-    SO_PREFIX = PACKAGE_NAME + '.third_party.sqlite3'
+    SO_PREFIX = PACKAGE_NAME + '.third_party.sqlite3.'
 
     SQLITE_PRE = os.path.relpath(
         os.path.join(SQLITE3, 'sqlite3.c.pre.c'), PROJ_PATH)
@@ -427,7 +427,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         outfile.write('#endif\n')
 
     module = 'sqlite3'
-    pyinit_source = source_for_module_with_pyinit(module, 'sqlite3')
+    pyinit_source = source_for_module_with_pyinit(module)
     icu_source = [os.path.relpath(os.path.join(SQLITE3, 'icu.cpp'), PROJ_PATH)]
     zlib_sources = [
         os.path.relpath(
@@ -455,7 +455,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
 
     def sqlite_extension(ext, skip=[], module=None):
         module = module or ext
-        pyinit_source = source_for_module_with_pyinit(module, 'sqlite3')
+        pyinit_source = source_for_module_with_pyinit(module)
         return Extension(
             SO_PREFIX + module,
             sources=([
@@ -476,7 +476,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             if os.path.basename(source) in skip:
                 continue
             module = os.path.basename(source)[:-2]
-            pyinit_source = source_for_module_with_pyinit(module, 'sqlite3')
+            pyinit_source = source_for_module_with_pyinit(module)
             miscs.append(
                 Extension(SO_PREFIX + module,
                           sources=[source] + zlib_sources + [pyinit_source],
