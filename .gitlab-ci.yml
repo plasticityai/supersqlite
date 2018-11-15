@@ -9,10 +9,6 @@ stages:
   - Deploy Linux Wheels
 
 before_script:
-  - cat /etc/apt/sources.list
-  - cp /etc/apt/sources.list /etc/apt/sources.list.bak
-  - cat /etc/apt/sources.list.bak | sed 's/archive.ubuntu.com\/ubuntu/www.club.cc.cmu.edu\/pub\/ubuntu/g'> /etc/apt/sources.list
-  - cat /etc/apt/sources.list
   # Setup package manager
   - apt-get update 2>&1 >/dev/null
   - apt-get install curl wget git -y
@@ -46,7 +42,6 @@ Test Python 2:
     - apt-get install python-pip -y
     - pip2 install -U pip setuptools
     - python2 setup.py install
-    - nm -an supersqlite/third_party/internal/apsw/apsw.so | c++filt
     - python2 -m tests.tests -- -v
 
 Test Python 3:

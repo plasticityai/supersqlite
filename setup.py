@@ -112,7 +112,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     ICU = os.path.relpath(SQLITE3 + '/icu_unix', PROJ_PATH)
     includes = [os.path.relpath(SQLITE3, PROJ_PATH)]
     libraries = [os.path.relpath(SQLITE3, PROJ_PATH)]
-    link_args = ["-flto"]
+    link_args = ["-flto", "/link User32.lib" if sys.platform == "win32" else ""]
     libraries.append(ICU)
     includes.append(ICU)
     link_args.append('-L' + ICU)
@@ -317,7 +317,6 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             # ifndef PLASTICITY_SUPERSQLITE_ICU_CPP
             # define PLASTICITY_SUPERSQLITE_ICU_CPP 1
 
-            #pragma comment(lib, "user32")
             #define UDATA_DEBUG 1
             #define U_STATIC_IMPLEMENTATION 1
             #define UCONFIG_NO_REGULAR_EXPRESSIONS 0
