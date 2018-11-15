@@ -1,5 +1,5 @@
 #if __linux
-#define _LARGEFILE64_SOURCE=1
+#define _LARGEFILE64_SOURCE 1
 #endif
 /* miniz.c 2.0.8 - public domain deflate/inflate, zlib-subset, ZIP reading/writing/appending, PNG writing
    See "unlicense" statement at the end of this file.

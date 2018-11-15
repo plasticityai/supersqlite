@@ -17,7 +17,7 @@ There are a few components that need updating when updating the version of `sqli
 8. **Update `miniz`:** The source code is available on [GitHub](https://github.com/richgel999/miniz). Rename `miniz.h` to `zlib.h` and `miniz.c` to `zlib.c` and place all of the `.c` and `.h` files in the project root under `third_party/sqlite3/`. Modify the `zlib.c`, `miniz_zip.h`, and `miniz_tdef.c` file's `#include "miniz.h"` with `#include "zlib.h"`. Also add the follwing:
 ```c
 #if __linux
-#define _LARGEFILE64_SOURCE=1
+#define _LARGEFILE64_SOURCE 1
 #endif
 ```
 to the top of `zlib.h`.
