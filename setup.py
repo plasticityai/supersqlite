@@ -116,7 +116,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     libraries.append(ICU)
     includes.append(ICU)
     link_args.append('-L' + ICU)
-    SO_PREFIX = PACKAGE_NAME+'.third_party.sqlite3'
+    SO_PREFIX = PACKAGE_NAME + '.third_party.sqlite3'
 
     SQLITE_PRE = os.path.relpath(
         os.path.join(SQLITE3, 'sqlite3.c.pre.c'), PROJ_PATH)
@@ -428,14 +428,31 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
 
     module = 'sqlite3'
     pyinit_source = source_for_module_with_pyinit(module, 'sqlite3')
-    icu_sources = [os.path.relpath(os.path.join(SQLITE3, 'icu.cpp'), PROJ_PATH)]
-    sqlite3 = Extension(SO_PREFIX + 'sqlite3',
-                        sources=[SQLITE_POST] + icu_sources + [pyinit_source],
-                        include_dirs=includes,
-                        library_dirs=libraries,
-                        libraries=["user32", "Advapi32"] if sys.platform == "win32" else [],
-                        extra_compile_args=compile_args,
-                        extra_link_args=link_args)
+    icu_source = [os.path.relpath(os.path.join(SQLITE3, 'icu.cpp'), PROJ_PATH)]
+    zlib_sources = [
+        os.path.relpath(
+            os.path.join(
+                SQLITE3, "zlib.c"), PROJ_PATH), os.path.relpath(
+            os.path.join(
+                SQLITE3, "miniz_tdef.c"), PROJ_PATH), os.path.relpath(
+            os.path.join(
+                SQLITE3, "miniz_tinfl.c"), PROJ_PATH), os.path.relpath(
+            os.path.join(
+                SQLITE3, "miniz_zip.c"), PROJ_PATH)]
+    sqlite3 = Extension(
+        SO_PREFIX +
+        'sqlite3',
+        sources=[SQLITE_POST] +
+        icu_source +
+        zlib_sources +
+        [pyinit_source],
+        include_dirs=includes,
+        library_dirs=libraries,
+        libraries=[
+            "user32",
+            "Advapi32"] if sys.platform == "win32" else [],
+        extra_compile_args=compile_args,
+        extra_link_args=link_args)
 
     def sqlite_extension(ext, skip=[], module=None):
         module = module or ext
@@ -448,7 +465,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                         SQLITE_EXT,
                         ext,
                         '*.c')) if os.path.basename(g) not in skip] +
-                     [pyinit_source]),
+                     + zlib_sources + [pyinit_source]),
             include_dirs=includes,
             library_dirs=libraries,
             extra_compile_args=["-O4"],
@@ -463,7 +480,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             pyinit_source = source_for_module_with_pyinit(module, 'sqlite3')
             miscs.append(
                 Extension(SO_PREFIX + module,
-                          sources=[source] + [pyinit_source],
+                          sources=[source] + zlib_sources + [pyinit_source],
                           include_dirs=includes,
                           library_dirs=libraries,
                           extra_compile_args=["-O4"],
@@ -913,10 +930,11 @@ def source_for_module_with_pyinit(module, parent_module=''):
     source_file = os.path.join(source_path, module + '.c')
     with open(source_file, 'w+') as outfile:
         outfile.write('''
-            void init''' + (parent_module+module) + '''(void) {} //Python 2.7
-            void PyInit_''' + (parent_module+module) + '''(void) {} //Python 3.5
+            void init''' + (parent_module + module) + '''(void) {} //Python 2.7
+            void PyInit_''' + (parent_module + module) + '''(void) {} //Python 3.5
         ''')
     return os.path.relpath(source_file, PROJ_PATH)
+
 
 def copy_custom_compile():
     """Copy the third party folders into site-packages under
@@ -1036,6 +1054,7 @@ class CustomInstallCommand(install):
 
 
 cmdclass['install'] = CustomInstallCommand
+
 
 class BinaryDistribution(Distribution):
     def has_ext_modules(foo):
