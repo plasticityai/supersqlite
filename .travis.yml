@@ -24,7 +24,7 @@ script:
   - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   - brew install gcc@8 --without-multilib
   - export CC="/usr/local/Cellar/gcc/8.2.0/bin/gcc-8"
-  - export PYTHONPATH=$(python -c "import site; print(site.getsitepackages())[0]")
+  - export PYTHONPATH=$(python3 -c "import site; print(site.getsitepackages())[0]")
   - echo $PYTHONPATH
   - $PIP install pip setuptools -U
   - $PIP install cibuildwheel==0.10.0
