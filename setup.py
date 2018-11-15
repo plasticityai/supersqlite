@@ -420,6 +420,9 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         # include "ext/misc/scrub.c"
         # include "ext/misc/vfslog.c"
         # include "zlib.c"
+        # include "miniz_tdef.c"
+        # include "miniz_tinfl.c"
+        # include "miniz_zip.c"
         ''' + '\n')
         outfile.write('#endif\n')
 
