@@ -116,7 +116,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     libraries.append(ICU)
     includes.append(ICU)
     link_args.append('-L' + ICU)
-    SO_PREFIX = PACKAGE_NAME + '.third_party'
+    SO_PREFIX = PACKAGE_NAME + '.third_party.sqlite3'
 
     SQLITE_PRE = os.path.relpath(
         os.path.join(SQLITE3, 'sqlite3.c.pre.c'), PROJ_PATH)
@@ -427,7 +427,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         outfile.write('#endif\n')
 
     module = 'sqlite3'
-    pyinit_source = source_for_module_with_pyinit(module)
+    pyinit_source = source_for_module_with_pyinit(module, 'sqlite3')
     icu_source = [os.path.relpath(os.path.join(SQLITE3, 'icu.cpp'), PROJ_PATH)]
     zlib_sources = [
         os.path.relpath(
@@ -455,7 +455,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
 
     def sqlite_extension(ext, skip=[], module=None):
         module = module or ext
-        pyinit_source = source_for_module_with_pyinit(module)
+        pyinit_source = source_for_module_with_pyinit(module, 'sqlite3')
         return Extension(
             SO_PREFIX + module,
             sources=([
@@ -476,7 +476,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             if os.path.basename(source) in skip:
                 continue
             module = os.path.basename(source)[:-2]
-            pyinit_source = source_for_module_with_pyinit(module)
+            pyinit_source = source_for_module_with_pyinit(module, 'sqlite3')
             miscs.append(
                 Extension(SO_PREFIX + module,
                           sources=[source] + zlib_sources + [pyinit_source],
@@ -918,7 +918,7 @@ def get_site_packages():
         return []
 
 
-def source_for_module_with_pyinit(module):
+def source_for_module_with_pyinit(module, parent_module=''):
     """ Create PyInit symbols for shared objects compiled with Python's
         Extension()"""
     source_path = os.path.join(BUILD_PATH, 'entrypoints')
@@ -929,8 +929,8 @@ def source_for_module_with_pyinit(module):
     source_file = os.path.join(source_path, module + '.c')
     with open(source_file, 'w+') as outfile:
         outfile.write('''
-            void init''' + (module) + '''(void) {} //Python 2.7
-            void PyInit_''' + (module) + '''(void) {} //Python 3.5
+            void init''' + (parent_module + module) + '''(void) {} //Python 2.7
+            void PyInit_''' + (parent_module + module) + '''(void) {} //Python 3.5
         ''')
     return os.path.relpath(source_file, PROJ_PATH)
 
