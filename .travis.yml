@@ -16,6 +16,7 @@ matrix:
     - os: linux
 
 script:
+  - export CXXFLAGS="-std=c++11"
   - $PIP install pip setuptools -U
   - $PIP install cibuildwheel==0.10.0
   - eval "buildwheel() { cibuildwheel --output-dir wheelhouse >>buildwheel.log 2>&1; }"
