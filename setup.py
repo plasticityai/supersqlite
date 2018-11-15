@@ -112,7 +112,8 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     ICU = os.path.relpath(SQLITE3 + '/icu_unix', PROJ_PATH)
     includes = [os.path.relpath(SQLITE3, PROJ_PATH)]
     libraries = [os.path.relpath(SQLITE3, PROJ_PATH)]
-    link_args = ["-flto", "/link User32.lib" if sys.platform == "win32" else "-flto"]
+    compile_args = ["-O4", "-std=c++11", "/link User32.lib" if sys.platform == "win32" else "-O4"]
+    link_args = ["-flto"]
     libraries.append(ICU)
     includes.append(ICU)
     link_args.append('-L' + ICU)
@@ -428,7 +429,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                         sources=[SQLITE_POST] + icu_sources + [pyinit_source],
                         include_dirs=includes,
                         library_dirs=libraries,
-                        extra_compile_args=["-O4", "-std=c++11"],
+                        extra_compile_args=compile_args,
                         extra_link_args=link_args)
 
     def sqlite_extension(ext, skip=[], module=None):
