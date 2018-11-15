@@ -112,7 +112,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     ICU = os.path.relpath(SQLITE3 + '/icu_unix', PROJ_PATH)
     includes = [os.path.relpath(SQLITE3, PROJ_PATH)]
     libraries = [os.path.relpath(SQLITE3, PROJ_PATH)]
-    compile_args = ["-O4", "-std=c++11", "/link User32.lib" if sys.platform == "win32" else "-O4"]
+    compile_args = ["-O4", "-std=c++11"]
     link_args = ["-flto"]
     libraries.append(ICU)
     includes.append(ICU)
@@ -461,6 +461,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                           sources=[source] + [pyinit_source],
                           include_dirs=includes,
                           library_dirs=libraries,
+                          libraries=["user32"] if sys.platform == "win32" else [],
                           extra_compile_args=["-O4"],
                           extra_link_args=link_args))
         return miscs

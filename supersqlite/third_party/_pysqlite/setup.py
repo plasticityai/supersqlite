@@ -291,10 +291,10 @@ def get_setup_args():
                                       include_dirs=include_dirs + include_plasticity, # PLASTICITY
                                       library_dirs=library_dirs,
                                       runtime_library_dirs=runtime_library_dirs,
-                                      libraries=libraries,
+                                      libraries=libraries + (["user32"] if sys.platform == "win32" else []), # PLASTICITY
                                       extra_objects=extra_objects,
                                       define_macros=define_macros,
-                                      extra_compile_args=["-O4", "-std=c++11", "/link User32.lib" if sys.platform == "win32" else "-O4"], # PLASTICITY
+                                      extra_compile_args=["-O4", "-std=c++11"], # PLASTICITY
                                       extra_link_args=["-flto"], # PLASTICITY
                                       )],
             classifiers = [
