@@ -429,6 +429,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                         sources=[SQLITE_POST] + icu_sources + [pyinit_source],
                         include_dirs=includes,
                         library_dirs=libraries,
+                        libraries=["user32", "Advapi32"] if sys.platform == "win32" else [],
                         extra_compile_args=compile_args,
                         extra_link_args=link_args)
 
@@ -446,6 +447,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                      [pyinit_source]),
             include_dirs=includes,
             library_dirs=libraries,
+            libraries=["user32", "Advapi32"] if sys.platform == "win32" else [],
             extra_compile_args=["-O4"],
             extra_link_args=link_args)
 

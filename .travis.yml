@@ -10,6 +10,7 @@ language: generic
 os:
   - linux
   - osx
+    osx_image: xcode10.1
 
 matrix:
   exclude:
@@ -17,8 +18,9 @@ matrix:
 
 script:
   - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  - brew install gcc --without-multilib
-  - export CC="/usr/local/Cellar/gcc/8.2.0/bin/gcc-8"
+  - brew install gcc@8 --without-multilib
+  
+  - export CC="gcc-8"
   - $PIP install pip setuptools -U
   - $PIP install cibuildwheel==0.10.0
   - eval "buildwheel() { cibuildwheel --output-dir wheelhouse >>buildwheel.log 2>&1; }"
