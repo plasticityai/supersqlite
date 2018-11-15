@@ -298,6 +298,8 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'ubidi_props.cpp', # modified due to duplicate symbol `_enumPropertyStartsRange3`
         'bocsu.cpp',
         'ubidiln.cpp',
+        'ubidiwrt.cpp',
+        'ustr_titlecase_brkiter.cpp',
         'stubdata.cpp',
         'udata.cpp', # modified due to to comment out `extern "C" const DataHeader U_DATA_API U_ICUDATA_ENTRY_POINT;` and cast `(const DataHeader*)` due to stubdata.cpp being added
         ]
@@ -317,6 +319,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             # ifndef PLASTICITY_SUPERSQLITE_ICU_CPP
             # define PLASTICITY_SUPERSQLITE_ICU_CPP 1
 
+            #define UDATA_DEBUG 1
             #define U_STATIC_IMPLEMENTATION 1
             #define UCONFIG_NO_REGULAR_EXPRESSIONS 0
             #define U_DISABLE_RENAMING 1
