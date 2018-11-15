@@ -419,6 +419,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         # include "ext/misc/normalize.c"
         # include "ext/misc/scrub.c"
         # include "ext/misc/vfslog.c"
+        # include "zlib.c"
         ''' + '\n')
         outfile.write('#endif\n')
 
