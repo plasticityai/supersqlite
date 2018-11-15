@@ -492,8 +492,7 @@ UDataPathIterator::UDataPathIterator(const char *inPath, const char *pkg,
     /* pathBuffer will hold the output path strings returned by this iterator */
 
 #ifdef UDATA_DEBUG
-    fprintf(stderr, "%p: init %s -> [path=%s], [base=%s], [suff=%s], [itempath=%s], [nextpath=%s], [checklast4=%s]\n",
-            iter,
+    fprintf(stderr, "init %s -> [path=%s], [base=%s], [suff=%s], [itempath=%s], [nextpath=%s], [checklast4=%s]\n",
             item,
             path,
             basename,
