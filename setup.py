@@ -479,13 +479,27 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             module = os.path.basename(source)[:-2]
             pyinit_source = source_for_module_with_pyinit(module)
             z_sources = zlib_sources if os.path.basename(source) in zlib else []
+            SQLITE3_REL = os.path.relpath(SQLITE3, PROJ_PATH)
+            windirent_sources = [
+                os.path.join(SQLITE3_REL, "test_windirent.c"),
+                os.path.join(SQLITE3_REL, "hash.c"),
+                os.path.join(SQLITE3_REL, "btree.c"),
+                os.path.join(SQLITE3_REL, "os_win.c"),
+                os.path.join(SQLITE3_REL, "os.c"),
+                os.path.join(SQLITE3_REL, "mutex.c"),
+                os.path.join(SQLITE3_REL, "mutex_w32.c"),
+                os.path.join(SQLITE3_REL, "vdbe.c"),
+                os.path.join(SQLITE3_REL, "pcache.c"),
+                os.path.join(SQLITE3_REL, "pager.c"),
+                os.path.join(SQLITE3_REL, "vdbeapi.c"),
+                os.path.join(SQLITE3_REL, "vdbeaux.c"),
+                os.path.join(SQLITE3_REL, "vdbeblob.c"),
+                os.path.join(SQLITE3_REL, "vdbemem.c"),
+                os.path.join(SQLITE3_REL, "vdbesort.c"),
+                os.path.join(SQLITE3_REL, "vdbetrace.c"),
+            ]
             windirent_sources = (
-                [
-                    os.path.relpath(
-                        os.path.join(
-                            SQLITE3,
-                            "test_windirent.c"),
-                        PROJ_PATH)] if os.path.basename(source) in windirent else [])
+                windirent_sources if os.path.basename(source) in windirent else [])
             miscs.append(
                 Extension(
                     SO_PREFIX +
@@ -506,7 +520,8 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     return ([sqlite3, lsm1] +
             sqlite_misc_extensions(
                 skip=['dbdump.c', 'mmapwarm.c', 'normalize.c', 'scrub.c', 'vfslog.c'],
-                zlib=['compress.c', 'sqlar.c', 'zipfile.c']))
+                zlib=['compress.c', 'sqlar.c', 'zipfile.c'],
+                windirent=['fileio.c']))
 
 
 def install_custom_sqlite3(THIRD_PARTY, INTERNAL):

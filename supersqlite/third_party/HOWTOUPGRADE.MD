@@ -6,7 +6,7 @@ There are a few components that need updating when updating the version of `sqli
 
 3. **Update SQLite3:** Download the latest SQLite Amalgamation package from the [SQLite website](https://www.sqlite.org/download.html). Update `third_party/sqlite3/sqlite3.c.pre.c` (with `sqlite3.c`) and update `third_party/sqlite3/sqlite3.h`, `third_party/sqlite3/sqlite3_ext.h`, and `third_party/sqlite3/shell.c` from the SQLite Amalgamation package.
 
-3. **Update SQLite3 Extensions:** Download the latest SQLite source code package from the [SQLite website](https://www.sqlite.org/download.html). Update the `third_party/sqlite3/ext` with the `ext` folder from the SQLite source code package. Also copy `test_windirent.h` and `test_windirent.c` from the `src` folder to `third_party/sqlite3/`.
+3. **Update SQLite3 Extensions:** Download the latest SQLite source code package from the [SQLite website](https://www.sqlite.org/download.html). Update the `third_party/sqlite3/ext` with the `ext` folder from the SQLite source code package. Also copy all of the files from the `src` folder to `third_party/sqlite3/`.
 
 4. **Copy `shell.c`:** Copy `shell.c` from the root of `third_party/_apsw` (which was updated in step #1) to `third_party/sqlite3/apsw_shell.c`.
 
