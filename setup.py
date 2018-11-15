@@ -112,7 +112,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     ICU = os.path.relpath(SQLITE3 + '/icu_unix', PROJ_PATH)
     includes = [os.path.relpath(SQLITE3, PROJ_PATH)]
     libraries = [os.path.relpath(SQLITE3, PROJ_PATH)]
-    link_args = ["-flto", "/link User32.lib" if sys.platform == "win32" else ""]
+    link_args = ["-flto", "/link User32.lib" if sys.platform == "win32" else "-ignoredflag"]
     libraries.append(ICU)
     includes.append(ICU)
     link_args.append('-L' + ICU)
