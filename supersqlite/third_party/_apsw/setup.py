@@ -893,7 +893,7 @@ complete SQLite API into Python.""",
                              library_dirs=library_dirs,
                              libraries=libraries + (["user32", "Advapi32"] if sys.platform == "win32" else []), # PLASTICITY
                              define_macros=define_macros,
-                             extra_compile_args=["-O4"] + (["-std=c++11"] if sys.platform != "darwin" else []), # PLASTICITY
+                             extra_compile_args=["-O4", "-std=c++11"], # PLASTICITY
                              extra_link_args=["-flto"], # PLASTICITY
                              depends=depends)],
 

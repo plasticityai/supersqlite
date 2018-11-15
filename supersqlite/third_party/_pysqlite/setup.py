@@ -294,7 +294,7 @@ def get_setup_args():
                                       libraries=libraries + (["user32", "Advapi32"] if sys.platform == "win32" else []), # PLASTICITY
                                       extra_objects=extra_objects,
                                       define_macros=define_macros,
-                                      extra_compile_args=["-O4"] + (["-std=c++11"] if sys.platform != "darwin" else []), # PLASTICITY
+                                      extra_compile_args=["-O4", "-std=c++11"], # PLASTICITY
                                       extra_link_args=["-flto"], # PLASTICITY
                                       )],
             classifiers = [

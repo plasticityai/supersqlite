@@ -16,7 +16,9 @@ matrix:
     - os: linux
 
 script:
-  - export CXXFLAGS="-std=c++11"
+  - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  - brew install gcc --without-multilib
+  - export CC="/usr/local/Cellar/gcc/8.2.0/bin/gcc-8"
   - $PIP install pip setuptools -U
   - $PIP install cibuildwheel==0.10.0
   - eval "buildwheel() { cibuildwheel --output-dir wheelhouse >>buildwheel.log 2>&1; }"
