@@ -463,23 +463,24 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                     os.path.join(
                         SQLITE_EXT,
                         ext,
-                        '*.c')) if os.path.basename(g) not in skip]
-                     + zlib_sources + [pyinit_source]),
+                        '*.c')) if os.path.basename(g) not in skip] +
+                     [pyinit_source]),
             include_dirs=includes,
             library_dirs=libraries,
             extra_compile_args=["-O4"],
             extra_link_args=link_args)
 
-    def sqlite_misc_extensions(skip=[]):
+    def sqlite_misc_extensions(skip=[], zlib=[]):
         miscs = []
         for source in glob(os.path.join(SQLITE_EXT, 'misc', '*.c')):
             if os.path.basename(source) in skip:
                 continue
             module = os.path.basename(source)[:-2]
             pyinit_source = source_for_module_with_pyinit(module)
+            z_sources = zlib_sources if os.path.basename(source) in zlib else []
             miscs.append(
                 Extension(SO_PREFIX + module,
-                          sources=[source] + zlib_sources + [pyinit_source],
+                          sources=[source] + z_sources + [pyinit_source],
                           include_dirs=includes,
                           library_dirs=libraries,
                           extra_compile_args=["-O4"],
@@ -490,7 +491,9 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     userauth = sqlite_extension('userauth')
 
     return ([sqlite3, lsm1] +
-            sqlite_misc_extensions())
+            sqlite_misc_extensions(
+                skip=['dbdump.c', 'mmapwarm.c', 'normalize.c', 'scrub.c', 'vfslog.c'],
+                zlib=['compress.c', 'sqlar.c', 'zipfile.c']))
 
 
 def install_custom_sqlite3(THIRD_PARTY, INTERNAL):
