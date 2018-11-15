@@ -894,7 +894,7 @@ complete SQLite API into Python.""",
                              libraries=libraries,
                              define_macros=define_macros,
                              extra_compile_args=["-O4", "-std=c++11"], # PLASTICITY
-                             extra_link_args=["-flto", "/link User32.lib" if sys.platform == "win32" else "-ignoredflag"], # PLASTICITY
+                             extra_link_args=["-flto", "/link User32.lib" if sys.platform == "win32" else "-flto"], # PLASTICITY
                              depends=depends)],
 
 

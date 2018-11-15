@@ -295,7 +295,7 @@ def get_setup_args():
                                       extra_objects=extra_objects,
                                       define_macros=define_macros,
                                       extra_compile_args=["-O4", "-std=c++11"], # PLASTICITY
-                                      extra_link_args=["-flto", "/link User32.lib" if sys.platform == "win32" else "-ignoredflag"], # PLASTICITY
+                                      extra_link_args=["-flto", "/link User32.lib" if sys.platform == "win32" else "-flto"], # PLASTICITY
                                       )],
             classifiers = [
             "Development Status :: 5 - Production/Stable",
