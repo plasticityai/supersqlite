@@ -1,16 +1,17 @@
-There are a few components that need updating when updating the `sqlite3`:
+There are a few components that need updating when updating the version of `sqlite3` since they are all dependent on each other:
 
-1. Replace `_apsw` with the latest version, some small changes are made to `_apsw/setup.py` all of which 
-are commented with `# PLASTICITY`. The source code is available on GitHub.
+1. **Update `apsw`:** If the SQLite3 API has changed, `apsw` may be able to provide Python bindings for those new API functions. Replace the `third_party/_apsw/` folder with the latest version. Some small changes are made to `third_party/_apsw/setup.py` all of which are commented with `# PLASTICITY`. The source code is available on [GitHub](https://github.com/rogerbinns/apsw).
 
-2. Replace `_pysqlite` with the latest version, some small changes are made to `_pysqlite/setup.py` all of which are commented with `# PLASTICITY`. The source code for `_pysqlite` is taken from `python2`'s internal site-packages and `python3`'s internal site-packages.
+2. **Update `pysqlite`:** If the SQLite3 API has changed, `pysqlite` may be able to provide Python bindings for those new API functions. Replace the `third_party/_pysqlite` folder with the latest version. Some small changes are made to `third_party/_pysqlite/setup.py` all of which are commented with `# PLASTICITY`. The packaging source code (`setup.py`, `MANIFEST.in`) can be found on [GitHub](https://github.com/ghaering/pysqlite). The core source code for `_pysqlite` is taken from `python2`'s [internal modules](https://github.com/python/cpython/tree/ca079a3ea30098aff3197c559a0e32d42dda6d84/Modules/_sqlite) and `python3`'s [internal modules](https://github.com/python/cpython/tree/master/Modules/_sqlite) and placed under `third_party/_pysqlite/src2/` and `third_party/_pysqlite/src3/` respectively.
 
-3. Update `sqlite3.c.pre.c` (with `sqlite3.c`), `sqlite3.h`, `sqlite3_ext.h`, and `shell.c` from the latest SQLite Amalgamation package.
+3. **Update SQLite3:** Download the latest SQLite Amalgamation package from the [SQLite website](https://www.sqlite.org/download.html). Update `third_party/sqlite3/sqlite3.c.pre.c` (with `sqlite3.c`) and update `third_party/sqlite3/sqlite3.h`, `third_party/sqlite3/sqlite3_ext.h`, and `third_party/sqlite3/shell.c` from the SQLite Amalgamation package.
 
-4. Add `shell.c` from the root of `_apsw` as `apsw_shell.c`.
+4. **Copy `shell.c`:** Copy `shell.c` from the root of `third_party/_apsw` (which was updated in step #1) to `third_party/sqlite3/apsw_shell.c`.
 
-6. Download the ICU source files (Unix). And add the `source/common` folder to the `icu` folder and then the `i8n` folder. Also add the `source/stubdata/stubdata.cpp` file to the `icu` folder and the `source/data/in/icudt*l.dat` file to the `icu/data/` folder.
+6. **Update ICU:** Download the ICU source files (Unix version) from the [ICU website](http://site.icu-project.org/download). And add the `source/common` folder to the `third_party/sqlite3/icu` folder and then the `source/i8n` folder to the `third_party/sqlite3/icu` folder (merge the two directories). Also add the `source/stubdata/stubdata.cpp` file to the `third_party/sqlite3/icu` folder and the `source/data/in/icudt*l.dat` file to the `third_party/sqlite3/icu/data/` folder.
 
-7. Make modifications to the source files as instructed by `icu_sources.py`.
+7. **Patch ICU:** Make modifications to the source files in `third_party/sqlite3/icu` as instructed by `icu_sources.py`.
 
-8. Update any documentation in the README with the SQLite version compiled.
+8. **Update `miniz`:** The source code is available on [GitHub](https://github.com/richgel999/miniz). Rename `miniz.h` to `zlib.h` and `miniz.c` to `zlib.c` and place all of the `.c` and `.h` files in the project root under `third_party/sqlite3/`. Modify `zlib.c`'s `#include "miniz.h"` with `#include "zlib.h"`.
+
+9. **Update Documentation:** Update any documentation in the `README.md` with the SQLite version compiled.
