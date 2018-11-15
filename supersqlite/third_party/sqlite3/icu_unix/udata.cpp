@@ -693,7 +693,7 @@ openCommonData(const char *path,          /*  Path from OpenChoice?          */
 #if U_PLATFORM_HAS_WINUWP_API == 0 // Windows UWP Platform does not support dll icu data at this time
             int32_t i;
             for(i = 0; i < commonDataIndex; ++i) {
-                if(gCommonICUDataArray[i]->pHeader == (const ICU_Data_Header*) &U_ICUDATA_ENTRY_POINT) {
+                if(gCommonICUDataArray[i]->pHeader == ((const DataHeader*) &U_ICUDATA_ENTRY_POINT)) {
                     /* The linked-in data is already in the list. */
                     return NULL;
                 }

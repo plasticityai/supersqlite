@@ -299,7 +299,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         'bocsu.cpp',
         'ubidiln.cpp',
         'stubdata.cpp',
-        'udata.cpp', # modified due to to comment out `extern "C" const DataHeader U_DATA_API U_ICUDATA_ENTRY_POINT;` and cast `(const ICU_Data_Header*)` due to stubdata.cpp being added
+        'udata.cpp', # modified due to to comment out `extern "C" const DataHeader U_DATA_API U_ICUDATA_ENTRY_POINT;` and cast `(const DataHeader*)` due to stubdata.cpp being added
         ]
     # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
     #             'ucnv_u7.cpp', 'ucnv2022.cpp']
