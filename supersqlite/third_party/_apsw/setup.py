@@ -891,7 +891,7 @@ complete SQLite API into Python.""",
                              ["src/apsw.c", "src/sqlite3.c", "src/icu.cpp"], # PLASTICITY
                              include_dirs=include_dirs + include_plasticity, # PLASTICITY
                              library_dirs=library_dirs,
-                             libraries=libraries + (["user32"] if sys.platform == "win32" else []), # PLASTICITY
+                             libraries=libraries + (["user32", "Advapi32"] if sys.platform == "win32" else []), # PLASTICITY
                              define_macros=define_macros,
                              extra_compile_args=["-O4", "-std=c++11"], # PLASTICITY
                              extra_link_args=["-flto"], # PLASTICITY
