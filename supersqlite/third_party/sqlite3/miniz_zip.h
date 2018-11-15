@@ -1,6 +1,6 @@
 
 #pragma once
-#include "miniz.h"
+#include "zlib.h" //PLASTICITY
 
 /* ------------------- ZIP archive reading/writing */
 

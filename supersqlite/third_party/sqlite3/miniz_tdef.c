@@ -25,7 +25,7 @@
  **************************************************************************/
 
 #include "miniz_tdef.h"
-#include "miniz.h"
+#include "zlib.h" // PLASTICITY
 
 #ifdef __cplusplus
 extern "C" {
