@@ -238,12 +238,8 @@ END CUSTOM PLASTICITY INSTALL COMMANDS
 # BEGIN PLASTICITY
 SQLITE3 = "../sqlite3"
 include_plasticity = [SQLITE3] 
-ICU_UNIX = SQLITE3 + '/icu_unix'
-ICU_WIN32 = SQLITE3 + '/icu_win32'
-if sys.platform == 'win32':
-    include_plasticity.append(ICU_WIN32)
-else:
-    include_plasticity.append(ICU_UNIX)
+ICU = SQLITE3 + '/icu_unix'
+include_plasticity.append(ICU)
 # END PLASTICITY
 
 def get_setup_args():

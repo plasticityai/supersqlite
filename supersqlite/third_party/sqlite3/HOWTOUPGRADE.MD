@@ -9,10 +9,8 @@ are commented with `# PLASTICITY`. The source code is available on GitHub.
 
 4. Add `shell.c` from the root of `_apsw` as `apsw_shell.c`.
 
-6. Download the ICU source files (Unix). And add the `source/common` folder to the `icu` folder and then the `i8n` folder. Also add the `source/stubdata/stubdata.cpp` file to the `icu` folder and the `source/data/in/icudt*l.dat` file to the `icu` folder.
+6. Download the ICU source files (Unix). And add the `source/common` folder to the `icu` folder and then the `i8n` folder. Also add the `source/stubdata/stubdata.cpp` file to the `icu` folder and the `source/data/in/icudt*l.dat` file to the `icu/data/` folder.
 
 7. Make modifications to the source files as instructed by `icu_sources.py`.
 
-8. Update the `icu_sources.py` to use the newest `icudt*l.dat` filename.
-
-9. Update any documentation in the README with the SQLite version compiled.
+8. Update any documentation in the README with the SQLite version compiled.
