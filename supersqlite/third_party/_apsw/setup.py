@@ -859,7 +859,7 @@ if "bdist_msi" in sys.argv:
 # BEGIN PLASTICITY
 SQLITE3 = "../sqlite3"
 include_plasticity = [SQLITE3] 
-ICU = SQLITE3 + '/icu_unix'
+ICU = SQLITE3 + '/icu'
 include_plasticity.append(ICU)
 # END PLASTICITY
 

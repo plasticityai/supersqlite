@@ -108,7 +108,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     PYSQLITE = THIRD_PARTY + '/_pysqlite'
     APSW_TP = THIRD_PARTY + '/_apsw'
     SQLITE3 = THIRD_PARTY + '/sqlite3'
-    ICU = os.path.relpath(SQLITE3 + '/icu_unix', PROJ_PATH)
+    ICU = os.path.relpath(SQLITE3 + '/icu', PROJ_PATH)
     includes = [os.path.relpath(SQLITE3, PROJ_PATH)]
     libraries = [os.path.relpath(SQLITE3, PROJ_PATH)]
     compile_args = ["-O4", "-std=c++11"]
