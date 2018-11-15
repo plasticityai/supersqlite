@@ -449,7 +449,8 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         library_dirs=libraries,
         libraries=[
             "user32",
-            "Advapi32"] if sys.platform == "win32" else [],
+            "Advapi32",
+            "Kernel32"] if sys.platform == "win32" else [],
         extra_compile_args=compile_args,
         extra_link_args=link_args)
 
@@ -470,7 +471,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             extra_compile_args=["-O4"],
             extra_link_args=link_args)
 
-    def sqlite_misc_extensions(skip=[], zlib=[]):
+    def sqlite_misc_extensions(skip=[], zlib=[], windirent=[]):
         miscs = []
         for source in glob(os.path.join(SQLITE_EXT, 'misc', '*.c')):
             if os.path.basename(source) in skip:
@@ -478,13 +479,25 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             module = os.path.basename(source)[:-2]
             pyinit_source = source_for_module_with_pyinit(module)
             z_sources = zlib_sources if os.path.basename(source) in zlib else []
+            windirent_sources = (
+                [
+                    os.path.relpath(
+                        os.path.join(
+                            SQLITE3,
+                            "test_windirent.c"),
+                        PROJ_PATH)] if os.path.basename(source) in windirent else [])
             miscs.append(
-                Extension(SO_PREFIX + module,
-                          sources=[source] + z_sources + [pyinit_source],
-                          include_dirs=includes,
-                          library_dirs=libraries,
-                          extra_compile_args=["-O4"],
-                          extra_link_args=link_args))
+                Extension(
+                    SO_PREFIX +
+                    module,
+                    sources=[source] +
+                    z_sources +
+                    windirent_sources +
+                    [pyinit_source],
+                    include_dirs=includes,
+                    library_dirs=libraries,
+                    extra_compile_args=["-O4"],
+                    extra_link_args=link_args))
         return miscs
 
     lsm1 = sqlite_extension('lsm1')
