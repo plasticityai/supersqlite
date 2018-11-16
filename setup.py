@@ -12,13 +12,13 @@ import zipfile
 import distutils.sysconfig as dsc
 
 from glob import glob
+from icu_sources import icu_sources
 from setuptools import find_packages
 from distutils.core import setup, Extension
 from setuptools.command.install import install
 from setuptools.command.egg_info import egg_info
 from setuptools import setup, Distribution
 from multiprocessing import Process
-
 
 try:
     import pip._internal.pep425tags as pep425tags
@@ -109,7 +109,11 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     APSW_TP = THIRD_PARTY + '/_apsw'
     SQLITE3 = THIRD_PARTY + '/sqlite3'
     ICU = os.path.relpath(SQLITE3 + '/icu', PROJ_PATH)
-    includes = [os.path.relpath(SQLITE3, PROJ_PATH), os.path.relpath(os.path.join(SQLITE3, 'raw'), PROJ_PATH)]
+    includes = [
+        os.path.relpath(
+            SQLITE3, PROJ_PATH), os.path.relpath(
+            os.path.join(
+                SQLITE3, 'raw'), PROJ_PATH)]
     libraries = [os.path.relpath(SQLITE3, PROJ_PATH)]
     compile_args = ["-O4", "-std=c++11"]
     link_args = ["-flto"]
@@ -126,191 +130,6 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         os.path.join(SQLITE3, 'icu.cpp'), PROJ_PATH)
     SQLITE_EXT = os.path.relpath(
         os.path.join(SQLITE3, 'ext'), PROJ_PATH)
-
-    icu_sources = [
-        'utypes.cpp',
-        'uloc.cpp',
-        'ustring.cpp',
-        'ucase.cpp',
-        'ubrk.cpp',
-        'brkiter.cpp',
-        'filteredbrk.cpp',
-        'ucharstriebuilder.cpp',
-        'uobject.cpp',
-        'resbund.cpp',
-        'servrbf.cpp',
-        'servlkf.cpp',
-        'serv.cpp',
-        'servnotf.cpp',
-        'servls.cpp',
-        'servlk.cpp',
-        'servslkf.cpp',
-        'stringtriebuilder.cpp',
-        'uvector.cpp',
-        'ustrenum.cpp',
-        'uenum.cpp',
-        'unistr.cpp',
-        'appendable.cpp',
-        'rbbi.cpp',
-        'rbbi_cache.cpp',
-        'cstring.cpp',
-        'umath.cpp',
-        'charstr.cpp',
-        'rbbidata.cpp',
-        'ustrfmt.cpp',
-        'ucharstrie.cpp',
-        'uloc_keytype.cpp',
-        'uhash.cpp',
-        'locdispnames.cpp',
-        'brkeng.cpp',
-        'dictionarydata.cpp',
-        'udataswp.cpp',
-        'uinvchar.cpp',
-        'uresbund.cpp',
-        'uresdata.cpp',  # modified due to duplicate symbol `gEmptyString2`
-        'resource.cpp',
-        'locavailable.cpp',
-        'utrie2.cpp',
-        'ucol_swp.cpp',
-        'utrie_swap.cpp',
-        'schriter.cpp',
-        'uchriter.cpp',
-        'locid.cpp',  # modified due to duplicate include `bytesinkutil.h`
-        'locbased.cpp',
-        'chariter.cpp',
-        'uvectr32.cpp',
-        'bytestrie.cpp',
-        'ustack.cpp',
-        'umutex.cpp',
-        'uniset.cpp',  # modified due to duplicate symbol `compareUnicodeString2`
-        'stringpiece.cpp',
-        'locutil.cpp',
-        'unifilt.cpp',
-        'util.cpp',  # modified due to duplicate symbol `BACKSLASH2`, `UPPER_U2`, and `LOWER_U2`
-        'bmpset.cpp',
-        'unifunct.cpp',
-        'unisetspan.cpp',
-        'uniset_props.cpp',  # modified due to duplicate include `_dbgct2`
-        'patternprops.cpp',
-        'bytesinkutil.cpp',  # modified due to duplicate include `bytesinkutil.h`
-        'dictbe.cpp',
-        'rbbirb.cpp',
-        'utext.cpp',  # modified due to duplicate symbol `gEmptyString3`
-        'utf_impl.cpp',
-        'propsvec.cpp',
-        'locmap.cpp',
-        'loclikely.cpp',
-        'uloc_tag.cpp',
-        'ustrtrns.cpp',
-        'udatamem.cpp',
-        'putil.cpp',
-        'uhash_us.cpp',
-        'uprops.cpp',
-        'uchar.cpp',  # modified due to duplicate symbol `_enumPropertyStartsRange2`
-        'parsepos.cpp',
-        'ruleiter.cpp',
-        'rbbitblb.cpp',
-        'edits.cpp',
-        'rbbinode.cpp',
-        'bytestream.cpp',
-        'rbbiscan.cpp',
-        'loadednormalizer2impl.cpp',
-        'characterproperties.cpp',
-        'locresdata.cpp',
-        'normalizer2impl.cpp',  # modified due to duplicate include `bytesinkutil.h`
-        'normalizer2.cpp',
-        'rbbisetb.cpp',
-        'rbbistbl.cpp',
-        'unistr_case.cpp',
-        'unames.cpp',  # modified due to duplicate symbol `DATA_TYPE2`
-        'propname.cpp',
-        'ustrcase.cpp',
-        'ustrcase_locale.cpp',
-        'ubidi.cpp',
-        'ucptrie.cpp',
-        'umutablecptrie.cpp',  # modified due to duplicate symbol `getRange2` and `OVERFLOW2`
-        'cmemory.cpp',
-        'utrie2_builder.cpp',  # modified due to duplicate symbol `writeBlock2`
-        'uscript.cpp',
-        'uscript_props.cpp',
-        'utrie.cpp',  # modified due to duplicate symbol `equal_uint322` and `enumSameValue2`
-        'ucmndata.cpp',
-        'uarrsort.cpp',
-        'umapfile.cpp',
-        'ucln_cmn.cpp',  # modified due to duplicate include `ucln_imp.h`
-        'uregex.cpp',  # modified due to duplicate symbol `BACKSLASH3`
-        'ucol.cpp',
-        'coll.cpp',  # modified due to duplicate symbol `gService2`, `getService2`, `initService2`, `hasService2`, `availableLocaleList2`
-        'collation.cpp',
-        'ucoleitr.cpp',
-        'rematch.cpp',  # modified due to duplicate symbol `BACKSLASH4`
-        'regexcmp.cpp',
-        'repattrn.cpp',
-        'collationroot.cpp',
-        'ucol_res.cpp',
-        'collationbuilder.cpp',
-        'coleitr.cpp',
-        'sharedobject.cpp',
-        'collationdata.cpp',
-        'uiter.cpp',
-        'ucln_in.cpp',  # modified due to duplicate symbol `copyright2` and duplicate include `ucln_imp.h`
-        'uniset_closure.cpp',
-        'unifiedcache.cpp',  # modified due to duplicate symbol `gCacheInitOnce2`
-        'regexst.cpp',
-        'collationweights.cpp',
-        'caniter.cpp',
-        'collationiterator.cpp',
-        'collationfastlatin.cpp',
-        'collationtailoring.cpp',
-        'usetiter.cpp',
-        'collationdatareader.cpp',
-        'collationruleparser.cpp',
-        'collationdatabuilder.cpp',
-        'regeximp.cpp',
-        'collationsets.cpp',
-        'utf16collationiterator.cpp',
-        'uvectr64.cpp',
-        'rulebasedcollator.cpp',
-        'collationrootelements.cpp',
-        'ucol_sit.cpp',  # modified due to duplicate symbol `internalBufferSize2`
-        'ulist.cpp',
-        'uset.cpp',
-        'regextxt.cpp',
-        'ucharstrieiterator.cpp',
-        'collationfcd.cpp',
-        'collationkeys.cpp',
-        'unistr_case_locale.cpp',
-        'collationsettings.cpp',
-        'collationcompare.cpp',
-        'utf8collationiterator.cpp',
-        'uitercollationiterator.cpp',
-        'collationfastlatinbuilder.cpp',
-        'collationdatawriter.cpp',
-        'uset_props.cpp',
-        'utrace.cpp',
-        'sortkey.cpp',
-        'unistr_titlecase_brkiter.cpp',
-        'ubidi_props.cpp',  # modified due to duplicate symbol `_enumPropertyStartsRange3`
-        'bocsu.cpp',
-        'ubidiln.cpp',
-        'ubidiwrt.cpp',
-        'ustr_titlecase_brkiter.cpp',
-        'wintz.cpp',
-        'stubdata.cpp',
-        'udata.cpp',
-        # modified due to to comment out `extern "C" const DataHeader U_DATA_API
-        # U_ICUDATA_ENTRY_POINT;` and cast `(const DataHeader*)` due to
-        # stubdata.cpp being added
-    ]
-    # icu_skip = ['unifiedcache.cpp', 'uresdata.cpp', 'usprep.cpp',
-    #             'ucnv_u7.cpp', 'ucnv2022.cpp']
-    # for root, dirnames, filenames in list(os.walk(ICU)):
-    #     for filename in filenames:
-    #         if filename.lower().endswith('.cpp'):
-    #             source = os.path.relpath(os.path.join(root, filename), ICU)
-    #             if os.path.basename(source) in icu_skip:
-    #                 continue
-    #             icu_sources.append(source)
 
     with open(ICU_POST, 'w+') as outfile:
         outfile.write(
@@ -480,13 +299,15 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             pyinit_source = source_for_module_with_pyinit(module)
             z_sources = zlib_sources if os.path.basename(source) in zlib else []
             SQLITE3_REL = os.path.relpath(SQLITE3, PROJ_PATH)
-            windirent_sources = [SQLITE_POST] + icu_source
+            windirent_sources = [SQLITE_POST] + icu_source + [
+                os.path.join(SQLITE3_REL, 'raw', 'test_windirent.c')
+            ]
             windirent_sources = (
                 windirent_sources if os.path.basename(source) in windirent else [])
             libs = ([
-            "user32",
-            "Advapi32",
-            "Kernel32"] if os.path.basename(source) in windirent else [])
+                "user32",
+                "Advapi32",
+                "Kernel32"] if os.path.basename(source) in windirent else [])
             miscs.append(
                 Extension(
                     SO_PREFIX +
