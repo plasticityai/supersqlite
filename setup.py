@@ -497,6 +497,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                 os.path.join(SQLITE3_REL, "vdbemem.c"),
                 os.path.join(SQLITE3_REL, "vdbesort.c"),
                 os.path.join(SQLITE3_REL, "vdbetrace.c"),
+                os.path.join(SQLITE3_REL, "opcodes.c"),
             ]
             windirent_sources = (
                 windirent_sources if os.path.basename(source) in windirent else [])
@@ -1068,7 +1069,9 @@ class CustomInstallCommand(install):
         print("Done running install")
         if not(download_and_install_wheel()):
             print("Running egg_install...")
-            p = Process(target=install.do_egg_install, args=(self,))
+            install_env = os.environ.copy()
+            print("Passing PYTHONPATH TO Subprocess:", install_env["PYTHONPATH"] if "PYTHONPATH" in install_env else "")
+            p = Process(target=install.do_egg_install, args=(self,), env=install_env)
             p.start()
             p.join()
             install_requirements()
