@@ -122,6 +122,10 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     link_args.append('-L' + ICU)
     SO_PREFIX = PACKAGE_NAME + '.third_party.sqlite3.'
 
+    SQLITE_H_PRE = os.path.relpath(
+        os.path.join(SQLITE3, 'sqlite3.h.pre.h'), PROJ_PATH)
+    SQLITE_H_POST = os.path.relpath(
+        os.path.join(SQLITE3, 'sqlite3.h'), PROJ_PATH)
     SQLITE_PRE = os.path.relpath(
         os.path.join(SQLITE3, 'sqlite3.c.pre.c'), PROJ_PATH)
     SQLITE_POST = os.path.relpath(
@@ -153,9 +157,27 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                 udata_setCommonData((const void*)"", &_PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS);
                 return (int) _PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS;
             }
-
             # endif
         ''')
+    with open(SQLITE_H_POST, 'w+') as outfile:
+        with open(SQLITE_H_PRE, 'r') as infile:
+            for line in infile:
+                outfile.write(line)
+        outfile.write(
+            '''
+            # ifndef PLASTICITY_SUPERSQLITE_SQLITE3_H
+            # define PLASTICITY_SUPERSQLITE_SQLITE3_H 1
+                #ifdef __cplusplus
+                extern "C" {
+                #endif
+
+                    int _supersqlite_load_icu_data(void);
+
+                #ifdef __cplusplus
+                }
+                #endif
+            # endif
+            ''')
     with open(SQLITE_POST, 'w+') as outfile:
         outfile.write('#define U_DISABLE_RENAMING 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_DBPAGE_VTAB 1' + '\n')
@@ -287,7 +309,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                      [pyinit_source]),
             include_dirs=includes,
             library_dirs=libraries,
-            extra_compile_args=["-O4"],
+            extra_compile_args=compile_args,
             extra_link_args=link_args)
 
     def sqlite_misc_extensions(skip=[], zlib=[], windirent=[]):
@@ -319,7 +341,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                     include_dirs=includes,
                     library_dirs=libraries,
                     libraries=libs,
-                    extra_compile_args=["-O4"],
+                    extra_compile_args=compile_args,
                     extra_link_args=link_args))
         return miscs
 
