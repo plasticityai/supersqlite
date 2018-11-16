@@ -24,12 +24,11 @@ script:
   - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   - brew install gcc@8 --without-multilib
   - export CI_CC="/usr/local/Cellar/gcc/8.2.0/bin/gcc-8 -static-libgcc"
-  - export GPP_LOC=$(which g++)
   - which g++
-  - sudo mv $GPP_LOC $GPP_LOC.bak
-  - ls -alh $GPP_LOC || true
-  - sudo ln -s /usr/local/Cellar/gcc/8.2.0/bin/g++-8 $GPP_LOC
-  - ls -alh $GPP_LOC || true
+  - export PATH=/usr/local/bin:$PATH
+  - echo $PATH
+  - mv /usr/local/bin/g++ /usr/local/bin/g++.bak || true
+  - ln -s /usr/local/Cellar/gcc/8.2.0/bin/g++-8 /usr/local/bin/g++
   - which g++
   - $PIP install pip setuptools -U
   - $PIP install cibuildwheel==0.10.0
