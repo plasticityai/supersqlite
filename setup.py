@@ -482,21 +482,9 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             SQLITE3_REL = os.path.relpath(SQLITE3, PROJ_PATH)
             windirent_sources = [
                 os.path.join(SQLITE3_REL, "test_windirent.c"),
-                os.path.join(SQLITE3_REL, "hash.c"),
-                os.path.join(SQLITE3_REL, "btree.c"),
-                os.path.join(SQLITE3_REL, "os_win.c"),
+                os.path.join(SQLITE3_REL, "malloc.c"),
                 os.path.join(SQLITE3_REL, "os.c"),
-                os.path.join(SQLITE3_REL, "mutex.c"),
                 os.path.join(SQLITE3_REL, "mutex_w32.c"),
-                os.path.join(SQLITE3_REL, "vdbe.c"),
-                os.path.join(SQLITE3_REL, "pcache.c"),
-                os.path.join(SQLITE3_REL, "pager.c"),
-                os.path.join(SQLITE3_REL, "vdbeapi.c"),
-                os.path.join(SQLITE3_REL, "vdbeaux.c"),
-                os.path.join(SQLITE3_REL, "vdbeblob.c"),
-                os.path.join(SQLITE3_REL, "vdbemem.c"),
-                os.path.join(SQLITE3_REL, "vdbesort.c"),
-                os.path.join(SQLITE3_REL, "vdbetrace.c"),
                 os.path.join(SQLITE3_REL, "opcodes.c"),
             ]
             windirent_sources = (

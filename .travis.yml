@@ -24,8 +24,6 @@ script:
   - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   - brew install gcc@8 --without-multilib
   - export CI_CC="/usr/local/Cellar/gcc/8.2.0/bin/gcc-8"
-  - export PYTHONPATH="$(python -c 'import sys; import os; print(os.pathsep.join(sys.path))'):build/bdist.macosx-10.6-intel/wheel/"
-  - echo $PYTHONPATH
   - $PIP install pip setuptools -U
   - $PIP install cibuildwheel==0.10.0
   - eval "buildwheel() { cibuildwheel --output-dir wheelhouse >>buildwheel.log 2>&1; }"
