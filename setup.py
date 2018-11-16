@@ -480,13 +480,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             pyinit_source = source_for_module_with_pyinit(module)
             z_sources = zlib_sources if os.path.basename(source) in zlib else []
             SQLITE3_REL = os.path.relpath(SQLITE3, PROJ_PATH)
-            windirent_sources = [
-                os.path.join(SQLITE3_REL, "test_windirent.c"),
-                os.path.join(SQLITE3_REL, "malloc.c"),
-                os.path.join(SQLITE3_REL, "os.c"),
-                os.path.join(SQLITE3_REL, "mutex_w32.c"),
-                os.path.join(SQLITE3_REL, "opcodes.c"),
-            ]
+            windirent_sources = [SQLITE_POST] + icu_source
             windirent_sources = (
                 windirent_sources if os.path.basename(source) in windirent else [])
             miscs.append(
