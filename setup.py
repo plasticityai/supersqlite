@@ -329,7 +329,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             libs = ([
                 "user32",
                 "Advapi32",
-                "Kernel32"] if os.path.basename(source) in windirent else [])
+                "Kernel32"] if (sys.platform == "win32" and os.path.basename(source) in windirent and) else [])
             miscs.append(
                 Extension(
                     SO_PREFIX +

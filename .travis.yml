@@ -26,9 +26,9 @@ script:
   - export CI_CC="/usr/local/Cellar/gcc/8.2.0/bin/gcc-8 -static-libgcc"
   - export GPP_LOC=$(which g++)
   - which g++
-  - mv $GPP_LOC $GPP_LOC.bak
+  - sudo mv $GPP_LOC $GPP_LOC.bak
   - ls -alh $GPP_LOC || true
-  - ln -s /usr/local/Cellar/gcc/8.2.0/bin/g++-8 $GPP_LOC
+  - sudo ln -s /usr/local/Cellar/gcc/8.2.0/bin/g++-8 $GPP_LOC
   - ls -alh $GPP_LOC || true
   - which g++
   - $PIP install pip setuptools -U
