@@ -1069,9 +1069,7 @@ class CustomInstallCommand(install):
         print("Done running install")
         if not(download_and_install_wheel()):
             print("Running egg_install...")
-            install_env = os.environ.copy()
-            print("Passing PYTHONPATH TO Subprocess:", install_env["PYTHONPATH"] if "PYTHONPATH" in install_env else "")
-            p = Process(target=install.do_egg_install, args=(self,), env=install_env)
+            p = Process(target=install.do_egg_install, args=(self,))
             p.start()
             p.join()
             install_requirements()
@@ -1098,6 +1096,8 @@ MODULES = get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                       source_for_module_with_pyinit)
 
 if __name__ == '__main__':
+    if 'CI_CC' in os.environ:
+        os.environ['CC'] = os.environ['CI_CC']
 
     # Attempt to install from a remote pre-compiled wheel
     if any([a in sys.argv for a in ['egg_info', 'install']]):
