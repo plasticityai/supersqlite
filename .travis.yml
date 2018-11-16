@@ -24,12 +24,19 @@ script:
   - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   - brew install gcc@8 --without-multilib
   - export CI_CC="/usr/local/Cellar/gcc/8.2.0/bin/gcc-8 -static-libgcc"
-  - which g++
   - export PATH=/usr/local/bin:$PATH
   - echo $PATH
+  - which g++ || true
   - mv /usr/local/bin/g++ /usr/local/bin/g++.bak || true
   - ln -s /usr/local/Cellar/gcc/8.2.0/bin/g++-8 /usr/local/bin/g++
-  - which g++
+  # TODO: Not sure why, but some Python C++ compilations are happening with this version so harcoding a
+  # link for this version. This will likely break in the future if wherever it is getting 4.2
+  # changes, but I guess the version could just be updated below from 4.2 to whatever it is in 
+  # the future?
+  - which g++-4.2 || true
+  - mv /usr/local/bin/g++-4.2 /usr/local/bin/g++-4.2.bak || true
+  - ln -s /usr/local/Cellar/gcc/8.2.0/bin/g++-8 /usr/local/bin/g++-4.2
+  - which g++-4.2
   - $PIP install pip setuptools -U
   - $PIP install cibuildwheel==0.10.0
   - eval "buildwheel() { cibuildwheel --output-dir wheelhouse >>buildwheel.log 2>&1; }"
