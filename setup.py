@@ -109,7 +109,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     APSW_TP = THIRD_PARTY + '/_apsw'
     SQLITE3 = THIRD_PARTY + '/sqlite3'
     ICU = os.path.relpath(SQLITE3 + '/icu', PROJ_PATH)
-    includes = [os.path.relpath(SQLITE3, PROJ_PATH)]
+    includes = [os.path.relpath(SQLITE3, PROJ_PATH), os.path.relpath(os.path.join(SQLITE3, 'raw'), PROJ_PATH)]
     libraries = [os.path.relpath(SQLITE3, PROJ_PATH)]
     compile_args = ["-O4", "-std=c++11"]
     link_args = ["-flto"]
@@ -483,6 +483,10 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
             windirent_sources = [SQLITE_POST] + icu_source
             windirent_sources = (
                 windirent_sources if os.path.basename(source) in windirent else [])
+            libs = ([
+            "user32",
+            "Advapi32",
+            "Kernel32"] if os.path.basename(source) in windirent else [])
             miscs.append(
                 Extension(
                     SO_PREFIX +
@@ -493,6 +497,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
                     [pyinit_source],
                     include_dirs=includes,
                     library_dirs=libraries,
+                    libraries=libs,
                     extra_compile_args=["-O4"],
                     extra_link_args=link_args))
         return miscs
