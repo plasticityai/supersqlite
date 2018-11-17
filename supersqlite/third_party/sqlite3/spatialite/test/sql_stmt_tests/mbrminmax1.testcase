@@ -1,8 +1,0 @@
-MbrMinX- non-blob
-:memory: #use in-memory database
-SELECT MbrMinX(3)
-1 # rows (not including the header row)
-1 # columns
-MbrMinX(3)
-(NULL)
-

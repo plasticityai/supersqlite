@@ -1,7 +1,0 @@
-nrings - non-blob
-:memory: #use in-memory database
-SELECT ST_NRings("hello")
-1 # rows (not including the header row)
-1 # columns
-ST_NRings("hello")
-(NULL)

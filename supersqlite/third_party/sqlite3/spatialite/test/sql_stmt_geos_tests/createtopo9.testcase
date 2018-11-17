@@ -1,7 +1,0 @@
-CreateTopology - 3 arguments, 0 SRID (error)
-:memory: #use in-memory database
-SELECT CreateTopologyTables("my_prefix", 0, 3);
-1 # rows (not including the header row)
-1 # columns
-CreateTopologyTables("my_prefix", 0, 3)
-0

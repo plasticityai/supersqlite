@@ -1,8 +1,0 @@
-IsValidFont - standard
-NEW:memory: #use in-memory database
-SELECT IsValidFont(zeroblob(4));
-1 # rows (not including the header row)
-1 # columns
-IsValidFont(zeroblob(4))
-0
-

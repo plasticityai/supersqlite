@@ -10,15 +10,13 @@ There are a few components that need updating when updating the version of `sqli
 
 4. **Update SQLite3 Extension Functions:** Download the latest `extension-functions.c` from the [SQLite website](https://www.sqlite.org/contrib) and place it in `third_party/sqlite3/ext/misc`.
 
-5. **Update the SpatiaLite Extension:** Download the latest `libspatialite` from the [SpatiaLite website](`https://www.gaia-gis.it/fossil/libspatialite/index`) and place it under `third_party/sqlite3/spatialite`.
+5. **Copy `shell.c`:** Copy `shell.c` from the root of `third_party/_apsw` (which was updated in step #1) to `third_party/sqlite3/apsw_shell.c`.
 
-6. **Copy `shell.c`:** Copy `shell.c` from the root of `third_party/_apsw` (which was updated in step #1) to `third_party/sqlite3/apsw_shell.c`.
+6. **Update ICU:** Download the ICU source files (Unix version) from the [ICU website](http://site.icu-project.org/download). And add the `source/common` folder to the `third_party/sqlite3/icu` folder and then the `source/i8n` folder to the `third_party/sqlite3/icu` folder (merge the two directories). Also add the `source/stubdata/stubdata.cpp` file to the `third_party/sqlite3/icu` folder and the `source/data/in/icudt*l.dat` file to the `third_party/sqlite3/icu/data/` folder.
 
-7. **Update ICU:** Download the ICU source files (Unix version) from the [ICU website](http://site.icu-project.org/download). And add the `source/common` folder to the `third_party/sqlite3/icu` folder and then the `source/i8n` folder to the `third_party/sqlite3/icu` folder (merge the two directories). Also add the `source/stubdata/stubdata.cpp` file to the `third_party/sqlite3/icu` folder and the `source/data/in/icudt*l.dat` file to the `third_party/sqlite3/icu/data/` folder.
+7. **Patch ICU:** Make modifications to the source files in `third_party/sqlite3/icu` as instructed by `icu_sources.py`.
 
-8. **Patch ICU:** Make modifications to the source files in `third_party/sqlite3/icu` as instructed by `icu_sources.py`.
-
-9. **Update `miniz`:** The source code is available on [GitHub](https://github.com/richgel999/miniz). Rename `miniz.h` to `zlib.h` and `miniz.c` to `zlib.c` and place all of the `.c` and `.h` files in the project root under `third_party/sqlite3/`. Modify the `zlib.c`, `miniz_zip.h`, and `miniz_tdef.c` file's `#include "miniz.h"` with `#include "zlib.h"`. Also add the follwing:
+8. **Update `miniz`:** The source code is available on [GitHub](https://github.com/richgel999/miniz). Rename `miniz.h` to `zlib.h` and `miniz.c` to `zlib.c` and place all of the `.c` and `.h` files in the project root under `third_party/sqlite3/`. Modify the `zlib.c`, `miniz_zip.h`, and `miniz_tdef.c` file's `#include "miniz.h"` with `#include "zlib.h"`. Also add the follwing:
 ```c
 #if __linux
 #define _LARGEFILE64_SOURCE 1
@@ -26,4 +24,4 @@ There are a few components that need updating when updating the version of `sqli
 ```
 to the top of `zlib.h`.
 
-10. **Update Documentation:** Update any documentation in the `README.md` with the SQLite version compiled.
+9. **Update Documentation:** Update any documentation in the `README.md` with the SQLite version compiled.

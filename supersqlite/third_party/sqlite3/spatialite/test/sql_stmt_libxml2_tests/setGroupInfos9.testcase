@@ -1,8 +1,0 @@
-SetStyledGroupInfos - NULL abstract
-:memory: #use in-memory database
-SELECT SE_SetStyledGroupInfos('group', 'title', NULL);
-1 # rows (not including the header row)
-1 # columns
-SE_SetStyledGroupInfos('group', 'title', NULL)
--1
-

@@ -1,7 +1,0 @@
-CastToDouble() - NULL
-:memory: #use in-memory database
-SELECT CastToDouble(NULL)
-1 # rows (not including the header row)
-1 # columns
-CastToDouble(NULL)
-(NULL)

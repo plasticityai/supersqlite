@@ -1,7 +1,0 @@
-RegisterStyledGroupVector - Text coverage_name
-:memory: #use in-memory database
-SELECT SE_RegisterStyledGroupVector('alpha', 'beta');
-1 # rows (not including the header row)
-1 # columns
-SE_RegisterStyledGroupVector('alpha', 'beta')
-0

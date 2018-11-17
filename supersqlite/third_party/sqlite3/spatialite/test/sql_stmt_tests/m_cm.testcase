@@ -1,7 +1,0 @@
-metres to centimetres
-:memory: #use in-memory database
-SELECT CvtToCm(21.00);
-1 # rows (not including the header row)
-1 # columns
-CvtToCm(21.00);
-2100.0

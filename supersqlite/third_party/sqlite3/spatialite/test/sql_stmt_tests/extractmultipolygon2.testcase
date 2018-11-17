@@ -1,7 +1,0 @@
-extractmultipolygon - non-blob
-:memory: #use in-memory database
-SELECT ExtractMultiPolygon(4)
-1 # rows (not including the header row)
-1 # columns
-ExtractMultiPolygon(4)
-(NULL)

@@ -1,7 +1,0 @@
-extractmultilinestring - non-blob
-:memory: #use in-memory database
-SELECT ExtractMultiLinestring(4)
-1 # rows (not including the header row)
-1 # columns
-ExtractMultiLinestring(4)
-(NULL)

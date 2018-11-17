@@ -1,7 +1,0 @@
-transform - null args
-gpkg_test.gpkg
-SELECT Transform(NULL, NULL)
-1 # rows (not including the header row)
-1 # columns
-Transform(NULL, NULL)
-(NULL)

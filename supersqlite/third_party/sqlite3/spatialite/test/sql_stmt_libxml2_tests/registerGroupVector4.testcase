@@ -1,8 +1,0 @@
-RegisterStyledGroupVector - BLOB group_name
-:memory: #use in-memory database
-SELECT SE_RegisterStyledGroupVector(zeroblob(4), 'beta');
-1 # rows (not including the header row)
-1 # columns
-SE_RegisterStyledGroupVector(zeroblob(4), 'beta')
--1
-

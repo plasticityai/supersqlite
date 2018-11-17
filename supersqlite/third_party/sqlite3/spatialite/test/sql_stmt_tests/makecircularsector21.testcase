@@ -1,8 +1,0 @@
-makecircularsector21 - TEXT step
-:memory: #use in-memory database
-SELECT MakeCircularSector(0, 0, 100, 30, 60, 4326, 'alpha');
-1 # rows (not including the header row)
-1 # columns
-MakeCircularSector(0, 0, 100, 30, 60, 4326, 'alpha')
-(NULL)
-

@@ -1,8 +1,0 @@
-RegisterStyledGroupVector - DOUBLE coverage_name
-:memory: #use in-memory database
-SELECT SE_RegisterStyledGroupVector('alpha', 1.1);
-1 # rows (not including the header row)
-1 # columns
-SE_RegisterStyledGroupVector('alpha', 1.1)
--1
-

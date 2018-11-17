@@ -1,8 +1,0 @@
-geomfromgpb10
-:memory: #use in-memory database
-SELECT GeomFromGPB(4)
-1 # rows (not including the header row)
-1 # columns
-GeomFromGPB(4)
-(NULL)
-

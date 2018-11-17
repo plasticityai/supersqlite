@@ -1,8 +1,0 @@
-UnRegisterStyledGroupVector - Double group
-:memory: #use in-memory database
-SELECT SE_UnRegisterStyledGroupVector(1.1, 'beta');
-1 # rows (not including the header row)
-1 # columns
-SE_UnRegisterStyledGroupVector(1.1, 'beta')
--1
-

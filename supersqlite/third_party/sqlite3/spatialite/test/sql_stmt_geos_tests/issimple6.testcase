@@ -1,7 +1,0 @@
-IsSimple - GeometryCollection, single point
-:memory: #use in-memory database
-SELECT IsSimple(GeomFromText("GEOMETRYCOLLECTION(POINT(1 2))"))
-1 # rows (not including the header row)
-1 # columns
-IsSimple(GeomFromText("GEOMETRYCOLLECTION(POINT(1 2))"))
--1

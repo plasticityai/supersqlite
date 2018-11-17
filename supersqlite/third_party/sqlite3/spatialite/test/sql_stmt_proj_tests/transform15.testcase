@@ -1,7 +1,0 @@
-transform - Point ZM
-:memory: #use in-memory database
-SELECT AsText(Transform(GeomFromText('POINTZM(663019 4762755 100 1)', 32632), 4326))
-1 # rows (not including the header row)
-1 # columns
-AsText(Transform(GeomFromText('POINTZM(663019 4762755 100 1)', 32632), 4326))
-POINT ZM(10.999999 42.999994 100 1)

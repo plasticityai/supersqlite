@@ -1,7 +1,0 @@
-convex hull - non-blob
-:memory: #use in-memory database
-SELECT ConvexHull(3.2)
-1 # rows (not including the header row)
-1 # columns
-ConvexHull(3.2)
-(NULL)

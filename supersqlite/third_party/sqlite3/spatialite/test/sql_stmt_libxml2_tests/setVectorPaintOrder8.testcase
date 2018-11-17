@@ -1,7 +1,0 @@
-SetStyledGroupVectorPaintOrder - BLOB coverage
-:memory: #use in-memory database
-SELECT SE_SetStyledGroupVectorPaintOrder('alpha', zeroblob(4), 1);
-1 # rows (not including the header row)
-1 # columns
-SE_SetStyledGroupVectorPaintOrder('alpha', zeroblob(4), 1)
--1

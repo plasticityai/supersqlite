@@ -1,7 +1,0 @@
-HexagonalGrid - valid - with Origin
-:memory: #use in-memory database
-SELECT AsText(HexagonalGrid(GeomFromText('POLYGON((0.2 0.2, 2.2 0.2, 2.2 1.2, 0.2 1.2, 0.2 0.2))', 4326), 1.0, 0, GeomFromText('POINT(0.1 0.1)')));
-1 # rows (not including the header row)
-1 # columns
-AsText(HexagonalGrid(GeomFromText('POLYGON((0.2 0.2, 2.2 0.2, 2.2 1.2, 0.2 1.2, 0.2 0.2))', 4326), 1.0, 0, GeomFromText('POINT(0.1 0.1)')))
-MULTIPOLYGON(((0.1 0.1, 0.6 -0.766025, 1.6 -0.766025, 2.1 0.1, 1.6 0.966025, 0.6 0.966025, 0.1 0.1)), ((-1.4 0.966025, -0.9 0.1, 0.1 0.1, 0.6 0.966025, 0.1 1.832051, -0.9 1.832051, -1.4 0.966025)), ((1.6 0.966025, 2.1 0.1, 3.1 0.1, 3.6 0.966025, 3.1 1.832051, 2.1 1.832051, 1.6 0.966025)), ((0.1 1.832051, 0.6 0.966025, 1.6 0.966025, 2.1 1.832051, 1.6 2.698076, 0.6 2.698076, 0.1 1.832051)))

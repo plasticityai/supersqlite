@@ -1,8 +1,0 @@
-makearc6 - BLOB cy
-:memory: #use in-memory database
-SELECT MakeArc(0, zeroblob(4), 100, 30, 60);
-1 # rows (not including the header row)
-1 # columns
-MakeArc(0, zeroblob(4), 100, 30, 60)
-(NULL)
-

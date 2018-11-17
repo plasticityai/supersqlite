@@ -1,7 +1,0 @@
-UpdateLayerStatistics - TEXT, NULL
-:memory: #use in-memory database
-SELECT UpdateLayerStatistics('table', NULL);
-1 # rows (not including the header row)
-1 # columns
-UpdateLayerStatistics('table', NULL);
-0

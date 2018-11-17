@@ -1,7 +1,0 @@
-CreateTopology - 2 arguments, 2D
-NEW:memory: #use in-memory database (empty)
-SELECT CreateTopologyTables(4326, "XY");
-1 # rows (not including the header row)
-1 # columns
-CreateTopologyTables(4326, "XY")
-1

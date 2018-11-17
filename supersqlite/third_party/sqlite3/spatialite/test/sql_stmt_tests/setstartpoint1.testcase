@@ -1,7 +1,0 @@
-ST_SetStartPoint() - NULL line
-:memory: #use in-memory database
-SELECT ST_SetStartPoint(NULL, NULL)
-1 # rows (not including the header row)
-1 # columns
-ST_SetStartPoint(NULL, NULL)
-(NULL)

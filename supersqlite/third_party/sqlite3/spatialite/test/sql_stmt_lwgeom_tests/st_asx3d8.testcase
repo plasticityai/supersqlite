@@ -1,7 +1,0 @@
-ST_AsX3D - 2D polygon
-:memory: #use in-memory database
-SELECT ST_AsX3D(GeomFromText('POLYGON((10 10, 11 10, 11 11, 10 11, 10 10))'));
-1 # rows (not including the header row)
-1 # columns
-ST_AsX3D(GeomFromText('POLYGON((10 10, 11 10, 11 11, 10 11, 10 10))'))
-<IndexedFaceSet  coordIndex='0 1 2 3'>10 10 11 10 11 11 10 11 ' />:0

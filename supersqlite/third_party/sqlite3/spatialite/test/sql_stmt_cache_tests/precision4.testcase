@@ -1,7 +1,0 @@
-decimal precision - NULL
-:memory:
-SELECT SetDecimalPrecision(NULL);
-1 # rows
-1 # column
-SetDecimalPrecision(NULL)
-(NULL)

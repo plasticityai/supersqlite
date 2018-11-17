@@ -1,9 +1,0 @@
-GPKG mode - disable
-:memory:
-SELECT DisableGpkgMode(), GetGpkgMode();
-1 # rows
-2 # column
-DisableGpkgMode()
-GetGpkgMode();
-(NULL)
-0

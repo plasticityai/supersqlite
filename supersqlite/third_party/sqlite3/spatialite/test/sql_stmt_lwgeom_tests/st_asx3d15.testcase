@@ -1,7 +1,0 @@
-ST_AsX3D - 3D multipolygon
-:memory: #use in-memory database
-SELECT ST_AsX3D(GeomFromText('MULTIPOLYGONZ(((10 10 1, 11 10 2, 11 11 3, 10 11 4, 10 10 1)), ((20 20 5, 21 20 6, 21 21 7, 20 21 8, 20 20 5)))'));
-1 # rows (not including the header row)
-1 # columns
-ST_AsX3D(GeomFromText('MULTIPOLYGONZ(((10 10 1, 11 10 2, 11 11 3, 10 11 4, 10 10 1)), ((20 20 5, 21 20 6, 21 21 7, 20 21 8, 20 20 5)))'))
-<IndexedFaceSet  coordIndex='0 1 2 3 -1 4 5 6 7'><Coordinate point='10 10 1 11 10 2 11 11 3 10 11 4 20 20 5 21 20 6 21 21 7 20 21 8 ' /></IndexedFaceSet>:0

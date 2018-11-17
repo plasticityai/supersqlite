@@ -1,8 +1,0 @@
-UnRegisterStyledGroupRaster - Int group
-:memory: #use in-memory database
-SELECT SE_UnRegisterStyledGroupRaster(1, 'beta');
-1 # rows (not including the header row)
-1 # columns
-SE_UnRegisterStyledGroupRaster(1, 'beta')
--1
-

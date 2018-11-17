@@ -1,8 +1,0 @@
-RegisterStyledGroupRaster - DOUBLE group_name
-:memory: #use in-memory database
-SELECT SE_RegisterStyledGroupRaster(1.1, 'beta');
-1 # rows (not including the header row)
-1 # columns
-SE_RegisterStyledGroupRaster(1.1, 'beta')
--1
-

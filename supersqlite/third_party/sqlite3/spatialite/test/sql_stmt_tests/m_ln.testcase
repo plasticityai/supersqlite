@@ -1,7 +1,0 @@
-metres to links
-:memory: #use in-memory database
-SELECT CvtToLink(1000);
-1 # rows (not including the header row)
-1 # columns
-CvtToLink(1000)
-4970.96954:9

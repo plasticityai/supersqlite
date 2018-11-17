@@ -1,7 +1,0 @@
-SetSRID - zeroblob
-:memory: #use in-memory database
-SELECT SetSRID(zeroblob(100), 4326)
-1 # rows (not including the header row)
-1 # columns
-SetSRID(zeroblob(100), 4326)
-(NULL)

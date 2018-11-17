@@ -1,8 +1,0 @@
-UnRegisterStyledGroupRaster - NULL coverage
-:memory: #use in-memory database
-SELECT SE_UnRegisterStyledGroupRaster('alpha', NULL);
-1 # rows (not including the header row)
-1 # columns
-SE_UnRegisterStyledGroupRaster('alpha', NULL)
--1
-

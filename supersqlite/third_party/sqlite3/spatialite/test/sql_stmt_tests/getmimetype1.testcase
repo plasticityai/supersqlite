@@ -1,8 +1,0 @@
-GetMimeType - NULL
-:memory: #use in-memory database
-SELECT GetMimeType(NULL);
-1 # rows (not including the header row)
-1 # columns
-GetMimeType(NULL)
-(NULL)
-

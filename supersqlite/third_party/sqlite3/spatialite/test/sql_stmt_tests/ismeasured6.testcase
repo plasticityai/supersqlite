@@ -1,8 +1,0 @@
-IsMeasured- Point XYZM
-:memory: #use in-memory database
-SELECT ST_IsMeasured(GeomFromText('POINTZM(1 2 100 10)'));
-1 # rows (not including the header row)
-1 # columns
-ST_IsMeasured(GeomFromText('POINTZM(1 2 100 10)'))
-1
-

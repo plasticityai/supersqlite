@@ -1,7 +1,0 @@
-SridGetSpheroid() - NULL SRID
-:memory: #use in-memory database
-SELECT SridGetSpheroid(NULL)
-1 # rows (not including the header row)
-1 # columns
-SridGetSpheroid(NULL)
-(NULL)

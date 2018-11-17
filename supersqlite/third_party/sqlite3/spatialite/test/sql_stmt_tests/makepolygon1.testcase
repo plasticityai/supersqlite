@@ -1,8 +1,0 @@
-makepolygon - NULL exterior
-:memory: #use in-memory database
-SELECT MakePolygon(NULL);
-1 # rows (not including the header row)
-1 # columns
-MakePolygon(NULL)
-(NULL)
-

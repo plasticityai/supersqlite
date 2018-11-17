@@ -1,7 +1,0 @@
-ForceAsNull() - TEXT - mismatching
-:memory: #use in-memory database
-SELECT ForceAsNull('alpha', 'beta')
-1 # rows (not including the header row)
-1 # columns
-ForceAsNull('alpha', 'beta')
-alpha

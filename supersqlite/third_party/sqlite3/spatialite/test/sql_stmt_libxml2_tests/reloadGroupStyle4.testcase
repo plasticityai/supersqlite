@@ -1,7 +1,0 @@
-ReloadGroupStyle - Integer style ID
-:memory: #use in-memory database
-SELECT SE_ReloadGroupStyle(1, zeroblob(100));
-1 # rows (not including the header row)
-1 # columns
-SE_ReloadGroupStyle(1, zeroblob(100))
-0

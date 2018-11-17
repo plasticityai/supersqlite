@@ -1,8 +1,0 @@
-makecircle2 - text cx
-:memory: #use in-memory database
-SELECT MakeCircle('alpha', 0, 100);
-1 # rows (not including the header row)
-1 # columns
-MakeCircle('alpha', 0, 100)
-(NULL)
-

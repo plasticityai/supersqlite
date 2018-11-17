@@ -1,7 +1,0 @@
-exportGeoJSON - NULL table
-:memory: #use in-memory database
-SELECT ExportGeoJSON(NULL, 'geom', 'sample.geojson');
-1 # rows (not including the header row)
-1 # columns
-ExportGeoJSON(NULL, 'geom', 'sample.geojson')
-(NULL)

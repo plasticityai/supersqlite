@@ -1,7 +1,0 @@
-npoints - non-blob
-:memory: #use in-memory database
-SELECT ST_NPoints("hello")
-1 # rows (not including the header row)
-1 # columns
-ST_NPoints("hello")
-(NULL)

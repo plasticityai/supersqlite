@@ -1,7 +1,0 @@
-SridGeAxis_2_Orientation() - NULL SRID
-:memory: #use in-memory database
-SELECT SridGetAxis_2_Orientation(NULL)
-1 # rows (not including the header row)
-1 # columns
-SridGetAxis_2_Orientation(NULL)
-(NULL)

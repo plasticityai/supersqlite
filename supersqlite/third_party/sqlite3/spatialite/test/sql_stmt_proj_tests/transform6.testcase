@@ -1,7 +1,0 @@
-transform - Point (NULL srid)
-:memory: #use in-memory database
-SELECT AsText(Transform(GeomFromText('POINT(11 43)', 4326), NULL))
-1 # rows (not including the header row)
-1 # columns
-AsText(Transform(GeomFromText('POINT(11 43)', 4326), NULL))
-(NULL)

@@ -1,7 +1,0 @@
-ReloadGroupStyle - NULL style
-:memory: #use in-memory database
-SELECT SE_ReloadGroupStyle('alpha', NULL);
-1 # rows (not including the header row)
-1 # columns
-SE_ReloadGroupStyle('alpha', NULL)
--1

@@ -1,8 +1,0 @@
-UnRegisterStyledGroupLayer - Blob item ID
-:memory: #use in-memory database
-SELECT SE_UnRegisterStyledGroupLayer(zeroblob(100));
-1 # rows (not including the header row)
-1 # columns
-SE_UnRegisterStyledGroupLayer(zeroblob(100))
--1
-

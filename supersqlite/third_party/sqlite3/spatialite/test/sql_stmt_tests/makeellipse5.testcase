@@ -1,8 +1,0 @@
-makeellipse5 - text cy
-:memory: #use in-memory database
-SELECT MakeEllipse(0, 'alpha', 100, 200);
-1 # rows (not including the header row)
-1 # columns
-MakeEllipse(0, 'alpha', 100, 200)
-(NULL)
-

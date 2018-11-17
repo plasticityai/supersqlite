@@ -1,8 +1,0 @@
-SetStyledGroupLayerPaintOrder - Double item ID
-:memory: #use in-memory database
-SELECT SE_SetStyledGroupLayerPaintOrder(1.1, 1);
-1 # rows (not including the header row)
-1 # columns
-SE_SetStyledGroupLayerPaintOrder(1.1, 1)
--1
-

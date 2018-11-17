@@ -1,7 +1,0 @@
-SetStyledGroupRasterPaintOrder - BLOB order
-:memory: #use in-memory database
-SELECT SE_SetStyledGroupRasterPaintOrder('alpha', 'beta', zeroblob(4));
-1 # rows (not including the header row)
-1 # columns
-SE_SetStyledGroupRasterPaintOrder('alpha', 'beta', zeroblob(4))
--1

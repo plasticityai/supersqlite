@@ -1,9 +1,0 @@
-Centroid - non-geometry
-:memory: #use in-memory database
-SELECT astext(centroid("foo"));
-1 # rows (not including the header row)
-1 # columns
-astext(centroid("foo"))
-(NULL)
-
-

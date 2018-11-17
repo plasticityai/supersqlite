@@ -1,7 +1,0 @@
-garsmbr - short text
-:memory: #use in-memory database
-SELECT GARSMbr("erin")
-1 # rows (not including the header row)
-1 # columns
-GARSMbr("erin")
-(NULL)
