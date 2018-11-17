@@ -1,0 +1,10 @@
+CastToInteger() - INTEGER
+:memory: #use in-memory database
+SELECT CastToInteger(123), TypeOf(CastToInteger(123))
+1 # rows (not including the header row)
+2 # columns
+CastToInteger(123)
+TypeOf(CastToInteger(123))
+123
+integer
+

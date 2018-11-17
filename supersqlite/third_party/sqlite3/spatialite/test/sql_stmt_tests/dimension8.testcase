@@ -1,0 +1,7 @@
+dimension5 - GeometryCollection
+:memory: #use in-memory database
+SELECT Dimension(GeometryFromText("POINT EMPTY"))
+1 # rows (not including the header row)
+1 # columns
+Dimension(GeometryFromText("POINT EMPTY"))
+(NULL)

@@ -1,0 +1,7 @@
+From EWKT - non text
+:memory:
+SELECT GeomFromEwkt(43)
+1 # rows
+1 # column
+GeomFromEwkt(43)
+(NULL)

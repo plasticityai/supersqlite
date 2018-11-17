@@ -1,0 +1,7 @@
+ST_WKTToSQL - blob
+:memory: #use in-memory database
+SELECT ST_WKTToSQL(zeroblob(50))
+1 # rows (not including the header row)
+1 # columns
+ST_WKTToSQL(zeroblob(50))
+(NULL)

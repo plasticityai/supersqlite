@@ -1,0 +1,7 @@
+gpkgmakepointz5
+:memory: #use in-memory database
+SELECT gpkgMakePointZ("x", -35, 4)
+1 # rows (not including the header row)
+1 # columns
+gpkgMakePointZ("x", -35, 4)
+(NULL)

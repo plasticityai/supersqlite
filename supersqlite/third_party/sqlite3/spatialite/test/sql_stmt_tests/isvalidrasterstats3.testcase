@@ -1,0 +1,8 @@
+IsValidRasterStatistics - NULL statistics: 2 args
+NEW:memory: #use in-memory database
+SELECT IsValidRasterStatistics('alpha', NULL);
+1 # rows (not including the header row)
+1 # columns
+IsValidRasterStatistics('alpha', NULL)
+-1
+

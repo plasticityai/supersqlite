@@ -1,0 +1,7 @@
+assvg - 2 arg with SRID
+:memory: #use in-memory database
+SELECT assvg(GeomFromText("Point(1 2)", 4326), 1)
+1 # rows (not including the header row)
+1 # columns
+assvg(GeomFromText("Point(1 2)", 4326), 1)
+x="1" y="-2"

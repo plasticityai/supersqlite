@@ -1,0 +1,7 @@
+geomfromtext21
+:memory: #use in-memory database
+SELECT AsText(GeomFromText('GEOMETRYCOLLECTIONZ(POINTZ(8 8 9), MULTIPOLYGONZ(((0 0 9, 5 0 9, 5 5 9, 0 5 9, 0 0 9), (1 1 9, 2 1 9, 2 2 9, 1 2 9, 1 1 9)), ((10 10 9, 11 10 9, 11 11 9, 10 11 9, 10 10 9))), POINTZ(7 7 9), MULTILINESTRINGZ((0 1 9, 2 3 9), (4 5 9, 6 7 9)), POINTZ(6 6 9), MULTIPOINTZ((0 1 9), (2 3 9), (4 5 9)), POINTZ(9 9 9))'));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromText('GEOMETRYCOLLECTIONZ(POINTZ(8 8 9), MULTIPOLYGONZ(((0 0 9, 5 0 9, 5 5 9, 0 5 9, 0 0 9), (1 1 9, 2 1 9, 2 2 9, 1 2 9, 1 1 9)), ((10 10 9, 11 10 9, 11 11 9, 10 11 9, 10 10 9))), POINTZ(7 7 9), MULTILINESTRINGZ((0 1 9, 2 3 9), (4 5 9, 6 7 9)), POINTZ(6 6 9), MULTIPOINTZ((0 1 9), (2 3 9), (4 5 9)), POINTZ(9 9 9))'));
+GEOMETRYCOLLECTION Z(POINT Z(8 8 9), POINT Z(7 7 9), POINT Z(6 6 9), POINT Z(0 1 9), POINT Z(2 3 9), POINT Z(4 5 9), POINT Z(9 9 9), LINESTRING Z(0 1 9, 2 3 9), LINESTRING Z(4 5 9, 6 7 9), POLYGON Z((0 0 9, 5 0 9, 5 5 9, 0 5 9, 0 0 9), (1 1 9, 2 1 9, 2 2 9, 1 2 9, 1 1 9)), POLYGON Z((10 10 9, 11 10 9, 11 11 9, 10 11 9, 10 10 9)))

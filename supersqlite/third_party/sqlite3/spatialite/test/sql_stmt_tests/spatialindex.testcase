@@ -1,0 +1,8 @@
+VirtualSpatialIndex
+sql_stmt_tests/testdb1.sqlite
+SELECT ROWID FROM SpatialIndex WHERE f_table_name = 'roads' AND f_geometry_column = 'geom' AND search_frame = BuildMBR(11.215, 42.438, 11.218, 42.439);
+1 # rows (not including the header row)
+1 # columns
+rowid
+26
+

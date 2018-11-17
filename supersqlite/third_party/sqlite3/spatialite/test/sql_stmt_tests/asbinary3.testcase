@@ -1,0 +1,7 @@
+asbinary - text
+:memory: #use in-memory database
+SELECT AsBinary("hello")
+1 # rows (not including the header row)
+1 # columns
+AsBinary("hello")
+(NULL)

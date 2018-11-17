@@ -1,0 +1,9 @@
+LinesFromRings - bad blob
+:memory: #use in-memory database
+SELECT LinesFromRings(zeroblob(4), 1);
+1 # rows (not including the header row)
+1 # columns
+LinesFromRings(zeroblob(4), 1)
+(NULL)
+
+

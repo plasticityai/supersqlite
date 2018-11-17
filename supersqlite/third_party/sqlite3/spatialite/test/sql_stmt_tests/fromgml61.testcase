@@ -1,0 +1,8 @@
+FromGML - Box-2 <gml:Box>
+:memory: #use in-memory database
+SELECT AsText(GeomFromGml('<gml:Box srsName="EPSG:3003"><gml:coordinates>1329459.947339,4879353.546282 1442103.707005,4967559.686594</gml:coordinates></gml:Box>'));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromGml('<gml:Box srsName="EPSG:3003"><gml:coordinates>1329459.947339,4879353.546282 1442103.707005,4967559.686594</gml:coordinates></gml:Box>')):0
+POLYGON((1329459.947339 4879353.546282, 1442103.707005 4879353.546282, 1442103.707005 4967559.686594, 1329459.947339 4967559.686594, 1329459.947339 4879353.546282))
+

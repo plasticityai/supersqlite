@@ -1,0 +1,8 @@
+makecircle4 - NULL cy
+:memory: #use in-memory database
+SELECT MakeCircle(0, NULL, 100);
+1 # rows (not including the header row)
+1 # columns
+MakeCircle(0, NULL, 100)
+(NULL)
+

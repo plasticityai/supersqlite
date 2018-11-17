@@ -1,0 +1,7 @@
+shared paths - two lineM
+:memory: #use in-memory database
+SELECT AsText(SharedPaths(GeomFromText("LINESTRINGM(1 2 1, 10 2 1)"),GeomFromText("LINESTRINGM(5 2 1, 15 2 1)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(SharedPaths(GeomFromText("LINESTRINGM(1 2 1, 10 2 1)"),GeomFromText("LINESTRINGM(5 2 1, 15 2 1)")))
+MULTILINESTRING M((5 2 0, 10 2 0))

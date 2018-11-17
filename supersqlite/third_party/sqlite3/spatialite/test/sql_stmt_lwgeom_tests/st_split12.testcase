@@ -1,0 +1,7 @@
+ST_Split - Line-Collection (error)
+:memory: #use in-memory database
+SELECT ST_Split(GeomFromText('LINESTRING(0 1, 10 1)'), GeomFromText('GEOMETRYCOLLECTION(POINT(0 0), LINESTRING(1 1, 2 2)'));
+1 # rows (not including the header row)
+1 # columns
+ST_Split(GeomFromText('LINESTRING(0 1, 10 1)'), GeomFromText('GEOMETRYCOLLECTION(POINT(0 0), LINESTRING(1 1, 2 2)'))
+(NULL)

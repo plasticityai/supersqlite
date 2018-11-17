@@ -1,0 +1,7 @@
+ATM_IsValid() - invalid blob
+:memory: #use in-memory database
+SELECT ATM_IsValid(zeroblob(10))
+1 # rows (not including the header row)
+1 # columns
+ATM_IsValid(zeroblob(10))
+0

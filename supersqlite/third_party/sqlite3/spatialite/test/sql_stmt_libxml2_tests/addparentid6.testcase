@@ -1,0 +1,8 @@
+XB_AddParentId - valid - gmd namespace
+:memory: #use in-memory database
+SELECT XB_GetParentId(XB_AddParentId(XB_Create(CastToBlob('<gmd:MD_Metadata xmlns:gmd="http://www.isotc211.org/2005/gmd"></gmd:MD_Metadata>')), 'newparentid', 'gmd', NULL, 'gco', 'http://www.isotc211.org/2005/gco'));
+1 # rows (not including the header row)
+1 # columns
+XB_GetParentId(XB_AddParentId(XB_Create(CastToBlob('<gmd:MD_Metadata xmlns:gmd="http://www.isotc211.org/2005/gmd"></gmd:MD_Metadata>')), 'newparentid', 'gmd', NULL, 'gco', 'http://www.isotc211.org/2005/gco')):0
+newparentid
+

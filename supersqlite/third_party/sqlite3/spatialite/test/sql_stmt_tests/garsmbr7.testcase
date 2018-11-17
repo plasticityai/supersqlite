@@ -1,0 +1,7 @@
+garsmbr - bad segment number 0
+:memory: #use in-memory database
+SELECT GARSMbr("001AA0")
+1 # rows (not including the header row)
+1 # columns
+GARSMbr("001AA0")
+(NULL)

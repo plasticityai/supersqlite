@@ -1,0 +1,7 @@
+CompressGeometry - GEOMETRYCOLLECTION M (1 Polygon)
+:memory: #use in-memory database
+SELECT AsText(CompressGeometry(GeomFromText("GEOMETRYCOLLECTIONM(POLYGONM((10 10 7, 11 10 8, 11 11 9, 10 11 8, 10 10 7)))", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(CompressGeometry(GeomFromText("GEOMETRYCOLLECTIONM(POLYGONM((10 10 7, 11 10 8, 11 11 9, 10 11 8, 10 10 7)))", 4326)))
+GEOMETRYCOLLECTION M(POLYGON M((10 10 7, 11 10 8, 11 11 9, 10 11 8, 10 10 7)))

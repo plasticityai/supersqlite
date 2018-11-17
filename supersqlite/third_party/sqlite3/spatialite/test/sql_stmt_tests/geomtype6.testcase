@@ -1,0 +1,9 @@
+geometrytype6 - LINESTRING
+:memory: #use in-memory database
+SELECT GeometryType(geom), CoordDimension(geom) from (SELECT GeomFromText("LINESTRING(4 0, 4 4, 8 4)") as geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+GeometryType(geom)
+CoordDimension(geom)
+LINESTRING
+XY

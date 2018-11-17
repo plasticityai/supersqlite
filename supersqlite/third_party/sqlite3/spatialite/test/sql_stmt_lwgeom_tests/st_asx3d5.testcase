@@ -1,0 +1,7 @@
+ST_AsX3D - 3D point
+:memory: #use in-memory database
+SELECT ST_AsX3D(MakePointZ(12, 21, 101));
+1 # rows (not including the header row)
+1 # columns
+ST_AsX3D(MakePointZ(12, 21, 101))
+12 21 101

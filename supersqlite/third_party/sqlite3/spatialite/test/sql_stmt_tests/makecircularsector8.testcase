@@ -1,0 +1,8 @@
+makecircularsector8 - text radius
+:memory: #use in-memory database
+SELECT MakeCircularSector(0, 0, 'alpha', 30, 60);
+1 # rows (not including the header row)
+1 # columns
+MakeCircularSector(0, 0, 'alpha', 30, 60)
+(NULL)
+

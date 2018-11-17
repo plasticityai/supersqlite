@@ -1,0 +1,7 @@
+From KML - non text
+:memory:
+SELECT GeomFromKML(26)
+1 # rows
+1 # column
+GeomFromKML(26)
+(NULL)

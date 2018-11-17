@@ -1,0 +1,18 @@
+Output format tests - POLYGON, WGS-84
+:memory: #use in-memory database
+SELECT AsText(geom), AsKML(geom), AsGML(geom), AsGeoJSON(geom), AsWkt(geom), AsEWkt(geom) FROM (SELECT GeomFromEWkt("SRID=4326;POLYGON((0 0, 1 1, 0 2, -1 1, 0 0))") as geom) dummy;
+1 # rows (not including the header row)
+6 # columns
+AsText(geom)
+AsKML(geom)
+AsGML(geom)
+AsGeoJSON(geom)
+AsWkt(geom)
+AsEWkt(geom)
+POLYGON((0 0, 1 1, 0 2, -1 1, 0 0))
+<Polygon><outerBoundaryIs><LinearRing><coordinates>0,0 1,1 0,2 -1,1 0,0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+<gml:Polygon srsName="EPSG:4326"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>0,0 1,1 0,2 -1,1 0,0</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon>:0
+{"type":"Polygon","coordinates":[[[0,0],[1,1],[0,2],[-1,1],[0,0]]]}:0
+POLYGON((0 0,1 1,0 2,-1 1,0 0))
+SRID=4326;POLYGON((0 0,1 1,0 2,-1 1,0 0))
+

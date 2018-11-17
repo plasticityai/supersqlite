@@ -1,0 +1,7 @@
+fromewkt22
+:memory: #use in-memory database
+SELECT AsText(GeomFromEWKT('SRID=4326;GEOMETRYCOLLECTION(MULTIPOINT(0 1 9 7, 2 3 9 7, 4 5 9 7))'));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromEWKT('SRID=4326;GEOMETRYCOLLECTION(MULTIPOINT(0 1 9 7, 2 3 9 7, 4 5 9 7))'));
+GEOMETRYCOLLECTION ZM(POINT ZM(0 1 9 7), POINT ZM(2 3 9 7), POINT ZM(4 5 9 7))

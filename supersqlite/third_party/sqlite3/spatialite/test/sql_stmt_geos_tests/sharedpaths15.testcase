@@ -1,0 +1,7 @@
+shared paths - two polygon, internal ring
+:memory: #use in-memory database
+SELECT AsText(SharedPaths(GeomFromText("POLYGON((0 0, 10 0, 10 10, 0 10, 0 0),(1 1, 3 1, 3 3, 1 3, 1 1))"),GeomFromText("POLYGON((5 0, 15 0, 15 10, 5 10, 5 0))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(SharedPaths(GeomFromText("POLYGON((0 0, 10 0, 10 10, 0 10, 0 0),(1 1, 3 1, 3 3, 1 3, 1 1))"),GeomFromText("POLYGON((5 0, 15 0, 15 10, 5 10, 5 0))")))
+MULTILINESTRING((5 0, 10 0), (10 10, 5 10))

@@ -1,0 +1,8 @@
+makeellipticsector18 - valid 
+:memory: #use in-memory database
+SELECT ST_Area(MakeEllipticSector(0, 0, 100, 200, 30, 60));
+1 # rows (not including the header row)
+1 # columns
+ST_Area(MakeEllipticSector(0, 0, 100, 200, 30, 60))
+5209.4453:4
+

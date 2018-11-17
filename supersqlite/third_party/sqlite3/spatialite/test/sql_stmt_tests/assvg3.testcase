@@ -1,0 +1,7 @@
+assvg - 3 arg non-relative
+:memory: #use in-memory database
+SELECT assvg(GeomFromText("Point(1.3759 2)", 4326), 0, 2)
+1 # rows (not including the header row)
+1 # columns
+assvg(GeomFromText("Point(1.3759 2)", 4326), 0, 2)
+cx="1.38" cy="-2"

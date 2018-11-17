@@ -1,0 +1,8 @@
+Closest Point - polygonM with interior and Point
+:memory: #use in-memory database
+SELECT AsText(ClosestPoint(GeomFromText("POINTM(4 6 1)"), GeomFromText("POLYGONM((0 0 1, 10 0 2, 10 10 3, 0 10 2, 0 0 1),( 1 1 4, 3 1 5, 3 3 6, 1 3 5, 1 1 4))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(ClosestPoint(GeomFromText("POINTM(4 6 1)"), GeomFromText("POLYGONM((0 0 1, 10 0 2, 10 10 3, 0 10 2, 0 0 1),( 1 1 4, 3 1 5, 3 3 6, 1 3 5, 1 1 4))")))
+POINT M(4 6 0)
+

@@ -1,0 +1,8 @@
+XB_SetParentId - ISO Metadata - INTEGER parentId
+:memory: #use in-memory database
+SELECT XB_SetParentId(XB_Create(CastToBlob('<MD_Metadata><parentIdentifier><CharacterString>a</CharacterString></parentIdentifier></MD_Metadata>')), 1234);
+1 # rows (not including the header row)
+1 # columns
+XB_SetParentId(XB_Create(CastToBlob('<MD_Metadata><parentIdentifier><CharacterString>a</CharacterString></parentIdentifier></MD_Metadata>')), 1234)
+(NULL)
+

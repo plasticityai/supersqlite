@@ -1,0 +1,7 @@
+ST_Project - BLOB distance
+:memory: #use in-memory database
+SELECT ST_Project(GeomFromText('POINT(0 0)', 4326), zeroblob(4), Radians(45));
+1 # rows (not including the header row)
+1 # columns
+ST_Project(GeomFromText('POINT(0 0)', 4326), zeroblob(4), Radians(45))
+(NULL)

@@ -1,0 +1,7 @@
+atan(0)
+:memory: #use in-memory database
+SELECT atan(0);
+1 # rows (not including the header row)
+1 # columns
+atan(0) # header
+0.0 #result

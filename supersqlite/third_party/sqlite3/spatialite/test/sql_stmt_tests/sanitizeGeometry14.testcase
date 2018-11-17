@@ -1,0 +1,9 @@
+Sanitize Geometry - POLYGONZ with interior
+:memory: #use in-memory database
+SELECT AsText(SanitizeGeometry(GeomFromText("POLYGONZ((-10 -10 1, -10 -10 1, 10 -10 2, 10 10 3, -10 10 4, -10 -10 1, -10 -10 1),(-6 -6 2, -6 -5 3, -5 -5 3, -5 -5 4, -5 -5 4, -5 -6 9, -6 -6 2),(6 6 0, 5 6 0, 5 6 0, 5 5 0, 6 5 0, 6 6 0))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(SanitizeGeometry(GeomFromText("POLYGONZ((-10 -10 1, -10 -10 1, 10 -10 2, 10 10 3, -10 10 4, -10 -10 1, -10 -10 1),(-6 -6 2, -6 -5 3, -5 -5 3, -5 -5 4, -5 -5 4, -5 -6 9, -6 -6 2),(6 6 0, 5 6 0, 5 6 0, 5 5 0, 6 5 0, 6 6 0))")))
+POLYGON Z((-10 -10 1, 10 -10 2, 10 10 3, -10 10 4, -10 -10 1), (-6 -6 2, -6 -5 3, -5 -5 3, -5 -5 4, -5 -6 9, -6 -6 2), (6 6 0, 5 6 0, 5 5 0, 6 5 0, 6 6 0))
+
+

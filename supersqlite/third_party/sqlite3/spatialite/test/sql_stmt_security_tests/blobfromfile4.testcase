@@ -1,0 +1,7 @@
+blobfromfile - emptyfile
+:memory: #use in-memory database
+SELECT BlobFromFile("emptyfile.txt")
+1 # rows (not including the header row)
+1 # columns
+BlobFromFile("emptyfile.txt")
+(NULL)

@@ -1,0 +1,7 @@
+UnregisterExternalGraphic - Text URL
+:memory: #use in-memory database
+SELECT SE_UnregisterExternalGraphic('alpha');
+1 # rows (not including the header row)
+1 # columns
+SE_UnregisterExternalGraphic('alpha')
+0

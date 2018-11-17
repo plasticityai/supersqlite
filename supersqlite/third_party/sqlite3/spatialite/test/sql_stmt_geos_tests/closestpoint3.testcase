@@ -1,0 +1,8 @@
+Closest Point - bad first geom
+:memory: #use in-memory database
+SELECT ClosestPoint(zeroblob(67), MakePoint(1, 2));
+1 # rows (not including the header row)
+1 # columns
+ClosestPoint(zeroblob(67), MakePoint(1, 2))
+(NULL)
+

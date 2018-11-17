@@ -1,0 +1,8 @@
+MinZ - bad blob
+:memory: #use in-memory database
+SELECT ST_MinZ(zeroblob(48))
+1 # rows (not including the header row)
+1 # columns
+ST_MinZ(zeroblob(48))
+(NULL)
+

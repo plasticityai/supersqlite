@@ -1,0 +1,7 @@
+dimension7 - MPOLYGON
+:memory: #use in-memory database
+SELECT Dimension(MPolyFromText("MULTIPOLYGON (((30 20, 10 40, 45 40, 30 20)),((15 5, 40 10, 10 20, 5 10, 15 5)))"))
+1 # rows (not including the header row)
+1 # columns
+Dimension(MPolyFromText("MULTIPOLYGON (((30 20, 10 40, 45 40, 30 20)),((15 5, 40 10, 10 20, 5 10, 15 5)))"))
+2

@@ -1,0 +1,7 @@
+asgeojson - bad args (3 arg, bad option type)
+:memory: #use in-memory database
+SELECT asgeojson(GeomFromText("Point(1 2)", 4326), 4, 2.2);
+1 # rows (not including the header row)
+1 # columns
+asgeojson(GeomFromText("Point(1 2)", 4326), 4, 2.2)
+(NULL)

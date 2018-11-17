@@ -1,0 +1,7 @@
+RegisterRasterCoverageSrid - Double coverage
+:memory: #use in-memory database
+SELECT SE_RegisterRasterCoverageSrid(1.1, 4326);
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterRasterCoverageSrid(1.1, 4326)
+-1

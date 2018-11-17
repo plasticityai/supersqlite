@@ -1,0 +1,8 @@
+XB_GetInternalSchemaURI - INTEGER XmlBLOB
+:memory: #use in-memory database
+SELECT XB_GetInternalSchemaURI(1);
+1 # rows (not including the header row)
+1 # columns
+XB_GetInternalSchemaURI(1)
+(NULL)
+

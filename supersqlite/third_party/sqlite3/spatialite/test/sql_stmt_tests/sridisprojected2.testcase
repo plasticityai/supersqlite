@@ -1,0 +1,7 @@
+SridIsProjected() - TEXT SRID
+:memory: #use in-memory database
+SELECT SridIsProjected('srid')
+1 # rows (not including the header row)
+1 # columns
+SridIsProjected('srid')
+(NULL)

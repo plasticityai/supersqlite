@@ -1,0 +1,7 @@
+buildcirclembr - int args 
+:memory: #use in-memory database
+SELECT AsText(BuildCircleMbr(5, 6, 1, 4326))
+1 # rows (not including the header row)
+1 # columns
+AsText(BuildCircleMbr(5, 6, 1, 4326))
+POLYGON((4 5, 6 5, 6 7, 4 7, 4 5))

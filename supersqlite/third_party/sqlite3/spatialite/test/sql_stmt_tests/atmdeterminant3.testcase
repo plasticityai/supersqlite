@@ -1,0 +1,7 @@
+ATM_Determinant() - invertible
+:memory: #use in-memory database
+SELECT ATM_Determinant(ATM_CreateScale(2,2,2))
+1 # rows (not including the header row)
+1 # columns
+ATM_Determinant(ATM_CreateScale(2,2,2))
+8.0

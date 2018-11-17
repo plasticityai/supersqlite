@@ -1,0 +1,7 @@
+CheckFontFaceName - NULL font
+NEW:memory: #use in-memory database
+SELECT CheckFontFaceName('arial', NULL);
+1 # rows (not including the header row)
+1 # columns
+CheckFontFaceName('arial', NULL)
+-1

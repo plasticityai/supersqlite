@@ -1,0 +1,7 @@
+FromGeoJSON - linestringZ
+:memory: #use in-memory database
+SELECT AsText(GeomFromGeoJSON('{"type":"LineString","coordinates":[[1,2,2.3],[4,5,1.2]]}'));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromGeoJSON('{"type":"LineString","coordinates":[[1,2,2.3],[4,5,1.2]]}')):0
+LINESTRING Z(1 2 2.3, 4 5 1.2)

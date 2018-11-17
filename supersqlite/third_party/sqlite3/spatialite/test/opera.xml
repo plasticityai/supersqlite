@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<op:Opera 
+	xmlns:op="http://www.gaia-gis.it/opera"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://gaia-gis.it/opera opera.xsd">
+	<op:author firstName="Giuseppe" lastName="Verdi">
+		<op:title>Rigoletto</op:title>
+		<op:title>Il trovatore</op:title>
+		<op:title>La traviata</op:title>
+		<op:title>Aida</op:title>
+		<op:title>Nabucco</op:title>
+	</op:author>
+	<op:author firstName="Georges" lastName="Bizet">
+		<op:title>Carmen</op:title>
+	</op:author>
+	<op:author firstName="Gioachino" lastName="Rossini">
+		<op:title>The Barber of Seville</op:title>
+		<op:title>William Tell</op:title>
+	</op:author>
+	<op:author firstName="Wolfgang Amadeus" lastName="Mozart">
+		<op:title>The Marriage of Figaro</op:title>
+		<op:title>Thus Do They All</op:title>
+		<op:title>Don Giovanni</op:title>
+	</op:author>
+</op:Opera>

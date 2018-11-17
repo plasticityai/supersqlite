@@ -1,0 +1,8 @@
+makecircularstripe21 - TEXT step
+:memory: #use in-memory database
+SELECT MakeCircularStripe(0, 0, 100, 90, 30, 60, 4326, 'alpha');
+1 # rows (not including the header row)
+1 # columns
+MakeCircularStripe(0, 0, 100, 90, 30, 60, 4326, 'alpha')
+(NULL)
+

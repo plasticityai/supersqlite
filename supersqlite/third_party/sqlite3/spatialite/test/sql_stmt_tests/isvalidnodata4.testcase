@@ -1,0 +1,8 @@
+IsValidPixel - NULL #bands
+NEW:memory: #use in-memory database
+SELECT IsValidPixel(zeroblob(4), 'UINT8', NULL);
+1 # rows (not including the header row)
+1 # columns
+IsValidPixel(zeroblob(4), 'UINT8', NULL)
+-1
+

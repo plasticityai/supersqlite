@@ -1,0 +1,7 @@
+SRID - zeroblob
+:memory: #use in-memory database
+SELECT SRID(zeroblob(100))
+1 # rows (not including the header row)
+1 # columns
+SRID(zeroblob(100))
+(NULL)

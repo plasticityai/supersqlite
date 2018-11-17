@@ -1,0 +1,7 @@
+reflectcoords12
+:memory: #use in-memory database
+SELECT AsText(ReflectCoords(GeomFromText("POLYGON((-10 -10, -20 -10, -20 -20, -20 -11, -10 -10), (-11 -11, -12 -11, -12 -12, -11 -12, -11 -11))"), 1, 1));
+1 # rows (not including the header row)
+1 # columns
+AsText(ReflectCoords(GeomFromText("POLYGON((-10 -10, -20 -10, -20 -20, -20 -11, -10 -10), (-11 -11, -12 -11, -12 -12, -11 -12, -11 -11))"), 1, 1))
+POLYGON((10 10, 20 10, 20 20, 20 11, 10 10), (11 11, 12 11, 12 12, 11 12, 11 11))

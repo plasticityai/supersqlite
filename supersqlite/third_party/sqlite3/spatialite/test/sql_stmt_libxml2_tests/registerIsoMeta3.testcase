@@ -1,0 +1,8 @@
+RegisterIsoMetadata - DOUBLE scope
+:memory: #use in-memory database
+SELECT RegisterIsoMetadata(1.1, NULL);
+1 # rows (not including the header row)
+1 # columns
+RegisterIsoMetadata(1.1, NULL)
+-1
+

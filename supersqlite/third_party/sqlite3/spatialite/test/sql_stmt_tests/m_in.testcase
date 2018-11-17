@@ -1,0 +1,7 @@
+metres to inches
+:memory: #use in-memory database
+SELECT CvtToIn(1.0);
+1 # rows (not including the header row)
+1 # columns
+CvtToIn(1.0);
+39.37007:8

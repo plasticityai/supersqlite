@@ -1,0 +1,8 @@
+makeellipse15 - text srid
+:memory: #use in-memory database
+SELECT MakeEllipse(0, 0, 100, 200, 'alpha');
+1 # rows (not including the header row)
+1 # columns
+MakeEllipse(0, 0, 100, 200, 'alpha')
+(NULL)
+

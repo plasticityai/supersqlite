@@ -1,0 +1,8 @@
+makecircularstripe23 - valid step
+:memory: #use in-memory database
+SELECT ST_Area(MakeCircularStripe(0.0, 0.0, 100.0, 90.0, 30.0, 60.0, 4326, 1.0));
+1 # rows (not including the header row)
+1 # columns
+ST_Area(MakeCircularStripe(0.0, 0.0, 100.0, 90.0, 30.0, 60.0, 4326, 1.0))
+497.3935:4
+

@@ -1,0 +1,7 @@
+geomfromtext30
+:memory: #use in-memory database
+SELECT AsText(GeomFromText('GEOMETRYCOLLECTIONZM(MULTILINESTRINGZM((0 1 9 7, 2 3 9 7), (4 5 9 7, 6 7 9 7)))'));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromText('GEOMETRYCOLLECTIONZM(MULTILINESTRINGZM((0 1 9 7, 2 3 9 7), (4 5 9 7, 6 7 9 7)))'));
+GEOMETRYCOLLECTION ZM(LINESTRING ZM(0 1 9 7, 2 3 9 7), LINESTRING ZM(4 5 9 7, 6 7 9 7))

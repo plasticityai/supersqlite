@@ -1,0 +1,7 @@
+RegisterVectorCoverageKeyword - Double coverage
+:memory: #use in-memory database
+SELECT SE_RegisterVectorCoverageKeyword(1.1, 'keyword');
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterVectorCoverageKeyword(1.1, 'keyword')
+-1

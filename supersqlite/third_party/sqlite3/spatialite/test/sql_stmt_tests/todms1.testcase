@@ -1,0 +1,8 @@
+todms - NULL longitude
+:memory: #use in-memory database
+SELECT LongLatToDMS(NULL, 42.5);
+1 # rows (not including the header row)
+1 # columns
+LongLatToDMS(NULL, 42.5)
+(NULL)
+

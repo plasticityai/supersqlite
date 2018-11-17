@@ -1,0 +1,7 @@
+swapcoords7
+:memory: #use in-memory database
+SELECT AsText(SwapCoords(GeomFromText("LINESTRINGZM(136 -35 100 1, 135.2 -34.5 101 2, 136 -35.2 102 3, 136 -36 103 4)")));
+1 # rows (not including the header row)
+1 # columns
+AsText(SwapCoords(GeomFromText("LINESTRINGZM(136 -35 100 1, 135.2 -34.5 101 2, 136 -35.2 102 3, 136 -36 103 4)")));
+LINESTRING ZM(-35 136 100 1, -34.5 135.2 101 2, -35.2 136 102 3, -36 136 103 4)

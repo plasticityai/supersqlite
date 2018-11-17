@@ -1,0 +1,8 @@
+makeellipticarc3 - BLOB cx
+:memory: #use in-memory database
+SELECT MakeEllipticArc(zeroblob(4), 0, 100, 200, 30, 60);
+1 # rows (not including the header row)
+1 # columns
+MakeEllipticArc(zeroblob(4), 0, 100, 200, 30, 60)
+(NULL)
+

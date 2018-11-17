@@ -1,0 +1,7 @@
+RegisterRasterCoverageKeyword - NULL keyword
+:memory: #use in-memory database
+SELECT SE_RegisterRasterCoverageKeyword('alpha', NULL);
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterRasterCoverageKeyword('alpha', NULL)
+-1

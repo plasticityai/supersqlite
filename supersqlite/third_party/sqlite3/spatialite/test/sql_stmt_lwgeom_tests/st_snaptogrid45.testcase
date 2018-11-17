@@ -1,0 +1,7 @@
+ST_SnapToGrid - MultiPoint 2D
+:memory: #use in-memory database
+SELECT AsText(ST_SnapToGrid(GeomFromText('MULTIPOINT(1.2 2.3, 1.21 2.31, 2.2 3.3, 2.21 3.33)'), 0.25));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_SnapToGrid(GeomFromText('MULTIPOINT(1.2 2.3, 1.21 2.31, 2.2 3.3, 2.21 3.33)'), 0.25))
+MULTIPOINT(1.25 2.25, 2.25 3.25)

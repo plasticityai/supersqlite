@@ -1,0 +1,7 @@
+EWkb: Point XYZM 
+:memory: #use in-memory database
+SELECT AsText(GeomFromEWkb('01010000E0E61000009A9999999999F13F9A9999999999014000000000000059400000000000002440')) AS wkt_geom;
+1 # rows (not including the header row)
+1 # columns
+wkt_geom
+POINT ZM(1.1 2.2 100 10)

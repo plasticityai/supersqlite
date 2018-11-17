@@ -1,0 +1,7 @@
+CastToInteger() - TEXT invalid
+:memory: #use in-memory database
+SELECT CastToInteger('alpha')
+1 # rows (not including the header row)
+1 # columns
+CastToInteger('alpha')
+(NULL)

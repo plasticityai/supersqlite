@@ -1,0 +1,8 @@
+intersection - POLYGONZM, POINTZM, non-intersecting
+:memory: #use in-memory database
+SELECT AsText(Intersection(GeomFromText("POLYGONZM((0 0 1 4, 4 0 1 2, 4 4 1 4, 0 4 1 2, 0 0 1 4))"), GeomFromText("POINTZM(-1 3 1 4)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(Intersection(GeomFromText("POLYGONZM((0 0 1 4, 4 0 1 2, 4 4 1 4, 0 4 1 2, 0 0 1 4))"), GeomFromText("POINTZM(-1 3 1 4)")))
+(NULL)
+

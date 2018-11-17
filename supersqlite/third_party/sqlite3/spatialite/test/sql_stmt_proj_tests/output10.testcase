@@ -1,0 +1,19 @@
+Output format tests - POINT via EWKB, WGS-84
+:memory: #use in-memory database
+SELECT AsText(geom), AsKML(geom), AsGML(geom), AsGeoJSON(geom), AsWkt(geom), AsEWkt(geom), Hex(AsEWKB(geom)) FROM (SELECT GeomFromEWkt("SRID=4326;POINT(-1 1)") as geom) dummy;
+1 # rows (not including the header row)
+7 # columns
+AsText(geom)
+AsKML(geom)
+AsGML(geom)
+AsGeoJSON(geom)
+AsWkt(geom)
+AsEWkt(geom)
+Hex(AsEWKB(geom))
+POINT(-1 1)
+<Point><coordinates>-1,1</coordinates></Point>
+<gml:Point srsName="EPSG:4326"><gml:coordinates>-1,1</gml:coordinates></gml:Point>:0
+{"type":"Point","coordinates":[-1,1]}:0
+POINT(-1 1)
+SRID=4326;POINT(-1 1)
+3031303130303030323045363130303030303030303030303030303030304630424630303030303030303030303046303346

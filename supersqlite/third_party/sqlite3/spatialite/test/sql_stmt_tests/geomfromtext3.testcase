@@ -1,0 +1,7 @@
+geomfromtext3
+:memory: #use in-memory database
+SELECT AsWkt(GeomFromText("LINESTRING(4 0, 4 4, 8 4)"), 4);
+1 # rows (not including the header row)
+1 # columns
+AsWkt(GeomFromText("LINESTRING(4 0, 4 4, 8 4)"), 4)
+LINESTRING(4 0,4 4,8 4)

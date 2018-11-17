@@ -1,0 +1,7 @@
+ST_Segmentize - Linestring ZM
+:memory: #use in-memory database
+SELECT ST_AsText(ST_Segmentize(GeomFromText('LINESTRINGZM(1 1 10 11, 1 2 11 13)'), 0.5));
+1 # rows (not including the header row)
+1 # columns
+ST_AsText(ST_Segmentize(GeomFromText('LINESTRINGZM(1 1 10 11, 1 2 11 13)'), 0.5))
+LINESTRING ZM(1 1 10 11, 1 1.5 10.5 12, 1 2 11 13)

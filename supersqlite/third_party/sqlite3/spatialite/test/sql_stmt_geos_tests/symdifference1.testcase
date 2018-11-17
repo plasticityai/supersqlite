@@ -1,0 +1,9 @@
+symdifference - two points
+:memory: #use in-memory database
+SELECT AsText(SymDifference(Makepoint(1,2), MakePoint(2,3)))
+1 # rows (not including the header row)
+1 # columns
+AsText(SymDifference(Makepoint(1,2), MakePoint(2,3)))
+MULTIPOINT(1 2, 2 3)
+
+

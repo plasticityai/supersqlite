@@ -1,0 +1,10 @@
+fromdms - generic TEXT DMS expression
+:memory: #use in-memory database
+SELECT LongitudeFromDMS('alpha'), LatitudeFromDMS('alpha');
+1 # rows (not including the header row)
+2 # columns
+LongitudeFromDMS('alpha')
+LatitudeFromDMS('alpha')
+(NULL)
+(NULL)
+

@@ -1,0 +1,7 @@
+ST_WKTToSQL - bad WKT
+:memory: #use in-memory database
+SELECT ST_WKTToSQL("Point(1 2 3)")
+1 # rows (not including the header row)
+1 # columns
+ST_WKTToSQL("Point(1 2 3)")
+(NULL)

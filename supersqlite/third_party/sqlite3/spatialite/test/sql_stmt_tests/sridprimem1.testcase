@@ -1,0 +1,7 @@
+SridGetPrimeMeridian() - NULL SRID
+:memory: #use in-memory database
+SELECT SridGetPrimeMeridian(NULL)
+1 # rows (not including the header row)
+1 # columns
+SridGetPrimeMeridian(NULL)
+(NULL)

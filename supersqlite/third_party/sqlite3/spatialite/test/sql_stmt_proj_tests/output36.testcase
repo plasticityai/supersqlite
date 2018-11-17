@@ -1,0 +1,19 @@
+Output format tests - GEOMETRYCOLLECTION XYZ (POINT LINESTRING)
+:memory: #use in-memory database
+SELECT AsText(geom), AsKML(geom), AsGML(geom), AsGeoJSON(geom), AsWkt(geom), AsEWkt(geom), Hex(AsEWKB(geom)) FROM (SELECT GeomFromText("GEOMETRYCOLLECTIONZ(POINTZ(1 2 100), LINESTRINGZ(3 4 100, 4 5 101))", 4326) AS geom) dummy;
+1 # rows (not including the header row)
+7 # columns
+AsText(geom)
+AsKML(geom)
+AsGML(geom)
+AsGeoJSON(geom)
+AsWkt(geom)
+AsEWkt(geom)
+Hex(AsEWKB(geom))
+GEOMETRYCOLLECTION Z(POINT Z(1 2 100), LINESTRING Z(3 4 100, 4 5 101))
+<MultiGeometry><Point><coordinates>1,2,100</coordinates></Point><LineString><coordinates>3,4,100 4,5,101</coordinates></LineString></MultiGeometry>
+<gml:MultiGeometry srsName="EPSG:4326"><gml:geometryMember><gml:Point><gml:coordinates>1,2,100</gml:coordinates></gml:Point></gml:geometryMember><gml:geometryMember><gml:LineString><gml:coordinates>3,4,100 4,5,101</gml:coordinates></gml:LineString></gml:geometryMember></gml:MultiGeometry>:0 # trailing ":0" required to avoid truncation !!! 
+{"type":"GeometryCollection","geometries":[{"type":"Point","coordinates":[1,2,100]},{"type":"LineString","coordinates":[[3,4,100],[4,5,101]]}]}:0 # trailing ":0" required to avoid truncation !!! 
+GEOMETRYCOLLECTION(POINT(1 2),LINESTRING(3 4,4 5))
+SRID=4326;GEOMETRYCOLLECTION(POINT(1 2 100),LINESTRING(3 4 100,4 5 101))
+303130373030303041304536313030303030303230303030303030313031303030303830303030303030303030303030463033463030303030303030303030303030343030303030303030303030303035393430303130323030303038303032303030303030303030303030303030303030303834303030303030303030303030303130343030303030303030303030303035393430303030303030303030303030313034303030303030303030303030303134343030303030303030303030343035393430

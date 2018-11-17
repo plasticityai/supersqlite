@@ -1,0 +1,7 @@
+Envelope - bad blob
+:memory: #use in-memory database
+SELECT Envelope(zeroblob(28))
+1 # rows (not including the header row)
+1 # columns
+Envelope(zeroblob(28))
+(NULL)

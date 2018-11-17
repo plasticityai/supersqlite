@@ -1,0 +1,8 @@
+Closest Point - two pointZMs
+:memory: #use in-memory database
+SELECT AsText(ClosestPoint(GeomFromText("POINTZM(1 2 0 4)"), GeomFromText("POINTZM(4 6 1 5)")));
+1 # rows (not including the header row)
+1 # columns
+AsText(ClosestPoint(GeomFromText("POINTZM(1 2 0 4)"), GeomFromText("POINTZM(4 6 1 5)")))
+POINT ZM(1 2 0 0)
+

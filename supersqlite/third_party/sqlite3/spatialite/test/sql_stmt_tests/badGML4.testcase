@@ -1,0 +1,7 @@
+bad GML: Polygon
+:memory: #use in-memory database
+SELECT GeomFromGML('<gml:Polygon srsName="EPSG:4326"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>0,0 4,0 4,4 0,4 0,0</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs><gml:innerBoundaryIs><gml:LinearRing><gml:coordinates>1,1 2,1 2,2 1,2 1,1</gml:coordinates></gml:LinearRing></gml:innerBoundaryIs></gml:Polygon');
+1 # rows (not including the header row)
+1 # columns
+GeomFromGML('<gml:Polygon srsName="EPSG:4326"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>0,0 4,0 4,4 0,4 0,0</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs><gml:innerBoundaryIs><gml:LinearRing><gml:coordinates>1,1 2,1 2,2 1,2 1,1</gml:coordinates></gml:LinearRing></gml:innerBoundaryIs></gml:Polygon'):0
+(NULL)

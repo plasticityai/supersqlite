@@ -1,0 +1,7 @@
+shiftlongitude - non blob
+:memory: #use in-memory database
+SELECT ST_Shift_Longitude("hello")
+1 # rows (not including the header row)
+1 # columns
+ST_Shift_Longitude("hello")
+(NULL)

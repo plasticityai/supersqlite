@@ -1,0 +1,7 @@
+Snap, LINESTRING, pointM
+:memory: #use in-memory database
+SELECT AsText(Snap(GeomFromText("POINTM(0.1 0.2 4)"), GeomFromText("LINESTRING(0 0, 0 10, 10 10, 10 0, 0 0)"), 0.4))
+1 # rows (not including the header row)
+1 # columns
+AsText(Snap(GeomFromText("POINTM(0.1 0.2 4)"), GeomFromText("LINESTRING(0 0, 0 10, 10 10, 10 0, 0 0)"), 0.4))
+POINT M(0 0 0)

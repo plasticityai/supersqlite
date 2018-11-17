@@ -1,0 +1,7 @@
+geodesic length (wrong) TEXT arg
+:memory:
+SELECT GeodesicLength('alpha');
+1 # rows
+1 # column
+GeodesicLength('alpha')
+(NULL)

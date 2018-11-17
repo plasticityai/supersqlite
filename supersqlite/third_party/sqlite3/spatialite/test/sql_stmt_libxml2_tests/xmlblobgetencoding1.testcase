@@ -1,0 +1,8 @@
+XB_GetEncoding - NULL XmlBLOB
+:memory: #use in-memory database
+SELECT XB_GetEncoding(NULL);
+1 # rows (not including the header row)
+1 # columns
+XB_GetEncoding(NULL)
+(NULL)
+

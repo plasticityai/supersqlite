@@ -1,0 +1,7 @@
+singlesidedbuffer - text arg, float radius, right side (error)
+:memory: #use in-memory database
+SELECT AsText(SingleSidedBuffer("hello", 3.5, 0));
+1 # rows (not including the header row)
+1 # columns
+AsText(SingleSidedBuffer("hello", 3.5, 0))
+(NULL)

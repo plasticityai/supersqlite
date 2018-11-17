@@ -1,0 +1,7 @@
+numgeometries - multipolygon
+:memory: #use in-memory database
+SELECT NumGeometries(GeomFromText("MULTIPOLYGON(((1 2, 3 4, 5 0, 1 2)),((0 0, 1 0, 1 1, 0 1, 0 0)))"))
+1 # rows (not including the header row)
+1 # columns
+NumGeometries(GeomFromText("MULTIPOLYGON(((1 2, 3 4, 5 0, 1 2)),((0 0, 1 0, 1 1, 0 1, 0 0)))"))
+2

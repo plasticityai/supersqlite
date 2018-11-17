@@ -1,0 +1,7 @@
+ST_AsX3D - 2D multilinestring
+:memory: #use in-memory database
+SELECT ST_AsX3D(GeomFromText('MULTILINESTRING((10 10, 11 10, 11 11), (20 20, 21 20, 21 21))'));
+1 # rows (not including the header row)
+1 # columns
+ST_AsX3D(GeomFromText('MULTILINESTRING((10 10, 11 10, 11 11), (20 20, 21 20, 21 21))'))
+<IndexedLineSet  coordIndex='0 1 2 -1 3 4 5'>10 10 11 10 11 11 20 20 21 20 21 21 ' />:0

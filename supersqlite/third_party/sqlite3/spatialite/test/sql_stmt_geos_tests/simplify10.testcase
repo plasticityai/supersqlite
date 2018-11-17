@@ -1,0 +1,8 @@
+SimplifyPreserveTopology - negative second arg
+:memory: #use in-memory database
+SELECT SimplifyPreserveTopology(GeomFromText("LINESTRING(1 2, 3 4)"), -287.3)
+1 # rows (not including the header row)
+1 # columns
+SimplifyPreserveTopology(GeomFromText("LINESTRING(1 2, 3 4)"), -287.3)
+(NULL)
+

@@ -1,0 +1,7 @@
+ST_SnapToGrid - two args - NULL BLOB (error)
+:memory: #use in-memory database
+SELECT ST_SnapToGrid(NULL, 0.5);
+1 # rows (not including the header row)
+1 # columns
+ST_SnapToGrid(NULL, 0.5)
+(NULL)

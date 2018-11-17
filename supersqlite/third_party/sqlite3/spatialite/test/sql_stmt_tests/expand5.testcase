@@ -1,0 +1,7 @@
+Expand - bad blob
+:memory: #use in-memory database
+SELECT ST_Expand(zeroblob(28), 1)
+1 # rows (not including the header row)
+1 # columns
+ST_Expand(zeroblob(28), 1)
+(NULL)

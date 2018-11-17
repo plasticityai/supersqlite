@@ -1,0 +1,7 @@
+fromWkb - mandatory LINESTRING, but POLYGON arg
+:memory: #use in-memory database
+SELECT LinestringFromWkb(AsBinary(GeomFromText("POLYGON((1 2, 3 1, 4 4, 1 2))", 4326)))
+1 # rows (not including the header row)
+1 # columns
+LinestringFromWkb(AsBinary(GeomFromText("POLYGON((1 2, 3 1, 4 4, 1 2))", 4326)))
+(NULL)

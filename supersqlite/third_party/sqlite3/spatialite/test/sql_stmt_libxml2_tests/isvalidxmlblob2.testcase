@@ -1,0 +1,8 @@
+XB_IsValid - INTEGER XmlBLOB
+:memory: #use in-memory database
+SELECT XB_IsValid(1);
+1 # rows (not including the header row)
+1 # columns
+XB_IsValid(1)
+-1
+

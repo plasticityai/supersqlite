@@ -1,0 +1,7 @@
+checkspatialmetadata
+:memory: #use in-memory database
+SELECT CheckSpatialMetaData()
+1 # rows (not including the header row)
+1 # columns
+CheckSpatialMetaData()
+3

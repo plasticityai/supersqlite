@@ -1,0 +1,7 @@
+LinesCutAtNodes - polygon, nodes
+:memory: #use in-memory database
+SELECT AsText(LinesCutAtNodes(GeomFromText("POLYGON((0 0, 0 10, 10 10, 10 0, 0 0))"),GeomFromText("MULTIPOINT(0 10, 10 10)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(LinesCutAtNodes(GeomFromText("POLYGON((0 0, 0 10, 10 10, 10 0, 0 0))"),GeomFromText("MULTIPOINT(0 10, 10 10)")))
+(NULL)

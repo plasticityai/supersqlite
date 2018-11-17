@@ -1,0 +1,7 @@
+ST_Split - NULL BLOB input (error)
+:memory: #use in-memory database
+SELECT ST_Split(NULL, MakePoint(5, 0));
+1 # rows (not including the header row)
+1 # columns
+ST_Split(NULL, MakePoint(5, 0))
+(NULL)

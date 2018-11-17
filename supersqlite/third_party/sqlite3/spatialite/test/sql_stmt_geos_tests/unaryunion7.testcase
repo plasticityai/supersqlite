@@ -1,0 +1,7 @@
+unaryunion - bad blob
+:memory: #use in-memory database
+SELECT UnaryUnion(zeroblob(40))
+1 # rows (not including the header row)
+1 # columns
+UnaryUnion(zeroblob(40))
+(NULL)

@@ -1,0 +1,9 @@
+SquareGrid - Linestring geom
+:memory: #use in-memory database
+SELECT SquareGrid(GeomFromText('LINESTRING(1 1, 2 2)', 4326), 1.0);
+1 # rows (not including the header row)
+1 # columns
+SquareGrid(GeomFromText('LINESTRING(1 1, 2 2)', 4326), 1.0)
+(NULL)
+
+

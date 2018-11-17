@@ -1,0 +1,7 @@
+SridGetAxis_1_Name() - BLOB SRID
+:memory: #use in-memory database
+SELECT SridGetAxis_1_Name(zeroblob(10))
+1 # rows (not including the header row)
+1 # columns
+SridGetAxis_1_Name(zeroblob(10))
+(NULL)

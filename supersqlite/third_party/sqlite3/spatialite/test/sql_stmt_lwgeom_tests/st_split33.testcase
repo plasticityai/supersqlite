@@ -1,0 +1,7 @@
+ST_SplitLeft - Line-Line (not split)
+:memory: #use in-memory database
+SELECT AsText(ST_SplitLeft(GeomFromText('LINESTRING(0 1, 10 1)'), GeomFromText('LINESTRING(11 0, 11 3)')));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_SplitLeft(GeomFromText('LINESTRING(0 1, 10 1)'), GeomFromText('LINESTRING(11 0, 11 3)')))
+LINESTRING(0 1, 10 1)

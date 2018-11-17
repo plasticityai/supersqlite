@@ -1,0 +1,8 @@
+geometry constraints - 4 arg, zeroblob 20
+:memory: #use in-memory database
+SELECT GeometryConstraints(zeroblob(20), "POINT", 4326, "XYM")
+1 # rows (not including the header row)
+1 # columns
+GeometryConstraints(zeroblob(20), "POINT", 4326, "XYM")
+-1
+

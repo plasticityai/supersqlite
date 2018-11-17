@@ -1,0 +1,8 @@
+RegisterVectorStyledLayer - NULL style
+:memory: #use in-memory database
+SELECT SE_RegisterVectorStyledLayer('alpha', NULL);
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterVectorStyledLayer('alpha', NULL)
+-1
+

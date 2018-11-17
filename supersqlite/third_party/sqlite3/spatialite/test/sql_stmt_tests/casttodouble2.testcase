@@ -1,0 +1,7 @@
+CastToDouble() - BLOB
+:memory: #use in-memory database
+SELECT CastToDouble(zeroblob(4))
+1 # rows (not including the header row)
+1 # columns
+CastToDouble(zeroblob(4))
+(NULL)

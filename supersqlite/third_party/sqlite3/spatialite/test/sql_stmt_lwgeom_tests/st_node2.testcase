@@ -1,0 +1,7 @@
+ST_Node - Invalid INT input (error)
+:memory: #use in-memory database
+SELECT ST_Node(1);
+1 # rows (not including the header row)
+1 # columns
+ST_Node(1)
+(NULL)

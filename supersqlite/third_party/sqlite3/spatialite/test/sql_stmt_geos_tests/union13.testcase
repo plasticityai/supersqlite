@@ -1,0 +1,8 @@
+union - MULTIPOLYGON and POINT
+:memory: #use in-memory database
+SELECT AsText(GUnion(GeomFromText("MULTIPOLYGON(((0 0, 2 0, 2 2, 0 2, 0 0)))"),GeomFromText("POINT(0 0)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(GUnion(GeomFromText("MULTIPOLYGON(((0 0, 2 0, 2 2, 0 2, 0 0)))"),GeomFromText("POINT(0 0)")))
+MULTIPOLYGON(((0 0, 0 2, 2 2, 2 0, 0 0)))
+

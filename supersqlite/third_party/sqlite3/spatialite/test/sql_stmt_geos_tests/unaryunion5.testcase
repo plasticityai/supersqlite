@@ -1,0 +1,7 @@
+unaryunion - points ZM
+:memory: #use in-memory database
+SELECT AsText(UnaryUnion(GeomFromText("GEOMETRYCOLLECTIONZM(POINTZM(1 2 3 1), POINTZM(2 3 4 1))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(UnaryUnion(GeomFromText("GEOMETRYCOLLECTIONZM(POINTZM(1 2 3 1), POINTZM(2 3 4 1))")));
+MULTIPOINT ZM(1 2 3 0, 2 3 4 0)

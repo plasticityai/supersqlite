@@ -1,0 +1,8 @@
+IsMeasured- Point XY
+:memory: #use in-memory database
+SELECT ST_IsMeasured(GeomFromText('POINT(1 2)'));
+1 # rows (not including the header row)
+1 # columns
+ST_IsMeasured(GeomFromText('POINT(1 2)'))
+0
+

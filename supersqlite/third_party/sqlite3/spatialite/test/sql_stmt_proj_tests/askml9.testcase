@@ -1,0 +1,8 @@
+askml - 4 arg null descriptions
+:memory: #use in-memory database
+SELECT askml(null, null, GeomFromText("Point(1 2)", 4326), 4)
+1 # rows (not including the header row)
+1 # columns
+askml(null, null, GeomFromText("Point(1 2)", 4326), 4)
+<Placemark><name>NULL</name><description>NULL</description><Point><coordinates>1,2</coordinates></Point></Placemark>
+

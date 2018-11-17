@@ -1,0 +1,7 @@
+garsmbr - non text
+:memory: #use in-memory database
+SELECT GARSMbr(3.41)
+1 # rows (not including the header row)
+1 # columns
+GARSMbr(3.41)
+(NULL)

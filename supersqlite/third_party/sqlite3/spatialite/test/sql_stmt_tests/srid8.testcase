@@ -1,0 +1,7 @@
+SetSRID - invalid srid
+:memory: #use in-memory database
+SELECT SetSRID(GeomFromText("Point(1 2)"), "four")
+1 # rows (not including the header row)
+1 # columns
+SetSRID(GeomFromText("Point(1 2)"), "four")
+(NULL)

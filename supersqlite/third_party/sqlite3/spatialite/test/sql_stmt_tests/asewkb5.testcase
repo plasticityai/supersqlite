@@ -1,0 +1,11 @@
+asewkb - bad blob
+:memory: #use in-memory database
+SELECT AsEWKB(zeroblob(40))
+1 # rows (not including the header row)
+1 # columns
+AsEWKB(zeroblob(40))
+(NULL)
+
+
+
+

@@ -1,0 +1,7 @@
+makepoint-null3
+:memory: #use in-memory database
+SELECT AsText(MakePoint(26.0, "world", 4326));
+1 # rows (not including the header row)
+1 # columns
+AsText(MakePoint(26.0, "world", 4326))
+(NULL)

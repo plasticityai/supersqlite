@@ -1,0 +1,7 @@
+bad KML: MultiPoint
+:memory: #use in-memory database
+SELECT GeomFromKML('<MultiGeometry><Point><coordinates>1.1,2.2</coordinates></Point><Point><coordinates>3.3,4.4</coordinates></Point></MultiGeometry');
+1 # rows (not including the header row)
+1 # columns
+GeomFromKML('<MultiGeometry><Point><coordinates>1.1,2.2</coordinates></Point><Point><coordinates>3.3,4.4</coordinates></Point></MultiGeometry'):0
+(NULL)

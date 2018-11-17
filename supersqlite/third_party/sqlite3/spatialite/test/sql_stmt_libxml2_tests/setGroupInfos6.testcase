@@ -1,0 +1,8 @@
+SetStyledGroupInfos - INTEGER title
+:memory: #use in-memory database
+SELECT SE_SetStyledGroupInfos('group', 1, 'abstract');
+1 # rows (not including the header row)
+1 # columns
+SE_SetStyledGroupInfos('group', 1, 'abstract')
+-1
+

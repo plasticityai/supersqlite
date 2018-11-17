@@ -1,0 +1,7 @@
+ST_X2
+:memory: #use in-memory database
+SELECT X(MakePoint(-71.1043443253471, 42.3150676015829, 4326));
+1 # rows (not including the header row)
+1 # columns
+X(MakePoint(-71.1043443253471, 42.3150676015829, 4326))
+-71.1043443253471

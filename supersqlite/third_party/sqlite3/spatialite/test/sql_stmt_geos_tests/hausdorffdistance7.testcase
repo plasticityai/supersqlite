@@ -1,0 +1,8 @@
+HausdorffDistance - co-incident multipoints
+:memory: #use in-memory database
+SELECT HausdorffDistance(GeomFromText("MULTIPOINT(0 0, 10 0)"), GeomFromText("MULTIPOINT(0 0, 10 0)"))
+1 # rows (not including the header row)
+1 # columns
+HausdorffDistance(GeomFromText("MULTIPOINT(0 0, 10 0)"), GeomFromText("MULTIPOINT(0 0, 10 0)"))
+0.0
+

@@ -1,0 +1,8 @@
+FromGML - poslist polygon, bad contents
+:memory: #use in-memory database
+SELECT AsText(GeomFromGml('<gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><posList>foo</posList></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon>'))
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromGml('<gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><posList>foo</posList></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon>')):0
+(NULL)
+

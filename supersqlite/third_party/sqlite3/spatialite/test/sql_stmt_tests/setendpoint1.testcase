@@ -1,0 +1,7 @@
+ST_SetEndPoint() - NULL line
+:memory: #use in-memory database
+SELECT ST_SetEndPoint(NULL, NULL)
+1 # rows (not including the header row)
+1 # columns
+ST_SetEndPoint(NULL, NULL)
+(NULL)

@@ -1,0 +1,21 @@
+scale coords - LINESTRINGZ
+:memory: #use in-memory database
+SELECT AsText(ScaleCoords(geom, 0)), AsText(ScaleCoords(geom, 0.0)), AsText(ScaleCoords(geom, 2, 3.0)), AsText(ScaleCoords(geom, 1.0, -1)), ScaleCoords(zeroblob(20), 10), ScaleCoords(geom, "hello"), ScaleCoords(geom, 1, "hello"), ScaleCoords("foo", 2) FROM (SELECT GeomFromText("LINESTRINGZ(1 2 1, 4 5 2)") as geom) dummy;
+1 # rows (not including the header row)
+8 # columns
+AsText(ScaleCoords(geom, 0))
+AsText(ScaleCoords(geom, 0.0))
+AsText(ScaleCoords(geom, 2, 3.0))
+AsText(ScaleCoords(geom, 1.0, -1))
+ScaleCoords(zeroblob(20), 10)
+ScaleCoords(geom, "hello")
+ScaleCoords(geom, 1, "hello")
+ScaleCoords("foo", 2)
+LINESTRING Z(0 0 1, 0 0 2)
+LINESTRING Z(0 0 1, 0 0 2)
+LINESTRING Z(2 6 1, 8 15 2)
+LINESTRING Z(1 -2 1, 4 -5 2)
+(NULL)
+(NULL)
+(NULL)
+(NULL)

@@ -1,0 +1,8 @@
+makepolygon - invalid BLOB exterior
+:memory: #use in-memory database
+SELECT MakePolygon(zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+MakePolygon(zeroblob(4))
+(NULL)
+

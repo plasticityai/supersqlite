@@ -1,0 +1,7 @@
+interpolate equidistant points - basic line, negative distance
+:memory: #use in-memory database
+SELECT AsText(Line_Interpolate_Equidistant_Points(GeomFromText("LINESTRING(0 0, 10 6)"), -1))
+1 # rows (not including the header row)
+1 # columns
+AsText(Line_Interpolate_Equidistant_Points(GeomFromText("LINESTRING(0 0, 10 6)"), -1))
+(NULL)

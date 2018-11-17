@@ -1,0 +1,8 @@
+makeline7
+:memory: #use in-memory database
+SELECT MakeLine(GeomFromText("POINT(0 0)"), "world");
+1 # rows (not including the header row)
+1 # columns
+MakeLine(GeomFromText("POINT(0 0)"), "world")
+(NULL)
+

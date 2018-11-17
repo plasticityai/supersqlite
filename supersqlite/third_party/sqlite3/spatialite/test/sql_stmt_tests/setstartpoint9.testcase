@@ -1,0 +1,7 @@
+ST_SetStartPoint() - TEXT Point
+:memory: #use in-memory database
+SELECT ST_SetStartPoint(GeomFromText('LINESTRING(0 0, 1 0, 1 1)'), 'alpha')
+1 # rows (not including the header row)
+1 # columns
+ST_SetStartPoint(GeomFromText('LINESTRING(0 0, 1 0, 1 1)'), 'alpha')
+(NULL)

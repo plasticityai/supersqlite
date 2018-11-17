@@ -1,0 +1,7 @@
+MbrContains - bad blob (error) + Point
+:memory: #use in-memory database
+SELECT MbrContains(zeroblob(49), GeomFromText("POINT(2 1)"));
+1 # rows (not including the header row)
+1 # columns
+MbrContains(zeroblob(49), GeomFromText("POINT(2 1)"))
+(NULL)

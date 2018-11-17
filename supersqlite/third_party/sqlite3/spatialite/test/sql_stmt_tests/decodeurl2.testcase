@@ -1,0 +1,7 @@
+DecodeURL - INT
+:memory: #use in-memory database
+SELECT DecodeURL(1);
+1 # rows (not including the header row)
+1 # columns
+DecodeURL(1)
+(NULL)

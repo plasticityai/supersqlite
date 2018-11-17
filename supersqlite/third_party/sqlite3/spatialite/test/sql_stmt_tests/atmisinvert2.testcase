@@ -1,0 +1,7 @@
+ATM_IsInvertible() - invalid BLOB
+:memory: #use in-memory database
+SELECT ATM_IsInvertible(zeroblob(4))
+1 # rows (not including the header row)
+1 # columns
+ATM_IsInvertible(zeroblob(4))
+0

@@ -1,0 +1,8 @@
+intersection - two points
+:memory: #use in-memory database
+SELECT AsText(Intersection(Makepoint(1,2), MakePoint(2,3)));
+1 # rows (not including the header row)
+1 # columns
+AsText(Intersection(Makepoint(1,2), MakePoint(2,3)))
+(NULL)
+

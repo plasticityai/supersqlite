@@ -1,0 +1,7 @@
+translate
+:memory: #use in-memory database
+SELECT AsText(ST_Translate(GeomFromText("POINTZM(1 2 3 4)"), 1, 3, 4));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_Translate(GeomFromText("POINTZM(1 2 3 4)"), 1, 3, 4))
+POINT ZM(2 5 7 4)

@@ -1,0 +1,8 @@
+SimplifyPreserveTopology - toxic first arg
+:memory: #use in-memory database
+SELECT AsText(SimplifyPreserveTopology(GeomFromText('LINESTRING(1 1, 1 1)'),0.1))
+1 # rows (not including the header row)
+1 # columns
+AsText(SimplifyPreserveTopology(GeomFromText('LINESTRING(1 1, 1 1)'),0.1))
+LINESTRING(1 1, 1 1)
+

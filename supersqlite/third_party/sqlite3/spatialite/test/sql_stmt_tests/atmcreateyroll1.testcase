@@ -1,0 +1,7 @@
+ATM_CreateYRoll() - invalid
+:memory: #use in-memory database
+SELECT ATM_CreateYRoll('a')
+1 # rows (not including the header row)
+1 # columns
+ATM_CreateYRoll('a')
+(NULL)

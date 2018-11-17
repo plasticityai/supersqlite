@@ -1,0 +1,8 @@
+makeellipticarc5 - text cy
+:memory: #use in-memory database
+SELECT MakeEllipticArc(0, 'alpha', 100, 200, 30, 60);
+1 # rows (not including the header row)
+1 # columns
+MakeEllipticArc(0, 'alpha', 100, 200, 30, 60)
+(NULL)
+

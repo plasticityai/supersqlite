@@ -1,0 +1,7 @@
+PtDistWithin - bad third arg
+:memory: #use in-memory database
+SELECT PtDistWithin(Makepoint(4,2), MakePoint(4,4), "hello")
+1 # rows (not including the header row)
+1 # columns
+PtDistWithin(Makepoint(4,2), MakePoint(4,4), "hello")
+(NULL)

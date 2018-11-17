@@ -1,0 +1,7 @@
+CompressGeometry - POINTM
+:memory: #use in-memory database
+SELECT Hex(CompressGeometry(GeomFromText("POINTM(1 2 1)", 4326)))
+1 # rows (not including the header row)
+1 # columns
+Hex(CompressGeometry(GeomFromText("POINTM(1 2 1)", 4326)))
+0001E6100000000000000000F03F0000000000000040000000000000F03F00000000000000407CD1070000000000000000F03F0000000000000040000000000000F03FFE

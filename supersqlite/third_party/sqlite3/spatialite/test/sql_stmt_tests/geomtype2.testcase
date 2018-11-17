@@ -1,0 +1,9 @@
+geometrytype2 - POINTZ
+:memory: #use in-memory database
+SELECT GeometryType(geom), CoordDimension(geom) from (SELECT GeomFromText("POINTZ(-71.1043443253471 42.315067601582900 26.2)") as geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+GeometryType(geom)
+CoordDimension(geom)
+POINT Z
+XYZ

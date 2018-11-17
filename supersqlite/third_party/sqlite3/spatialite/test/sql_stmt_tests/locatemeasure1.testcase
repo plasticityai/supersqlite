@@ -1,0 +1,7 @@
+ST_Locate_Between_Measures - bad arg #1
+:memory: #use in-memory database
+SELECT ST_Locate_Between_Measures("alpha", 2, 3)
+1 # rows (not including the header row)
+1 # columns
+ST_Locate_Between_Measures("alpha", 2, 3)
+(NULL)

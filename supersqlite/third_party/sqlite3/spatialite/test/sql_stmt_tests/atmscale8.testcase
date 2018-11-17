@@ -1,0 +1,7 @@
+ATM_Scale() - 3d invalid 2nd arg
+:memory: #use in-memory database
+SELECT ATM_Scale(ATM_Create(), 1.0, 'a', 3.0)
+1 # rows (not including the header row)
+1 # columns
+ATM_Scale(ATM_Create(), 1.0, 'a', 3.0)
+(NULL)

@@ -1,0 +1,7 @@
+ST_DelaunayTriangulation XYZM - (only_edges=yes)
+:memory: #use in-memory database
+SELECT ST_Equals(ST_DelaunayTriangulation(GeomFromText('MULTIPOINTZM(0 0 10 1, 1 1 11 2, 2 2 12 3, 0 1 13 4, 2 1 14 5)'), 1), GeomFromText('MULTILINESTRINGZM((0 1 13 0, 2 2 12 0), (0 0 10 0, 0 1 13 0), (0 0 10 0, 2 1 14 0), (2 1 14 0, 2 2 12 0), (1 1 11 0, 2 1 14 0), (1 1 11 0, 2 2 12 0), (0 1 13 0, 1 1 11 0), (0 0 10 0, 1 1 11 0)) 	'));
+1 # rows (not including the header row)
+1 # columns
+ST_Equals(ST_DelaunayTriangulation(GeomFromText('MULTIPOINTZM(0 0 10 1, 1 1 11 2, 2 2 12 3, 0 1 13 4, 2 1 14 5)'), 1), GeomFromText('MULTILINESTRINGZM((0 1 13 0, 2 2 12 0), (0 0 10 0, 0 1 13 0), (0 0 10 0, 2 1 14 0), (2 1 14 0, 2 2 12 0), (1 1 11 0, 2 1 14 0), (1 1 11 0, 2 2 12 0), (0 1 13 0, 1 1 11 0), (0 0 10 0, 1 1 11 0)) 	'))
+1

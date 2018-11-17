@@ -1,0 +1,7 @@
+XB_LoadXML - INTEGER payload
+:memory: #use in-memory database
+SELECT XB_StoreXML(1, 'xml-test-out.xml');
+1 # rows (not including the header row)
+1 # columns
+XB_StoreXML(1, 'xml-test-out.xml');
+-1

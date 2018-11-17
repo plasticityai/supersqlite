@@ -1,0 +1,7 @@
+casttomultilinestring - nonblob
+:memory: #use in-memory database
+SELECT CastToMultiLineString("hello")
+1 # rows (not including the header row)
+1 # columns
+CastToMultiLineString("hello")
+(NULL)

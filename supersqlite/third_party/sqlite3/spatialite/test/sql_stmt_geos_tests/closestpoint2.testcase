@@ -1,0 +1,8 @@
+Closest Point - coincident points
+:memory: #use in-memory database
+SELECT ClosestPoint(MakePoint(1, 2), MakePoint(1, 2));
+1 # rows (not including the header row)
+1 # columns
+ClosestPoint(MakePoint(1, 2), MakePoint(1, 2))
+(NULL)
+

@@ -1,0 +1,7 @@
+centimetres to metres
+:memory: #use in-memory database
+SELECT CvtFromCm(-2100);
+1 # rows (not including the header row)
+1 # columns
+CvtFromCm(-2100);
+-21.0

@@ -1,0 +1,7 @@
+interpolate point - basic line, out of range
+:memory: #use in-memory database
+SELECT AsText(Line_Interpolate_Point(GeomFromText("LINESTRING(0 0, 10 6)"), 1.6))
+1 # rows (not including the header row)
+1 # columns
+AsText(Line_Interpolate_Point(GeomFromText("LINESTRING(0 0, 10 6)"), 1.6))
+POINT(10 6)

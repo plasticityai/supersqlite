@@ -1,0 +1,7 @@
+SridGetProjection() - BLOB SRID
+:memory: #use in-memory database
+SELECT SridGetProjection(zeroblob(10))
+1 # rows (not including the header row)
+1 # columns
+SridGetProjection(zeroblob(10))
+(NULL)

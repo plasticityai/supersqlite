@@ -1,0 +1,8 @@
+makepolygon - Linestring exterior XYM
+:memory: #use in-memory database
+SELECT ST_AsText(MakePolygon(GeomFromText('LINESTRINGM(1 1 10, 1 2 11, 2 2 12, 2 1 11, 1 1 10)', 4326)));
+1 # rows (not including the header row)
+1 # columns
+ST_AsText(MakePolygon(GeomFromText('LINESTRINGM(1 1 10, 1 2 11, 2 2 12, 2 1 11, 1 1 10)', 4326)))
+POLYGON M((1 1 10, 1 2 11, 2 2 12, 2 1 11, 1 1 10))
+

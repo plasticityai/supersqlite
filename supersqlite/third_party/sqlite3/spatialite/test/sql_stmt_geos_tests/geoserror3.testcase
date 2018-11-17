@@ -1,0 +1,18 @@
+GEOS_Error - invalid Linestring (collapses to a Point)
+:memory: #use in-memory database
+SELECT ST_IsValid(ST_GeomFromText('LINESTRING(1 1, 1 1, 1 1)')), GEOS_GetLastWarningMsg(), GEOS_GetLastErrorMsg(), GEOS_GetLastAuxErrorMsg(), ST_AsText(GEOS_GetCriticalPointFromMsg());
+1 # rows (not including the header row)
+5 # columns
+ST_IsValid(ST_GeomFromText('LINESTRING(1 1, 1 1, 1 1)'))
+GEOS_GetLastWarningMsg()
+GEOS_GetLastErrorMsg()
+GEOS_GetLastAuxErrorMsg()
+ST_AsText(GEOS_GetCriticalPointFromMsg())
+0
+Too few points in geometry component at or near point 1 1
+(NULL)
+(NULL)
+POINT(1 1)
+
+
+

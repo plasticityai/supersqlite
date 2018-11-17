@@ -1,0 +1,9 @@
+dissolve - LINESTRING ZM
+:memory: #use in-memory database
+SELECT AsText(DissolveSegments(geom)),AsText(DissolvePoints(geom)) from (SELECT GeomFromText("LINESTRING ZM(1 2 4.3 3, 4 1 49 2.8)") as geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+AsText(DissolveSegments(geom))
+AsText(DissolvePoints(geom))
+LINESTRING ZM(1 2 4.3 3, 4 1 49 2.8)
+MULTIPOINT ZM(1 2 4.3 3, 4 1 49 2.8)

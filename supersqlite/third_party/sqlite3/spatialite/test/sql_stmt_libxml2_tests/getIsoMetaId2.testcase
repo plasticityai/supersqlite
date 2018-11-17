@@ -1,0 +1,8 @@
+GetIsoMetadataId - INTEGER fileIdentifier
+:memory: #use in-memory database
+SELECT GetIsoMetadataId(1);
+1 # rows (not including the header row)
+1 # columns
+GetIsoMetadataId(1)
+-1
+

@@ -1,0 +1,7 @@
+buffer5
+:memory: #use in-memory database
+SELECT Buffer(zeroblob(40), 1);
+1 # rows (not including the header row)
+1 # columns
+Buffer(zeroblob(40), 1)
+(NULL)

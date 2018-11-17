@@ -1,0 +1,7 @@
+issimple5
+:memory: #use in-memory database
+SELECT IsSimple("hello");
+1 # rows (not including the header row)
+1 # columns
+IsSimple("hello")
+-1

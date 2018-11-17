@@ -1,0 +1,7 @@
+ST_SetPoint() - negative index
+:memory: #use in-memory database
+SELECT ST_SetPoint(GeomFromText('LINESTRING(0 0, 1 0, 1 1)'), -1, MakePoint(2, 0))
+1 # rows (not including the header row)
+1 # columns
+ST_SetPoint(GeomFromText('LINESTRING(0 0, 1 0, 1 1)'), -1, MakePoint(2, 0))
+(NULL)

@@ -1,0 +1,8 @@
+Distance Long/Lat metric (ellipsoid) - two 2D-M points
+:memory: #use in-memory database
+SELECT ST_Distance(MakePointM(11.1, 42.1, 0.1), MakePointM(11.2, 42.2, 0.2), 1);
+1 # rows (not including the header row)
+1 # columns
+ST_Distance(MakePointM(11.1, 42.1, 0.1), MakePointM(11.2, 42.2, 0.2), 1)
+13845.545374:6
+

@@ -1,0 +1,7 @@
+FileExtFromPath - NULL
+:memory: #use in-memory database
+SELECT FileExtFromPath(NULL);
+1 # rows (not including the header row)
+1 # columns
+FileExtFromPath(NULL)
+(NULL)

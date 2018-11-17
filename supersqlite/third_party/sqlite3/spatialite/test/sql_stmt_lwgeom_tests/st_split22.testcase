@@ -1,0 +1,7 @@
+ST_Split - MultiLine-Line (not split)
+:memory: #use in-memory database
+SELECT AsText(ST_Split(GeomFromText('MULTILINESTRING((0 2, 10 2), (0 1, 10 1))'), GeomFromText('LINESTRING(-1 0, -1 3)')));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_Split(GeomFromText('MULTILINESTRING((0 2, 10 2), (0 1, 10 1))'), GeomFromText('LINESTRING(-1 0, -1 3)')))
+MULTILINESTRING((0 2, 10 2), (0 1, 10 1))

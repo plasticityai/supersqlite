@@ -1,0 +1,7 @@
+CompressGeometry - POLYGON M
+:memory: #use in-memory database
+SELECT AsText(CompressGeometry(GeomFromText("POLYGONM((0 0 1, 5 0 2, 5 5 3, 0 5 4, 0 0 1), (1 1 10, 2 1 11, 2 2 12, 1 2 13, 1 1 10))", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(CompressGeometry(GeomFromText("POLYGONM((0 0 1, 5 0 2, 5 5 3, 0 5 4, 0 0 1), (1 1 10, 2 1 11, 2 2 12, 1 2 13, 1 1 10))", 4326)))
+POLYGON M((0 0 1, 5 0 2, 5 5 3, 0 5 4, 0 0 1), (1 1 10, 2 1 11, 2 2 12, 1 2 13, 1 1 10))

@@ -1,0 +1,7 @@
+CompressGeometry - GEOMETRYCOLLECTION (2 Polygons)
+:memory: #use in-memory database
+SELECT AsText(CompressGeometry(GeomFromText("GEOMETRYCOLLECTION(POLYGON((10 10, 11 10, 11 11, 10 11, 10 10)), POLYGON((15 15, 16 15, 16 16, 15 16, 15 15)))", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(CompressGeometry(GeomFromText("GEOMETRYCOLLECTION(POLYGON((10 10, 11 10, 11 11, 10 11, 10 10)), POLYGON((15 15, 16 15, 16 16, 15 16, 15 15)))", 4326)))
+GEOMETRYCOLLECTION(POLYGON((10 10, 11 10, 11 11, 10 11, 10 10)), POLYGON((15 15, 16 15, 16 16, 15 16, 15 15)))

@@ -1,0 +1,8 @@
+3DDistance - bad blob second arg
+:memory: #use in-memory database
+SELECT ST_3DDistance(MakePoint(1, 2), zeroblob(100))
+1 # rows (not including the header row)
+1 # columns
+ST_3DDistance(MakePoint(1, 2), zeroblob(100))
+(NULL)
+

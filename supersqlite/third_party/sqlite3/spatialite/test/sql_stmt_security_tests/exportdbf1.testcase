@@ -1,0 +1,7 @@
+exportDBF - NULL table
+:memory: #use in-memory database
+SELECT ExportDBF(NULL, 'test.dbf', 'UTF-8');
+1 # rows (not including the header row)
+1 # columns
+ExportDBF(NULL, 'test.dbf', 'UTF-8')
+(NULL)

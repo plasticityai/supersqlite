@@ -1,0 +1,7 @@
+EWkb: Linestring XY 
+:memory: #use in-memory database
+SELECT AsText(GeomFromEWkb('0102000020E610000002000000000000000000F03F000000000000004000000000000008400000000000001040')) AS wkt_geom;
+1 # rows (not including the header row)
+1 # columns
+wkt_geom
+LINESTRING(1 2, 3 4)

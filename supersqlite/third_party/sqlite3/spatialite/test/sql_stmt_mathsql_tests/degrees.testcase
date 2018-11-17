@@ -1,0 +1,7 @@
+degrees(0)
+:memory: #use in-memory database
+SELECT degrees(0);
+1 # rows (not including the header row)
+1 # columns
+degrees(0) # header
+0.0 #result

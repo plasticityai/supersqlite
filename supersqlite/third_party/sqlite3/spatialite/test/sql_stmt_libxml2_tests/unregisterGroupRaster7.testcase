@@ -1,0 +1,8 @@
+UnRegisterStyledGroupRaster - Double coverage
+:memory: #use in-memory database
+SELECT SE_UnRegisterStyledGroupRaster('alpha', 1.1);
+1 # rows (not including the header row)
+1 # columns
+SE_UnRegisterStyledGroupRaster('alpha', 1.1)
+-1
+

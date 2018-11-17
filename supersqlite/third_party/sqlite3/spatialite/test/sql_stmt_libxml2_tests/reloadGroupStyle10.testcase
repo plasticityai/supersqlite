@@ -1,0 +1,7 @@
+ReloadGroupStyle - text coverage
+:memory: #use in-memory database
+SELECT SE_ReloadGroupStyle('alpha', zeroblob(100));
+1 # rows (not including the header row)
+1 # columns
+SE_ReloadGroupStyle('alpha', zeroblob(100))
+0

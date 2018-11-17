@@ -1,0 +1,7 @@
+aswkt-text
+:memory: #use in-memory database
+SELECT AsWkt("not a blob", 4);
+1 # rows (not including the header row)
+1 # columns
+AsWkt("not a blob", 4)
+(NULL)

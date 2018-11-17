@@ -1,0 +1,10 @@
+POLYGONIZE - toxic geometry
+:memory: #use in-memory database
+SELECT AsText(Polygonize(GeomFromText("MULTILINESTRING((0 0, 1 1, 0 2, -1 1), (4 0, 4 0), (-1 1, 0 0))")));
+1 # rows (not including the header row)
+1 # columns
+AsText(Polygonize(GeomFromText("MULTILINESTRING((0 0, 1 1, 0 2, -1 1), (4 0, 4 0), (-1 1, 0 0))")))
+POLYGON((-1 1, 0 2, 1 1, 0 0, -1 1))
+
+
+

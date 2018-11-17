@@ -1,0 +1,7 @@
+Geometry N - multilinestringm
+:memory: #use in-memory database
+SELECT AsText(GeometryN(GeomFromText("MULTILINESTRINGM((1 2 1.6, 4 2.3 8.7, 1 2 1),(0 1 2, 8 1 1))"), 2))
+1 # rows (not including the header row)
+1 # columns
+AsText(GeometryN(GeomFromText("MULTILINESTRINGM((1 2 1.6, 4 2.3 8.7, 1 2 1),(0 1 2, 8 1 1))"), 2))
+LINESTRING M(0 1 2, 8 1 1)

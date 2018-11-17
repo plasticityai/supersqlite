@@ -1,0 +1,9 @@
+gpkgmakepointm10
+:memory: #use in-memory database
+SELECT gpkgMakePointM(136.0, -35.0, 4.0, "srd")
+1 # rows (not including the header row)
+1 # columns
+gpkgMakePointM(136.0, -35.0, 4.0, "srd")
+(NULL)
+
+

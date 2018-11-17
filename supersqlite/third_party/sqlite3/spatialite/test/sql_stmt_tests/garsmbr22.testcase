@@ -1,0 +1,8 @@
+garsmbr - 001AB27
+:memory: #use in-memory database
+SELECT AsText(GARSMbr("001AB27"))
+1 # rows (not including the header row)
+1 # columns
+AsText(GARSMbr("001AB27"))
+POLYGON((-179.75 -89.25, -179.666667 -89.25, -179.666667 -89.166667, -179.75 -89.166667, -179.75 -89.25))
+

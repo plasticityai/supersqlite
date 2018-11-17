@@ -1,0 +1,11 @@
+Covers - zero blob first arg
+:memory: #use in-memory database
+SELECT Covers(geom1,geom2) from (SELECT zeroblob(48) as geom1,GeomFromText("POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))") as geom2) dummy;
+1 # rows (not including the header row)
+1 # columns
+Covers(geom1,geom2)
+-1
+
+
+
+

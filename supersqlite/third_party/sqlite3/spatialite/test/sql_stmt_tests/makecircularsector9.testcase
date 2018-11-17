@@ -1,0 +1,8 @@
+makecircularsector9 - NULL start
+:memory: #use in-memory database
+SELECT MakeCircularSector(0, 0, 100, NULL, 60);
+1 # rows (not including the header row)
+1 # columns
+MakeCircularSector(0, 0, 100, NULL, 60)
+(NULL)
+

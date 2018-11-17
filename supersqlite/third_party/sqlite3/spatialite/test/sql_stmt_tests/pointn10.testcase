@@ -1,0 +1,7 @@
+pointN - regular LINESTRINGM (last point)
+:memory: #use in-memory database
+SELECT AsText(PointN(GeomFromText("LINESTRINGM(4 0 9, 4 4 8, 8 4 7)"), -1));
+1 # rows (not including the header row)
+1 # columns
+AsText(PointN(GeomFromText("LINESTRINGM(4 0 9, 4 4 8, 8 4 7)"), -1))
+POINT M(8 4 7)

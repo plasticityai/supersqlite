@@ -1,0 +1,8 @@
+makecircularsector21 - BLOB step
+:memory: #use in-memory database
+SELECT MakeCircularSector(0, 0, 100, 30, 60, 4326, zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+MakeCircularSector(0, 0, 100, 30, 60, 4326, zeroblob(4))
+(NULL)
+

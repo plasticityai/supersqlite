@@ -1,0 +1,7 @@
+togars - northeast
+:memory: #use in-memory database
+SELECT ToGARS(GeomFromText("Point(179.999 89.999)", 4326))
+1 # rows (not including the header row)
+1 # columns
+ToGARS(GeomFromText("Point(179.999 89.999)", 4326))
+720QZ23

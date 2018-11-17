@@ -1,0 +1,8 @@
+makecircularsector1 - text cx
+:memory: #use in-memory database
+SELECT MakeCircularSector('alpha', 0, 100, 30, 60);
+1 # rows (not including the header row)
+1 # columns
+MakeCircularSector('alpha', 0, 100, 30, 60)
+(NULL)
+

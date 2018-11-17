@@ -1,0 +1,8 @@
+garsmbr - bad longitude
+:memory: #use in-memory database
+SELECT AsText(GARSMbr("001TZ"))
+1 # rows (not including the header row)
+1 # columns
+AsText(GARSMbr("001TZ"))
+(NULL)
+

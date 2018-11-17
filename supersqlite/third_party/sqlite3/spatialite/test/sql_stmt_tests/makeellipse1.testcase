@@ -1,0 +1,8 @@
+makeellipse1 - NULL cx
+:memory: #use in-memory database
+SELECT MakeEllipse(NULL, 0, 100, 200);
+1 # rows (not including the header row)
+1 # columns
+MakeEllipse(NULL, 0, 100, 200)
+(NULL)
+

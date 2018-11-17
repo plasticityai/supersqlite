@@ -1,0 +1,7 @@
+SridFromAuthCRS - bad auth
+:memory: #use in-memory database
+SELECT SridFromAuthCRS('no such authority', 1)
+1 # rows (not including the header row)
+1 # columns
+SridFromAuthCRS('no such authority', 1)
+-1

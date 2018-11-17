@@ -1,0 +1,7 @@
+decimal precision - DOUBLE
+:memory:
+SELECT SetDecimalPrecision(1.5);
+1 # rows
+1 # column
+SetDecimalPrecision(1.5)
+(NULL)

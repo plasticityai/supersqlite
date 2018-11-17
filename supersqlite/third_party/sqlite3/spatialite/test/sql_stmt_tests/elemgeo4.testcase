@@ -1,0 +1,7 @@
+ElementaryGeometries() - NULL primary-key
+:memory: #use in-memory database
+SELECT ElementaryGeometries('in_table', 'geom', 'out_table', NULL, 'old_id');
+1 # rows (not including the header row)
+1 # columns
+ElementaryGeometries('in_table', 'geom', 'out_table', NULL, 'old_id')
+(NULL)

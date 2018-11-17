@@ -1,0 +1,7 @@
+togars - GeometryCollection: Point + Linestring
+:memory: #use in-memory database
+SELECT ToGARS(GeomFromText("GEOMETRYCOLLECTION(POINT(11.876910 43.461390), LINESTRING(11 43, 12 43))", 4326))
+1 # rows (not including the header row)
+1 # columns
+ToGARS(GeomFromText("GEOMETRYCOLLECTION(POINT(11.876910 43.461390), LINESTRING(11 43, 12 43))", 4326))
+(NULL)

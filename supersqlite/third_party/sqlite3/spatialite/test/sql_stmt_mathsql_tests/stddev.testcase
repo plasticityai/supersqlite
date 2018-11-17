@@ -1,0 +1,21 @@
+stddev
+sql_stmt_tests/testdb1.sqlite
+SELECT stddev_pop(a), stddev_pop(b), stddev_pop(nulls), stddev_pop(blobs), stddev_samp(a), stddev_samp(b), stddev_samp(blobs), stddev_samp(nulls) from data1;
+1 # rows (not including the header row)
+8 # columns
+stddev_pop(a)
+stddev_pop(b)
+stddev_pop(nulls)
+stddev_pop(blobs)
+stddev_samp(a)
+stddev_samp(b)
+stddev_samp(blobs)
+stddev_samp(nulls)
+10.2211654:8
+12.252709:8
+(NULL)
+(NULL)
+11.1967257:8
+13.422171:8
+(NULL)
+(NULL)

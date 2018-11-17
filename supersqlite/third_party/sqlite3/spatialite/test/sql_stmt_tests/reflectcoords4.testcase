@@ -1,0 +1,7 @@
+reflectcoords4
+:memory: #use in-memory database
+SELECT AsText(ReflectCoords(zeroblob(20), 0, 1));
+1 # rows (not including the header row)
+1 # columns
+AsText(ReflectCoords(zeroblob(20), 0, 1))
+(NULL)

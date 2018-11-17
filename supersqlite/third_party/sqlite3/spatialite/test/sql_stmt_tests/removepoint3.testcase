@@ -1,0 +1,7 @@
+ST_RemovePoint() - DOUBLE line
+:memory: #use in-memory database
+SELECT ST_RemovePoint(1.7, NULL)
+1 # rows (not including the header row)
+1 # columns
+ST_RemovePoint(1.7, NULL)
+(NULL)

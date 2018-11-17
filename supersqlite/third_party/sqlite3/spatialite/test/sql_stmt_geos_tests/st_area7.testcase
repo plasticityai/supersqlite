@@ -1,0 +1,7 @@
+ST_Area - Empty linestring
+:memory: #use in-memory database
+SELECT ST_Area(GeomFromText("LINESTRING()"));
+1 # rows (not including the header row)
+1 # columns
+ST_Area(GeomFromText("LINESTRING()"))
+(NULL)

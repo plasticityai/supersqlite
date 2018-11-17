@@ -1,0 +1,7 @@
+togars - MultiPoint (two Points)
+:memory: #use in-memory database
+SELECT ToGARS(GeomFromText("MULTIPOINT(11.876910 43.461390, 12 43)", 4326))
+1 # rows (not including the header row)
+1 # columns
+ToGARS(GeomFromText("MULTIPOINT(11.876910 43.461390, 12 43)", 4326))
+(NULL)

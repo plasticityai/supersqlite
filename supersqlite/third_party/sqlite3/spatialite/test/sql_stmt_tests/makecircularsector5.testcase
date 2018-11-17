@@ -1,0 +1,8 @@
+makecircularsector5 - text cy
+:memory: #use in-memory database
+SELECT MakeCircularSector(0, 'alpha', 100, 30, 60);
+1 # rows (not including the header row)
+1 # columns
+MakeCircularSector(0, 'alpha', 100, 30, 60)
+(NULL)
+

@@ -1,0 +1,7 @@
+Boundary - closed linestring
+:memory: #use in-memory database
+SELECT AsText(Boundary(GeomFromText("LINESTRING(1 2, 4 -3, 0 -1, 1 2)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(Boundary(GeomFromText("LINESTRING(1 2, 4 -3, 0 -1, 1 2)")))
+(NULL)

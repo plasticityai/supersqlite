@@ -1,0 +1,7 @@
+issimple3
+:memory: #use in-memory database
+SELECT IsSimple(GeomFromText("POLYGON()"));
+1 # rows (not including the header row)
+1 # columns
+IsSimple(GeomFromText("POLYGON()"))
+-1

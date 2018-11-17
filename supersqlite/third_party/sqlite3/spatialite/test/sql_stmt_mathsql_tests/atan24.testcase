@@ -1,0 +1,8 @@
+atan2 - second arg NULL
+:memory: # use in-memory database
+SELECT atan2(0.0, NULL);
+1 # rows (not including the header row)
+1 # columns
+atan2(0.0, NULL) # header
+(NULL)
+

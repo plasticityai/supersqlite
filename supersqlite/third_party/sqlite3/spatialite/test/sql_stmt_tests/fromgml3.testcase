@@ -1,0 +1,7 @@
+FromGML - bad text
+:memory: #use in-memory database
+SELECT GeomFromGml('<gml:Point srsName="EPSG:4326"><gml:coordinates>1,2</gml')
+1 # rows (not including the header row)
+1 # columns
+GeomFromGml('<gml:Point srsName="EPSG:4326"><gml:coordinates>1,2</gml'):0
+(NULL)

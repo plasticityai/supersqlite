@@ -1,0 +1,8 @@
+3DMaxDistance - two 2D identical points
+:memory: #use in-memory database
+SELECT ST_3DMaxDistance(MakePoint(1, 2), MakePoint(1, 2))
+1 # rows (not including the header row)
+1 # columns
+ST_3DMaxDistance(MakePoint(1, 2), MakePoint(1, 2))
+0.0
+

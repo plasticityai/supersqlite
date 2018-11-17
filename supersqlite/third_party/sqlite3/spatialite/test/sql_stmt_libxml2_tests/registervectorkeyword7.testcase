@@ -1,0 +1,7 @@
+RegisterVectorCoverageKeyword - Text keyword
+:memory: #use in-memory database
+SELECT SE_RegisterVectorCoverageKeyword('alpha', 'beta');
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterVectorCoverageKeyword('alpha', 'beta')
+0

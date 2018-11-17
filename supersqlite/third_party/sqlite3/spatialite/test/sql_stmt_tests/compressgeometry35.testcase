@@ -1,0 +1,7 @@
+CompressGeometry - MULTIPOINT Z
+:memory: #use in-memory database
+SELECT AsText(CompressGeometry(GeomFromText("MULTIPOINTZ(10 10 100, 11 11 101)", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(CompressGeometry(GeomFromText("MULTIPOINTZ(10 10 100, 11 11 101)", 4326)))
+MULTIPOINT Z(10 10 100, 11 11 101)

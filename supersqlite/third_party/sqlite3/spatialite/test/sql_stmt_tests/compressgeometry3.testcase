@@ -1,0 +1,7 @@
+CompressGeometry - float
+:memory: #use in-memory database
+SELECT CompressGeometry(3.14)
+1 # rows (not including the header row)
+1 # columns
+CompressGeometry(3.14)
+(NULL)

@@ -1,0 +1,7 @@
+shiftlongitude - negative long
+:memory: #use in-memory database
+SELECT AsText(ST_Shift_Longitude(GeomFromText("POINT(-90 2)", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_Shift_Longitude(GeomFromText("POINT(-90 2)", 4326)))
+POINT(270 2)

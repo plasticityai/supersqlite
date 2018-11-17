@@ -1,0 +1,8 @@
+makeellipse20 - BLOB step
+:memory: #use in-memory database
+SELECT MakeEllipse(0, 0, 100, 200, 4326, zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+MakeEllipse(0, 0, 100, 200, 4326, zeroblob(4))
+(NULL)
+

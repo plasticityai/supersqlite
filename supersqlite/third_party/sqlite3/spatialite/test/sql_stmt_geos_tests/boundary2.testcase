@@ -1,0 +1,7 @@
+Boundary - non-blob
+:memory: #use in-memory database
+SELECT Boundary("hello")
+1 # rows (not including the header row)
+1 # columns
+Boundary("hello")
+(NULL)

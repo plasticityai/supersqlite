@@ -1,0 +1,8 @@
+linesubstring - geometry collection - polygon
+:memory: #use in-memory database
+SELECT AsText(Line_Substring(GeomFromText("GeometryCollection(POLYGON((0 0, 1 0, 1 2, 0 2, 0 0)))"), 0.2, 0.6))
+1 # rows (not including the header row)
+1 # columns
+AsText(Line_Substring(GeomFromText("GeometryCollection(POLYGON((0 0, 1 0, 1 2, 0 2, 0 0)))"), 0.2, 0.6))
+(NULL)
+

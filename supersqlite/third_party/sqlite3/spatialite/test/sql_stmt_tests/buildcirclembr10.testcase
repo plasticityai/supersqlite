@@ -1,0 +1,7 @@
+buildcirclembr - null args / no SRID
+:memory: #use in-memory database
+SELECT BuildCircleMbr(5, 6, NULL)
+1 # rows (not including the header row)
+1 # columns
+BuildCircleMbr(5, 6, NULL)
+(NULL)

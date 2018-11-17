@@ -1,0 +1,7 @@
+buildarea - zeroblob arg 
+:memory: #use in-memory database
+SELECT BuildArea(zeroblob(48))
+1 # rows (not including the header row)
+1 # columns
+BuildArea(zeroblob(48))
+(NULL)

@@ -1,0 +1,7 @@
+ATM_AsText() - valid
+:memory: #use in-memory database
+SELECT Length(ATM_AsText(ATM_Create()))
+1 # rows (not including the header row)
+1 # columns
+Length(ATM_AsText(ATM_Create()))
+208

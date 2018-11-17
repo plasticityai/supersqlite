@@ -1,0 +1,7 @@
+bad GeoJSON: Polygon
+:memory: #use in-memory database
+SELECT GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[1.1,2.2],[3.3,2.2],[3.3,4.4],[1.1,4.4],[1.1,2.2]]]');
+1 # rows (not including the header row)
+1 # columns
+GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[1.1,2.2],[3.3,2.2],[3.3,4.4],[1.1,4.4],[1.1,2.2]]]'):0
+(NULL)

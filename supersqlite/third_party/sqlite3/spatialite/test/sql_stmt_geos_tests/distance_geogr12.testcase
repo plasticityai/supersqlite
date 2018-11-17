@@ -1,0 +1,8 @@
+Distance Long/Lat metric (NULL use_ellipsoid)
+:memory: #use in-memory database
+SELECT ST_Distance(GeomFromText('LINESTRING(11.1 42.1, 11.2 42.2, 11.2 43.3)'), GeomFromText('POLYGON((11.3 42.3, 11.4 42.3, 11.4 42.4, 11.3 42.4, 11.3 42.3))'), NULL);
+1 # rows (not including the header row)
+1 # columns
+ST_Distance(GeomFromText('LINESTRING(11.1 42.1, 11.2 42.2, 11.2 43.3)'), GeomFromText('POLYGON((11.3 42.3, 11.4 42.3, 11.4 42.4, 11.3 42.4, 11.3 42.3))'), NULL)
+(NULL)
+

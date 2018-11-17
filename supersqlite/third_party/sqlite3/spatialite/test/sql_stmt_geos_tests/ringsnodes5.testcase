@@ -1,0 +1,7 @@
+RingsCutAtNodes - non-polygon (point)
+:memory: #use in-memory database
+SELECT RingsCutAtNodes(GeomFromText("POINT(1 2)"))
+1 # rows (not including the header row)
+1 # columns
+RingsCutAtNodes(GeomFromText("POINT(1 2)"))
+(NULL)

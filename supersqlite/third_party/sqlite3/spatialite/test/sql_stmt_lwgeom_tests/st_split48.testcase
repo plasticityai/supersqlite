@@ -1,0 +1,7 @@
+ST_SplitRight - Polygon-Line (not split)
+:memory: #use in-memory database
+SELECT AsText(ST_ForceLHR(ST_SplitRight(GeomFromText('POLYGON((0 1, 10 1, 10 10, 0 10, 0 1))'), GeomFromText('LINESTRING(12 0, 12 20)'))));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_ForceLHR(ST_SplitRight(GeomFromText('POLYGON((0 1, 10 1, 10 10, 0 10, 0 1))'), GeomFromText('LINESTRING(12 0, 12 20)'))))
+(NULL)

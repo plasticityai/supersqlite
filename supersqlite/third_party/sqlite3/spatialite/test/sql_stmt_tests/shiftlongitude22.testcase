@@ -1,0 +1,7 @@
+shiftlongitude - polygonzm, negative interior rings
+:memory: #use in-memory database
+SELECT AsText(ST_Shift_Longitude(GeomFromText("POLYGONZM((185 0 4 2, 184 10 5 3, 175 10 5 4, 176 0 5 1, 185 0 4 2),(-177 1 4 2, -177 2 5 3, -178 2 6 4, -178 1 9 2, -177 1 4 2),(-179 4 0 0, 179 4 0 0, 179 5 0 0, -179 5 0 0, -179 4 0 0))", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_Shift_Longitude(GeomFromText("POLYGONZM((185 0 4 2, 184 10 5 3, 175 10 5 4, 176 0 5 1, 185 0 4 2),(-177 1 4 2, -177 2 5 3, -178 2 6 4, -178 1 9 2, -177 1 4 2),(-179 4 0 0, 179 4 0 0, 179 5 0 0, -179 5 0 0, -179 4 0 0))", 4326)))
+POLYGON ZM((185 0 4 2, 184 10 5 3, 175 10 5 4, 176 0 5 1, 185 0 4 2), (183 1 4 2, 183 2 5 3, 182 2 6 4, 182 1 9 2, 183 1 4 2), (181 4 0 0, 179 4 0 0, 179 5 0 0, 181 5 0 0, 181 4 0 0))

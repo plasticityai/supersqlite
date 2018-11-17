@@ -1,0 +1,7 @@
+PtDistWithin: Polygon / Linestring
+:memory:
+SELECT PtDistWithin(GeomFromText("POLYGON((5 5, 5.1 5, 5.1 5.1, 5 5.1, 5 5))", 4326), GeomFromText("LINESTRING(4 4, 4.1 4.1)", 4326), 200);
+1 # rows
+1 # column
+PtDistWithin(GeomFromText("POLYGON((5 5, 5.1 5, 5.1 5.1, 5 5.1, 5 5))", 4326), GeomFromText("LINESTRING(4 4, 4.1 4.1)", 4326), 200)
+1

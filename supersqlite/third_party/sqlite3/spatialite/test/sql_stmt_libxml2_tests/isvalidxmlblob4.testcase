@@ -1,0 +1,8 @@
+XB_IsValid - TEXT XmlBLOB
+:memory: #use in-memory database
+SELECT XB_IsValid('alpha');
+1 # rows (not including the header row)
+1 # columns
+XB_IsValid('alpha')
+-1
+

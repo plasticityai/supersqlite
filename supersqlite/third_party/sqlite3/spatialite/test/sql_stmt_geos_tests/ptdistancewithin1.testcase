@@ -1,0 +1,7 @@
+PtDistWithin- two points
+:memory: #use in-memory database
+SELECT PtDistWithin(Makepoint(1,2), MakePoint(4,4), 2)
+1 # rows (not including the header row)
+1 # columns
+PtDistWithin(Makepoint(1,2), MakePoint(4,4), 2)
+0

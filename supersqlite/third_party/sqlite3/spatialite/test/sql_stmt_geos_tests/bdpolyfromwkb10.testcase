@@ -1,0 +1,9 @@
+BdPolyFromWKB - point, no SRID
+:memory: #use in-memory database
+SELECT BdPolyFromWKB(AsBinary(GeomFromText("Point(1 2)")));
+1 # rows (not including the header row)
+1 # columns
+BdPolyFromWKB(AsBinary(GeomFromText("Point(1 2)")))
+(NULL)
+
+

@@ -1,0 +1,7 @@
+isvalid Geometry Collection of two lines and a polygon
+:memory: #use in-memory database
+SELECT IsValid(GeomFromText("GEOMETRYCOLLECTION(LINESTRING(0 0, 4 1),LINESTRING(3 4, 4 6),POLYGON((1 1, 4 1, 4 4, 1 4, 1 1)))"))
+1 # rows (not including the header row)
+1 # columns
+IsValid(GeomFromText("GEOMETRYCOLLECTION(LINESTRING(0 0, 4 1),LINESTRING(3 4, 4 6),POLYGON((1 1, 4 1, 4 4, 1 4, 1 1)))"))
+1

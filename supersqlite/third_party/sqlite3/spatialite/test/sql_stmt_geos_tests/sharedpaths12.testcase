@@ -1,0 +1,7 @@
+shared paths - two polygonZM
+:memory: #use in-memory database
+SELECT AsText(SharedPaths(GeomFromText("POLYGONZM((0 0 4 1, 10 0 4 1, 10 10 4 1, 0 10 4 1, 0 0 4 1))"),GeomFromText("POLYGONZM((5 0 4 1, 15 0 4 1, 15 10 4 1, 5 10 4 1, 5 0 4 1))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(SharedPaths(GeomFromText("POLYGONZM((0 0 4 1, 10 0 4 1, 10 10 4 1, 0 10 4 1, 0 0 4 1))"),GeomFromText("POLYGONZM((5 0 4 1, 15 0 4 1, 15 10 4 1, 5 10 4 1, 5 0 4 1))")))
+MULTILINESTRING ZM((5 0 4 0, 10 0 4 0), (10 10 4 0, 5 10 4 0))

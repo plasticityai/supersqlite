@@ -1,0 +1,8 @@
+IsValidRasterPalette - NULL sample-type
+NEW:memory: #use in-memory database
+SELECT IsValidRasterPalette(zeroblob(4), NULL);
+1 # rows (not including the header row)
+1 # columns
+IsValidRasterPalette(zeroblob(4), NULL)
+-1
+

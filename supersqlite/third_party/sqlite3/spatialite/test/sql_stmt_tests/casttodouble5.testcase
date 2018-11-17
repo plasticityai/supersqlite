@@ -1,0 +1,10 @@
+CastToDouble() - TEXT valid decimals
+:memory: #use in-memory database
+SELECT CastToDouble('123.88'), TypeOf(CastToDouble('123.88'))
+1 # rows (not including the header row)
+2 # columns
+CastToDouble('123.88')
+TypeOf(CastToDouble('123.88'))
+123.88
+real
+

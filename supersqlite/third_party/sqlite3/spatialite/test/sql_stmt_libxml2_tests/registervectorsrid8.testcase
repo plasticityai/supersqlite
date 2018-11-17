@@ -1,0 +1,7 @@
+RegisterVectorCoverageSrid - BLOB srid
+:memory: #use in-memory database
+SELECT SE_RegisterVectorCoverageSrid('alpha', zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterVectorCoverageSrid('alpha', zeroblob(4))
+-1

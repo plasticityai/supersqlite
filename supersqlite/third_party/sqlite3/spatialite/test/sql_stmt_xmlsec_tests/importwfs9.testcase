@@ -1,0 +1,7 @@
+ImportWFS - not existing input
+:memory: #use in-memory database
+SELECT ImportWFS('./test.wfs', 'p02', 'wfstable');
+1 # rows (not including the header row)
+1 # columns
+ImportWFS('./test.wfs', 'p02', 'wfstable')
+3

@@ -1,0 +1,7 @@
+FromGML - Point, no namespace
+:memory: #use in-memory database
+SELECT AsEwkt(GeomFromGml('<Point srsName="urn:ogc:def:crs:EPSG::4326"><coordinates>1,2</coordinates></Point>'));
+1 # rows (not including the header row)
+1 # columns
+AsEwkt(GeomFromGml('<Point srsName="urn:ogc:def:crs:EPSG::4326"><coordinates>1,2</coordinates></Point>')):0
+SRID=4326;POINT(1 2)

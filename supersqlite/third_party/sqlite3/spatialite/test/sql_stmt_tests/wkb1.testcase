@@ -1,0 +1,7 @@
+Hex Wkb: MultiPoint XY (single point)
+:memory: #use in-memory database
+SELECT Hex(AsBinary(GeomFromText("MULTIPOINT(1.2 3.4)", 4326)));
+1 # rows (not including the header row)
+1 # columns
+Hex(AsBinary(GeomFromText("MULTIPOINT(1.2 3.4)", 4326)));
+0104000000010000000101000000333333333333F33F3333333333330B40

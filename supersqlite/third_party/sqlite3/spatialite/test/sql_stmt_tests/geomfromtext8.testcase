@@ -1,0 +1,7 @@
+geomfromtext8
+:memory: #use in-memory database
+SELECT AsEWkt(GeomFromText(3.14, 4326));
+1 # rows (not including the header row)
+1 # columns
+AsEWkt(GeomFromText(3.14, 4326))
+(NULL)

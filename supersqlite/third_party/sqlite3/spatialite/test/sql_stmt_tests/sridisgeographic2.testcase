@@ -1,0 +1,7 @@
+SridIsGeographic() - TEXT SRID
+:memory: #use in-memory database
+SELECT SridIsGeographic('srid')
+1 # rows (not including the header row)
+1 # columns
+SridIsGeographic('srid')
+(NULL)

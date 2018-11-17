@@ -1,0 +1,8 @@
+Closest Point - LINE AND PointZ
+:memory: #use in-memory database
+SELECT AsText(ClosestPoint(GeomFromText("POINTZ(4 6 4)"), GeomFromText("LINESTRING(0 0, 0 10)")));
+1 # rows (not including the header row)
+1 # columns
+AsText(ClosestPoint(GeomFromText("POINTZ(4 6 4)"), GeomFromText("LINESTRING(0 0, 0 10)")))
+POINT Z(4 6 4)
+

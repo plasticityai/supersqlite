@@ -1,0 +1,9 @@
+BdMPolyFromText - non-text, no SRID
+:memory: #use in-memory database
+SELECT BdMPolyFromText(26);
+1 # rows (not including the header row)
+1 # columns
+BdMPolyFromText(26)
+(NULL)
+
+

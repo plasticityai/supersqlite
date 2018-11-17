@@ -1,0 +1,7 @@
+US chains to metres
+:memory: #use in-memory database
+SELECT CvtFromUsCh(100);
+1 # rows (not including the header row)
+1 # columns
+CvtFromUsCh(100);
+2011.684:8

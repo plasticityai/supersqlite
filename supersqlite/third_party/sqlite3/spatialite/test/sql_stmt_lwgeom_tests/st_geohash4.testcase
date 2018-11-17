@@ -1,0 +1,7 @@
+ST_GeoHash - not Long/Lat geometry
+:memory: #use in-memory database
+SELECT ST_GeoHash(MakePoint(123456, 654321));
+1 # rows (not including the header row)
+1 # columns
+ST_GeoHash(MakePoint(123456, 654321))
+(NULL)

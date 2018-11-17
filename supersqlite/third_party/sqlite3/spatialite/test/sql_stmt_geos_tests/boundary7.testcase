@@ -1,0 +1,7 @@
+Boundary - open linestringZM
+:memory: #use in-memory database
+SELECT AsText(Boundary(GeomFromText("LINESTRINGZM(1 2 3 5, 4 -3 6 -3, 2 -1 -4 8)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(Boundary(GeomFromText("LINESTRINGZM(1 2 3 5, 4 -3 6 -3, 2 -1 -4 8)")))
+MULTIPOINT ZM(1 2 3 0, 2 -1 -4 0)

@@ -1,0 +1,10 @@
+Sanitize Geometry - zeroblob
+:memory: #use in-memory database
+SELECT SanitizeGeometry(zeroblob(100));
+1 # rows (not including the header row)
+1 # columns
+SanitizeGeometry(zeroblob(100))
+(NULL)
+
+
+

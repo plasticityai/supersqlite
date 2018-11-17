@@ -1,0 +1,8 @@
+Collection Extract - Point invalid type 0
+:memory: #use in-memory database
+SELECT CollectionExtract(GeomFromText("POINT(1 2)"), 0);
+1 # rows (not including the header row)
+1 # columns
+CollectionExtract(GeomFromText("POINT(1 2)"), 0)
+(NULL)
+

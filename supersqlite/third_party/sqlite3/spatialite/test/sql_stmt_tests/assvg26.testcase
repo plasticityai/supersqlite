@@ -1,0 +1,9 @@
+assvg - relative/absolute GeometryCollection
+:memory: #use in-memory database
+SELECT assvg(geom, 1) AS rel, assvg(geom, 0) AS abs FROM (SELECT GeomFromText("GEOMETRYCOLLECTION(POINT(1 2), POINT(7 8), LINESTRING(3 4, 5 6), POLYGON((71 11, 75 11, 75 15, 71 15, 71 11), (72 12, 73 12, 73 13, 72 13, 71 12)))", 4326) AS geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+rel
+abs
+x="1" y="-2";x="7" y="-8";M 3 -4 l 2 -2 M 71 -11 l 4 0 0 -4 -4 0 z M 72 -12 l 1 0 0 -1 -1 0 z
+cx="1" cy="-2";cx="7" cy="-8";M 3 -4 L 5 -6 M 71 -11 L 75 -11 75 -15 71 -15 z M 72 -12 L 73 -12 73 -13 72 -13 z

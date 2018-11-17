@@ -1,0 +1,7 @@
+casttomultipolygon - LINESTRING
+:memory: #use in-memory database
+SELECT CastToMultiPolygon(GeomFromText("LINESTRING(1 2, 4 5)"))
+1 # rows (not including the header row)
+1 # columns
+CastToMultiPolygon(GeomFromText("LINESTRING(1 2, 4 5)"))
+(NULL)

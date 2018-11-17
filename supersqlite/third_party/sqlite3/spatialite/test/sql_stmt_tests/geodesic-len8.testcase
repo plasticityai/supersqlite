@@ -1,0 +1,7 @@
+geodesic length polygon with hole
+:memory:
+SELECT GeodesicLength(GeomFromText("POLYGON((11.5 43.5, 11.8 43.5, 11.8 43.8, 11.5 43.8, 11.5 43.5), (11.6 43.6, 11.7 43.6, 11.7 43.7, 11.6 32.7, 11.6 43.6))", 4326));
+1 # rows
+1 # column
+GeodesicLength(GeomFromText("POLYGON((11.5 43.5, 11.8 43.5, 11.8 43.8, 11.5 43.8, 11.5 43.5), (11.6 43.6, 11.7 43.6, 11.7 43.7, 11.6 32.7, 11.6 43.6))", 4326))
+2565198.35:10

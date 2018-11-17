@@ -1,0 +1,7 @@
+pointN - point input, out of range
+:memory: #use in-memory database
+SELECT AsText(PointN(GeomFromText("POINT(136 -35)"), -2));
+1 # rows (not including the header row)
+1 # columns
+AsText(PointN(GeomFromText("POINT(136 -35)"), -2))
+(NULL)

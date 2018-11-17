@@ -1,0 +1,7 @@
+floor(integer) # integer input - this is just the name remember
+:memory:
+SELECT floor(3); # the SQL to run
+1 # rows
+1 # columns
+floor(3) # this is the header row
+3.0 # this is really the result

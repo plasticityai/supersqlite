@@ -1,0 +1,7 @@
+ST_SnapToGrid - two args - double geom (error)
+:memory: #use in-memory database
+SELECT ST_SnapToGrid(1.2, NULL);
+1 # rows (not including the header row)
+1 # columns
+ST_SnapToGrid(1.2, NULL)
+(NULL)

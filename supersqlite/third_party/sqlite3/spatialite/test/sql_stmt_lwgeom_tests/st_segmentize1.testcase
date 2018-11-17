@@ -1,0 +1,7 @@
+ST_Segmentize - Collection
+:memory: #use in-memory database
+SELECT ST_AsText(ST_Segmentize(GeomFromText('GEOMETRYCOLLECTION(POINT(0 0), LINESTRING(1 1, 1 2), POLYGON((3 3, 6 3, 6 6, 3 6, 3 3), (4 4, 5 4, 5 5, 5 4, 4 4)))'), 0.5));
+1 # rows (not including the header row)
+1 # columns
+ST_AsText(ST_Segmentize(GeomFromText('GEOMETRYCOLLECTION(POINT(0 0), LINESTRING(1 1, 1 2), POLYGON((3 3, 6 3, 6 6, 3 6, 3 3), (4 4, 5 4, 5 5, 5 4, 4 4)))'), 0.5))
+GEOMETRYCOLLECTION(POINT(0 0), LINESTRING(1 1, 1 1.5, 1 2), POLYGON((3 3, 3.5 3, 4 3, 4.5 3, 5 3, 5.5 3, 6 3, 6 3.5, 6 4, 6 4.5, 6 5, 6 5.5, 6 6, 5.5 6, 5 6, 4.5 6, 4 6, 3.5 6, 3 6, 3 5.5, 3 5, 3 4.5, 3 4, 3 3.5, 3 3), (4 4, 4.5 4, 5 4, 5 4.5, 5 5, 5 4.5, 5 4, 4.5 4, 4 4)))

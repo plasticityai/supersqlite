@@ -1,0 +1,7 @@
+sin(pi)
+:memory: #use in-memory database
+SELECT 1 + sin(pi());
+1 # rows (not including the header row)
+1 # columns
+1 + sin(pi()) # header
+1.0 #result

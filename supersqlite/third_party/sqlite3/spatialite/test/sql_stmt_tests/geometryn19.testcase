@@ -1,0 +1,7 @@
+Geometry N - multipolygonZM
+:memory: #use in-memory database
+SELECT AsText(GeometryN(GeomFromText("MULTIPOLYGONZM(((0 0 1 2, 10 0 1 2, 10 10 1 2, 0 10 1 2, 0 0 1 2),(2 2 2 3, 8 2 2 3, 8 8 2 3, 2 8 2 3, 2 2 2 3)),((0 0 3 4, -10 0 3 4, -10 -10 3 4, 0 -10 3 4, 0 0 3 4)))"), 1))
+1 # rows (not including the header row)
+1 # columns
+AsText(GeometryN(GeomFromText("MULTIPOLYGONZM(((0 0 1 2, 10 0 1 2, 10 10 1 2, 0 10 1 2, 0 0 1 2),(2 2 2 3, 8 2 2 3, 8 8 2 3, 2 8 2 3, 2 2 2 3)),((0 0 3 4, -10 0 3 4, -10 -10 3 4, 0 -10 3 4, 0 0 3 4)))"), 1))
+POLYGON ZM((0 0 1 2, 10 0 1 2, 10 10 1 2, 0 10 1 2, 0 0 1 2), (2 2 2 3, 8 2 2 3, 8 8 2 3, 2 8 2 3, 2 2 2 3))

@@ -1,0 +1,7 @@
+unaryunion - points
+:memory: #use in-memory database
+SELECT AsText(UnaryUnion(GeomFromText("GEOMETRYCOLLECTION(POINT(1 2), POINT(2 3))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(UnaryUnion(GeomFromText("GEOMETRYCOLLECTION(POINT(1 2), POINT(2 3))")));
+MULTIPOINT(1 2, 2 3)

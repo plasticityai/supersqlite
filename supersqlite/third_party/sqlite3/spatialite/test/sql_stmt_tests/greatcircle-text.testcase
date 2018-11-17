@@ -1,0 +1,7 @@
+great circle length - text
+:memory:
+SELECT GreatCircleLength("Hello");
+1 # rows
+1 # column
+GreatCircleLength("Hello")
+(NULL)

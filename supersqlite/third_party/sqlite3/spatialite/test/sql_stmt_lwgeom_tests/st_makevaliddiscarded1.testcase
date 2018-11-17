@@ -1,0 +1,7 @@
+ST_MakeValidDiscarded - Invalid BLOB (error)
+:memory: #use in-memory database
+SELECT ST_MakeValidDiscarded(zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+ST_MakeValidDiscarded(zeroblob(4))
+(NULL)

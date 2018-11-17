@@ -1,0 +1,7 @@
+linefromtext1
+:memory: #use in-memory database
+SELECT AsWkt(LineFromText("LINESTRING(-71.1043443253471 42.315067601582900, -71 42)"), 4);
+1 # rows (not including the header row)
+1 # columns
+AsWkt(LineFromText("LINESTRING(-71.1043443253471 42.315067601582900, -71 42)"), 4)
+LINESTRING(-71.1043 42.3151,-71 42)

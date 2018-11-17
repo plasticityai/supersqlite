@@ -1,0 +1,7 @@
+casttosingle - LINESTRING and POINT
+:memory: #use in-memory database
+SELECT AsText(CastToSingle(GeomFromText("GEOMETRYCOLLECTION(LINESTRING(0 1, 2 1, 2 4, 0 4),POINT(4 2.3))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(CastToSingle(GeomFromText("GEOMETRYCOLLECTION(LINESTRING(0 1, 2 1, 2 4, 0 4),POINT(4 2.3))")))
+(NULL)

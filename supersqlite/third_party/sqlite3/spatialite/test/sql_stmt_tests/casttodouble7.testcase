@@ -1,0 +1,10 @@
+CastToDouble() - DOUBLE
+:memory: #use in-memory database
+SELECT CastToDouble(123.4), TypeOf(CastToDouble(123.4))
+1 # rows (not including the header row)
+2 # columns
+CastToDouble(123.4)
+TypeOf(CastToDouble(123.4))
+123.4
+real
+

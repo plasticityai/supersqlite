@@ -1,0 +1,7 @@
+ST_SnapToGrid - five args - text sizeY (error)
+:memory: #use in-memory database
+SELECT ST_SnapToGrid(MakePoint(1.25, 2.35), 1, 1, 0.5, 'alpha');
+1 # rows (not including the header row)
+1 # columns
+ST_SnapToGrid(MakePoint(1.25, 2.35), 1, 1, 0.5, 'alpha')
+(NULL)

@@ -1,0 +1,9 @@
+dissolve - GEOMETRY COLLECTION
+:memory: #use in-memory database
+SELECT AsText(DissolveSegments(geom)),AsText(DissolvePoints(geom)) from (SELECT GeomFromText("GEOMETRYCOLLECTIONM(LINESTRINGM(4 6 0,7 10 0))") as geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+AsText(DissolveSegments(geom))
+AsText(DissolvePoints(geom))
+LINESTRING M(4 6 0, 7 10 0)
+MULTIPOINT M(4 6 0, 7 10 0)

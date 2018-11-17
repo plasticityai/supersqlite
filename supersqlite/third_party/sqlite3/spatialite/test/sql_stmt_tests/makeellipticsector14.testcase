@@ -1,0 +1,8 @@
+makeellipticsector14 - blob start
+:memory: #use in-memory database
+SELECT MakeEllipticSector(0, 0, 100, 200, zeroblob(4), 60);
+1 # rows (not including the header row)
+1 # columns
+MakeEllipticSector(0, 0, 100, 200, zeroblob(4), 60)
+(NULL)
+

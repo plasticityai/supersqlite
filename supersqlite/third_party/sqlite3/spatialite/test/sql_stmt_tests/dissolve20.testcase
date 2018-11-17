@@ -1,0 +1,9 @@
+dissolve - POLYGON M
+:memory: #use in-memory database
+SELECT AsText(DissolveSegments(geom)),AsText(DissolvePoints(geom)) from (SELECT GeomFromText("POLYGONM((0 0 4,10 0 5,10 10 6,0 10 7,0 0 4),(1 1 2, 2 2 3, 2 1 4, 1 1 2))") as geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+AsText(DissolveSegments(geom))
+AsText(DissolvePoints(geom))
+MULTILINESTRING M((0 0 4, 10 0 5), (10 0 5, 10 10 6), (10 10 6, 0 10 7), (0 10 7, 0 0 4), (1 1 2, 2 2 3), (2 2 3, 2 1 4), (2 1 4, 1 1 2))
+MULTIPOINT M(0 0 4, 10 0 5, 10 10 6, 0 10 7, 0 0 4, 1 1 2, 2 2 3, 2 1 4, 1 1 2)

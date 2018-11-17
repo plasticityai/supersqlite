@@ -1,0 +1,11 @@
+geometrytype - GEOMETRYCOLLECTIONM two linestring
+:memory: #use in-memory database
+SELECT GeometryType(geom), CoordDimension(geom), GeometryAliasType(geom) from (SELECT GeomFromText("GEOMETRYCOLLECTIONM(LINESTRINGM(4 6 0, 10 0 0), LINESTRINGM(2 3 0, 5 1 0))") as geom) dummy;
+1 # rows (not including the header row)
+3 # columns
+GeometryType(geom)
+CoordDimension(geom)
+GeometryAliasType(geom)
+GEOMETRYCOLLECTION M
+XYM
+GEOMETRYCOLLECTION

@@ -1,0 +1,7 @@
+fromewkt24
+:memory: #use in-memory database
+SELECT AsText(GeomFromEWKT('SRID=4326;GEOMETRYCOLLECTION(MULTILINESTRING((0 1 9 7, 2 3 9 7), (4 5 9 7, 6 7 9 7)))'));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromEWKT('SRID=4326;GEOMETRYCOLLECTION(MULTILINESTRING((0 1 9 7, 2 3 9 7), (4 5 9 7, 6 7 9 7)))'));
+GEOMETRYCOLLECTION ZM(LINESTRING ZM(0 1 9 7, 2 3 9 7), LINESTRING ZM(4 5 9 7, 6 7 9 7))

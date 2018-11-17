@@ -1,0 +1,7 @@
+MbrEqual - Line + Toxic Polygon
+:memory: #use in-memory database
+SELECT MbrEqual(GeomFromText("LINESTRING(0 0, 1 2)"), GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))"));
+1 # rows (not including the header row)
+1 # columns
+MbrEqual(GeomFromText("LINESTRING(0 0, 1 2)"), GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))"))
+0

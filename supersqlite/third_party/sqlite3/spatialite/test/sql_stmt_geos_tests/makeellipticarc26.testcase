@@ -1,0 +1,8 @@
+makeellipticarc26 - valid step
+:memory: #use in-memory database
+SELECT ST_Length(MakeEllipticArc(0.0, 0.0, 100.0, 200.0, 30.0, 60.0, 4326, 1.0));
+1 # rows (not including the header row)
+1 # columns
+ST_Length(MakeEllipticArc(0.0, 0.0, 100.0, 200.0, 30.0, 60.0, 4326, 1.0))
+82.4595:4
+

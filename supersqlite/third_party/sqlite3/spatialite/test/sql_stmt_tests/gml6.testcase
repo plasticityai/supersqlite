@@ -1,0 +1,8 @@
+GML MultiLinestring Z
+:memory: #use in-memory database
+SELECT AsGML(3, GeomFromText("MULTILINESTRINGZ((1 2 100, 3 4 101), (5 5 88, 6 6 99))", 4326));
+1 # rows (not including the header row)
+1 # columns
+AsGML(3, GeomFromText("MULTILINESTRINGZ((1 2 100, 3 4 101), (5 5 88, 6 6 99))", 4326))
+<gml:MultiCurve srsName="EPSG:4326"><gml:curveMember><gml:Curve><gml:segments><gml:LineStringSegment><gml:posList srsDimension="3">1 2 100 3 4 101</gml:posList></gml:LineStringSegment></gml:segments></gml:Curve></gml:curveMember><gml:curveMember><gml:Curve><gml:segments><gml:LineStringSegment><gml:posList srsDimension="3">5 5 88 6 6 99</gml:posList></gml:LineStringSegment></gml:segments></gml:Curve></gml:curveMember></gml:MultiCurve>:0 # trailing ":0" required to avoid truncation !!!
+

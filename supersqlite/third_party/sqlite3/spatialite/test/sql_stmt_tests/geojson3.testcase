@@ -1,0 +1,8 @@
+GeoJSON MultiPoint
+:memory: #use in-memory database
+SELECT AsGeoJSON(GeomFromText("MULTIPOINT(5 5, 6 6)", 4326), 2, 5);
+1 # rows (not including the header row)
+1 # columns
+AsGeoJSON(GeomFromText("MULTIPOINT(5 5, 6 6)", 4326), 2, 5)
+{"type":"MultiPoint","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:EPSG:4326"}},"bbox":[5,5,6,6],"coordinates":[[5,5],[6,6]]}:0 # trailing ":0" required to avoid truncation !!!
+

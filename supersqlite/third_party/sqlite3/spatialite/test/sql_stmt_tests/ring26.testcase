@@ -1,0 +1,7 @@
+InteriorRingN - POLGON Z zeroth interior (error)
+:memory: #use in-memory database
+SELECT InteriorRingN(GeomFromText("POLYGONZ((0 0 0, 0 4 1, 4 4 2, 4 0 3, 0 0 0),(1 1 2, 1 3 2, 3 3 2, 3 1 2, 1 1 2),(2 2 1, 2 3 1, 3 3 1, 3 2 1, 2 2 1))"), 0);
+1 # rows (not including the header row)
+1 # columns
+InteriorRingN(GeomFromText("POLYGONZ((0 0 0, 0 4 1, 4 4 2, 4 0 3, 0 0 0),(1 1 2, 1 3 2, 3 3 2, 3 1 2, 1 1 2),(2 2 1, 2 3 1, 3 3 1, 3 2 1, 2 2 1))"), 0)
+(NULL)

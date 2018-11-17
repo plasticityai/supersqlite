@@ -1,0 +1,7 @@
+buildcirclembr - text args 
+:memory: #use in-memory database
+SELECT BuildCircleMbr('a', 'b', 'c', 'd')
+1 # rows (not including the header row)
+1 # columns
+BuildCircleMbr('a', 'b', 'c', 'd')
+(NULL)

@@ -1,0 +1,7 @@
+FromGML - GeometryCollection v2 (no namescpaces)
+:memory: #use in-memory database
+SELECT AsEwkt(GeomFromGml('<MultiGeometry srsName="EPSG:4326"><geometryMember><Point><coordinates>8,8</coordinates></Point></geometryMember><geometryMember><LineString><coordinates>9,9 10,10</coordinates></LineString></geometryMember><geometryMember><Polygon><outerBoundaryIs><LinearRing><coordinates>0,0 5,0 5,5 0,5 0,0</coordinates></LinearRing></outerBoundaryIs><innerBoundaryIs><LinearRing><coordinates>1,1 2,1 2,2 1,2 1,1</coordinates></LinearRing></innerBoundaryIs></Polygon></geometryMember></MultiGeometry>'));
+1 # rows (not including the header row)
+1 # columns
+AsEwkt(GeomFromGml('<MultiGeometry srsName="EPSG:4326"><geometryMember><Point><coordinates>8,8</coordinates></Point></geometryMember><geometryMember><LineString><coordinates>9,9 10,10</coordinates></LineString></geometryMember><geometryMember><Polygon><outerBoundaryIs><LinearRing><coordinates>0,0 5,0 5,5 0,5 0,0</coordinates></LinearRing></outerBoundaryIs><innerBoundaryIs><LinearRing><coordinates>1,1 2,1 2,2 1,2 1,1</coordinates></LinearRing></innerBoundaryIs></Polygon></geometryMember></MultiGeometry>')):0
+SRID=4326;GEOMETRYCOLLECTION(POINT(8 8),LINESTRING(9 9,10 10),POLYGON((0 0,5 0,5 5,0 5,0 0),(1 1,2 1,2 2,1 2,1 1)))

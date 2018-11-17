@@ -1,0 +1,7 @@
+log2(4)
+:memory: #use in-memory database
+SELECT log2(4);
+1 # rows (not including the header row)
+1 # columns
+log2(4) # header
+2.0 #result

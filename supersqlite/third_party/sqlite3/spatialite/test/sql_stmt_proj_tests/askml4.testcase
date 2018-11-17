@@ -1,0 +1,8 @@
+askml - 4 arg float descriptions
+:memory: #use in-memory database
+SELECT askml(2.5, 3.2, GeomFromText("Point(1 2)", 4326), 4)
+1 # rows (not including the header row)
+1 # columns
+askml(2.5, 3.2, GeomFromText("Point(1 2)", 4326), 4)
+<Placemark><name>2.500000</name><description>3.200000</description><Point><coordinates>1,2</coordinates></Point></Placemark>
+

@@ -1,0 +1,7 @@
+isvalid (MULTYPOLYGON with hole)
+:memory: #use in-memory database
+SELECT IsValid(GeomFromText("MULTIPOLYGON(((10 10, 15 10, 15 15, 10 15, 10 10), (11 11, 12 11, 12 12, 11 12, 11 11)), ((20 20, 21 20, 21 21, 20 21, 20 20)))"));
+1 # rows (not including the header row)
+1 # columns
+IsValid(GeomFromText("MULTIPOLYGON(((10 10, 15 10, 15 15, 10 15, 10 10), (11 11, 12 11, 12 12, 11 12, 11 11)), ((20 20, 21 20, 21 21, 20 21, 20 20)))"))
+1

@@ -1,0 +1,7 @@
+issimple4
+:memory: #use in-memory database
+SELECT IsSimple(zeroblob(10));
+1 # rows (not including the header row)
+1 # columns
+IsSimple(zeroblob(10))
+-1

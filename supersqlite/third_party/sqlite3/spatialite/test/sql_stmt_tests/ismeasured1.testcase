@@ -1,0 +1,8 @@
+IsMeasured- non-blob
+:memory: #use in-memory database
+SELECT ST_IsMeasured(3)
+1 # rows (not including the header row)
+1 # columns
+ST_IsMeasured(3)
+-1
+

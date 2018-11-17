@@ -1,0 +1,7 @@
+ST_X - text
+:memory: #use in-memory database
+SELECT X("hello world");
+1 # rows (not including the header row)
+1 # columns
+X("hello world")
+(NULL)

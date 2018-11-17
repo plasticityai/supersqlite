@@ -1,0 +1,7 @@
+ST_VoronojDiagram - (only_edges=no)
+:memory: #use in-memory database
+SELECT AsText(ST_ForceLHR(ST_VoronojDiagram(GeomFromText('MULTIPOINTZ(10 5 10, 15 5 11, 20 4 12, 12 3 13, 17 2 14, 16 6 15)'), 0)));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_ForceLHR(ST_VoronojDiagram(GeomFromText('MULTIPOINTZ(10 5 10, 15 5 11, 20 4 12, 12 3 13, 17 2 14, 16 6 15)'), 0)))
+MULTIPOLYGON Z(((12.5 5.5 0, 14.5 2.5 0, 14.5 1.5 0, 9.5 1.5 0, 9.5 2.5 0, 12.5 5.5 0)), ((14.5 2.5 0, 12.5 5.5 0, 12.5 8.5 0, 16.9 4.1 0, 14.5 2.5 0)), ((12.5 8.5 0, 12.5 5.5 0, 9.5 2.5 0, 9.5 9 0, 12.416667 9 0, 12.5 8.5 0)), ((16.9 4.1 0, 12.5 8.5 0, 12.416667 9 0, 20 9 0, 17.642857 4.285714 0, 16.9 4.1 0)), ((14.5 2.5 0, 16.9 4.1 0, 17.642857 4.285714 0, 19.5 1.5 0, 14.5 1.5 0, 14.5 2.5 0)), ((19.5 1.5 0, 17.642857 4.285714 0, 20 9 0, 20.5 9 0, 20.5 1.5 0, 19.5 1.5 0)))

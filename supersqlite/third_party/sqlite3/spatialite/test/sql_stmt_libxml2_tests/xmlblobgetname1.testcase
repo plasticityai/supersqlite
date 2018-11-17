@@ -1,0 +1,8 @@
+XB_GetName - NULL XmlDocument
+:memory: #use in-memory database
+SELECT XB_GetName(NULL);
+1 # rows (not including the header row)
+1 # columns
+XB_GetName(NULL)
+(NULL)
+

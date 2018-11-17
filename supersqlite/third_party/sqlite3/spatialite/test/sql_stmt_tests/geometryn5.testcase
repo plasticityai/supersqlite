@@ -1,0 +1,8 @@
+Geometry N - toxic blob
+:memory: #use in-memory database
+SELECT AsText(GeometryN(GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))"), 1));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeometryN(GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))"), 1))
+POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))
+

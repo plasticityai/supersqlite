@@ -1,0 +1,7 @@
+isvalid Geometry Collection of two points and a polygon
+:memory: #use in-memory database
+SELECT IsValid(GeomFromText("GEOMETRYCOLLECTION(POINT(0 0),POINT(3 4),POLYGON((1 1, 4 1, 4 4, 1 4, 1 1)))"))
+1 # rows (not including the header row)
+1 # columns
+IsValid(GeomFromText("GEOMETRYCOLLECTION(POINT(0 0),POINT(3 4),POLYGON((1 1, 4 1, 4 4, 1 4, 1 1)))"))
+1

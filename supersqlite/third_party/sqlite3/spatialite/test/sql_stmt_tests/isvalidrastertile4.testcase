@@ -1,0 +1,8 @@
+IsValidRasterTile - NULL odd-tile
+NEW:memory: #use in-memory database
+SELECT IsValidRasterTile('alpha', 0, NULL, zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+IsValidRasterTile('alpha', 0, NULL, zeroblob(4))
+-1
+

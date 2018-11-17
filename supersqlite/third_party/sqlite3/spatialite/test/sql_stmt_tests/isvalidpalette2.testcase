@@ -1,0 +1,8 @@
+IsValidRasterPalette - NULL palette
+NEW:memory: #use in-memory database
+SELECT IsValidRasterPalette(NULL, 'UINT8');
+1 # rows (not including the header row)
+1 # columns
+IsValidRasterPalette(NULL, 'UINT8')
+-1
+

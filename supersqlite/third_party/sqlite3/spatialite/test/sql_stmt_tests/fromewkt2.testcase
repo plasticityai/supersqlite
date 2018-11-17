@@ -1,0 +1,7 @@
+From EWKT - bad text
+:memory:
+SELECT GeomFromEwkt("g'day")
+1 # rows
+1 # column
+GeomFromEwkt("g'day")
+(NULL)

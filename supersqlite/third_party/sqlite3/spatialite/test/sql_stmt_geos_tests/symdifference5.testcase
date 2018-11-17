@@ -1,0 +1,9 @@
+symdifference - non-blob first point
+:memory: #use in-memory database
+SELECT AsText(SymDifference("hello", MakePoint(1,2)))
+1 # rows (not including the header row)
+1 # columns
+AsText(SymDifference("hello", MakePoint(1,2)))
+(NULL)
+
+

@@ -1,0 +1,9 @@
+symdifference - two pointZM
+:memory: #use in-memory database
+SELECT AsText(SymDifference(GeomFromText("POINTZM(1 3 6 4)"),GeomFromText("POINTZM(4 2 3 6)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(SymDifference(GeomFromText("POINTZM(1 3 6 4)"),GeomFromText("POINTZM(4 2 3 6)")))
+MULTIPOINT ZM(1 3 6 0, 4 2 3 0)
+
+

@@ -1,0 +1,7 @@
+ST_MakeValidDiscarded - text (error)
+:memory: #use in-memory database
+SELECT ST_MakeValidDiscarded('alpha');
+1 # rows (not including the header row)
+1 # columns
+ST_MakeValidDiscarded('alpha')
+(NULL)

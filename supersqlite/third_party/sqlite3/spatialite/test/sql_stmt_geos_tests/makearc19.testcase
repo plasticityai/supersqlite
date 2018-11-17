@@ -1,0 +1,8 @@
+makearc19 - WGS84 srid
+:memory: #use in-memory database
+SELECT ST_Length(MakeArc(0, 0, 100, 30, 60, 4326));
+1 # rows (not including the header row)
+1 # columns
+ST_Length(MakeArc(0, 0, 100, 30, 60, 4326))
+52.2934:4
+

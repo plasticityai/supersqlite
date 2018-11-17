@@ -1,0 +1,7 @@
+importDXFfromDir - not existing file
+:memory: #use in-memory database
+SELECT ImportDXFfromDir('foo');
+1 # rows (not including the header row)
+1 # columns
+ImportDXFfromDir('foo')
+0

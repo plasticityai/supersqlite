@@ -1,0 +1,7 @@
+acos-text # check of text argument to acos()
+:memory: #use in-memory database
+SELECT acos("test");
+1 # rows (not including the header row)
+1 # columns
+acos("test") # header
+(NULL) #result

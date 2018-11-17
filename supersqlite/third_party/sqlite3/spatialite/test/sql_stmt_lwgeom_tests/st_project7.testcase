@@ -1,0 +1,7 @@
+ST_Project - start Point (actually: Linestring)
+:memory: #use in-memory database
+SELECT ST_Project(GeomFromText('LINESTRING(0 0, 1 1)', 4326), 100000, Radians(45));
+1 # rows (not including the header row)
+1 # columns
+ST_Project(GeomFromText('LINESTRING(0 0, 1 1)', 4326), 100000, Radians(45))
+(NULL)

@@ -1,0 +1,7 @@
+tan(text)
+:memory: #use in-memory database
+SELECT tan("text");
+1 # rows (not including the header row)
+1 # columns
+tan("text") # header
+(NULL) #result

@@ -1,0 +1,7 @@
+checkspatialmetadata - FDO
+sql_stmt_tests/fdo-wkb.sqlite_RO #use special test database, read only
+SELECT CheckSpatialMetaData()
+1 # rows (not including the header row)
+1 # columns
+CheckSpatialMetaData()
+2

@@ -1,0 +1,7 @@
+bad KML: Point
+:memory: #use in-memory database
+SELECT GeomFromKML('<Point><coordinates>1.1,2.2</coordinates></Point');
+1 # rows (not including the header row)
+1 # columns
+GeomFromKML('<Point><coordinates>1.1,2.2</coordinates></Point'):0
+(NULL)

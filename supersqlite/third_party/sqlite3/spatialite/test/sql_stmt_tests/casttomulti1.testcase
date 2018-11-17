@@ -1,0 +1,7 @@
+casttomulti - bad blob
+:memory: #use in-memory database
+SELECT CastToMulti(zeroblob(99))
+1 # rows (not including the header row)
+1 # columns
+CastToMulti(zeroblob(99))
+(NULL)

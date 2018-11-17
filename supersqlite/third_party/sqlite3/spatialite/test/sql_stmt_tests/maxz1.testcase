@@ -1,0 +1,8 @@
+MaxZ - non-blob
+:memory: #use in-memory database
+SELECT ST_MaxZ(3)
+1 # rows (not including the header row)
+1 # columns
+ST_MaxZ(3)
+(NULL)
+

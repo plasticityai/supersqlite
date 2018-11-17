@@ -1,0 +1,7 @@
+importSHP - not existing shapefile
+:memory: #use in-memory database
+SELECT ImportSHP('shapefile', 'table', 'UTF-8', 4326, 'geom', 'id', 'POINT', 1, 1, 1, 1);
+1 # rows (not including the header row)
+1 # columns
+ImportSHP('shapefile', 'table', 'UTF-8', 4326, 'geom', 'id', 'POINT', 1, 1, 1, 1)
+(NULL)

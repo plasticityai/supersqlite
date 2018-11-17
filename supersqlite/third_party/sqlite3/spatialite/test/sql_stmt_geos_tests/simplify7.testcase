@@ -1,0 +1,8 @@
+Simplify - zeroblob arg
+:memory: #use in-memory database
+SELECT Simplify(zeroblob(1000), 0)
+1 # rows (not including the header row)
+1 # columns
+Simplify(zeroblob(1000), 0)
+(NULL)
+

@@ -1,0 +1,7 @@
+ST_EnvIntersects - bad arg #2
+:memory: #use in-memory database
+SELECT ST_EnvIntersects(zeroblob(50), "alpha", 2, 3, 3)
+1 # rows (not including the header row)
+1 # columns
+ST_EnvIntersects(zeroblob(50), "alpha", 2, 3, 3)
+(NULL)

@@ -1,0 +1,7 @@
+ST_Azimuth - double PointB (error)
+:memory: #use in-memory database
+SELECT ST_Azimuth(MakePoint(10, 10, 4326), 1.1);
+1 # rows (not including the header row)
+1 # columns
+ST_Azimuth(MakePoint(10, 10, 4326), 1.1)
+(NULL)

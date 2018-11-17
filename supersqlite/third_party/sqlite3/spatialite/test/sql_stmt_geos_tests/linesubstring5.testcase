@@ -1,0 +1,8 @@
+linesubstring - bad geom
+:memory: #use in-memory database
+SELECT AsText(Line_Substring(GeomFromText("POINT(0 0"), 0.2, 0.6))
+1 # rows (not including the header row)
+1 # columns
+AsText(Line_Substring(GeomFromText("POINT(0 0"), 0.2, 0.6))
+(NULL)
+

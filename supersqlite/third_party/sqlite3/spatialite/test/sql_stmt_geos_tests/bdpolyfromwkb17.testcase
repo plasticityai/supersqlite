@@ -1,0 +1,8 @@
+BdPolyFromWKB - zeroblob
+:memory: #use in-memory database
+SELECT BdPolyFromWKB(zeroblob(25));
+1 # rows (not including the header row)
+1 # columns
+BdPolyFromWKB(zeroblob(25))
+(NULL)
+

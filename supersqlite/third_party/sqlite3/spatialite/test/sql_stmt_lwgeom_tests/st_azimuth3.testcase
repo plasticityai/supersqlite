@@ -1,0 +1,7 @@
+ST_Azimuth - same Point
+:memory: #use in-memory database
+SELECT ST_Azimuth(MakePoint(10.5, 10.5, 4326), MakePoint(10.5, 10.5, 4326));
+1 # rows (not including the header row)
+1 # columns
+ST_Azimuth(MakePoint(10.5, 10.5, 4326), MakePoint(10.5, 10.5, 4326))
+(NULL)

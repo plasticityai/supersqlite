@@ -1,0 +1,7 @@
+CastToDouble() - TEXT invalid
+:memory: #use in-memory database
+SELECT CastToDouble('alpha')
+1 # rows (not including the header row)
+1 # columns
+CastToDouble('alpha')
+(NULL)

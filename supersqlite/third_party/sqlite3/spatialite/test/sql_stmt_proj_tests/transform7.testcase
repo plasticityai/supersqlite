@@ -1,0 +1,7 @@
+transform - Linestring
+:memory: #use in-memory database
+SELECT AsText(Transform(GeomFromText('LINESTRING(11 43, 12 43, 12 42)', 4326), 32632))
+1 # rows (not including the header row)
+1 # columns
+AsText(Transform(GeomFromText('LINESTRING(11 43, 12 43, 12 42)', 4326), 32632))
+LINESTRING(663019.070082 4762755.64169, 744533.019451 4765182.932802, 748464.920716 4654130.891324)

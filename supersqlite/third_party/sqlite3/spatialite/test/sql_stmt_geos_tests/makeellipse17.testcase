@@ -1,0 +1,8 @@
+makeellipse17 - WGS84 srid
+:memory: #use in-memory database
+SELECT ST_Length(MakeEllipse(0, 0, 100, 200, 4326));
+1 # rows (not including the header row)
+1 # columns
+ST_Length(MakeEllipse(0, 0, 100, 200, 4326))
+967.6155:4
+

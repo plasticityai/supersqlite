@@ -1,0 +1,7 @@
+pow("test", 1) # test of pow() function with bad arguments
+:memory: #use in-memory database
+SELECT pow("test", 1);
+1 # rows (not including the header row)
+1 # columns
+pow("test", 1) # header
+(NULL) # result

@@ -1,0 +1,9 @@
+BdMPolyFromText - point, no SRID
+:memory: #use in-memory database
+SELECT BdMPolyFromText("Point(1 2)");
+1 # rows (not including the header row)
+1 # columns
+BdMPolyFromText("Point(1 2)")
+(NULL)
+
+

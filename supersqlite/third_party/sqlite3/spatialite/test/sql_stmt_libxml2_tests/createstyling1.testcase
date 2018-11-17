@@ -1,0 +1,8 @@
+CreateStylingTables - NULL
+:memory: #use in-memory database
+SELECT CreateStylingTables(NULL);
+1 # rows (not including the header row)
+1 # columns
+CreateStylingTables(NULL)
+-1
+

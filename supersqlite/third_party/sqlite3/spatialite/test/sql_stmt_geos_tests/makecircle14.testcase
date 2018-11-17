@@ -1,0 +1,8 @@
+makecircle14 - WGS84 srid
+:memory: #use in-memory database
+SELECT ST_Length(MakeCircle(0, 0, 100, 4326));
+1 # rows (not including the header row)
+1 # columns
+ST_Length(MakeCircle(0, 0, 100, 4326))
+627.5213:4
+

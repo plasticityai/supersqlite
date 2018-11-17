@@ -1,0 +1,7 @@
+bad WKT: GeometryCollection
+:memory: #use in-memory database
+SELECT GeomFromText("GEOMETRYCOLLECYION(POINT(11.2 12.3), LINESTRING(11.3 12.4, 11.4 12.4)");
+1 # rows (not including the header row)
+1 # columns
+GeomFromText("GEOMETRYCOLLECYION(POINT(11.2 12.3), LINESTRING(11.3 12.4, 11.4 12.4)")
+(NULL)

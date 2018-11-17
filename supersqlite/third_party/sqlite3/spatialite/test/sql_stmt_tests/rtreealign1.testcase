@@ -1,0 +1,7 @@
+rtreealign - non-text first arg
+:memory: #use in-memory database
+SELECT RTreeAlign(0, 1, 2)
+1 # rows (not including the header row)
+1 # columns
+RTreeAlign(0, 1, 2)
+-1

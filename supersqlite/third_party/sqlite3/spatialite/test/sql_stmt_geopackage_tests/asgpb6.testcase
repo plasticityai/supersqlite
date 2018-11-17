@@ -1,0 +1,9 @@
+asgpb6
+:memory: #use in-memory database
+SELECT AsGPB(zeroblob(100))
+1 # rows (not including the header row)
+1 # columns
+AsGPB(zeroblob(100))
+(NULL)
+
+

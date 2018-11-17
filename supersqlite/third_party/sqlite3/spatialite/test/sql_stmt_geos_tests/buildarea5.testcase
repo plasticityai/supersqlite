@@ -1,0 +1,7 @@
+buildarea - multipolygon
+:memory: #use in-memory database
+SELECT AsText(BuildArea(GeomFromText('MULTILINESTRING((0 0, 10 0, 10 10), (10 10, 0 10, 0 0), (15 15, 16 15, 16 16), (16 16, 15 16, 15 15))')))
+1 # rows (not including the header row)
+1 # columns
+AsText(BuildArea(GeomFromText('MULTILINESTRING((0 0, 10 0, 10 10), (10 10, 0 10, 0 0), (15 15, 16 15, 16 16), (16 16, 15 16, 15 15))')))
+MULTIPOLYGON(((10 10, 10 0, 0 0, 0 10, 10 10)), ((16 16, 16 15, 15 15, 15 16, 16 16)))

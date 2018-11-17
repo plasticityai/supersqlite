@@ -1,0 +1,19 @@
+Output format tests - GEOMETRYCOLLECTION XYZM (POINT, POINT LINESTRING)
+:memory: #use in-memory database
+SELECT AsText(geom), AsKML(geom), AsGML(geom), AsGeoJSON(geom), AsWkt(geom), AsEWkt(geom), Hex(AsEWKB(geom)) FROM (SELECT GeomFromText("GEOMETRYCOLLECTIONZM(POINTZM(1 2 100 10), POINTZM(2 3 101 11), LINESTRINGZM(3 4 100 10, 4 5 101 11))", 4326) AS geom) dummy;
+1 # rows (not including the header row)
+7 # columns
+AsText(geom)
+AsKML(geom)
+AsGML(geom)
+AsGeoJSON(geom)
+AsWkt(geom)
+AsEWkt(geom)
+Hex(AsEWKB(geom))
+GEOMETRYCOLLECTION ZM(POINT ZM(1 2 100 10), POINT ZM(2 3 101 11), LINESTRING ZM(3 4 100 10, 4 5 101 11))
+<MultiGeometry><Point><coordinates>1,2,100</coordinates></Point><Point><coordinates>2,3,101</coordinates></Point><LineString><coordinates>3,4,100 4,5,101</coordinates></LineString></MultiGeometry>
+<gml:MultiGeometry srsName="EPSG:4326"><gml:geometryMember><gml:Point><gml:coordinates>1,2,100</gml:coordinates></gml:Point></gml:geometryMember><gml:geometryMember><gml:Point><gml:coordinates>2,3,101</gml:coordinates></gml:Point></gml:geometryMember><gml:geometryMember><gml:LineString><gml:coordinates>3,4,100 4,5,101</gml:coordinates></gml:LineString></gml:geometryMember></gml:MultiGeometry>:0 # trailing ":0" required to avoid truncation !!! 
+{"type":"GeometryCollection","geometries":[{"type":"Point","coordinates":[1,2,100]},{"type":"Point","coordinates":[2,3,101]},{"type":"LineString","coordinates":[[3,4,100],[4,5,101]]}]}:0 # trailing ":0" required to avoid truncation !!! 
+GEOMETRYCOLLECTION(POINT(1 2),POINT(2 3),LINESTRING(3 4,4 5))
+SRID=4326;GEOMETRYCOLLECTION(POINT(1 2 100 10),POINT(2 3 101 11),LINESTRING(3 4 100 10,4 5 101 11))
+3031303730303030453045363130303030303033303030303030303130313030303043303030303030303030303030304630334630303030303030303030303030303430303030303030303030303030353934303030303030303030303030303234343030313031303030304330303030303030303030303030303034303030303030303030303030303038343030303030303030303030343035393430303030303030303030303030323634303031303230303030433030323030303030303030303030303030303030303038343030303030303030303030303031303430303030303030303030303030353934303030303030303030303030303234343030303030303030303030303031303430303030303030303030303030313434303030303030303030303034303539343030303030303030303030303032363430

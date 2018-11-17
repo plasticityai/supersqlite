@@ -1,0 +1,7 @@
+ST_Split - NULL BLOB blade (error)
+:memory: #use in-memory database
+SELECT ST_Split(GeomFromText('LINESTRING(0 0, 10 0)'), NULL);
+1 # rows (not including the header row)
+1 # columns
+ST_Split(GeomFromText('LINESTRING(0 0, 10 0)'), NULL)
+(NULL)

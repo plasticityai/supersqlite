@@ -1,0 +1,7 @@
+ind_feet to metres
+:memory: #use in-memory database
+SELECT CvtFromIndFt(10);
+1 # rows (not including the header row)
+1 # columns
+CvtFromIndFt(10);
+3.047984:8

@@ -1,0 +1,7 @@
+asgml - 2 arg
+:memory: #use in-memory database
+SELECT asgml(GeomFromText("Point(1 2)", 4326), 4);
+1 # rows (not including the header row)
+1 # columns
+asgml(GeomFromText("Point(1 2)", 4326), 4)
+<gml:Point srsName="EPSG:4326"><gml:coordinates>1,2</gml:coordinates></gml:Point>:0

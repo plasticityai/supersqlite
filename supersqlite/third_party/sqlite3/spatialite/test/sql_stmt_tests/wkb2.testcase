@@ -1,0 +1,7 @@
+Hex Wkb: MultiPoint XYZ (single point)
+:memory: #use in-memory database
+SELECT Hex(AsBinary(GeomFromText("MULTIPOINTZ(1.2 3.4 100)", 4326)));
+1 # rows (not including the header row)
+1 # columns
+Hex(AsBinary(GeomFromText("MULTIPOINTZ(1.2 3.4 100)", 4326)));
+01EC0300000100000001E9030000333333333333F33F3333333333330B400000000000005940

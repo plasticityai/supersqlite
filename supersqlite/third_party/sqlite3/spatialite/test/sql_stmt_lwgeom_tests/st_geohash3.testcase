@@ -1,0 +1,7 @@
+ST_GeoHash - int geometry
+:memory: #use in-memory database
+SELECT ST_GeoHash(1);
+1 # rows (not including the header row)
+1 # columns
+ST_GeoHash(1)
+(NULL)

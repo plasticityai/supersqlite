@@ -1,0 +1,7 @@
+metres to feet
+:memory: #use in-memory database
+SELECT CvtToFt(1.0);
+1 # rows (not including the header row)
+1 # columns
+CvtToFt(1.0);
+3.28083989:10

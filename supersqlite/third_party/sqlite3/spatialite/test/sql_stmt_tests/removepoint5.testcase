@@ -1,0 +1,7 @@
+ST_RemovePoint() - BLOB line
+:memory: #use in-memory database
+SELECT ST_RemovePoint(zeroblob(4), NULL)
+1 # rows (not including the header row)
+1 # columns
+ST_RemovePoint(zeroblob(4), NULL)
+(NULL)

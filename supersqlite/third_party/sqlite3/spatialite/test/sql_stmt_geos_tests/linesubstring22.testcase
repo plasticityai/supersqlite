@@ -1,0 +1,8 @@
+linesubstring - using both segments ZM
+:memory: #use in-memory database
+SELECT AsText(Line_Substring(GeomFromText("LINESTRINGZM(0 0 1 0, 10 0 1 0, 10 10 1 0)"), 0.2, 0.8))
+1 # rows (not including the header row)
+1 # columns
+AsText(Line_Substring(GeomFromText("LINESTRINGZM(0 0 1 0, 10 0 1 0, 10 10 1 0)"), 0.2, 0.8))
+LINESTRING ZM(4 0 1 0, 10 0 1 0, 10 6 1 0) # yeah, it would have been m = 0.0 anyway.
+

@@ -1,0 +1,7 @@
+reflectcoords1
+:memory: #use in-memory database
+SELECT AsText(ReflectCoords(GeomFromText("POINT(1 2)"), 1, 0));
+1 # rows (not including the header row)
+1 # columns
+AsText(ReflectCoords(GeomFromText("POINT(1 2)"), 1, 0))
+POINT(-1 2)

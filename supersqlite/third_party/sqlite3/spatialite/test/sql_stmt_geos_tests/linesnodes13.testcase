@@ -1,0 +1,7 @@
+LinesCutAtNodes - zeroblob first arg
+:memory: #use in-memory database
+SELECT LinesCutAtNodes(zeroblob(100), GeomFromText("MULTIPOINT(0 10, 10 10)"))
+1 # rows (not including the header row)
+1 # columns
+LinesCutAtNodes(zeroblob(100), GeomFromText("MULTIPOINT(0 10, 10 10)"))
+(NULL)

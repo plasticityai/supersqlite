@@ -1,0 +1,7 @@
+yards to metres
+:memory: #use in-memory database
+SELECT CvtFromYd(10);
+1 # rows (not including the header row)
+1 # columns
+CvtFromYd(10);
+9.144

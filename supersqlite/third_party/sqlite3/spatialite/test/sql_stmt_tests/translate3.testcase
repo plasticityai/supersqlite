@@ -1,0 +1,7 @@
+translate - bad blob (null)
+:memory: #use in-memory database
+SELECT ST_Translate(zeroblob(4), -1, -3, -4);
+1 # rows (not including the header row)
+1 # columns
+ST_Translate(zeroblob(4), -1, -3, -4)
+(NULL)

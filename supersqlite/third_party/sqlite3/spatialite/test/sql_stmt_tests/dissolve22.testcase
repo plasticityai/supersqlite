@@ -1,0 +1,9 @@
+dissolve - Overlap points
+:memory: #use in-memory database
+SELECT AsText(DissolveSegments(geom)),AsText(DissolvePoints(geom)) from (SELECT GeomFromText("LINESTRING(0 1, 0 2, 1 2, 1 2)") as geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+AsText(DissolveSegments(geom))
+AsText(DissolvePoints(geom))
+MULTILINESTRING((0 1, 0 2), (0 2, 1 2))
+MULTIPOINT(0 1, 0 2, 1 2, 1 2)

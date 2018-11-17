@@ -1,0 +1,8 @@
+Is3D- Point XYZ
+:memory: #use in-memory database
+SELECT ST_Is3D(GeomFromText('POINTZ(1 2 100)'));
+1 # rows (not including the header row)
+1 # columns
+ST_Is3D(GeomFromText('POINTZ(1 2 100)'))
+1
+

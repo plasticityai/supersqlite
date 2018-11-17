@@ -1,0 +1,7 @@
+bad GML: GeometryCollection
+:memory: #use in-memory database
+SELECT GeomFromGML('<gml:MultiGeometry srsName="EPSG:4326"><gml:geometryMember><gml:Point><gml:coordinates>10,10</gml:coordinates></gml:Point></gml:geometryMember><gml:geometryMember><gml:LineString><gml:coordinates>11,11 12,12</gml:coordinates></gml:LineString></gml:geometryMember><gml:geometryMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>0,0 4,0 4,4 0,4 0,0</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs><gml:innerBoundaryIs><gml:LinearRing><gml:coordinates>1,1 2,1 2,2 1,2 1,1</gml:coordinates></gml:LinearRing></gml:innerBoundaryIs></gml:Polygon></gml:geometryMember></gml:MultiGeometry');
+1 # rows (not including the header row)
+1 # columns
+GeomFromGML('<gml:MultiGeometry srsName="EPSG:4326"><gml:geometryMember><gml:Point><gml:coordinates>10,10</gml:coordinates></gml:Point></gml:geometryMember><gml:geometryMember><gml:LineString><gml:coordinates>11,11 12,12</gml:coordinates></gml:LineString></gml:geometryMember><gml:geometryMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>0,0 4,0 4,4 0,4 0,0</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs><gml:innerBoundaryIs><gml:LinearRing><gml:coordinates>1,1 2,1 2,2 1,2 1,1</gml:coordinates></gml:LinearRing></gml:innerBoundaryIs></gml:Polygon></gml:geometryMember></gml:MultiGeometry'):0
+(NULL)

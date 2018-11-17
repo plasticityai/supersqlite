@@ -1,0 +1,7 @@
+metres to Indian feet
+:memory: #use in-memory database
+SELECT CvtToIndFt(1.0);
+1 # rows (not including the header row)
+1 # columns
+CvtToIndFt(1.0);
+3.2808570:9

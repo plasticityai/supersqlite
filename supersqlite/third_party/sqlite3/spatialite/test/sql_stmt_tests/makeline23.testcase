@@ -1,0 +1,8 @@
+makeline - GEOMETRYCOLLECTION (error)
+:memory: #use in-memory database
+SELECT MakeLine(GeomFromText("GEOMETRYCOLLECTION(POINT(1 2),LINESTRING(4 1, 2 6))"))
+1 # rows (not including the header row)
+1 # columns
+MakeLine(GeomFromText("GEOMETRYCOLLECTION(POINT(1 2),LINESTRING(4 1, 2 6))"))
+(NULL)
+

@@ -1,0 +1,8 @@
+makearc7 - NULL radius
+:memory: #use in-memory database
+SELECT MakeArc(0, 0, NULL, 30, 60);
+1 # rows (not including the header row)
+1 # columns
+MakeArc(0, 0, NULL, 30, 60)
+(NULL)
+

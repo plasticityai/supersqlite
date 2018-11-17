@@ -1,0 +1,7 @@
+ATM_Invert() - invertible
+:memory: #use in-memory database
+SELECT ATM_IsValid(ATM_Invert(ATM_CreateScale(2,2,2)))
+1 # rows (not including the header row)
+1 # columns
+ATM_IsValid(ATM_Invert(ATM_CreateScale(2,2,2)))
+1

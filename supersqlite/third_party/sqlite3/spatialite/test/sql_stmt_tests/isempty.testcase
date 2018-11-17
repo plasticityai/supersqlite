@@ -1,0 +1,7 @@
+isempty
+:memory: #use in-memory database
+SELECT IsEmpty(GeomFromText("Point(1 2)", 4326))
+1 # rows (not including the header row)
+1 # columns
+IsEmpty(GeomFromText("Point(1 2)", 4326))
+0

@@ -1,0 +1,7 @@
+ST_WKBToSQL - bad blob
+:memory: #use in-memory database
+SELECT ST_WKBToSQL(zeroblob(50))
+1 # rows (not including the header row)
+1 # columns
+ST_WKBToSQL(zeroblob(50))
+(NULL)

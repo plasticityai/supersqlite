@@ -1,0 +1,8 @@
+exp(0.0) # test of exp() function, with argument 0 (i.e. a float)
+:memory: #use in-memory database
+SELECT exp(0.0);
+1 # rows (not including the header row)
+1 # columns
+exp(0.0)# header
+1.0#result
+

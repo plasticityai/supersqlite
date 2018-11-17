@@ -1,0 +1,7 @@
+exp-neg # test of exp() function, with negative
+:memory: #use in-memory database
+SELECT exp(-1.0);
+1 # rows (not including the header row)
+1 # columns
+exp(-1.0)# header
+0.36787944:8

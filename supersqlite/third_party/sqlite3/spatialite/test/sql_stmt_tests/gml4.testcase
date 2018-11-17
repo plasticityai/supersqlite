@@ -1,0 +1,8 @@
+GML Linestring Z: no SRID
+:memory: #use in-memory database
+SELECT AsGML(3, GeomFromText("LINESTRINGZ(1 2 100, 3 4 101)"));
+1 # rows (not including the header row)
+1 # columns
+AsGML(3, GeomFromText("LINESTRINGZ(1 2 100, 3 4 101)"))
+<gml:Curve><gml:segments><gml:LineStringSegment><gml:posList srsDimension="3">1 2 100 3 4 101</gml:posList></gml:LineStringSegment></gml:segments></gml:Curve>:0 # trailing ":0" required to avoid truncation !!!
+

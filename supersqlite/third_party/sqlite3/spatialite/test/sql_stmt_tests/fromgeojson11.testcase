@@ -1,0 +1,7 @@
+FromGeoJSON - linestringZ with SRID
+:memory: #use in-memory database
+SELECT AsEWkt(GeomFromGeoJSON('{"type":"LineString","crs":{"type":"name","properties":{"name":"EPSG:3003"}},"coordinates":[[1,2,2.3],[4,5,1.2]]}'))
+1 # rows (not including the header row)
+1 # columns
+AsEWkt(GeomFromGeoJSON('{"type":"LineString","crs":{"type":"name","properties":{"name":"EPSG:3003"}},"coordinates":[[1,2,2.3],[4,5,1.2]]}')):0
+SRID=3003;LINESTRING(1 2 2.3,4 5 1.2)

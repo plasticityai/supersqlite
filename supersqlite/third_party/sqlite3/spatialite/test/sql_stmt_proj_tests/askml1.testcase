@@ -1,0 +1,7 @@
+askml - 2 arg bad precision (error)
+:memory: #use in-memory database
+SELECT askml(GeomFromText("Point(1 2)", 4326), "hello")
+1 # rows (not including the header row)
+1 # columns
+askml(GeomFromText("Point(1 2)", 4326), "hello")
+(NULL)

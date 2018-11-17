@@ -1,0 +1,21 @@
+Relationship tests - bad first arg
+:memory: #use in-memory database
+SELECT Equals(geom1, geom2), Intersects(geom1, geom2), Disjoint(geom1, geom2), Overlaps(geom1, geom2), Crosses(geom1, geom2), Touches(geom1, geom2), Within(geom1, geom2), Contains(geom1, geom2) FROM (SELECT "hello" as geom1, GeomFromText("POINT(3 4)") as geom2) dummy;
+1 # rows (not including the header row)
+8 # columns
+Equals(geom1, geom2)
+Intersects(geom1, geom2)
+Disjoint(geom1, geom2)
+Overlaps(geom1, geom2)
+Crosses(geom1, geom2)
+Touches(geom1, geom2)
+Within(geom1, geom2)
+Contains(geom1, geom2)
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1

@@ -1,0 +1,8 @@
+XB_IsIsoMetadata - TEXT XmlBLOB
+:memory: #use in-memory database
+SELECT XB_IsIsoMetadata('alpha');
+1 # rows (not including the header row)
+1 # columns
+XB_IsIsoMetadata('alpha')
+-1
+

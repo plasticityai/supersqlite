@@ -1,0 +1,8 @@
+IsValidRasterPalette - standard
+NEW:memory: #use in-memory database
+SELECT IsValidRasterPalette(zeroblob(4), 'UINT8');
+1 # rows (not including the header row)
+1 # columns
+IsValidRasterPalette(zeroblob(4), 'UINT8')
+0
+

@@ -1,0 +1,7 @@
+ST_WKBToSQL - float
+:memory: #use in-memory database
+SELECT ST_WKBToSQL(1.67)
+1 # rows (not including the header row)
+1 # columns
+ST_WKBToSQL(1.67)
+(NULL)

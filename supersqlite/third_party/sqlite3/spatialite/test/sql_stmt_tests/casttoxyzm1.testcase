@@ -1,0 +1,7 @@
+casttoxyzm - bad blob
+:memory: #use in-memory database
+SELECT CastToXYZM(zeroblob(99))
+1 # rows (not including the header row)
+1 # columns
+CastToXYZM(zeroblob(99))
+(NULL)

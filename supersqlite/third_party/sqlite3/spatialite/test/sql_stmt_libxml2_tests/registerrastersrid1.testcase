@@ -1,0 +1,7 @@
+RegisterRasterCoverageSrid - NULL coverage
+:memory: #use in-memory database
+SELECT SE_RegisterRasterCoverageSrid(NULL, 4326);
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterRasterCoverageSrid(NULL, 4326)
+-1

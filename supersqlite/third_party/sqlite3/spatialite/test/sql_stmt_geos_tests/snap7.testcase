@@ -1,0 +1,7 @@
+Snap - bad blob second arg
+:memory: #use in-memory database
+SELECT Snap(GeomFromText("POINT(0.1 0.2)"), zeroblob(87), 0.4)
+1 # rows (not including the header row)
+1 # columns
+Snap(GeomFromText("POINT(0.1 0.2)"), zeroblob(87), 0.4)
+(NULL)

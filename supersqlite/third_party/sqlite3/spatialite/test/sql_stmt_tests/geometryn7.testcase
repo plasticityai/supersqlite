@@ -1,0 +1,7 @@
+Geometry N - multipointZ
+:memory: #use in-memory database
+SELECT AsText(GeometryN(GeomFromText("MULTIPOINTZ(1 2 4)"), 1));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeometryN(GeomFromText("MULTIPOINTZ(1 2 4)"), 1))
+POINT Z(1 2 4)

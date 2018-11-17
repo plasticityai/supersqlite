@@ -1,0 +1,8 @@
+ShortestLine - coincident lines
+:memory: #use in-memory database
+SELECT ShortestLine(GeomFromText("LINESTRING(0 0, 10 0)"), GeomFromText("LINESTRING(10 0, 0 0)"))
+1 # rows (not including the header row)
+1 # columns
+ShortestLine(GeomFromText("LINESTRING(0 0, 10 0)"), GeomFromText("LINESTRING(10 0, 0 0)"))
+(NULL)
+

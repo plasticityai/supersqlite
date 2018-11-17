@@ -1,0 +1,8 @@
+linemerge - non-blob
+:memory: #use in-memory database
+SELECT LineMerge(44)
+1 # rows (not including the header row)
+1 # columns
+LineMerge(44)
+(NULL)
+

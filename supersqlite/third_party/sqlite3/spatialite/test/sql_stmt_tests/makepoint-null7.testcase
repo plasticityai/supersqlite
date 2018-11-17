@@ -1,0 +1,7 @@
+makepoint-null7
+:memory: #use in-memory database
+SELECT AsWkt(MakePoint(-71.1043443253471, 42.3150676015829), 4.1);
+1 # rows (not including the header row)
+1 # columns
+AsWkt(MakePoint(-71.1043443253471, 42.3150676015829), 4.1)
+(NULL)

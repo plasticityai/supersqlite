@@ -1,0 +1,7 @@
+singlesidedbuffer - bad args (point, left side)
+:memory: #use in-memory database
+SELECT AsText(SingleSidedBuffer(GeomFromText("Point(1 2)", 4326), 3, 1));
+1 # rows (not including the header row)
+1 # columns
+AsText(SingleSidedBuffer(GeomFromText("Point(1 2)", 4326), 3, 1))
+(NULL)

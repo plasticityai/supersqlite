@@ -1,0 +1,7 @@
+XB_Compress - TEXT XmlBLOB
+:memory: #use in-memory database
+SELECT XB_Compress('alpha');
+1 # rows (not including the header row)
+1 # columns
+XB_Compress('alpha')
+(NULL)

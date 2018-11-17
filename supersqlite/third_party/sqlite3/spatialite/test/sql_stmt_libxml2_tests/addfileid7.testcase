@@ -1,0 +1,8 @@
+XB_AddFileId - valid - default namespace
+:memory: #use in-memory database
+SELECT XB_GetFileId(XB_AddFileId(XB_Create(CastToBlob('<MD_Metadata xmlns="http://www.isotc211.org/2005/gmd"></MD_Metadata>')), 'newfileid', NULL, 'http://www.isotc211.org/2005/gmd', 'gco', 'http://www.isotc211.org/2005/gco'));
+1 # rows (not including the header row)
+1 # columns
+XB_GetFileId(XB_AddFileId(XB_Create(CastToBlob('<MD_Metadata xmlns="http://www.isotc211.org/2005/gmd"></MD_Metadata>')), 'newfileid', NULL, 'http://www.isotc211.org/2005/gmd', 'gco', 'http://www.isotc211.org/2005/gco')):0
+newfileid
+

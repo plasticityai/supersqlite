@@ -1,0 +1,7 @@
+ATM_Scale() - 3rd invalid blob
+:memory: #use in-memory database
+SELECT ATM_Scale(zeroblob(5), 1.0, 2.0, 3.0)
+1 # rows (not including the header row)
+1 # columns
+ATM_Scale(zeroblob(5), 1.0, 2.0, 3.0)
+(NULL)

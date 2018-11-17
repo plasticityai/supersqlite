@@ -1,0 +1,7 @@
+togars - southwest, plus a bit
+:memory: #use in-memory database
+SELECT ToGARS(GeomFromText("LINESTRING(0 0, 4 3)", 4326))
+1 # rows (not including the header row)
+1 # columns
+ToGARS(GeomFromText("LINESTRING(0 0, 4 3)", 4326))
+(NULL)

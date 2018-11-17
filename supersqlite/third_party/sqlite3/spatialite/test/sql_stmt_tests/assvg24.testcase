@@ -1,0 +1,9 @@
+assvg - relative/absolute MultiLinestring
+:memory: #use in-memory database
+SELECT assvg(geom, 1) AS rel, assvg(geom, 0) AS abs FROM (SELECT GeomFromText("MULTILINESTRING((10 10, 15 10), (10 15, 10 10))", 4326) AS geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+rel
+abs
+M 10 -10 l 5 0 M 10 -15 l 0 5
+M 10 -10 L 15 -10 M 10 -15 L 10 -10

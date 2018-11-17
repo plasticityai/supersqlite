@@ -1,0 +1,7 @@
+startpoint - text input (error)
+:memory: #use in-memory database
+SELECT StartPoint("hello world");
+1 # rows (not including the header row)
+1 # columns
+StartPoint("hello world")
+(NULL)

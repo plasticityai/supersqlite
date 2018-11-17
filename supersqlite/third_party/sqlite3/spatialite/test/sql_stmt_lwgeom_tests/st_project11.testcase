@@ -1,0 +1,7 @@
+ST_Project - NULL bearing
+:memory: #use in-memory database
+SELECT ST_Project(GeomFromText('POINT(0 0)', 4326), 100000, NULL);
+1 # rows (not including the header row)
+1 # columns
+ST_Project(GeomFromText('POINT(0 0)', 4326), 100000, NULL)
+(NULL)

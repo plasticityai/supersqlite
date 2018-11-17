@@ -1,0 +1,8 @@
+makecircle9 - BLOB radius
+:memory: #use in-memory database
+SELECT MakeCircle(0, 0, zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+MakeCircle(0, 0, zeroblob(4))
+(NULL)
+

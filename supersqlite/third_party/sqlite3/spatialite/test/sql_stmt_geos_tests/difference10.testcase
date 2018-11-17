@@ -1,0 +1,7 @@
+difference - XYM points
+:memory: #use in-memory database
+SELECT AsText(Difference(GeomFromText("POINTM(1 3 4)"), GeomFromText("POINTM(2 4 9)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(Difference(GeomFromText("POINTM(1 3 4)"), GeomFromText("POINTM(2 4 9)")))
+POINT M(1 3 0)

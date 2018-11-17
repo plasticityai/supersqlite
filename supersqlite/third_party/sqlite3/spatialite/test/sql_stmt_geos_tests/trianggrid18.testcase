@@ -1,0 +1,9 @@
+TriangularGrid - Polygon geom - zero size
+:memory: #use in-memory database
+SELECT TriangularGrid(GeomFromText('POLYGON((3 3, 3 4, 4 4, 4 3, 3 3))', 4326), 0.0);
+1 # rows (not including the header row)
+1 # columns
+TriangularGrid(GeomFromText('POLYGON((3 3, 3 4, 4 4, 4 3, 3 3))', 4326), 0.0)
+(NULL)
+
+

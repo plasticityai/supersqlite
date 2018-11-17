@@ -1,0 +1,8 @@
+Collection Extract - Extract linestring from point
+:memory: #use in-memory database
+SELECT AsText(CollectionExtract(GeomFromText("MULTIPOINT(1 2, 4 2)"), 2));
+1 # rows (not including the header row)
+1 # columns
+AsText(CollectionExtract(GeomFromText("MULTIPOINT(1 2, 4 2)"), 2))
+(NULL)
+

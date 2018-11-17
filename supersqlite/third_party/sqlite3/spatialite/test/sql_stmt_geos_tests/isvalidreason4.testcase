@@ -1,0 +1,7 @@
+isvalidreason4
+:memory: #use in-memory database
+SELECT IsValidReason(GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))"));
+1 # rows (not including the header row)
+1 # columns
+IsValidReason(GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))"))
+Invalid: Unclosed Rings were detected

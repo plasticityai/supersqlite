@@ -1,0 +1,7 @@
+ST_ConcaveHull - text input (error)
+:memory: #use in-memory database
+SELECT ST_ConcaveHull('alpha');
+1 # rows (not including the header row)
+1 # columns
+ST_ConcaveHull('alpha')
+(NULL)

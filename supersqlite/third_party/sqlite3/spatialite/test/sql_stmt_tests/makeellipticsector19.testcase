@@ -1,0 +1,8 @@
+makeellipticsector19 - NULL srid
+:memory: #use in-memory database
+SELECT MakeEllipticSector(0, 0, 100, 200, 30, 60, NULL);
+1 # rows (not including the header row)
+1 # columns
+MakeEllipticSector(0, 0, 100, 200, 30, 60, NULL)
+(NULL)
+

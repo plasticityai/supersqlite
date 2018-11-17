@@ -1,0 +1,10 @@
+routing: integer ids (A*, from-to)
+sql_stmt_tests/testdb1.sqlite
+UPDATE roads_net SET Algorithm = 'a*'; SELECT GLength(Geometry) FROM roads_net WHERE NodeTo = 29 AND NodeFrom = 32;
+4 # rows (not including the header row)
+1 # columns
+GLength(Geometry)
+0.0018:4
+(NULL)
+(NULL)
+(NULL)

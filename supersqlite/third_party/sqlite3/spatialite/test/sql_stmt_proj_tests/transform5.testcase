@@ -1,0 +1,7 @@
+transform - Point (unknown destination SRID)
+:memory: #use in-memory database
+SELECT AsText(Transform(GeomFromText('POINT(11 43)', 4326), 326320))
+1 # rows (not including the header row)
+1 # columns
+AsText(Transform(GeomFromText('POINT(11 43)', 4326), 326320))
+(NULL)

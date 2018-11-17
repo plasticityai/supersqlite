@@ -1,0 +1,7 @@
+buffer - linestring - NULL quadrantsegments
+:memory: #use in-memory database
+SELECT AsText(Buffer(GeomFromText("LINESTRING(1 2, 4 6)"), 1, NULL))
+1 # rows (not including the header row)
+1 # columns
+AsText(Buffer(GeomFromText("LINESTRING(1 2, 4 6)"), 1, NULL))
+(NULL)

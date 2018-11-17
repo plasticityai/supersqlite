@@ -1,0 +1,7 @@
+RegisterVectorCoverage - Int f_geometry_column
+:memory: #use in-memory database
+SELECT SE_RegisterVectorCoverage('alpha', 'table', 1);
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterVectorCoverage('alpha', 'table', 1)
+-1

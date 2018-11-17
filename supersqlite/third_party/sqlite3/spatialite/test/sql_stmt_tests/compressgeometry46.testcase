@@ -1,0 +1,7 @@
+CompressGeometry - GEOMETRYCOLLECTION (1 Point)
+:memory: #use in-memory database
+SELECT AsText(CompressGeometry(GeomFromText("GEOMETRYCOLLECTION(POINT(1 2))", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(CompressGeometry(GeomFromText("GEOMETRYCOLLECTION(POINT(1 2))", 4326)))
+GEOMETRYCOLLECTION(POINT(1 2))

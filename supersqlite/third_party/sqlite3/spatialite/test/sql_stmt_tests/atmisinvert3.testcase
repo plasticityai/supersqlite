@@ -1,0 +1,7 @@
+ATM_IsInvertible() - invertible
+:memory: #use in-memory database
+SELECT ATM_IsInvertible(ATM_CreateScale(2,2,2))
+1 # rows (not including the header row)
+1 # columns
+ATM_IsInvertible(ATM_CreateScale(2,2,2))
+1

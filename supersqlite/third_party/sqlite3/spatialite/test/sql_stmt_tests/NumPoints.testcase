@@ -1,0 +1,7 @@
+NumPoints - bad blob (error)
+:memory: #use in-memory database
+SELECT NumPoints(zeroblob(12));
+1 # rows (not including the header row)
+1 # column
+NumPoints(zeroblob(12))
+(NULL)

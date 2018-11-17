@@ -1,0 +1,9 @@
+Coord Dimensions - GeometryCollection XYM
+:memory: #use in-memory database
+SELECT CoordDimension(geom), ST_NDims(geom) FROM (SELECT GeomFromText('GEOMETRYCOLLECTIONM(POINTM(1 2 10), LINESTRINGM(3 4 11, 5 6 12))') AS geom);
+1 # rows (not including the header row)
+2 # columns
+CoordDimension(geom)
+ST_NDims(geom)
+XYM
+3

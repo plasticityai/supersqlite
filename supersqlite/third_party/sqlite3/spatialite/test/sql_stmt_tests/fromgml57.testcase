@@ -1,0 +1,7 @@
+FromGML - Polygon LinearRing outer/innerBoundary <gml:pos>
+:memory: #use in-memory database
+SELECT AsText(GeomFromGml('<gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:pos>0 0</gml:pos><gml:pos>5 0</gml:pos><gml:pos>5 5</gml:pos><gml:pos>0 5</gml:pos><gml:pos>0 0</gml:pos></gml:LinearRing></gml:outerBoundaryIs><gml:innerBoundaryIs><gml:LinearRing><gml:pos>1 1</gml:pos><gml:pos>2 1</gml:pos><gml:pos>2 2</gml:pos><gml:pos>1 2</gml:pos><gml:pos>1 1</gml:pos></gml:LinearRing></gml:innerBoundaryIs></gml:Polygon>'));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromGml('<gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:pos>0 0</gml:pos><gml:pos>5 0</gml:pos><gml:pos>5 5</gml:pos><gml:pos>0 5</gml:pos><gml:pos>0 0</gml:pos></gml:LinearRing></gml:outerBoundaryIs><gml:innerBoundaryIs><gml:LinearRing><gml:pos>1 1</gml:pos><gml:pos>2 1</gml:pos><gml:pos>2 2</gml:pos><gml:pos>1 2</gml:pos><gml:pos>1 1</gml:pos></gml:LinearRing></gml:innerBoundaryIs></gml:Polygon>')):0
+POLYGON((0 0, 5 0, 5 5, 0 5, 0 0), (1 1, 2 1, 2 2, 1 2, 1 1))

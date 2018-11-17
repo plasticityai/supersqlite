@@ -1,0 +1,8 @@
+RegisterIsoMetadata - TEXT metadata
+:memory: #use in-memory database
+SELECT RegisterIsoMetadata('series', 'alpha');
+1 # rows (not including the header row)
+1 # columns
+RegisterIsoMetadata('series', 'alpha')
+-1
+

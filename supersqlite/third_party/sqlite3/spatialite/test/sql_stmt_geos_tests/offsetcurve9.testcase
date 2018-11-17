@@ -1,0 +1,9 @@
+OffsetCurve - closed linestring
+:memory: #use in-memory database
+SELECT AsText(OffsetCurve(GeomFromText('LINESTRING(0 0, 0 1, 4 1, 4 0, 0 0)'), 1));
+1 # rows (not including the header row)
+1 # columns
+AsText(OffsetCurve(GeomFromText('LINESTRING(0 0, 0 1, 4 1, 4 0, 0 0)'), 1))
+(NULL)
+
+

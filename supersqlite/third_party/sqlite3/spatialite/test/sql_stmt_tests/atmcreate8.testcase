@@ -1,0 +1,7 @@
+ATM_Create() - invalid 3rd arg
+:memory: #use in-memory database
+SELECT ATM_Create(1.0, 2.0, 'a', 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0)
+1 # rows (not including the header row)
+1 # columns
+ATM_Create(1.0, 2.0, 'a', 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0)
+(NULL)

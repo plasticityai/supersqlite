@@ -1,0 +1,8 @@
+RegisterRasterStyledLayer - NULL coverage
+:memory: #use in-memory database
+SELECT SE_RegisterRasterStyledLayer(NULL, NULL);
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterRasterStyledLayer(NULL, NULL)
+-1
+

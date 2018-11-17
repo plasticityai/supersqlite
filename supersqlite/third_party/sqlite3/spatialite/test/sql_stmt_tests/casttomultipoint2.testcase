@@ -1,0 +1,7 @@
+casttomultipoint - non-blob
+:memory: #use in-memory database
+SELECT CastToMultiPoint(99)
+1 # rows (not including the header row)
+1 # columns
+CastToMultiPoint(99)
+(NULL)

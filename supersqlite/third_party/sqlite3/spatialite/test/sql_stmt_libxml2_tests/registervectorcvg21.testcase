@@ -1,0 +1,7 @@
+RegisterVectorCoverage - BLOB abstract
+:memory: #use in-memory database
+SELECT SE_RegisterVectorCoverage('alpha', 'table', 'geom', 'title', zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterVectorCoverage('alpha', 'table', 'geom', 'title', zeroblob(4))
+-1

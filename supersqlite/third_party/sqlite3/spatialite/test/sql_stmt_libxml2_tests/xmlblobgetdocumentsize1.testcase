@@ -1,0 +1,8 @@
+XB_GetDocumentSize - NULL XmlBLOB
+:memory: #use in-memory database
+SELECT XB_GetDocumentSize(NULL);
+1 # rows (not including the header row)
+1 # columns
+XB_GetDocumentSize(NULL)
+(NULL)
+

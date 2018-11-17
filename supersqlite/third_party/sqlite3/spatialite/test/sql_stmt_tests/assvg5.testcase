@@ -1,0 +1,7 @@
+assvg - 1 arg bad blob
+:memory: #use in-memory database
+SELECT assvg(zeroblob(49))
+1 # rows (not including the header row)
+1 # columns
+assvg(zeroblob(49))
+(NULL)

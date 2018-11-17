@@ -1,0 +1,7 @@
+ST_Project - invalid BLOB start Point
+:memory: #use in-memory database
+SELECT ST_Project(zeroblob(4), 100000, Radians(45));
+1 # rows (not including the header row)
+1 # columns
+ST_Project(zeroblob(4), 100000, Radians(45))
+(NULL)

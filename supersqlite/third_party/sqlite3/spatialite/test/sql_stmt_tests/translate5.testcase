@@ -1,0 +1,10 @@
+translate - text shift (error)
+:memory: #use in-memory database
+SELECT ST_Translate(GeomFromText("POINT(1 2)"), 1, "three", 2);
+1 # rows (not including the header row)
+1 # columns
+ST_Translate(GeomFromText("POINT(1 2)"), 1, "three", 2)
+(NULL)
+
+
+

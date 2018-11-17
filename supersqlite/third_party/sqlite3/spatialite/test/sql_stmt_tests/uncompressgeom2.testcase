@@ -1,0 +1,7 @@
+uncompressgeometry - non blob
+:memory: #use in-memory database
+SELECT UncompressGeometry("foo")
+1 # rows (not including the header row)
+1 # columns
+UncompressGeometry("foo")
+(NULL)

@@ -1,0 +1,7 @@
+RegisterVectorStyle - BLOB style
+:memory: #use in-memory database
+SELECT SE_RegisterVectorStyle(zeroblob(100));
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterVectorStyle(zeroblob(100))
+0

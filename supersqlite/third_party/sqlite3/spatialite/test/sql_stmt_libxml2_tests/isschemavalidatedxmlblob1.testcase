@@ -1,0 +1,8 @@
+XB_IsSchemaValidated - NULL XmlBLOB
+:memory: #use in-memory database
+SELECT XB_IsSchemaValidated(NULL);
+1 # rows (not including the header row)
+1 # columns
+XB_IsSchemaValidated(NULL)
+-1
+

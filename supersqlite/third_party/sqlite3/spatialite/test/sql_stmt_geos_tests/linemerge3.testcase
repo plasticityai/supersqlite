@@ -1,0 +1,8 @@
+linemerge - single line
+:memory: #use in-memory database
+SELECT AsText(LineMerge(GeomFromText("LINESTRING(0 0, 2 3)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(LineMerge(GeomFromText("LINESTRING(0 0, 2 3)")))
+LINESTRING(0 0, 2 3)
+

@@ -1,0 +1,7 @@
+FromGML - Polygon v2, poslist, broken
+:memory: #use in-memory database
+SELECT AsEwkt(GeomFromGml('<gml:Polygon srsName="EPSG:4326"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>0,0 5,0 5,5 0,5 0,0</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs><gml:innerBoundaryIs><gml:LinearRing><gml:posList>foo</gml:posList></gml:LinearRing></gml:innerBoundaryIs></gml:Polygon>'))
+1 # rows (not including the header row)
+1 # columns
+AsEwkt(GeomFromGml('<gml:Polygon srsName="EPSG:4326"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>0,0 5,0 5,5 0,5 0,0</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs><gml:innerBoundaryIs><gml:LinearRing><gml:posList>foo</gml:posList></gml:LinearRing></gml:innerBoundaryIs></gml:Polygon>')):0
+(NULL)

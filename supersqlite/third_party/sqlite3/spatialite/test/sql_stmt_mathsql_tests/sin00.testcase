@@ -1,0 +1,7 @@
+sin(0.0)
+:memory: #use in-memory database
+SELECT sin(0.0);
+1 # rows (not including the header row)
+1 # columns
+sin(0.0) # header
+0.0 #result

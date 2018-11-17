@@ -1,0 +1,7 @@
+casttomultipoint - GEOMETRYCOLLECTION - linestring
+:memory: #use in-memory database
+SELECT AsText(CastToMultiPoint(GeomFromText("GEOMETRYCOLLECTION(LINESTRING(0 1, 2 3))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(CastToMultiPoint(GeomFromText("GEOMETRYCOLLECTION(LINESTRING(0 1, 2 3))")))
+(NULL)

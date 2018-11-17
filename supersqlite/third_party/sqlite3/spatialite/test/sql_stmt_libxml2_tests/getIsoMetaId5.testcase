@@ -1,0 +1,8 @@
+GetIsoMetadataId - TEXT fileIdentifier
+:memory: #use in-memory database
+SELECT GetIsoMetadataId('alpha');
+1 # rows (not including the header row)
+1 # columns
+GetIsoMetadataId('alpha')
+0
+

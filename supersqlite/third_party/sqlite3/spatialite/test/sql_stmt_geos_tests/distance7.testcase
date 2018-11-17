@@ -1,0 +1,8 @@
+Distance - parallel lines
+:memory: #use in-memory database
+SELECT Distance(GeomFromText("LINESTRING(0 0, 10 0)"), GeomFromText("LINESTRING(0 2, 10 2)"))
+1 # rows (not including the header row)
+1 # columns
+Distance(GeomFromText("LINESTRING(0 0, 10 0)"), GeomFromText("LINESTRING(0 2, 10 2)"))
+2.0
+

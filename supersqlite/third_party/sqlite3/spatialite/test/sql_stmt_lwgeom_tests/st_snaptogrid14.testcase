@@ -1,0 +1,7 @@
+ST_SnapToGrid - five args - BLOB originX (error)
+:memory: #use in-memory database
+SELECT ST_SnapToGrid(MakePoint(1.25, 2.35), zeroblob(0), 1, 0.5, 0.5);
+1 # rows (not including the header row)
+1 # columns
+ST_SnapToGrid(MakePoint(1.25, 2.35), zeroblob(0), 1, 0.5, 0.5)
+(NULL)

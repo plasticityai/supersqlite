@@ -1,0 +1,7 @@
+pi
+:memory: # use in-memory database
+SELECT pi();
+1 # rows (not including the header row)
+1 # columns
+pi() # header
+3.141592653589:14 # result

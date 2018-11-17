@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PointSymbolizer version="1.1.0" xsi:schemaLocation="http://www.opengis.net/se http://schemas.opengis.net/se/1.1.0/Symbolizer.xsd" xmlns="http://www.opengis.net/se" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>Railway Stations</Name>
+	<Description>
+		<Title>Railway Stations - blue star</Title>
+		<Abstract>a simple SE Point Symbolizer</Abstract>
+	</Description>
+	<Graphic>
+		<Mark>
+			<WellKnownName>star</WellKnownName>
+			<Fill>
+				<SvgParameter name="fill">#0000ff</SvgParameter>
+			</Fill>
+		</Mark>
+		<Size>4.0</Size>
+	</Graphic>
+</PointSymbolizer>

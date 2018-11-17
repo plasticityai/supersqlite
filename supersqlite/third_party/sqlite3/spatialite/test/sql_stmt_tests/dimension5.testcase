@@ -1,0 +1,7 @@
+dimension5 - GeometryCollection
+:memory: #use in-memory database
+SELECT Dimension(GeometryCollectionFromText("GEOMETRYCOLLECTION(POINT(4 6),LINESTRING(4 6,7 10))", 4326))
+1 # rows (not including the header row)
+1 # columns
+Dimension(GeometryCollectionFromText("GEOMETRYCOLLECTION(POINT(4 6),LINESTRING(4 6,7 10))", 4326))
+1

@@ -1,0 +1,9 @@
+CastToBlob() - DOUBLE hex_input
+:memory: #use in-memory database
+SELECT CastToBlob('0129abCF', 2.3)
+1 # rows (not including the header row)
+1 # columns
+CastToBlob('0129abCF', 2.3)
+(NULL)
+
+

@@ -1,0 +1,8 @@
+makepolygon - Linestring invalid Polygon interiors
+:memory: #use in-memory database
+SELECT ST_MakePolygon(GeomFromText('LINESTRING(1 1, 1 20, 20 20, 20 1, 1 1)', 4326), GeomFromText('POLYGON((2 2, 3 2, 3 3, 2 3, 2 2))'));
+1 # rows (not including the header row)
+1 # columns
+ST_MakePolygon(GeomFromText('LINESTRING(1 1, 1 20, 20 20, 20 1, 1 1)', 4326), GeomFromText('POLYGON((2 2, 3 2, 3 3, 2 3, 2 2))'));
+(NULL)
+

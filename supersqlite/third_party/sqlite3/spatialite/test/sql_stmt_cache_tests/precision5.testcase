@@ -1,0 +1,7 @@
+decimal precision - TEXT
+:memory:
+SELECT SetDecimalPrecision('aleph');
+1 # rows
+1 # column
+SetDecimalPrecision('aleph')
+(NULL)

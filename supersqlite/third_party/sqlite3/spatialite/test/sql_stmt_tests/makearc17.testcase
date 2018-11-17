@@ -1,0 +1,8 @@
+makearc17 - text srid
+:memory: #use in-memory database
+SELECT MakeArc(0, 0, 100, 30, 60, 'alpha');
+1 # rows (not including the header row)
+1 # columns
+MakeArc(0, 0, 100, 30, 60, 'alpha')
+(NULL)
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 
+	targetNamespace="http://www.gaia-gis.it/opera"
+	elementFormDefault="qualified" version="0.1"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Opera">
+    <xs:complexType>
+	  <xs:sequence>
+	    <xs:element name="author" minOccurs="1" maxOccurs="unbounded">
+  		  <xs:complexType>
+		    <xs:sequence>
+			  <xs:element name="title" type="xs:string" minOccurs="1"  maxOccurs="unbounded" />
+			</xs:sequence>
+			<xs:attribute name="firstName" type="xs:string"  use="required" />
+			<xs:attribute name="lastName" type="xs:string"  use="required" />
+		  </xs:complexType>
+		</xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+</xs:schema>

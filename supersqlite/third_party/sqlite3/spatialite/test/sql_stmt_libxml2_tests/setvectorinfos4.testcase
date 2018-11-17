@@ -1,0 +1,7 @@
+SetVectorCoverageInfos - BLOB coverage
+:memory: #use in-memory database
+SELECT SE_SetVectorCoverageInfos(zeroblob(4), 'title', 'abstract');
+1 # rows (not including the header row)
+1 # columns
+SE_SetVectorCoverageInfos(zeroblob(4), 'title', 'abstract')
+-1

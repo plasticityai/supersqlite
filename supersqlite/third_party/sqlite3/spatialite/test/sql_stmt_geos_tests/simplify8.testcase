@@ -1,0 +1,8 @@
+SimplifyPreserveTopology - bad arg
+:memory: #use in-memory database
+SELECT SimplifyPreserveTopology("hello", 0)
+1 # rows (not including the header row)
+1 # columns
+SimplifyPreserveTopology("hello", 0)
+(NULL)
+

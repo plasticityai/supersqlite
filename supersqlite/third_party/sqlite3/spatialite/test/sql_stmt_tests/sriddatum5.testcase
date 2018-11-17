@@ -1,0 +1,7 @@
+SridGetDatum() - BLOB SRID
+:memory: #use in-memory database
+SELECT SridGetDatum(zeroblob(10))
+1 # rows (not including the header row)
+1 # columns
+SridGetDatum(zeroblob(10))
+(NULL)

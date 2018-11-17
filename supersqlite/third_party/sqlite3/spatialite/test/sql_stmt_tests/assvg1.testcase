@@ -1,0 +1,7 @@
+assvg - 2 arg bad precision (error)
+:memory: #use in-memory database
+SELECT assvg(GeomFromText("Point(1 2)", 4326), "hello")
+1 # rows (not including the header row)
+1 # columns
+assvg(GeomFromText("Point(1 2)", 4326), "hello")
+(NULL)

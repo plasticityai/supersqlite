@@ -1,0 +1,7 @@
+bad WKT: illegal GeometryCollection
+:memory: #use in-memory database
+SELECT GeomFromText("GEOMETRYCOLLECTION()");
+1 # rows (not including the header row)
+1 # columns
+GeomFromText("GEOMETRYCOLLECTION()")
+(NULL)

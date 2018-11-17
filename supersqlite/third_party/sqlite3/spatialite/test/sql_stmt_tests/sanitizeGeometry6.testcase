@@ -1,0 +1,9 @@
+Sanitize Geometry - POLYGON
+:memory: #use in-memory database
+SELECT AsEWkt(SanitizeGeometry(GeomFromText("POLYGON((-75 42, -70 39, -70 42, -70 42, -75 42))", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsEWkt(SanitizeGeometry(GeomFromText("POLYGON((-75 42, -70 39, -70 42, -70 42, -75 42))", 4326)))
+SRID=4326;POLYGON((-75 42,-70 39,-70 42,-75 42))
+
+

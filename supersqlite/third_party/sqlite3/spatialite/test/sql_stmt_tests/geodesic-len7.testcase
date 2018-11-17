@@ -1,0 +1,7 @@
+geodesic length (wrong) zeroblob arg
+:memory:
+SELECT GeodesicLength(zeroblob(23));
+1 # rows
+1 # column
+GeodesicLength(zeroblob(23))
+(NULL)

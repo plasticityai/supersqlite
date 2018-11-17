@@ -1,0 +1,7 @@
+normalizelonlat- non-blob
+:memory: #use in-memory database
+SELECT NormalizeLonLat("htl")
+1 # rows (not including the header row)
+1 # columns
+NormalizeLonLat("htl")
+(NULL)

@@ -1,0 +1,8 @@
+Collection Extract - PointZ
+:memory: #use in-memory database
+SELECT AsText(CollectionExtract(GeomFromText("POINTZ(1 2 3)"), 1));
+1 # rows (not including the header row)
+1 # columns
+AsText(CollectionExtract(GeomFromText("POINTZ(1 2 3)"), 1))
+POINT Z(1 2 3)
+

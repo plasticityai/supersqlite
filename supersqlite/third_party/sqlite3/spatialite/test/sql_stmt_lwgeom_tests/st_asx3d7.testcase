@@ -1,0 +1,7 @@
+ST_AsX3D - 3D linestring
+:memory: #use in-memory database
+SELECT ST_AsX3D(GeomFromText('LINESTRINGZ(10 10 101, 11 10 102, 11 11 103)'));
+1 # rows (not including the header row)
+1 # columns
+ST_AsX3D(GeomFromText('LINESTRINGZ(10 10 101, 11 10 102, 11 11 103)'))
+<LineSet  vertexCount='3'><Coordinate point='10 10 101 11 10 102 11 11 103' /></LineSet>:0

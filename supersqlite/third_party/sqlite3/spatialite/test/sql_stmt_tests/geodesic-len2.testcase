@@ -1,0 +1,7 @@
+geodesic length linestring
+:memory:
+SELECT GeodesicLength(GeomFromText("LINESTRING(0 0, 1 0, 0 0)", 4326));
+1 # rows
+1 # column
+GeodesicLength(GeomFromText("LINESTRING(0 0, 1 0, 0 0)", 4326))
+222638.98:9

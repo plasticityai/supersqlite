@@ -1,0 +1,7 @@
+fromewkt13
+:memory: #use in-memory database
+SELECT AsText(GeomFromEWKT('SRID=4326;GEOMETRYCOLLECTION(MULTIPOLYGON(((0 0 9, 5 0 9, 5 5 9, 0 5 9, 0 0 9), (1 1 9, 2 1 9, 2 2 9, 1 2 9, 1 1 9)), ((10 10 9, 11 10 9, 11 11 9, 10 11 9, 10 10 9))))'));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromEWKT('SRID=4326;GEOMETRYCOLLECTION(MULTIPOLYGON(((0 0 9, 5 0 9, 5 5 9, 0 5 9, 0 0 9), (1 1 9, 2 1 9, 2 2 9, 1 2 9, 1 1 9)), ((10 10 9, 11 10 9, 11 11 9, 10 11 9, 10 10 9))))'));
+GEOMETRYCOLLECTION Z(POLYGON Z((0 0 9, 5 0 9, 5 5 9, 0 5 9, 0 0 9), (1 1 9, 2 1 9, 2 2 9, 1 2 9, 1 1 9)), POLYGON Z((10 10 9, 11 10 9, 11 11 9, 10 11 9, 10 10 9)))

@@ -1,0 +1,7 @@
+bad GML: MultiPoint
+:memory: #use in-memory database
+SELECT GeomFromGML('<gml:MultiPoint srsName="EPSG:4326"><gml:pointMember><gml:Point><gml:coordinates>1.1,2.2</gml:coordinates></gml:Point></gml:pointMember><gml:pointMember><gml:Point><gml:coordinates>3.3,4.4</gml:coordinates></gml:Point></gml:pointMember></gml:MultiPoint');
+1 # rows (not including the header row)
+1 # columns
+GeomFromGML('<gml:MultiPoint srsName="EPSG:4326"><gml:pointMember><gml:Point><gml:coordinates>1.1,2.2</gml:coordinates></gml:Point></gml:pointMember><gml:pointMember><gml:Point><gml:coordinates>3.3,4.4</gml:coordinates></gml:Point></gml:pointMember></gml:MultiPoint'):0
+(NULL)

@@ -1,0 +1,8 @@
+Closest Point - text second blob
+:memory: #use in-memory database
+SELECT ClosestPoint(MakePoint(1, 2), "hello");
+1 # rows (not including the header row)
+1 # columns
+ClosestPoint(MakePoint(1, 2), "hello")
+(NULL)
+

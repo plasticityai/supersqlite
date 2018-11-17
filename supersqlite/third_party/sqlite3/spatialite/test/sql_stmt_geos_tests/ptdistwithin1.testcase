@@ -1,0 +1,7 @@
+PtDistWithin invalid arg: NULL pt1
+:memory:
+SELECT PtDistWithin(NULL, GeomFromText("POINT(5 5)", 4326), 10.0, 1);
+1 # rows
+1 # column
+PtDistWithin(NULL, GeomFromText("POINT(5 5)", 4326), 10.0, 1)
+(NULL)

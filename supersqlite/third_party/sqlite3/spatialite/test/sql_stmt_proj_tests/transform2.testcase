@@ -1,0 +1,7 @@
+transform - zeroblob arg 
+:memory: #use in-memory database
+SELECT Transform(zeroblob(48), NULL)
+1 # rows (not including the header row)
+1 # columns
+Transform(zeroblob(48), NULL)
+(NULL)

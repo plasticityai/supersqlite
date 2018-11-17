@@ -1,0 +1,11 @@
+geometrytype - GEOMETRYCOLLECTIONZ
+:memory: #use in-memory database
+SELECT GeometryType(geom), CoordDimension(geom), GeometryAliasType(geom) from (SELECT GeomFromText("GEOMETRYCOLLECTIONZ(POINTZ(4 6 4), POINTZ(3 3 29), LINESTRINGZ(4 6 0,7 10 0))") as geom) dummy;
+1 # rows (not including the header row)
+3 # columns
+GeometryType(geom)
+CoordDimension(geom)
+GeometryAliasType(geom)
+GEOMETRYCOLLECTION Z
+XYZ
+GEOMETRYCOLLECTION

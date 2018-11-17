@@ -1,0 +1,7 @@
+ST_WKTToSQL 
+:memory: #use in-memory database
+SELECT AsEWKT(ST_WKTToSQL("Point(1 2)"))
+1 # rows (not including the header row)
+1 # columns
+AsEWKT(ST_WKTToSQL("Point(1 2)"))
+SRID=0;POINT(1 2)

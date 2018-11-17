@@ -1,0 +1,7 @@
+FromGML - MultiLinestring v2
+:memory: #use in-memory database
+SELECT AsEwkt(GeomFromGml('<gml:MultiLineString srsName="EPSG:4326"><gml:lineStringMember><gml:LineString><gml:coordinates>1,2 3,4 5,6 7,8</gml:coordinates></gml:LineString></gml:lineStringMember><gml:lineStringMember><gml:LineString><gml:coordinates>10,10 11.3,11</gml:coordinates></gml:LineString></gml:lineStringMember></gml:MultiLineString>'));
+1 # rows (not including the header row)
+1 # columns
+AsEwkt(GeomFromGml('<gml:MultiLineString srsName="EPSG:4326"><gml:lineStringMember><gml:LineString><gml:coordinates>1,2 3,4 5,6 7,8</gml:coordinates></gml:LineString></gml:lineStringMember><gml:lineStringMember><gml:LineString><gml:coordinates>10,10 11.3,11</gml:coordinates></gml:LineString></gml:lineStringMember></gml:MultiLineString>')):0
+SRID=4326;MULTILINESTRING((1 2,3 4,5 6,7 8),(10 10,11.3 11))

@@ -1,0 +1,7 @@
+SridGetDatum() - DOUBLE SRID
+:memory: #use in-memory database
+SELECT SridGetDatum(1.0)
+1 # rows (not including the header row)
+1 # columns
+SridGetDatum(1.0)
+(NULL)

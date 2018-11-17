@@ -1,0 +1,7 @@
+normalizelonlat- in range -190
+:memory: #use in-memory database
+SELECT AsText(NormalizeLonLat(GeomFromText("POINT(4 -190)", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(NormalizeLonLat(GeomFromText("POINT(4 -190)", 4326)))
+POINT(4 10)

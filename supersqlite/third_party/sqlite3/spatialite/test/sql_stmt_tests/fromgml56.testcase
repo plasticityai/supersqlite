@@ -1,0 +1,7 @@
+FromGML - LineString <gml:pos>
+:memory: #use in-memory database
+SELECT AsText(GeomFromGml('<gml:LineString><gml:pos>0 0</gml:pos><gml:pos>5 0</gml:pos><gml:pos>5 5</gml:pos><gml:pos>0 5</gml:pos><gml:pos>0 0</gml:pos></gml:LineString>'));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromGml('<gml:LineString><gml:pos>0 0</gml:pos><gml:pos>5 0</gml:pos><gml:pos>5 5</gml:pos><gml:pos>0 5</gml:pos><gml:pos>0 0</gml:pos></gml:LineString>')):0
+LINESTRING(0 0, 5 0, 5 5, 0 5, 0 0)

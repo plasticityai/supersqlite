@@ -1,0 +1,7 @@
+geodesic length polygon
+:memory:
+SELECT GeodesicLength(GeomFromText("POLYGON((0 0, 1 0, 0 0, 0 0))", 4326));
+1 # rows
+1 # column
+GeodesicLength(GeomFromText("POLYGON((0 0, 1 0, 0 0, 0 0))", 4326))
+222638.98:9

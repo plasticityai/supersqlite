@@ -1,0 +1,8 @@
+XB_AddFileId - ISO Metadata - INTEGER fileId
+:memory: #use in-memory database
+SELECT XB_AddFileId(XB_Create(CastToBlob('<MD_Metadata><parentIdentifier><CharacterString>a</CharacterString></parentIdentifier></MD_Metadata>')), 1234, NULL, NULL, NULL, NULL);
+1 # rows (not including the header row)
+1 # columns
+XB_AddFileId(XB_Create(CastToBlob('<MD_Metadata><parentIdentifier><CharacterString>a</CharacterString></parentIdentifier></MD_Metadata>')), 1234, NULL, NULL, NULL, NULL)
+(NULL)
+

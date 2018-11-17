@@ -1,0 +1,7 @@
+isvaliddetail5
+:memory: #use in-memory database
+SELECT AsText(IsValidDetail(GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5, 136 -35))")));
+1 # rows (not including the header row)
+1 # columns
+AsText(IsValidDetail(GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5, 136 -35))")))
+POINT(135.2 -34.5)

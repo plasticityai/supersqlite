@@ -1,0 +1,7 @@
+MbrContains - Text + Point (error)
+:memory: #use in-memory database
+SELECT MbrContains("hello", GeomFromText("POINT(2 1)"));
+1 # rows (not including the header row)
+1 # columns
+MbrContains("hello", GeomFromText("POINT(2 1)")) # header
+(NULL)

@@ -1,0 +1,7 @@
+PtDistWithin - bad blob second arg
+:memory: #use in-memory database
+SELECT PtDistWithin(MakePoint(4,4), zeroblob(98), 2)
+1 # rows (not including the header row)
+1 # columns
+PtDistWithin(MakePoint(4,4), zeroblob(98), 2)
+(NULL)

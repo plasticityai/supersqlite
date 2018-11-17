@@ -1,0 +1,9 @@
+assvg - relative/absolute MultiPolygon 
+:memory: #use in-memory database
+SELECT assvg(geom, 1) AS rel, assvg(geom, 0) AS abs FROM (SELECT GeomFromText("MULTIPOLYGON(((10 10, 15 10, 15 15, 10 15, 10 10)), ((71 11, 75 11, 75 15, 71 15, 71 11), (72 12, 73 12, 73 13, 72 13, 71 12)))", 4326) AS geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+rel
+abs
+M 10 -10 l 5 0 0 -5 -5 0 z M 71 -11 l 4 0 0 -4 -4 0 z M 72 -12 l 1 0 0 -1 -1 0 z
+M 10 -10 L 15 -10 15 -15 10 -15 z M 71 -11 L 75 -11 75 -15 71 -15 z M 72 -12 L 73 -12 73 -13 72 -13 z

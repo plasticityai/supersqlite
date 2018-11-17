@@ -1,0 +1,7 @@
+InteriorRingN - text input (error)
+:memory: #use in-memory database
+SELECT InteriorRingN("hello", 1);
+1 # rows (not including the header row)
+1 # column
+InteriorRingN("hello", 1)
+(NULL)

@@ -1,0 +1,7 @@
+ST_RemovePoint() - ZM
+:memory: #use in-memory database
+SELECT AsText(RemovePoint(GeomFromText('LINESTRINGZM(0 0 1 2, 1 0 2 3, 1 1 3 4)'), 1))
+1 # rows (not including the header row)
+1 # columns
+AsText(RemovePoint(GeomFromText('LINESTRINGZM(0 0 1 2, 1 0 2 3, 1 1 3 4)'), 1))
+LINESTRING ZM(0 0 1 2, 1 1 3 4)

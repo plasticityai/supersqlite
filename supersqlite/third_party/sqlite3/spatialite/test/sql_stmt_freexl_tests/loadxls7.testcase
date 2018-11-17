@@ -1,0 +1,7 @@
+ImportXLS - existing spreadsheet
+:memory: #use in-memory database
+SELECT ImportXLS('./testcase1.xls', 'xlstable', 1, 1);
+1 # rows (not including the header row)
+1 # columns
+ImportXLS('./testcase1.xls', 'xlstable', 1, 1);
+19

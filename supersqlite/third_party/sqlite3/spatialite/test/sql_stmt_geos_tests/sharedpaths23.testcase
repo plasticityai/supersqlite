@@ -1,0 +1,7 @@
+shared paths - two multilines, reverse order
+:memory: #use in-memory database
+SELECT AsText(SharedPaths(GeomFromText("MULTILINESTRING((0 0, 10 0),(16 0, 12 0))"),GeomFromText("LINESTRING(5 0, 15 0)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(SharedPaths(GeomFromText("MULTILINESTRING((0 0, 10 0),(16 0, 12 0))"),GeomFromText("LINESTRING(5 0, 15 0)")))
+MULTILINESTRING((5 0, 10 0), (15 0, 12 0))

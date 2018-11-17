@@ -1,0 +1,7 @@
+metres to US miles
+:memory: #use in-memory database
+SELECT CvtToUsMi(1000);
+1 # rows (not including the header row)
+1 # columns
+CvtToUsMi(1000);
+0.6213:6

@@ -1,0 +1,8 @@
+GetMimeType - TEXT
+:memory: #use in-memory database
+SELECT GetMimeType('alpha');
+1 # rows (not including the header row)
+1 # columns
+GetMimeType('alpha')
+(NULL)
+

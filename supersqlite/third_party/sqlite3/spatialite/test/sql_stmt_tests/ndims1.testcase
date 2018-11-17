@@ -1,0 +1,9 @@
+Coord Dimensions - bad blob
+:memory: #use in-memory database
+SELECT CoordDimension(geom), ST_NDims(geom) FROM (SELECT zeroblob(99) AS geom);
+1 # rows (not including the header row)
+2 # columns
+CoordDimension(geom)
+ST_NDims(geom)
+(NULL)
+(NULL)

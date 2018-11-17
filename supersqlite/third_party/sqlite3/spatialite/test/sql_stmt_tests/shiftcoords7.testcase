@@ -1,0 +1,7 @@
+shiftcoords - float shift
+:memory: #use in-memory database
+SELECT AsText(ShiftCoords(GeomFromText("POINT(1 2)"), 1.4, 3.9));
+1 # rows (not including the header row)
+1 # columns
+AsText(ShiftCoords(GeomFromText("POINT(1 2)"), 1.4, 3.9))
+POINT(2.4 5.9)

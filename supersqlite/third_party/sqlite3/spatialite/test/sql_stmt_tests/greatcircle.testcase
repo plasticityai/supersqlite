@@ -1,0 +1,7 @@
+great circle length
+:memory:
+SELECT GreatCircleLength(GeomFromText("LINESTRING(0 0, 1 0)", 4326));
+1 # rows
+1 # column
+GreatCircleLength(GeomFromText("LINESTRING(0 0, 1 0)", 4326))
+111195.07:9

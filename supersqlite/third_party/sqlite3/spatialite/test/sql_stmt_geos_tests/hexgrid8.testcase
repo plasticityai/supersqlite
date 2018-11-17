@@ -1,0 +1,9 @@
+HexagonalGrid - Polygon geom - alpha size
+:memory: #use in-memory database
+SELECT HexagonalGrid(GeomFromText('POLYGON((3 3, 3 4, 4 4, 4 3, 3 3))', 4326), 'alpha');
+1 # rows (not including the header row)
+1 # columns
+HexagonalGrid(GeomFromText('POLYGON((3 3, 3 4, 4 4, 4 3, 3 3))', 4326), 'alpha')
+(NULL)
+
+

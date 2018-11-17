@@ -1,0 +1,7 @@
+UpdateVectorCoverageExtent - two args, NULL coverage
+:memory: #use in-memory database
+SELECT SE_UpdateVectorCoverageExtent(NULL, 1);
+1 # rows (not including the header row)
+1 # columns
+SE_UpdateVectorCoverageExtent(NULL, 1)
+-1

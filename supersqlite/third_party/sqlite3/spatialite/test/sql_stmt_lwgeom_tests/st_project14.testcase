@@ -1,0 +1,7 @@
+ST_Project - valid
+:memory: #use in-memory database
+SELECT AsText(ST_Project(GeomFromText('POINT(0 0)'), 100000, Radians(45)));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_Project(GeomFromText('POINT(0 0)'), 100000, Radians(45)))
+POINT(0.635231 0.639472)

@@ -1,0 +1,8 @@
+atan-text
+:memory: # use in-memory database
+SELECT atan('test');
+1 # rows (not including the header row)
+1 # columns
+atan('test') # header
+(NULL)
+

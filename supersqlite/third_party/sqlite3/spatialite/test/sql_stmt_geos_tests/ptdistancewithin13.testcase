@@ -1,0 +1,7 @@
+PtDistWithin - WGS-84 both args
+:memory: #use in-memory database
+SELECT PtDistWithin(MakePoint(4, 2, 4326), MakePoint(4,4,4326), 2)
+1 # rows (not including the header row)
+1 # columns
+PtDistWithin(MakePoint(4, 2, 4326), MakePoint(4,4,4326), 2)
+0

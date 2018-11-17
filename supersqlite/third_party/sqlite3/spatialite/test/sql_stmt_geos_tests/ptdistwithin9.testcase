@@ -1,0 +1,7 @@
+PtDistWithin invalid arg: zeroblob pt1
+:memory:
+SELECT PtDistWithin(zeroblob(25), GeomFromText("POINT(5 5)", 4326), 10.0, 1);
+1 # rows
+1 # column
+PtDistWithin(zeroblob(25), GeomFromText("POINT(5 5)", 4326), 10.0, 1)
+(NULL)

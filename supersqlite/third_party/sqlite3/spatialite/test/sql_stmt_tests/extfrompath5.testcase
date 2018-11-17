@@ -1,0 +1,7 @@
+FileExtFromPath - ok
+:memory: #use in-memory database
+SELECT FileExtFromPath('/home/user/file.txt');
+1 # rows (not including the header row)
+1 # columns
+FileExtFromPath('/home/user/file.txt'))
+txt

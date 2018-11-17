@@ -1,0 +1,7 @@
+casttoxy - non-blob
+:memory: #use in-memory database
+SELECT CastToXY(4)
+1 # rows (not including the header row)
+1 # columns
+CastToXY(4)
+(NULL)

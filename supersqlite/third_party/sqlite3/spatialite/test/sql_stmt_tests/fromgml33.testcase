@@ -1,0 +1,7 @@
+FromGML - multipoint, single pointZ, SRID, no namespace
+:memory: #use in-memory database
+SELECT AsEwkt(GeomFromGml('<MultiPoint srsName="EPSG:3213"><pointMember><Point><coordinates>1,2,3.2</coordinates></Point></pointMember></MultiPoint>'))
+1 # rows (not including the header row)
+1 # columns
+AsEwkt(GeomFromGml('<MultiPoint srsName="EPSG:3213"><pointMember><Point><coordinates>1,2,3.2</coordinates></Point></pointMember></MultiPoint>')):0
+SRID=3213;MULTIPOINT(1 2 3.2)

@@ -1,0 +1,7 @@
+SridFromAuthCRS - non-test first arg
+:memory: #use in-memory database
+SELECT SridFromAuthCRS(384, 4326)
+1 # rows (not including the header row)
+1 # columns
+SridFromAuthCRS(384, 4326)
+(NULL)

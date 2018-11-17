@@ -1,0 +1,7 @@
+ATM_ZRoll() - invalid angle
+:memory: #use in-memory database
+SELECT ATM_ZRoll(ATM_Create(), 'a')
+1 # rows (not including the header row)
+1 # columns
+ATM_ZRoll(ATM_Create(), 'a')
+(NULL)

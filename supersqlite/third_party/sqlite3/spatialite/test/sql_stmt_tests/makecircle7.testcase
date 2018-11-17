@@ -1,0 +1,8 @@
+makecircle7 - NULL radius
+:memory: #use in-memory database
+SELECT MakeCircle(0, 0, NULL);
+1 # rows (not including the header row)
+1 # columns
+MakeCircle(0, 0, NULL)
+(NULL)
+

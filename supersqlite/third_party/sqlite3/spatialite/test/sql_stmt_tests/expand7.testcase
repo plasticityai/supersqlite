@@ -1,0 +1,7 @@
+Expand - illegal amount
+:memory: #use in-memory database
+SELECT ST_Expand(GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))"), "alpha")
+1 # rows (not including the header row)
+1 # columns
+ST_Expand(GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))"), "alpha")
+(NULL)

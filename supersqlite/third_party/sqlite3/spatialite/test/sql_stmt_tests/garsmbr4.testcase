@@ -1,0 +1,7 @@
+garsmbr - out of bounds lat
+:memory: #use in-memory database
+SELECT GARSMbr("001RA")
+1 # rows (not including the header row)
+1 # columns
+GARSMbr("001RA")
+(NULL)

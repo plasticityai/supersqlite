@@ -1,0 +1,7 @@
+ATM_AsText() - invalid blob
+:memory: #use in-memory database
+SELECT ATM_AsText(zeroblob(10))
+1 # rows (not including the header row)
+1 # columns
+ATM_AsText(zeroblob(10))
+(NULL)

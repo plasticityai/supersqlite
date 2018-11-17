@@ -1,0 +1,7 @@
+LinesCutAtNodes - closed linestringM, nodes
+:memory: #use in-memory database
+SELECT AsText(LinesCutAtNodes(GeomFromText("LINESTRINGM(0 0 1, 0 10 1, 10 10 1, 10 0 1, 0 0 1)"),GeomFromText("MULTIPOINTM(0 10 1, 10 10 1)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(LinesCutAtNodes(GeomFromText("LINESTRINGM(0 0 1, 0 10 1, 10 10 1, 10 0 1, 0 0 1)"),GeomFromText("MULTIPOINTM(0 10 1, 10 10 1)")))
+MULTILINESTRING M((10 10 1, 10 0 1, 0 0 1, 0 10 1), (0 10 1, 10 10 1))

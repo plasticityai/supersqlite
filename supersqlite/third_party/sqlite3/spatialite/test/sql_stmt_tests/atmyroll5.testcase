@@ -1,0 +1,7 @@
+ATM_YRoll() - invalid 1st arg
+:memory: #use in-memory database
+SELECT ATM_YRoll('a', 15)
+1 # rows (not including the header row)
+1 # columns
+ATM_YRoll('a', 15)
+(NULL)

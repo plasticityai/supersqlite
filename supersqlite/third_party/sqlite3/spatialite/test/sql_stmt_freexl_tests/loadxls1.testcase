@@ -1,0 +1,7 @@
+ImportXLS - NULL filename
+:memory: #use in-memory database
+SELECT ImportXLS(NULL, 'table');
+1 # rows (not including the header row)
+1 # columns
+ImportXLS(NULL, 'table')
+(NULL)

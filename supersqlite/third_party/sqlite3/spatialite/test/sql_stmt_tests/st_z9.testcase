@@ -1,0 +1,7 @@
+ST_Z2
+:memory: #use in-memory database
+SELECT Z(MakePointZ(-71, 42, 17, 4326));
+1 # rows (not including the header row)
+1 # columns
+Z(MakePointZ(-71, 42, 17, 4326))
+17.0

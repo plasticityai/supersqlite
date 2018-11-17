@@ -1,0 +1,8 @@
+MbrMaxY- bad blob
+:memory: #use in-memory database
+SELECT MbrMaxY(zeroblob(49))
+1 # rows (not including the header row)
+1 # columns
+MbrMaxY(zeroblob(49))
+(NULL)
+

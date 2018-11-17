@@ -1,0 +1,8 @@
+union - POLYGON and POINT
+:memory: #use in-memory database
+SELECT AsText(GUnion(GeomFromText("POLYGON((0 0, 2 0, 2 2, 0 2, 0 0))"),GeomFromText("POINT(0 0)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(GUnion(GeomFromText("POLYGON((0 0, 2 0, 2 2, 0 2, 0 0))"),GeomFromText("POINT(0 0)")))
+POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))
+

@@ -1,0 +1,7 @@
+ST_SnapToGrid - Linestring M
+:memory: #use in-memory database
+SELECT AsText(ST_SnapToGrid(GeomFromText('LINESTRINGM(1.2 2.3 10.1, 1.21 2.31 10.11, 1.22 2.32 10.12, 2.1 3.9 11.4)'), MakePoint(0, 0), 0.25, 0.25, 0.25, 0.25));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_SnapToGrid(GeomFromText('LINESTRINGM(1.2 2.3 10.1, 1.21 2.31 10.11, 1.22 2.32 10.12, 2.1 3.9 11.4)'), MakePoint(0, 0), 0.25, 0.25, 0.25, 0.25))
+LINESTRING M(1.25 2.25 10, 2 4 11.5)

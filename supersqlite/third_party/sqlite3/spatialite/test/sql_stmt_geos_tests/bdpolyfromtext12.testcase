@@ -1,0 +1,9 @@
+BdPolyFromText - toxic, SRID
+:memory: #use in-memory database
+SELECT BdPolyFromText("MULTILINESTRING((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))", 4326);
+1 # rows (not including the header row)
+1 # columns
+BdPolyFromText("MULTILINESTRING((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))", 4326)
+(NULL)
+
+

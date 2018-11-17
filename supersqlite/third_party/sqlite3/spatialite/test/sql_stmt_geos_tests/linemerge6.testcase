@@ -1,0 +1,8 @@
+linemerge - GEOMETRY COLLECTION
+:memory: #use in-memory database
+SELECT AsText(LineMerge(GeomFromText("GeometryCollection(LINESTRING(0 1, 1 2),LINESTRING(1 2, 3 4))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(LineMerge(GeomFromText("GeometryCollection(LINESTRING(0 1, 1 2),LINESTRING(1 2, 3 4))")))
+LINESTRING(0 1, 1 2, 3 4)
+

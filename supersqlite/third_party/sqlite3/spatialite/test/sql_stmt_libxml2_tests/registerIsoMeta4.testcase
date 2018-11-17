@@ -1,0 +1,8 @@
+RegisterIsoMetadata - BLOB scope
+:memory: #use in-memory database
+SELECT RegisterIsoMetadata(zeroblob(4), NULL);
+1 # rows (not including the header row)
+1 # columns
+RegisterIsoMetadata(zeroblob(4), NULL)
+-1
+

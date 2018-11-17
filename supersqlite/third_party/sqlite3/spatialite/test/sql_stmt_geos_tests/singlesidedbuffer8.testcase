@@ -1,0 +1,7 @@
+singlesidedbuffer - LINESTRING X, bad radius, right side (error)
+:memory: #use in-memory database
+SELECT AsText(SingleSidedBuffer(GeomFromText("LINESTRING(0 0, 0 20)"), "foo", 0));
+1 # rows (not including the header row)
+1 # columns
+AsText(SingleSidedBuffer(GeomFromText("LINESTRING(0 0, 0 20)"), "foo", 0))
+(NULL)

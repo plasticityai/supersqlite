@@ -1,0 +1,7 @@
+ReloadRasterStyle - Text style
+:memory: #use in-memory database
+SELECT SE_ReloadRasterStyle('alpha', 'beta');
+1 # rows (not including the header row)
+1 # columns
+SE_ReloadRasterStyle('alpha', 'beta')
+-1

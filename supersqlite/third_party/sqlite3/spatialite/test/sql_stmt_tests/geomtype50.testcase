@@ -1,0 +1,11 @@
+geometrytype - GEOMETRYCOLLECTIONZM - one POLYGONZM
+:memory: #use in-memory database
+SELECT GeometryType(geom), CoordDimension(geom), GeometryAliasType(geom) from (SELECT GeomFromText("GEOMETRYCOLLECTIONZM(POLYGONZM((30 20 1 2, 10 40 1 2, 45 40 1 2, 30 20 1 2)))") as geom) dummy;
+1 # rows (not including the header row)
+3 # columns
+GeometryType(geom)
+CoordDimension(geom)
+GeometryAliasType(geom)
+GEOMETRYCOLLECTION ZM
+XYZM
+GEOMETRYCOLLECTION

@@ -1,0 +1,7 @@
+logn(-0.1, 2)
+:memory: #use in-memory database
+SELECT log(-0.1, 2);
+1 # rows (not including the header row)
+1 # columns
+log(-0.1, 2) # header
+(NULL) #result

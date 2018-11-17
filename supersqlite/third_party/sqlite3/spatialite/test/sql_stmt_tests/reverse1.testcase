@@ -1,0 +1,7 @@
+reverse - zeroblob
+:memory: #use in-memory database
+SELECT ST_Reverse(zeroblob(99));
+1 # rows (not including the header row)
+1 # columns
+ST_Reverse(zeroblob(99))
+(NULL)

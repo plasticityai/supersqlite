@@ -1,0 +1,7 @@
+radians(text) # test of radians() 
+:memory: #use in-memory database
+SELECT radians("text");
+1 # rows (not including the header row)
+1 # columns
+radians("text") # header
+(NULL) #result

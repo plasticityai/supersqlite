@@ -1,0 +1,7 @@
+buildmbr - null args 
+:memory: #use in-memory database
+SELECT BuildMbr(5, 6, 7, NULL, NULL)
+1 # rows (not including the header row)
+1 # columns
+BuildMbr(5, 6, 7, NULL, NULL)
+(NULL)

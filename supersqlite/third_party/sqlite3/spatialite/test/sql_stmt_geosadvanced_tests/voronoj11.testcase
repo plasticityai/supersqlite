@@ -1,0 +1,7 @@
+ST_VoronojDiagram - NULL extra_frame_size (error)
+:memory: #use in-memory database
+SELECT ST_VoronojDiagram(GeomFromText('MULTIPOINT(0 0, 1 1, 2 2, 0 1, 2 1)'), 0, NULL);
+1 # rows (not including the header row)
+1 # columns
+ST_VoronojDiagram(GeomFromText('MULTIPOINT(0 0, 1 1, 2 2, 0 1, 2 1)'), 0, NULL)
+(NULL)

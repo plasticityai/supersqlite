@@ -1,0 +1,7 @@
+exportSHP - NULL geo-column
+:memory: #use in-memory database
+SELECT ExportSHP('test', NULL, 'shapefile', 'UTF-8');
+1 # rows (not including the header row)
+1 # columns
+ExportSHP('test', NULL, 'shapefile', 'UTF-8')
+(NULL)

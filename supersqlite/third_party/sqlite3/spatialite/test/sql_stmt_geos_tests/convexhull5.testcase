@@ -1,0 +1,7 @@
+convex hull - zeroblob
+:memory: #use in-memory database
+SELECT ConvexHull(zeroblob(100))
+1 # rows (not including the header row)
+1 # columns
+ConvexHull(zeroblob(100))
+(NULL)

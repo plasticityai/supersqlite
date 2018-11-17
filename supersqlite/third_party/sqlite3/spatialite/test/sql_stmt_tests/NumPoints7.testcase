@@ -1,0 +1,7 @@
+NumPoints - Simple line Z
+:memory: #use in-memory database
+SELECT NumPoints(GeomFromText("POINT(0 0)"));
+1 # rows (not including the header row)
+1 # column
+NumPoints(GeomFromText("POINT(0 0)"))
+(NULL)

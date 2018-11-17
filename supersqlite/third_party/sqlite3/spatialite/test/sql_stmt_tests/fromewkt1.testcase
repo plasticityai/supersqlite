@@ -1,0 +1,7 @@
+From EWKT - Point
+:memory:
+SELECT AsText(GeomFromEwkt("SRID=4326;POINT(1 2)"))
+1 # rows
+1 # column
+AsText(GeomFromEwkt("SRID=4326;POINT(1 2)"))
+POINT(1 2)

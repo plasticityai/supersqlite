@@ -1,0 +1,7 @@
+casttogeometrycollection - non-blob
+:memory: #use in-memory database
+SELECT CastToGeometryCollection("hello")
+1 # rows (not including the header row)
+1 # columns
+CastToGeometryCollection("hello")
+(NULL)

@@ -1,0 +1,7 @@
+ForceAsNull() - TEXT - matching
+:memory: #use in-memory database
+SELECT ForceAsNull('alpha', 'ALPHA')
+1 # rows (not including the header row)
+1 # columns
+ForceAsNull('alpha', 'ALPHA')
+(NULL)

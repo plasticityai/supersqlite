@@ -1,0 +1,7 @@
+blobtofile - non-Blob payload
+:memory: #use in-memory database
+SELECT BlobToFile('alpha', 'abracadabra.outfile')
+1 # rows (not including the header row)
+1 # columns
+BlobToFile('alpha', 'abracadabra.outfile')
+0

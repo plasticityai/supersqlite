@@ -1,0 +1,7 @@
+asgml - bad args (non-int 2nd arg)
+:memory: #use in-memory database
+SELECT asgml(GeomFromText("Point(1 2)"), "four");
+1 # rows (not including the header row)
+1 # columns
+asgml(GeomFromText("Point(1 2)"), "four")
+(NULL)

@@ -1,0 +1,7 @@
+ST_Length - MultiLinestring
+:memory: #use in-memory database
+SELECT ST_Length(GeomFromText("MULTILINESTRING((0 0, 0 4, 4 4, 4 0, 0 0), (10 10, 11 10, 11 11))"));
+1 # rows (not including the header row)
+1 # columns
+ST_Length(GeomFromText("MULTILINESTRING((0 0, 0 4, 4 4, 4 0, 0 0), (10 10, 11 10, 11 11))"))
+18.0

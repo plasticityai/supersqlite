@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RasterSymbolizer version="1.1.0" xsi:schemaLocation="http://www.opengis.net/se http://schemas.opengis.net/se/1.1.0/Symbolizer.xsd" xmlns="http://www.opengis.net/se" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>srtm_style</Name>
+	<Description>
+		<Title>SRTM Color Map</Title>
+		<Abstract>derived from the original "srtm_plus" color rule (GRASS GIS)</Abstract>
+	</Description>
+	<Opacity>1.0</Opacity>
+	<ColorMap>
+		<Interpolate fallbackValue="#ffffff">
+			<LookupValue>Rasterdata</LookupValue>
+			<InterpolationPoint>
+				<Data>-11000.00000000</Data>
+				<Value>#000000</Value>
+			</InterpolationPoint>
+			<InterpolationPoint>
+				<Data>-8000.00000000</Data>
+				<Value>#000032</Value>
+			</InterpolationPoint>
+			<InterpolationPoint>
+				<Data>-5000.00000000</Data>
+				<Value>#0a0a64</Value>
+			</InterpolationPoint>
+			<InterpolationPoint>
+				<Data>-3000.00000000</Data>
+				<Value>#1e1e96</Value>
+			</InterpolationPoint>
+			<InterpolationPoint>
+				<Data>-1000.00000000</Data>
+				<Value>#4646c8</Value>
+			</InterpolationPoint>
+			<InterpolationPoint>
+				<Data>-100.00000000</Data>
+				<Value>#6464e1</Value>
+			</InterpolationPoint>
+			<InterpolationPoint>
+				<Data>0.00000000</Data>
+				<Value>#aaaaff</Value>
+			</InterpolationPoint>
+			<InterpolationPoint>
+				<Data>0.10000000</Data>
+				<Value>#399769</Value>
+			</InterpolationPoint>
+			<InterpolationPoint>
+				<Data>100.00000000</Data>
+				<Value>#75c25d</Value>
+			</InterpolationPoint>
+			<InterpolationPoint>
+				<Data>500.00000000</Data>
+				<Value>#e6e680</Value>
+			</InterpolationPoint>
+			<InterpolationPoint>
+				<Data>1000.00000000</Data>
+				<Value>#ca9e4b</Value>
+			</InterpolationPoint>
+			<InterpolationPoint>
+				<Data>2000.00000000</Data>
+				<Value>#b99a64</Value>
+			</InterpolationPoint>
+			<InterpolationPoint>
+				<Data>3000.00000000</Data>
+				<Value>#dcdcdc</Value>
+			</InterpolationPoint>
+			<InterpolationPoint>
+				<Data>5000.00000000</Data>
+				<Value>#ffffff</Value>
+			</InterpolationPoint>
+			<InterpolationPoint>
+				<Data>8850.00000000</Data>
+				<Value>#6464c8</Value>
+			</InterpolationPoint>
+		</Interpolate>
+	</ColorMap>
+	<ShadedRelief/>
+</RasterSymbolizer>

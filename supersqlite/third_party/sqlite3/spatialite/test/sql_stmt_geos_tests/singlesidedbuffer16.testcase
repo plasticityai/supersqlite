@@ -1,0 +1,7 @@
+singlesidedbuffer - LINESTRINGM -X, float radius, right side
+:memory: #use in-memory database
+SELECT AsText(SingleSidedBuffer(GeomFromText("LINESTRINGM(0 20 1, 0 0 2)"), 3.5, 0));
+1 # rows (not including the header row)
+1 # columns
+AsText(SingleSidedBuffer(GeomFromText("LINESTRINGM(0 20 1, 0 0 2)"), 3.5, 0))
+POLYGON M((0 20 0, 0 0 0, -3.5 0 0, -3.5 20 0, 0 20 0))

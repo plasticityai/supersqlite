@@ -1,0 +1,7 @@
+great circle length polygonZ
+:memory:
+SELECT GreatCircleLength(GeomFromText("POLYGONZ((0 0 2, 1 0 3, 0 0 2, 0 0 2))", 4326));
+1 # rows
+1 # column
+GreatCircleLength(GeomFromText("POLYGONZ((0 0 2, 1 0 3, 0 0 2, 0 0 2))", 4326))
+222390.15:9

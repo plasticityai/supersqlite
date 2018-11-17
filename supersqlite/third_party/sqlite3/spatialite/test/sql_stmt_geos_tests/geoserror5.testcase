@@ -1,0 +1,18 @@
+GEOS_Error - invalid self-intersecting Polygon
+:memory: #use in-memory database
+SELECT ST_IsValid(ST_GeomFromText('POLYGON((0 0, 1 0, 0 1, 1 1, 0 0))')), GEOS_GetLastWarningMsg(), GEOS_GetLastErrorMsg(), GEOS_GetLastAuxErrorMsg(), ST_AsText(GEOS_GetCriticalPointFromMsg(4326));
+1 # rows (not including the header row)
+5 # columns
+ST_IsValid(ST_GeomFromText('POLYGON((0 0, 1 0, 0 1, 1 1, 0 0))'))
+GEOS_GetLastWarningMsg()
+GEOS_GetLastErrorMsg()
+GEOS_GetLastAuxErrorMsg()
+ST_AsText(GEOS_GetCriticalPointFromMsg(4326))
+0
+Self-intersection at or near point 0.5 0.5
+(NULL)
+(NULL)
+POINT(0.5 0.5)
+
+
+

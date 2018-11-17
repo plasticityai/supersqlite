@@ -1,0 +1,7 @@
+ST_ConcaveHull - BLOB allow_holes (error)
+:memory: #use in-memory database
+SELECT ST_ConcaveHull(GeomFromText('MULTIPOINT(0 0, 1 1, 2 2, 0 1, 2 1)'), 1, zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+ST_ConcaveHull(GeomFromText('MULTIPOINT(0 0, 1 1, 2 2, 0 1, 2 1)'), 1, zeroblob(4))
+(NULL)

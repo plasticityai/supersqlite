@@ -1,0 +1,7 @@
+NumPoints - Simple line
+:memory: #use in-memory database
+SELECT NumPoints(GeomFromText("LINESTRING(0 0, 1 2)"));
+1 # rows (not including the header row)
+1 # column
+NumPoints(GeomFromText("LINESTRING(0 0, 1 2)"))
+2

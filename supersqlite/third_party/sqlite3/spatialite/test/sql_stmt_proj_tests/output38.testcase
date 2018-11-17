@@ -1,0 +1,8 @@
+Output format tests - XML masked chars
+:memory: #use in-memory database
+SELECT AsKML('myname', 'mydesc &"<>', GeomFromText("POLYGON((0 0, 1 1, 0 2, -1 1, 0 0))", 4326));
+1 # rows (not including the header row)
+1 # columns
+AsKML('myname', 'mydesc &"<>', GeomFromText("POLYGON((0 0, 1 1, 0 2, -1 1, 0 0))", 4326))
+<Placemark><name>myname</name><description>mydesc &amp;&quot;&lt;&gt;</description><Polygon><outerBoundaryIs><LinearRing><coordinates>0,0 1,1 0,2 -1,1 0,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+

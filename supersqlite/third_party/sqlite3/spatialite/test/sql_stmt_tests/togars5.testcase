@@ -1,0 +1,7 @@
+togars - non-blob
+:memory: #use in-memory database
+SELECT ToGARS("hello")
+1 # rows (not including the header row)
+1 # columns
+ToGARS("hello")
+(NULL)

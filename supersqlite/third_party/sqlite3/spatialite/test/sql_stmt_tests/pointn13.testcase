@@ -1,0 +1,7 @@
+pointN - regular LINESTRINGZ out of range (error)
+:memory: #use in-memory database
+SELECT AsText(PointN(GeomFromText("LINESTRINGZ(4 0 4.4, 4 4 2.2, 8 4 3.3)"), 4));
+1 # rows (not including the header row)
+1 # columns
+AsText(PointN(GeomFromText("LINESTRINGZ(4 0 4.4, 4 4 2.2, 8 4 3.3)"), 4))
+(NULL)

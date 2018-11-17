@@ -1,0 +1,7 @@
+ForceAsNull() - BLOB/DOUBLE
+:memory: #use in-memory database
+SELECT Hex(ForceAsNull(x'0102a1b2', 1.5))
+1 # rows (not including the header row)
+1 # columns
+Hex(ForceAsNull(x'0102a1b2', 1.5))
+0102A1B2

@@ -1,0 +1,9 @@
+BdMPolyFromWKB - null, no SRID
+:memory: #use in-memory database
+SELECT BdMPolyFromWKB(null);
+1 # rows (not including the header row)
+1 # columns
+BdMPolyFromWKB(null)
+(NULL)
+
+

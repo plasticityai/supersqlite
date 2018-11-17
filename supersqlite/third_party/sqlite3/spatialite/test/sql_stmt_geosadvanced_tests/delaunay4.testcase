@@ -1,0 +1,7 @@
+ST_DelaunayTriangulation - NULL input (error)
+:memory: #use in-memory database
+SELECT ST_DelaunayTriangulation(NULL);
+1 # rows (not including the header row)
+1 # columns
+ST_DelaunayTriangulation(NULL)
+(NULL)

@@ -1,0 +1,7 @@
+ATM_Determinant() - invalid BLOB
+:memory: #use in-memory database
+SELECT ATM_Determinant(zeroblob(4))
+1 # rows (not including the header row)
+1 # columns
+ATM_Determinant(zeroblob(4))
+0.0

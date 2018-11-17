@@ -1,0 +1,7 @@
+shiftcoords - Polygon XYZM
+:memory: #use in-memory database
+SELECT AsText(ShiftCoords(GeomFromText("POLYGONZM((0 0 10 1, 10 0 10 2, 10 10 11 3, 0 10 11 4, 0 0 10 1), (5 5 12 1, 6 5 12 2, 6 6 13 3, 5 6 13 4, 5 5 12 1))"), 1.4, 3.9));
+1 # rows (not including the header row)
+1 # columns
+AsText(ShiftCoords(GeomFromText("POLYGONZM((0 0 10 1, 10 0 10 2, 10 10 11 3, 0 10 11 4, 0 0 10 1), (5 5 12 1, 6 5 12 2, 6 6 13 3, 5 6 13 4, 5 5 12 1))"), 1.4, 3.9))
+POLYGON ZM((1.4 3.9 10 1, 11.4 3.9 10 2, 11.4 13.9 11 3, 1.4 13.9 11 4, 1.4 3.9 10 1), (6.4 8.9 12 1, 7.4 8.9 12 2, 7.4 9.9 13 3, 6.4 9.9 13 4, 6.4 8.9 12 1))

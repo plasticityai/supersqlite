@@ -1,0 +1,8 @@
+MbrMaxY- non blob
+:memory: #use in-memory database
+SELECT MbrMaxY(3.5)
+1 # rows (not including the header row)
+1 # columns
+MbrMaxY(3.5)
+(NULL)
+

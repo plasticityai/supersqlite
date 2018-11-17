@@ -1,0 +1,9 @@
+assvg - relative/absolute Polygon 
+:memory: #use in-memory database
+SELECT assvg(geom, 1) AS rel, assvg(geom, 0) AS abs FROM (SELECT GeomFromText("POLYGON((10 10, 15 10, 15 15, 10 15, 10 10), (11 11, 12 11, 12 12, 11 12, 11 11))", 4326) AS geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+rel
+abs
+M 10 -10 l 5 0 0 -5 -5 0 z M 11 -11 l 1 0 0 -1 -1 0 z
+M 10 -10 L 15 -10 15 -15 10 -15 z M 11 -11 L 12 -11 12 -12 11 -12 z

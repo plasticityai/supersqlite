@@ -1,0 +1,9 @@
+Collection Extract - Extract linestringM
+:memory: #use in-memory database
+SELECT AsText(CollectionExtract(GeomFromText("LINESTRINGM(1 2 4, 4 3 1)"), 2));
+1 # rows (not including the header row)
+1 # columns
+AsText(CollectionExtract(GeomFromText("LINESTRINGM(1 2 4, 4 3 1)"), 2))
+LINESTRING M(1 2 4, 4 3 1)
+
+

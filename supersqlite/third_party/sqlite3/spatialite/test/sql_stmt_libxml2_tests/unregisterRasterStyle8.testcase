@@ -1,0 +1,7 @@
+UnRegisterRasterStyle - TEXT second arg
+:memory: #use in-memory database
+SELECT SE_UnRegisterRasterStyle('alpha', 'alpha');
+1 # rows (not including the header row)
+1 # columns
+SE_UnRegisterRasterStyle('alpha', 'alpha')
+-1

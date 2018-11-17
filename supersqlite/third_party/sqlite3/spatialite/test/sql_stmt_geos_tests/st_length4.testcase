@@ -1,0 +1,7 @@
+ST_Length - Linestring not closed
+:memory: #use in-memory database
+SELECT ST_Length(GeomFromText("LINESTRING(0 0, 0 4, 4 4, 4 0)"));
+1 # rows (not including the header row)
+1 # columns
+ST_Length(GeomFromText("LINESTRING(0 0, 0 4, 4 4, 4 0)"))
+12.0

@@ -1,0 +1,7 @@
+casttopoint - LINESTRING, no points
+:memory: #use in-memory database
+SELECT CastToPoint(GeomFromText("LINESTRING(4 3, 4 1)"))
+1 # rows (not including the header row)
+1 # columns
+CastToPoint(GeomFromText("LINESTRING(4 3, 4 1)"))
+(NULL)

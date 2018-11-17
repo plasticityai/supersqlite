@@ -1,0 +1,10 @@
+CastToDouble() - TEXT valid
+:memory: #use in-memory database
+SELECT CastToDouble('123'), TypeOf(CastToDouble('123'))
+1 # rows (not including the header row)
+2 # columns
+CastToDouble('123')
+TypeOf(CastToDouble('123'))
+123.0
+real
+

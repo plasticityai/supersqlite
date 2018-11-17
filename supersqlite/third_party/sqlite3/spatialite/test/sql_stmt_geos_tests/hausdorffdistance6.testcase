@@ -1,0 +1,8 @@
+HausdorffDistance - two multipoints
+:memory: #use in-memory database
+SELECT HausdorffDistance(GeomFromText("MULTIPOINT(0 0, 10 0)"), GeomFromText("MULTIPOINT(0 2, 10 2)"))
+1 # rows (not including the header row)
+1 # columns
+HausdorffDistance(GeomFromText("MULTIPOINT(0 0, 10 0)"), GeomFromText("MULTIPOINT(0 2, 10 2)"))
+2.0
+

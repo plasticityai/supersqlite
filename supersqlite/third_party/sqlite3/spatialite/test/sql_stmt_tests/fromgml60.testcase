@@ -1,0 +1,8 @@
+FromGML - Box-1 <gml:Box>
+:memory: #use in-memory database
+SELECT AsText(GeomFromGml('<gml:Box srsName="http://www.opengis.net/gml/srs/epsg.xml:3003"><gml:coordinates decimal="." cs="," ts=" ">1465764.67172047,4301759.08670378 1486407.98880581,4322672.57766581</gml:coordinates></gml:Box>'));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromGml('<gml:Box srsName="http://www.opengis.net/gml/srs/epsg.xml:3003"><gml:coordinates decimal="." cs="," ts=" ">1465764.67172047,4301759.08670378 1486407.98880581,4322672.57766581</gml:coordinates></gml:Box>')):0
+POLYGON((1465764.67172 4301759.086704, 1486407.988806 4301759.086704, 1486407.988806 4322672.577666, 1465764.67172 4322672.577666, 1465764.67172 4301759.086704))
+

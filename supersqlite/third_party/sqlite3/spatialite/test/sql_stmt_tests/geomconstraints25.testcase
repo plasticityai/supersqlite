@@ -1,0 +1,8 @@
+geometry constraints - GEOMETRYCOLLECTION
+:memory: #use in-memory database
+SELECT GeometryConstraints(GeomFromText("GEOMETRYCOLLECTIONZ(MULTIPOLYGONZ(((0 0 0, 1 0 0, 1 1 0, 0 0 0)),((0 0 0, -1 0 0, -1 -1 0, 0 0 0))))", 4326), "GEOMETRYCOLLECTION", 4326, "XYZ")
+1 # rows (not including the header row)
+1 # columns
+GeometryConstraints(GeomFromText("GEOMETRYCOLLECTIONZ(MULTIPOLYGONZ(((0 0 0, 1 0 0, 1 1 0, 0 0 0)),((0 0 0, -1 0 0, -1 -1 0, 0 0 0))))", 4326), "GEOMETRYCOLLECTION", 4326, "XYZ")
+1
+

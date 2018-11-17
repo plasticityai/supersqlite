@@ -1,0 +1,7 @@
+CompressGeometry - POLYGON Z
+:memory: #use in-memory database
+SELECT AsText(CompressGeometry(GeomFromText("POLYGONZ((0 0 100, 5 0 101, 5 5 102, 0 5 103, 0 0 100), (1 1 100, 2 1 101, 2 2 102, 1 2 103, 1 1 100))", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(CompressGeometry(GeomFromText("POLYGONZ((0 0 100, 5 0 101, 5 5 102, 0 5 103, 0 0 100), (1 1 100, 2 1 101, 2 2 102, 1 2 103, 1 1 100))", 4326)))
+POLYGON Z((0 0 100, 5 0 101, 5 5 102, 0 5 103, 0 0 100), (1 1 100, 2 1 101, 2 2 102, 1 2 103, 1 1 100))

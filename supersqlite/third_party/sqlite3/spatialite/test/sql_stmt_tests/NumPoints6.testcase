@@ -1,0 +1,7 @@
+NumPoints - text (error)
+:memory: #use in-memory database
+SELECT NumPoints("hello");
+1 # rows (not including the header row)
+1 # column
+NumPoints("hello")
+(NULL)

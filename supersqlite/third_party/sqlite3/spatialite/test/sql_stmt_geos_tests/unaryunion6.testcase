@@ -1,0 +1,7 @@
+unaryunion - non-blob
+:memory: #use in-memory database
+SELECT AsText(UnaryUnion(3.14))
+1 # rows (not including the header row)
+1 # columns
+AsText(UnaryUnion(3.14))
+(NULL)

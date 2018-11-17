@@ -1,0 +1,8 @@
+makecircle16 - text step
+:memory: #use in-memory database
+SELECT ST_Length(MakeCircle(0, 0, 100, 4326, 'alpha'));
+1 # rows (not including the header row)
+1 # columns
+ST_Length(MakeCircle(0, 0, 100, 4326, 'alpha'))
+(NULL)
+

@@ -1,0 +1,8 @@
+Closest Point - toxic geom
+:memory: #use in-memory database
+SELECT AsText(ClosestPoint(GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))"), MakePoint(130, -35)))
+1 # rows (not including the header row)
+1 # columns
+AsText(ClosestPoint(GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))"), MakePoint(130, -35)))
+POINT(135.2 -34.5)
+

@@ -1,0 +1,7 @@
+ST_VoronojDiagram - text input (error)
+:memory: #use in-memory database
+SELECT ST_VoronojDiagram('alpha');
+1 # rows (not including the header row)
+1 # columns
+ST_VoronojDiagram('alpha')
+(NULL)

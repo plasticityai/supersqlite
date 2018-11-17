@@ -1,0 +1,7 @@
+shiftlongitude - positive and negative longitude polygon
+:memory: #use in-memory database
+SELECT AsText(ST_Shift_Longitude(GeomFromText("POLYGON((-175 0, -176 10, 175 10, 176 0, -175 0))", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_Shift_Longitude(GeomFromText("POLYGON((-175 0, -176 10, 175 10, 176 0, -175 0))", 4326)))
+POLYGON((185 0, 184 10, 175 10, 176 0, 185 0))

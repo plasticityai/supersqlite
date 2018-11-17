@@ -1,0 +1,7 @@
+ST_GeoHash - WGS84 Point, invalid precision
+:memory: #use in-memory database
+SELECT ST_GeoHash(MakePoint(10, -20, 4326), 'alpha');
+1 # rows (not including the header row)
+1 # columns
+ST_GeoHash(MakePoint(10, -20, 4326), 'alpha')
+(NULL)

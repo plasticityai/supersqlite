@@ -1,0 +1,9 @@
+BdMPolyFromWKB - SRID
+:memory: #use in-memory database
+SELECT AsEWkt(BdMPolyFromWKB(AsBinary(GeomFromText('MULTILINESTRING((0 0, 1 0, 1 1, 0 1, 0 0))')), 4326));
+1 # rows (not including the header row)
+1 # columns
+AsEWkt(BdMPolyFromWKB(AsBinary(GeomFromText('MULTILINESTRING((0 0, 1 0, 1 1, 0 1, 0 0))')), 4326))
+SRID=4326;MULTIPOLYGON(((0 0,0 1,1 1,1 0,0 0)))
+
+

@@ -1,0 +1,8 @@
+UnRegisterStyledGroupLayer - NULL item ID
+:memory: #use in-memory database
+SELECT SE_UnRegisterStyledGroupLayer(NULL);
+1 # rows (not including the header row)
+1 # columns
+SE_UnRegisterStyledGroupLayer(NULL)
+-1
+

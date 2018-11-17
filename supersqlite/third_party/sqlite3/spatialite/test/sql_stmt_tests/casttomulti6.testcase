@@ -1,0 +1,7 @@
+casttomulti - POLYGON and POINT
+:memory: #use in-memory database
+SELECT AsText(CastToMulti(GeomFromText("GEOMETRYCOLLECTION(POLYGON((0 1, 2 1, 2 4, 0 4, 0 1)),POINT(4 2.3))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(CastToMulti(GeomFromText("GEOMETRYCOLLECTION(POLYGON((0 1, 2 1, 2 4, 0 4, 0 1)),POINT(4 2.3))")))
+GEOMETRYCOLLECTION(POINT(4 2.3), POLYGON((0 1, 2 1, 2 4, 0 4, 0 1)))

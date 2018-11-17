@@ -1,0 +1,7 @@
+FromGML - poslist linestring
+:memory: #use in-memory database
+SELECT AsText(GeomFromGml('<gml:LineString gml:id="p21" srsName="http://www.opengis.net/def/crs/EPSG/0/4326"><gml:posList dimension="2">45.67 88.56 55.56 89.44</gml:posList></gml:LineString >'))
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromGml('<gml:LineString gml:id="p21" srsName="http://www.opengis.net/def/crs/EPSG/0/4326"><gml:posList dimension="2">45.67 88.56 55.56 89.44</gml:posList></gml:LineString >')):0
+LINESTRING(45.67 88.56, 55.56 89.44)

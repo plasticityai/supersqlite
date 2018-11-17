@@ -1,0 +1,7 @@
+numgeometries - single point
+:memory: #use in-memory database
+SELECT NumGeometries(MakePoint(2,3))
+1 # rows (not including the header row)
+1 # columns
+NumGeometries(MakePoint(2,3))
+1

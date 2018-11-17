@@ -1,0 +1,7 @@
+CreateTopology - 2 arguments, float dims (error)
+:memory: #use in-memory database
+SELECT CreateTopologyTables(4326, 2.0);
+1 # rows (not including the header row)
+1 # columns
+CreateTopologyTables(4326, 2.0)
+0

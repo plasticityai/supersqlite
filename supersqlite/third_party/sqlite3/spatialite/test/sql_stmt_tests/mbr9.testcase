@@ -1,0 +1,7 @@
+MbrIntersects - Line + Point on
+:memory: #use in-memory database
+SELECT MbrIntersects(GeomFromText("LINESTRING(0 0, 1 2)"), GeomFromText("POINT(1 2)"));
+1 # rows (not including the header row)
+1 # columns
+MbrIntersects(GeomFromText("LINESTRING(0 0, 1 2)"), GeomFromText("POINT(1 2)")) # header
+1

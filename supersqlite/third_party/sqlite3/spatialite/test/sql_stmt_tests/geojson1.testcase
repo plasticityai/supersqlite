@@ -1,0 +1,8 @@
+GeoJSON Point: excessive precision
+:memory: #use in-memory database
+SELECT AsGeoJSON(GeomFromText("POINT(1 2)", 4326), 44, 2);
+1 # rows (not including the header row)
+1 # columns
+AsGeoJSON(GeomFromText("POINT(1 2)", 4326), 44, 2)
+{"type":"Point","crs":{"type":"name","properties":{"name":"EPSG:4326"}},"coordinates":[1,2]}:0 # trailing ":0" required to avoid truncation !!!
+

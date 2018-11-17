@@ -1,0 +1,7 @@
+ST_SetEndPoint() - XY
+:memory: #use in-memory database
+SELECT AsText(SetEndPoint(GeomFromText('LINESTRING(0 0, 1 0, 1 1)'), MakePoint(2, 3)))
+1 # rows (not including the header row)
+1 # columns
+AsText(SetEndPoint(GeomFromText('LINESTRING(0 0, 1 0, 1 1)'), MakePoint(2, 3)))
+LINESTRING(0 0, 1 0, 2 3)

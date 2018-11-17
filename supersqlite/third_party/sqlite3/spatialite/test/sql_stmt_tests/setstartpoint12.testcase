@@ -1,0 +1,7 @@
+ST_SetStartPoint() - not a point
+:memory: #use in-memory database
+SELECT ST_SetStartPoint(GeomFromText('LINESTRING(0 0, 1 0, 1 1)'), GeomFromText('MULTILINESTRING(10 10, 11 10), (1 1, 2 2))'))
+1 # rows (not including the header row)
+1 # columns
+ST_SetStartPoint(GeomFromText('LINESTRING(0 0, 1 0, 1 1)'), GeomFromText('MULTILINESTRING(10 10, 11 10), (1 1, 2 2))'))
+(NULL)

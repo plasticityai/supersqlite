@@ -1,0 +1,8 @@
+GML MultiPoint: excessive precision
+:memory: #use in-memory database
+SELECT AsGML(3, GeomFromText("MULTIPOINT(1 2, 3 4)", 4326), 44);
+1 # rows (not including the header row)
+1 # columns
+AsGML(3, GeomFromText("MULTIPOINT(1 2, 3 4)", 4326), 44)
+<gml:MultiPoint srsName="EPSG:4326"><gml:pointMember><gml:Point><gml:pos srsDimension="2">1 2</gml:pos></gml:Point></gml:pointMember><gml:pointMember><gml:Point><gml:pos srsDimension="2">3 4</gml:pos></gml:Point></gml:pointMember></gml:MultiPoint>:0 # trailing ":0" required to avoid truncation !!!
+

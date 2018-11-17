@@ -1,0 +1,7 @@
+XB_LoadXML - INTEGER input
+:memory: #use in-memory database
+SELECT XB_LoadXML(1);
+1 # rows (not including the header row)
+1 # columns
+XB_LoadXML(1)
+(NULL)

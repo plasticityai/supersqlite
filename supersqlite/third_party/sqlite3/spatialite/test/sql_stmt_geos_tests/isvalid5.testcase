@@ -1,0 +1,7 @@
+isvalid5
+:memory: #use in-memory database
+SELECT IsValid("hello");
+1 # rows (not including the header row)
+1 # columns
+IsValid("hello")
+-1

@@ -1,0 +1,7 @@
+metres to Indian chains
+:memory: #use in-memory database
+SELECT CvtToIndCh(1000);
+1 # rows (not including the header row)
+1 # columns
+CvtToIndCh(1000)
+49.70995:8

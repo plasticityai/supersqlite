@@ -1,0 +1,8 @@
+GMLv2 MultiPolygon: no SRID
+:memory: #use in-memory database
+SELECT AsGML(GeomFromText("MULTIPOLYGON(((10 10, 20 10, 20 20, 10 20, 10 10)), ((85 85, 90 85, 90 90, 85 90, 85 85)))"));
+1 # rows (not including the header row)
+1 # columns
+AsGML(GeomFromText("MULTIPOLYGON(((10 10, 20 10, 20 20, 10 20, 10 10)), ((85 85, 90 85, 90 90, 85 90, 85 85)))"))
+<gml:MultiPolygon><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>10,10 20,10 20,20 10,20 10,10</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></gml:polygonMember><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>85,85 90,85 90,90 85,90 85,85</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></gml:polygonMember></gml:MultiPolygon>:0 # trailing ":0" required to avoid truncation !!!
+

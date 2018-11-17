@@ -1,0 +1,7 @@
+ReloadVectorStyle - Integet style_id
+:memory: #use in-memory database
+SELECT SE_ReloadVectorStyle(1, zeroblob(100));
+1 # rows (not including the header row)
+1 # columns
+SE_ReloadVectorStyle(1, zeroblob(100))
+0

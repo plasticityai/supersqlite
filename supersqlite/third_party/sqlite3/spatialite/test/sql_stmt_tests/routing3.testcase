@@ -1,0 +1,30 @@
+routing: integer ids (A*)
+sql_stmt_tests/testdb1.sqlite
+UPDATE roads_net SET Algorithm = 'A*'; SELECT Algorithm, ArcRowid, NodeFrom, NodeTo, Cost FROM roads_net WHERE NodeFrom = 29 AND NodeTo = 32;
+4 # rows (not including the header row)
+5 # columns
+Algorithm
+ArcRowid
+NodeFrom
+NodeTo
+Cost
+A*
+(NULL)
+29
+32
+0.001856:6
+A*
+29
+29
+30
+0.000512:6
+A*
+30
+30
+31
+0.000445:6
+A*
+31
+31
+32
+0.000898:6

@@ -1,0 +1,7 @@
+bad GeoJSON: MultiPoint
+:memory: #use in-memory database
+SELECT GeomFromGeoJSON('{"type":"MultiPoint","coordinates":[[1.1,2.2],[3.3,4.4]]');
+1 # rows (not including the header row)
+1 # columns
+GeomFromGeoJSON('{"type":"MultiPoint","coordinates":[[1.1,2.2],[3.3,4.4]]'):0
+(NULL)

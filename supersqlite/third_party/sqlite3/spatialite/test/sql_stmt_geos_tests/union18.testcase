@@ -1,0 +1,7 @@
+union - POLYGON Z with hole
+:memory: #use in-memory database
+SELECT AsText(GUnion(GeomFromText("POLYGONZ((10 10 100, 15 10 100, 15 15 100, 10 15 100, 10 10 100), (11 11 102, 12 11 102, 12 12 102, 11 12 102, 11 11 102))"), GeomFromText("POLYGONZ((15 10 100, 16 10 100, 16 15 100, 10 15 100, 15 10 100))")));
+1 # rows (not including the header row)
+1 # columns
+AsText(GUnion(GeomFromText("POLYGONZ((10 10 100, 15 10 100, 15 15 100, 10 15 100, 10 10 100), (11 11 102, 12 11 102, 12 12 102, 11 12 102, 11 11 102))"), GeomFromText("POLYGONZ((15 10 100, 16 10 100, 16 15 100, 10 15 100, 15 10 100))")))
+POLYGON Z((15 10 100, 10 10 100, 10 15 100, 15 15 100, 16 15 100, 16 10 100, 15 10 100), (11 11 102, 12 11 102, 12 12 102, 11 12 102, 11 11 102))

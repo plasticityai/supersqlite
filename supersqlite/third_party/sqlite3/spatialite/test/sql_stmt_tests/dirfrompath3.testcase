@@ -1,0 +1,7 @@
+DirNameFromPath - DOUBLE
+:memory: #use in-memory database
+SELECT DirNameFromPath(1.1);
+1 # rows (not including the header row)
+1 # columns
+DirNameFromPath(1.1)
+(NULL)

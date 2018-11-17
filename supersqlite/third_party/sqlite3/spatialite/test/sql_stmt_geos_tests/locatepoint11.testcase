@@ -1,0 +1,7 @@
+locate point - bad blob first arg
+:memory: #use in-memory database
+SELECT Line_Locate_Point(zeroblob(100), GeomFromText("POINT(0 1)"))
+1 # rows (not including the header row)
+1 # columns
+Line_Locate_Point(zeroblob(100), GeomFromText("POINT(0 1)"))
+(NULL)

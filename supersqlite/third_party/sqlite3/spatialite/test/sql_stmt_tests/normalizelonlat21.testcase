@@ -1,0 +1,8 @@
+normalizelonlat- out of range negative lat linestringzm
+:memory: #use in-memory database
+SELECT AsText(NormalizeLonLat(GeomFromText("LINESTRINGZM(120 -140 5 20, 130 -150 20 30)", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(NormalizeLonLat(GeomFromText("LINESTRINGZM(120 -140 5 20, 130 -150 20 30)", 4326)))
+LINESTRING ZM(120 -40 5 20, 130 -30 20 30)
+

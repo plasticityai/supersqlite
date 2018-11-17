@@ -1,0 +1,8 @@
+RegisterExternalGraphic - BLOB URL
+:memory: #use in-memory database
+SELECT SE_RegisterExternalGraphic(zeroblob(4), NULL);
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterExternalGraphic(zeroblob(4), NULL)
+-1
+

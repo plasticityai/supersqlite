@@ -1,0 +1,7 @@
+decimal precision - BLOB
+:memory:
+SELECT SetDecimalPrecision(zeroblob(10));
+1 # rows
+1 # column
+SetDecimalPrecision(zeroblob(10))
+(NULL)

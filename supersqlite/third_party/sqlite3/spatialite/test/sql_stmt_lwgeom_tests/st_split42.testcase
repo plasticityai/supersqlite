@@ -1,0 +1,7 @@
+ST_SplitRight - Polygon-Line (split)
+:memory: #use in-memory database
+SELECT AsText(ST_SplitRight(GeomFromText('POLYGONZM((0 1 10 100, 10 1 11 101, 10 10 12 102, 0 10 13 103, 0 1 10 100), (5 5 10 100, 9 5 11 101, 9 9 12 102, 5 9 13 103, 5 5 10 100))'), GeomFromText('LINESTRING(7 0, 7 20)')));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_SplitRight(GeomFromText('POLYGONZM((0 1 10 100, 10 1 11 101, 10 10 12 102, 0 10 13 103, 0 1 10 100), (5 5 10 100, 9 5 11 101, 9 9 12 102, 5 9 13 103, 5 5 10 100))'), GeomFromText('LINESTRING(7 0, 7 20)')))
+POLYGON ZM((7 10 12.3 0, 10 10 12 0, 10 1 11 0, 7 1 10.7 0, 7 5 10.5 0, 9 5 11 0, 9 9 12 0, 7 9 12.5 0, 7 10 12.3 0))

@@ -1,0 +1,7 @@
+buildarea - null arg
+:memory: #use in-memory database
+SELECT BuildArea(NULL)
+1 # rows (not including the header row)
+1 # columns
+BuildArea(NULL)
+(NULL)

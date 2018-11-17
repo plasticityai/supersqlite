@@ -1,0 +1,8 @@
+geomfromgpb2
+:memory: #use in-memory database
+SELECT GeomFromGPB(zeroblob(7))
+1 # rows (not including the header row)
+1 # columns
+GeomFromGPB(zeroblob(7))
+(NULL)
+

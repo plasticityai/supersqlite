@@ -1,0 +1,7 @@
+RingsCutAtNodes
+:memory: #use in-memory database
+SELECT AsText(RingsCutAtNodes(GeomFromText("POLYGON((0 0, 0 10, 10 10, 10 0, 0 0))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(RingsCutAtNodes(GeomFromText("POLYGON((0 0, 0 10, 10 10, 10 0, 0 0))")))
+MULTILINESTRING((0 0, 0 10, 10 10, 10 0, 0 0))

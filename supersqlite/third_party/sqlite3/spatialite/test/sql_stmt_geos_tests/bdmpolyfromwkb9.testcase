@@ -1,0 +1,9 @@
+BdMPolyFromWKB - point, SRID
+:memory: #use in-memory database
+SELECT BdMPolyFromWKB("Point(1 2)", 4);
+1 # rows (not including the header row)
+1 # columns
+BdMPolyFromWKB("Point(1 2)", 4)
+(NULL)
+
+

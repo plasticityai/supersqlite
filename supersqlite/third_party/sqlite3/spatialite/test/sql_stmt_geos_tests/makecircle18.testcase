@@ -1,0 +1,8 @@
+makecircle18 - valid step
+:memory: #use in-memory database
+SELECT ST_Length(MakeCircle(0.0, 0.0, 100.0, 4326, 1.0));
+1 # rows (not including the header row)
+1 # columns
+ST_Length(MakeCircle(0.0, 0.0, 100.0, 4326, 1.0))
+628.3105:4
+

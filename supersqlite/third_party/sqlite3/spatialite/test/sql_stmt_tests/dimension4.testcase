@@ -1,0 +1,7 @@
+dimension4 - bad blob
+:memory: #use in-memory database
+SELECT Dimension(zeroblob(20))
+1 # rows (not including the header row)
+1 # columns
+Dimension(zeroblob(20))
+(NULL)

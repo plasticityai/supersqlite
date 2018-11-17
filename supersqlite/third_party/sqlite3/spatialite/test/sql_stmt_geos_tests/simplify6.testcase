@@ -1,0 +1,8 @@
+Simplify - negative second arg
+:memory: #use in-memory database
+SELECT Simplify(GeomFromText("LINESTRING(1 2, 3 4)"), -287.3)
+1 # rows (not including the header row)
+1 # columns
+Simplify(GeomFromText("LINESTRING(1 2, 3 4)"), -287.3)
+(NULL)
+

@@ -1,0 +1,8 @@
+Simplify - bad arg
+:memory: #use in-memory database
+SELECT Simplify("hello", 0)
+1 # rows (not including the header row)
+1 # columns
+Simplify("hello", 0)
+(NULL)
+

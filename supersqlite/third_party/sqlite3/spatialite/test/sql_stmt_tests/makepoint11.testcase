@@ -1,0 +1,7 @@
+makepoint - MakepointZM, int args, SRID
+:memory: #use in-memory database
+SELECT AsText(MakePointZM(-71, 42, 3, 4, 4326))
+1 # rows (not including the header row)
+1 # columns
+AsText(MakePointZM(-71, 42, 3, 4, 4326))
+POINT ZM(-71 42 3 4)

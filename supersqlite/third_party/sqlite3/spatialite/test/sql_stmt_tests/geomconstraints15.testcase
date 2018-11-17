@@ -1,0 +1,8 @@
+geometry constraints - MULTILINESTRING
+:memory: #use in-memory database
+SELECT GeometryConstraints(GeomFromText("MULTILINESTRING((1 2, 4 3),(0 4, 1 9))", 4326), "MULTILINESTRING", 4326)
+1 # rows (not including the header row)
+1 # columns
+GeometryConstraints(GeomFromText("MULTILINESTRING((1 2, 4 3),(0 4, 1 9))", 4326), "MULTILINESTRING", 4326)
+1
+

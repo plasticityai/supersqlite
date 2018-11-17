@@ -1,0 +1,7 @@
+UnRegisterStyledGroupStyle - NULL style ID
+:memory: #use in-memory database
+SELECT SE_UnRegisterStyledGroupStyle('alpha', NULL);
+1 # rows (not including the header row)
+1 # columns
+SE_UnRegisterStyledGroupStyle('alpha', NULL)
+-1

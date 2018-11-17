@@ -1,0 +1,7 @@
+cot(text)
+:memory: #use in-memory database
+SELECT cot("text");
+1 # rows (not including the header row)
+1 # columns
+cot("text") # header
+(NULL) #result

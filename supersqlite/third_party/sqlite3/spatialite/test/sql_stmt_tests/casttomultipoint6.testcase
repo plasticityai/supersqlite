@@ -1,0 +1,7 @@
+casttomultipoint - GEOMETRYCOLLECTION - 2 points
+:memory: #use in-memory database
+SELECT AsText(CastToMultiPoint(GeomFromText("GEOMETRYCOLLECTION(POINT(1 2),POINT(4 8))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(CastToMultiPoint(GeomFromText("GEOMETRYCOLLECTION(POINT(1 2),POINT(4 8))")))
+MULTIPOINT(1 2, 4 8)

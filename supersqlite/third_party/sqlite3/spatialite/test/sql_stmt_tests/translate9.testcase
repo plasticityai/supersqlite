@@ -1,0 +1,7 @@
+translate - Linestring XYZ
+:memory: #use in-memory database
+SELECT AsText(ST_Translate(GeomFromText("LINESTRINGZ(1 2 10, 3 4 10)"), 1.4, 3.9, 5.3));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_Translate(GeomFromText("LINESTRINGZ(1 2 10, 3 4 10)"), 1.4, 3.9, 5.3))
+LINESTRING Z(2.4 5.9 15.3, 4.4 7.9 15.3)

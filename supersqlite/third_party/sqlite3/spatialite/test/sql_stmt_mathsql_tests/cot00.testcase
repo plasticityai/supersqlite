@@ -1,0 +1,7 @@
+cot(0.0)
+:memory: #use in-memory database
+SELECT cot(0.0);
+1 # rows (not including the header row)
+1 # columns
+cot(0.0) # header
+(NULL) #result

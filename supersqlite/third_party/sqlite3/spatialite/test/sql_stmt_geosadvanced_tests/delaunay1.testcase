@@ -1,0 +1,7 @@
+ST_DelaunayTriangulation - Invalid BLOB input (error)
+:memory: #use in-memory database
+SELECT ST_DelaunayTriangulation(zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+ST_DelaunayTriangulation(zeroblob(4))
+(NULL)

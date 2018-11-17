@@ -1,0 +1,7 @@
+ReloadRasterStyle - NULL style_id
+:memory: #use in-memory database
+SELECT SE_ReloadRasterStyle(NULL, zeroblob(100));
+1 # rows (not including the header row)
+1 # columns
+SE_ReloadRasterStyle(NULL, zeroblob(100))
+-1

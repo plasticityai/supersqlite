@@ -1,0 +1,8 @@
+makecircularsector - text start
+:memory: #use in-memory database
+SELECT MakeCircularSector(0, 0, 100, 'text', 60);
+1 # rows (not including the header row)
+1 # columns
+MakeCircularSector(0, 0, 100, 'text', 60)
+(NULL)
+

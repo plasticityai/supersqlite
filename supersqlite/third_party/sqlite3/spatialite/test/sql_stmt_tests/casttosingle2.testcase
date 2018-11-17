@@ -1,0 +1,7 @@
+casttosingle - non blob
+:memory: #use in-memory database
+SELECT CastToSingle(3.42)
+1 # rows (not including the header row)
+1 # columns
+CastToSingle(3.42)
+(NULL)

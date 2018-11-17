@@ -1,0 +1,7 @@
+CompressGeometry - MULTILINESTRING Z
+:memory: #use in-memory database
+SELECT AsText(CompressGeometry(GeomFromText("MULTILINESTRINGZ((10 10 100, 11 11 101, 12 12 102), (15 15 101, 16 16 102, 17 17 103))", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(CompressGeometry(GeomFromText("MULTILINESTRINGZ((10 10 100, 11 11 101, 12 12 102), (15 15 101, 16 16 102, 17 17 103))", 4326)))
+MULTILINESTRING Z((10 10 100, 11 11 101, 12 12 102), (15 15 101, 16 16 102, 17 17 103))

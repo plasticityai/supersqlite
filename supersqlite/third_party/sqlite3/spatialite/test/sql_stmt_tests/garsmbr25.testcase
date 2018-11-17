@@ -1,0 +1,8 @@
+garsmbr - bad latitude - 6
+:memory: #use in-memory database
+SELECT AsText(GARSMbr("001--1"))
+1 # rows (not including the header row)
+1 # columns
+AsText(GARSMbr("001--1"))
+(NULL)
+

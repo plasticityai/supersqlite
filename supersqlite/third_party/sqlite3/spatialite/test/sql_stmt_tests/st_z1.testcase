@@ -1,0 +1,7 @@
+ST_Z1
+:memory: #use in-memory database
+SELECT ST_Z(MakePointZ(136, -35, 0.0038723129645));
+1 # rows (not including the header row)
+1 # columns
+ST_Z(MakePointZ(136, -35, 0.0038723129645))
+0.0038723129645

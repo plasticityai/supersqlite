@@ -1,0 +1,9 @@
+PointOnSurface - square
+:memory: #use in-memory database
+SELECT Contains(geomFromText("POLYGON((0 0, 0 1, 1 1, 0 0))", 4326), PointOnSurface(geomFromText("POLYGON((0 0, 0 1, 1 1, 0 0))", 4326)));
+1 # rows (not including the header row)
+1 # columns
+Contains(geomFromText("POLYGON((0 0, 0 1, 1 1, 0 0))", 4326), PointOnSurface(geomFromText("POLYGON((0 0, 0 1, 1 1, 0 0))", 4326)))
+1
+
+

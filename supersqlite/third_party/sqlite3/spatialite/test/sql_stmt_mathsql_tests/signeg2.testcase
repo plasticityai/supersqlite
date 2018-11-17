@@ -1,0 +1,7 @@
+sign-neg2
+:memory:
+SELECT sign(-2.0); # the SQL to run
+1 # rows
+1 # column
+sign(-2.0) # this is the header row
+-1.0 # this is really the result

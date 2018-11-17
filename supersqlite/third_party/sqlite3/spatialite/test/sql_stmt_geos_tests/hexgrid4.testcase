@@ -1,0 +1,9 @@
+HexagonalGrid - Linestring geom
+:memory: #use in-memory database
+SELECT HexagonalGrid(GeomFromText('LINESTRING(1 1, 2 2)', 4326), 1.0);
+1 # rows (not including the header row)
+1 # columns
+HexagonalGrid(GeomFromText('LINESTRING(1 1, 2 2)', 4326), 1.0)
+(NULL)
+
+

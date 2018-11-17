@@ -1,0 +1,8 @@
+Centroid - polygonZM (problem case - GEOS throws away the Z and M coordinates)
+:memory: #use in-memory database
+SELECT astext(centroid(geomFromText("POLYGONZM((0 0 1 4, 0 2 1 4, 2 2 1 4, 2 0 1 4, 0 0 1 4))")))
+1 # rows (not including the header row)
+1 # columns
+astext(centroid(geomFromText("POLYGONZM((0 0 1 4, 0 2 1 4, 2 2 1 4, 2 0 1 4, 0 0 1 4))")))
+POINT(1 1)
+

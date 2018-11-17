@@ -1,0 +1,8 @@
+IsValidRasterStatistics - NULL sample-type: 3 args
+NEW:memory: #use in-memory database
+SELECT IsValidRasterStatistics(zeroblob(4), NULL, 1);
+1 # rows (not including the header row)
+1 # columns
+IsValidRasterStatistics(zeroblob(4), NULL, 1)
+-1
+

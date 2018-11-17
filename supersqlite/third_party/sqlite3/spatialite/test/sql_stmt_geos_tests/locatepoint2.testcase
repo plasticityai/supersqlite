@@ -1,0 +1,7 @@
+locate point - POLYGON first arg
+:memory: #use in-memory database
+SELECT Line_Locate_Point(GeomFromText("POLYGON((0 0, 10 10, 0 10, 0 0))"), GeomFromText("POINT(5 3)"))
+1 # rows (not including the header row)
+1 # columns
+Line_Locate_Point(GeomFromText("POLYGON((0 0, 10 10, 0 10, 0 0))"), GeomFromText("POINT(5 3)"))
+(NULL)

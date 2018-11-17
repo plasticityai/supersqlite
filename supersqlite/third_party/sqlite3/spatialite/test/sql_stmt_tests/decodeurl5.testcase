@@ -1,0 +1,7 @@
+DecodeURL - valid
+:memory: #use in-memory database
+SELECT DecodeURL('http://www.acme.it/search?q1=C+%26+opeator&q2=C%2b%2b+%2a+operator');
+1 # rows (not including the header row)
+1 # columns
+DecodeURL('http://www.acme.it/search?q1=C+%26+opeator&q2=C%2b%2b+%2a+operator')
+http://www.acme.it/search?q1=C & opeator&q2=C++ * operator

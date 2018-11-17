@@ -1,0 +1,7 @@
+exportDXF - null geo_column
+:memory: #use in-memory database
+SELECT ExportDXF('testdir', 'test.dxf', 'sql', 'layer', NULL, 'label', 'height', 'rotation', BuildMBR(0, 0, 10, 10));
+1 # rows (not including the header row)
+1 # columns
+ExportDXF('testdir', 'test.dxf', 'sql', 'layer', NULL, 'label', 'height', 'rotation', BuildMBR(0, 0, 10, 10))
+0

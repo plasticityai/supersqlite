@@ -1,0 +1,7 @@
+ATM_YRoll() - invalid blob
+:memory: #use in-memory database
+SELECT ATM_YRoll(zeroblob(4), 15)
+1 # rows (not including the header row)
+1 # columns
+ATM_YRoll(zeroblob(4), 15)
+(NULL)

@@ -1,0 +1,7 @@
+floor(null) # text input, expecting null output
+:memory:
+SELECT floor("some text"); # the SQL to run
+1 # rows
+1 # columns
+floor("some text") # this is the header row
+(NULL) # this is really the result

@@ -1,0 +1,8 @@
+todms - invalid positive longitude
+:memory: #use in-memory database
+SELECT LongLatToDMS(211.5, 42);
+1 # rows (not including the header row)
+1 # columns
+LongLatToDMS(211.5, 42)
+(NULL)
+

@@ -1,0 +1,7 @@
+CastToInteger() - NULL
+:memory: #use in-memory database
+SELECT CastToInteger(NULL)
+1 # rows (not including the header row)
+1 # columns
+CastToInteger(NULL)
+(NULL)

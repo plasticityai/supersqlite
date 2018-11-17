@@ -1,0 +1,9 @@
+BdPolyFromText - text SRID
+:memory: #use in-memory database
+SELECT BdPolyFromText('MULTILINESTRING((0 0, 1 0, 1 1, 0 1, 0 0))', "not an int");
+1 # rows (not including the header row)
+1 # columns
+BdPolyFromText('MULTILINESTRING((0 0, 1 0, 1 1, 0 1, 0 0))', "not an int")
+(NULL)
+
+

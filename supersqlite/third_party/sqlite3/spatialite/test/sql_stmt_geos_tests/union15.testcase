@@ -1,0 +1,8 @@
+union - MULTILINESTRING and POINT
+:memory: #use in-memory database
+SELECT AsText(GUnion(GeomFromText("MULTILINESTRING((0 0, 2 0, 2 2, 0 2))"),GeomFromText("POINT(0 0)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(GUnion(GeomFromText("MULTILINESTRING((0 0, 2 0, 2 2, 0 2))"),GeomFromText("POINT(0 0)")))
+MULTILINESTRING((0 0, 2 0, 2 2, 0 2))
+

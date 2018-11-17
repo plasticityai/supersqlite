@@ -1,0 +1,7 @@
+importSHP - existing shapefile
+:memory: #use in-memory database
+SELECT ImportSHP('./shp/merano-3d/roads', 'shptable', 'UTF-8', 32632);
+1 # rows (not including the header row)
+1 # columns
+ImportSHP('./shp/merano-3d/roads', 'shptable', 'UTF-8', 32632)
+18

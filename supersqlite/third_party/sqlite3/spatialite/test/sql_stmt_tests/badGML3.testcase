@@ -1,0 +1,7 @@
+bad GML: Linestring
+:memory: #use in-memory database
+SELECT GeomFromGML('<gml:LineString srsName="EPSG:4326"><gml:coordinates>1.1,2.2 3.3,4.4</gml:coordinates></gml:LineString');
+1 # rows (not including the header row)
+1 # columns
+GeomFromGML('<gml:LineString srsName="EPSG:4326"><gml:coordinates>1.1,2.2 3.3,4.4</gml:coordinates></gml:LineString'):0
+(NULL)

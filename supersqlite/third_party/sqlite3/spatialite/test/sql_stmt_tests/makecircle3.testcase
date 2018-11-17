@@ -1,0 +1,8 @@
+makecircle3 - BLOB cx
+:memory: #use in-memory database
+SELECT MakeCircle(zeroblob(4), 0, 100);
+1 # rows (not including the header row)
+1 # columns
+MakeCircle(zeroblob(4), 0, 100)
+(NULL)
+

@@ -1,0 +1,7 @@
+SridFromAuthCRS - no such id
+:memory: #use in-memory database
+SELECT SridFromAuthCRS('gfoss.it', 9999999)
+1 # rows (not including the header row)
+1 # columns
+SridFromAuthCRS('gfoss.it', 9999999)
+-1

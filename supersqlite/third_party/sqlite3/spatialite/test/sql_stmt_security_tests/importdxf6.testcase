@@ -1,0 +1,7 @@
+importDXF - NULL mode
+:memory: #use in-memory database
+SELECT ImportDXF('sample.dxf', 4326, 1, 'AUTO', NULL, 'NONE', 'prefix', 'layer');
+1 # rows (not including the header row)
+1 # columns
+ImportDXF('sample.dxf', 4326, 1, 'AUTO', NULL, 'NONE', 'prefix', 'layer')
+(NULL)

@@ -1,0 +1,7 @@
+checkspatialmetadata - legacy 2.3.1
+test-legacy-2.3.1.sqlite #use special legacy database (version 2.3.1)
+SELECT CheckSpatialMetaData()
+1 # rows (not including the header row)
+1 # columns
+CheckSpatialMetaData()
+1

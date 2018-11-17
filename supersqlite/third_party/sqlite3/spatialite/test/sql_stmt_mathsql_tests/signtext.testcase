@@ -1,0 +1,7 @@
+sign-text
+:memory:
+SELECT sign("text"); # the SQL to run
+1 # rows
+1 # column
+sign("text") # this is the header row
+(NULL) # this is really the result

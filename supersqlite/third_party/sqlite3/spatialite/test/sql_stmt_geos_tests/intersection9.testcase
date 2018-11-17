@@ -1,0 +1,8 @@
+intersection - POLYGONZ, POINT
+:memory: #use in-memory database
+SELECT AsText(Intersection(GeomFromText("POLYGONZ((0 0 1, 4 0 1, 4 4 1, 0 4 1, 0 0 1))"), GeomFromText("POINT Z(0 3 1)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(Intersection(GeomFromText("POLYGONZ((0 0 1, 4 0 1, 4 4 1, 0 4 1, 0 0 1))"), GeomFromText("POINT Z(0 3 1)")))
+POINT Z(0 3 1)
+

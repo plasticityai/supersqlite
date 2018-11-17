@@ -1,0 +1,9 @@
+dissolve - toxic polygon
+:memory: #use in-memory database
+SELECT AsText(DissolveSegments(geom)),AsText(DissolvePoints(geom)) from (SELECT GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))") as geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+AsText(DissolveSegments(geom))
+AsText(DissolvePoints(geom))
+MULTILINESTRING((136 -35, 135.2 -34.5), (135.2 -34.5, 136 -35.2), (136 -35.2, 136 -35), (136 -35, 135.2 -34.5))
+MULTIPOINT(136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5)

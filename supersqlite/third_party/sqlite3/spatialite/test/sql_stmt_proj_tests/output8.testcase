@@ -1,0 +1,18 @@
+Output format tests - MULTIPOINT, WGS-84
+:memory: #use in-memory database
+SELECT AsText(geom), AsKML(geom), AsGML(geom), AsGeoJSON(geom), AsWkt(geom), AsEWkt(geom) FROM (SELECT GeomFromEWkt("SRID=4326;MULTIPOINT(0 0, 1 1, 0 2, -1 1)") as geom) dummy;
+1 # rows (not including the header row)
+6 # columns
+AsText(geom)
+AsKML(geom)
+AsGML(geom)
+AsGeoJSON(geom)
+AsWkt(geom)
+AsEWkt(geom)
+MULTIPOINT(0 0, 1 1, 0 2, -1 1)
+<MultiGeometry><Point><coordinates>0,0</coordinates></Point><Point><coordinates>1,1</coordinates></Point><Point><coordinates>0,2</coordinates></Point><Point><coordinates>-1,1</coordinates></Point></MultiGeometry>
+<gml:MultiPoint srsName="EPSG:4326"><gml:pointMember><gml:Point><gml:coordinates>0,0</gml:coordinates></gml:Point></gml:pointMember><gml:pointMember><gml:Point><gml:coordinates>1,1</gml:coordinates></gml:Point></gml:pointMember><gml:pointMember><gml:Point><gml:coordinates>0,2</gml:coordinates></gml:Point></gml:pointMember><gml:pointMember><gml:Point><gml:coordinates>-1,1</gml:coordinates></gml:Point></gml:pointMember></gml:MultiPoint>:0
+{"type":"MultiPoint","coordinates":[[0,0],[1,1],[0,2],[-1,1]]}:0
+MULTIPOINT(0 0,1 1,0 2,-1 1)
+SRID=4326;MULTIPOINT(0 0,1 1,0 2,-1 1)
+

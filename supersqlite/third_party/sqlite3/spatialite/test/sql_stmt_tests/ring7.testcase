@@ -1,0 +1,7 @@
+ExteriorRing - Simple Polygon ZM
+:memory: #use in-memory database
+SELECT AsText(ExteriorRing(GeomFromText("POLYGONZM((136 -35 4 0, 135.2 -34.5 6.5 1, 136 -35.2 9.4 2, 136 -35 4 0))")));
+1 # rows (not including the header row)
+1 # columns
+AsText(ExteriorRing(GeomFromText("POLYGONZM((136 -35 4 0, 135.2 -34.5 6.5 1, 136 -35.2 9.4 2, 136 -35 4 0))")))
+LINESTRING ZM(136 -35 4 0, 135.2 -34.5 6.5 1, 136 -35.2 9.4 2, 136 -35 4 0)

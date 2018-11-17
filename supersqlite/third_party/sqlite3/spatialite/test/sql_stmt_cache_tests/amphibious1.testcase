@@ -1,0 +1,9 @@
+GPKG amphibious mode - enable
+:memory:
+SELECT EnableGpkgAmphibiousMode(), GetGpkgAmphibiousMode();
+1 # rows
+2 # column
+EnableGpkgAmphibiousMode()
+GetGpkgAmphibiousMode()
+(NULL)
+1

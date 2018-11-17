@@ -1,0 +1,7 @@
+metres to decimetres
+:memory: #use in-memory database
+SELECT CvtToDm(21.50);
+1 # rows (not including the header row)
+1 # columns
+CvtToDm(21.50);
+215.0

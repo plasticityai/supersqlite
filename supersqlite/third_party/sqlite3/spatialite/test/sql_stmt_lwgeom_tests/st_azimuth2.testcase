@@ -1,0 +1,7 @@
+ST_Azimuth - -1 SRID points
+:memory: #use in-memory database
+SELECT ST_Azimuth(MakePoint(123456, 12345678.5, -1), MakePoint(123457, 12345679.5, -1));
+1 # rows (not including the header row)
+1 # columns
+ST_Azimuth(MakePoint(123456, 12345678.5, -1), MakePoint(123457, 12345679.5, -1));
+0.785398:6 

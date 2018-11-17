@@ -1,0 +1,7 @@
+fathoms to metres
+:memory: #use in-memory database
+SELECT CvtFromFath(546.806650);
+1 # rows (not including the header row)
+1 # columns
+CvtFromFath(546.806650)
+1000.0:6

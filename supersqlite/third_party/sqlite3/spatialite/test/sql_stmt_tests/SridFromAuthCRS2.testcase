@@ -1,0 +1,7 @@
+SridFromAuthCRS - non-integer second arg
+:memory: #use in-memory database
+SELECT SridFromAuthCRS("EPSG", "WGS084")
+1 # rows (not including the header row)
+1 # columns
+SridFromAuthCRS("EPSG", "WGS084")
+(NULL)

@@ -1,0 +1,7 @@
+SridGetAxis_2_Name() - TEXT SRID
+:memory: #use in-memory database
+SELECT SridGetAxis_2_Name('srid')
+1 # rows (not including the header row)
+1 # columns
+SridGetAxis_2_Name('srid')
+(NULL)

@@ -1,0 +1,10 @@
+fromdms - BLOB DMS expression
+:memory: #use in-memory database
+SELECT LongitudeFromDMS(zeroblob(4)), LatitudeFromDMS(zeroblob(4));
+1 # rows (not including the header row)
+2 # columns
+LongitudeFromDMS(zeroblob(4))
+LatitudeFromDMS(zeroblob(4))
+(NULL)
+(NULL)
+

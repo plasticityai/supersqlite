@@ -1,0 +1,7 @@
+casttomultipoint - bad blob
+:memory: #use in-memory database
+SELECT CastToMultiPoint(zeroblob(99))
+1 # rows (not including the header row)
+1 # columns
+CastToMultiPoint(zeroblob(99))
+(NULL)

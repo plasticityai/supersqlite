@@ -1,0 +1,7 @@
+convex hull - polygonZM
+:memory: #use in-memory database
+SELECT AsText(ConvexHull(GeomFromText("POLYGONZM((0 0 1 1, 1 0 3 2, 1 1 5 3, 2 1 5 4, 2 0 3 5, 10 0 1 6, 10 10 2 7, 0 10 2 2, 0 0 1 1))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(ConvexHull(GeomFromText("POLYGONZM((0 0 1 1, 1 0 3 2, 1 1 5 3, 2 1 5 4, 2 0 3 5, 10 0 1 6, 10 10 2 7, 0 10 2 2, 0 0 1 1))")))
+POLYGON ZM((0 0 1 0, 0 10 2 0, 10 10 2 0, 10 0 1 0, 0 0 1 0))

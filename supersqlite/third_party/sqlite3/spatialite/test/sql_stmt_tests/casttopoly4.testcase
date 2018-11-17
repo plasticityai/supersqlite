@@ -1,0 +1,7 @@
+casttopolygon - Geometry collection, point plus linestring
+:memory: #use in-memory database
+SELECT CastToPolygon(GeomFromText("GEOMETRYCOLLECTION(LINESTRING(4 3, 4 1),POINT(1 2))"))
+1 # rows (not including the header row)
+1 # columns
+CastToPolygon(GeomFromText("GEOMETRYCOLLECTION(LINESTRING(4 3, 4 1),POINT(1 2))"))
+(NULL)

@@ -1,0 +1,7 @@
+CreateTopology - 2 arguments, 3D int
+NEW:memory: #use in-memory database
+SELECT CreateTopologyTables(4326, 3);
+1 # rows (not including the header row)
+1 # columns
+CreateTopologyTables(4326, 3)
+1

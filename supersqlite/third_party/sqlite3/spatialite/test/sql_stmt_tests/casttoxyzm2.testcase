@@ -1,0 +1,7 @@
+casttoxyzm - non-blob
+:memory: #use in-memory database
+SELECT CastToXYZM(4)
+1 # rows (not including the header row)
+1 # columns
+CastToXYZM(4)
+(NULL)

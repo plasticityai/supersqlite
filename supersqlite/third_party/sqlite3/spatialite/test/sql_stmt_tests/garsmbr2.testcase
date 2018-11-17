@@ -1,0 +1,7 @@
+garsmbr - bad text
+:memory: #use in-memory database
+SELECT GARSMbr("buzzys country store")
+1 # rows (not including the header row)
+1 # columns
+GARSMbr("buzzys country store")
+(NULL)

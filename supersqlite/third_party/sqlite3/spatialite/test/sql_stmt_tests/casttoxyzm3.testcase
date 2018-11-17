@@ -1,0 +1,7 @@
+casttoxy - POINT
+:memory: #use in-memory database
+SELECT AsText(CastToXYZM(GeomFromText("POINTZM(4 3 10 20)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(CastToXYZM(GeomFromText("POINTZM(4 3 10 20)")))
+POINT ZM(4 3 10 20)

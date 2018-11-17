@@ -1,0 +1,7 @@
+CreateTopology - 3 arguments, integer prefix (error)
+:memory: #use in-memory database
+SELECT CreateTopologyTables(3, 4326, 3);
+1 # rows (not including the header row)
+1 # columns
+CreateTopologyTables(3, 4326, 3)
+0

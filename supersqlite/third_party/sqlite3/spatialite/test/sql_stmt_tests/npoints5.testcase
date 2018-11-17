@@ -1,0 +1,7 @@
+npoints - Polygon plus linestring
+:memory: #use in-memory database
+SELECT ST_NPoints(GeomFromText("GeometryCollection(POLYGON((1 2, 3 4, 5 0, 1 2), (1.6 2.1, 1.7 2.1, 1.7 2.2, 1.6 2.2, 1.6 2.1)), LINESTRING(1 3, 4 6))"))
+1 # rows (not including the header row)
+1 # columns
+ST_NPoints(GeomFromText("GeometryCollection(POLYGON((1 2, 3 4, 5 0, 1 2), (1.6 2.1, 1.7 2.1, 1.7 2.2, 1.6 2.2, 1.6 2.1)), LINESTRING(1 3, 4 6))"))
+11

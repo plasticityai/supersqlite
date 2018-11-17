@@ -1,0 +1,7 @@
+XB_LoadXML - BLOB input
+:memory: #use in-memory database
+SELECT XB_LoadXML(zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+XB_LoadXML(zeroblob(4))
+(NULL)

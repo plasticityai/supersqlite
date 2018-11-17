@@ -1,0 +1,7 @@
+logn(text, double)
+:memory: #use in-memory database
+SELECT log("text", 0);
+1 # rows (not including the header row)
+1 # columns
+log("text", 0) # header
+(NULL) #result

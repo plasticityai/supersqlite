@@ -1,0 +1,8 @@
+FromGeoJSON - MULTIPOLYGON with SRID
+:memory: #use in-memory database
+SELECT AsEWkt(GeomFromGeoJSON('{"type":"MultiPolygon","crs":{"type":"name","properties":{"name":"EPSG:3003"}},"coordinates":[[[[10,10],[0,10],[0,0],[0,10],[10,10]]],[[[-10,-10],[-10,10],[10,10],[10,-10],[-10,-10]],[[-8,-8],[-2,-8],[-2,-2],[-8,-2],[-8,-8]],[[8,8],[2,8],[2,2],[8,2],[8,8]]]]}'))
+1 # rows (not including the header row)
+1 # columns
+AsEWkt(GeomFromGeoJSON('{"type":"MultiPolygon","crs":{"type":"name","properties":{"name":"EPSG:3003"}},"coordinates":[[[[10,10],[0,10],[0,0],[0,10],[10,10]]],[[[-10,-10],[-10,10],[10,10],[10,-10],[-10,-10]],[[-8,-8],[-2,-8],[-2,-2],[-8,-2],[-8,-8]],[[8,8],[2,8],[2,2],[8,2],[8,8]]]]}')):0
+SRID=3003;MULTIPOLYGON(((10 10,0 10,0 0,0 10,10 10)),((-10 -10,-10 10,10 10,10 -10,-10 -10),(-8 -8,-2 -8,-2 -2,-8 -2,-8 -8),(8 8,2 8,2 2,8 2,8 8)))
+

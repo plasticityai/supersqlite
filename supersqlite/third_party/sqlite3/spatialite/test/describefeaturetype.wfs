@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.regione.toscana.it/" xmlns:sita="http://www.regione.toscana.it/" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml" elementFormDefault="qualified" version="1.0">
+<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/2.1.2/feature.xsd"/>
+<xs:element name="idcomuni.rt.poly" type="sita:idcomuni.rt.polyType" substitutionGroup="gml:_Feature"/>
+<xs:complexType name="idcomuni.rt.polyType">
+ <xs:complexContent>
+  <xs:extension base="gml:AbstractFeatureType">
+   <xs:sequence>
+    <xs:element name="gid" type="int" nillable="false" minOccurs="1" maxOccurs="1"/>
+    <xs:element name="area" type="double" nillable="true" minOccurs="0" maxOccurs="1"/>
+    <xs:element name="perimeter" type="double" nillable="true" minOccurs="0" maxOccurs="1"/>
+    <xs:element name="am_com_" type="double" nillable="true" minOccurs="0" maxOccurs="1"/>
+    <xs:element name="am_com_id" type="double" nillable="true" minOccurs="0" maxOccurs="1"/>
+    <xs:element name="codcom" nillable="true" minOccurs="0" maxOccurs="1">
+<xs:simpleType><xs:restriction base="string"><xs:maxLength value="6"/></xs:restriction></xs:simpleType></xs:element>    <xs:element name="nome" nillable="true" minOccurs="0" maxOccurs="1">
+<xs:simpleType><xs:restriction base="string"><xs:maxLength value="100"/></xs:restriction></xs:simpleType></xs:element>    <xs:element name="codprov" nillable="true" minOccurs="0" maxOccurs="1">
+<xs:simpleType><xs:restriction base="string"><xs:maxLength value="3"/></xs:restriction></xs:simpleType></xs:element>    <xs:element name="geometry" type="gml:MultiPolygonPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+   </xs:sequence>
+  </xs:extension>
+ </xs:complexContent>
+</xs:complexType>
+</xs:schema>

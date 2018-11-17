@@ -1,0 +1,7 @@
+collect - step non-blob
+:memory: #use in-memory database
+SELECT AsText(Collect(geom)) FROM (SELECT 300 as geom) dummy;
+1 # rows (not including the header row)
+1 # columns
+AsText(Collect(geom))
+(NULL)

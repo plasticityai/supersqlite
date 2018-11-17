@@ -1,0 +1,8 @@
+RegisterExternalGraphic - NULL URL
+:memory: #use in-memory database
+SELECT SE_RegisterExternalGraphic(NULL, NULL);
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterExternalGraphic(NULL, NULL)
+-1
+

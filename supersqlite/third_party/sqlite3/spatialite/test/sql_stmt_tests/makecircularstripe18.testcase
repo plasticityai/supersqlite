@@ -1,0 +1,8 @@
+makecircularstripe18 - BLOB srid
+:memory: #use in-memory database
+SELECT MakeCircularStripe(0, 0, 100, 90, 30, 60, zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+MakeCircularStripe(0, 0, 100, 90, 30, 60, zeroblob(4))
+(NULL)
+

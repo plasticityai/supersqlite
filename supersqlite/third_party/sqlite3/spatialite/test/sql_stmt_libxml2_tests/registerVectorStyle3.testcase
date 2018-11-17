@@ -1,0 +1,8 @@
+RegisterVectorStyle - Double style
+:memory: #use in-memory database
+SELECT SE_RegisterVectorStyle(1.1);
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterVectorStyle(1.1)
+-1
+

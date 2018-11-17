@@ -1,0 +1,7 @@
+dimension1 - POINT
+:memory: #use in-memory database
+SELECT Dimension(GeomFromText("POINT(-71.1043443253471 42.315067601582900)"));
+1 # rows (not including the header row)
+1 # columns
+Dimension(GeomFromText("POINT(-71.1043443253471 42.315067601582900)"))
+0

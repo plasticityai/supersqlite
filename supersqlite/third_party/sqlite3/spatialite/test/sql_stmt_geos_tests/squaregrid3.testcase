@@ -1,0 +1,9 @@
+SquareGrid - Point geom
+:memory: #use in-memory database
+SELECT SquareGrid(MakePoint(1, 1, 4326), 1.0);
+1 # rows (not including the header row)
+1 # columns
+SquareGrid(MakePoint(1, 1, 4326), 1.0)
+(NULL)
+
+

@@ -1,0 +1,7 @@
+ImportWFS - NULL input
+:memory: #use in-memory database
+SELECT ImportWFS(NULL, 'layer', 'table');
+1 # rows (not including the header row)
+1 # columns
+ImportWFS(NULL, 'layer', 'table')
+(NULL)

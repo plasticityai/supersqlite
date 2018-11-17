@@ -1,0 +1,7 @@
+isvalid (POLYGONZM with hole)
+:memory: #use in-memory database
+SELECT IsValid(GeomFromText("POLYGONZM((10 10 100 1, 15 10 101 2, 15 15 102 3, 10 15 103 4, 10 10 100 1), (11 11 100 1, 12 11 101 2, 12 12 102 3, 11 12 103 4, 11 11 100 1))"));
+1 # rows (not including the header row)
+1 # columns
+IsValid(GeomFromText("POLYGONZM((10 10 100 1, 15 10 101 2, 15 15 102 3, 10 15 103 4, 10 10 100 1), (11 11 100 1, 12 11 101 2, 12 12 102 3, 11 12 103 4, 11 11 100 1))"))
+1

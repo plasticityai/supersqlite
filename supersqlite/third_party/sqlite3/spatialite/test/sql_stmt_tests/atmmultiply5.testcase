@@ -1,0 +1,7 @@
+ATM_Multiply() - invalid arg2
+:memory: #use in-memory database
+SELECT ATM_Multiply(ATM_Create(), 1)
+1 # rows (not including the header row)
+1 # columns
+ATM_Multiply(ATM_Create(), 1)
+(NULL)

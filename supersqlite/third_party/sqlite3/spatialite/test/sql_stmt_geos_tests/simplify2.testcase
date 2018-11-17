@@ -1,0 +1,10 @@
+Simplify - linestring
+:memory: #use in-memory database
+SELECT AsText(Simplify(geom, 0.1)), AsText(SimplifyPreserveTopology(geom, 0.1)) FROM (SELECT GeomFromText("LINESTRING(1 2, 4.0001 4.9999, 4 5)") as geom) dummy
+1 # rows (not including the header row)
+2 # columns
+AsText(Simplify(geom, 0.1))
+AsText(SimplifyPreserveTopology(geom, 0.1))
+LINESTRING(1 2, 4 5)
+LINESTRING(1 2, 4 5)
+

@@ -1,0 +1,7 @@
+exportDXF - NULL precision
+:memory: #use in-memory database
+SELECT ExportDXF('.', 'test12345.dxf', 'sql', 'layer', 'geom', 'label', 'height', 'rotation', BuildMBR(0, 0, 10, 10), NULL);
+1 # rows (not including the header row)
+1 # columns
+ExportDXF('.', 'test12345.dxf', 'sql', 'layer', 'geom', 'label', 'height', 'rotation', BuildMBR(0, 0, 10, 10), NULL)
+0

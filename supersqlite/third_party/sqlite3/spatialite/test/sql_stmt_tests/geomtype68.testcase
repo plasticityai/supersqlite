@@ -1,0 +1,11 @@
+geometrytype - MULTILINESTRINGZM - one line
+:memory: #use in-memory database
+SELECT GeometryType(geom), CoordDimension(geom), GeometryAliasType(geom) from (SELECT GeomFromText("MULTILINESTRINGZM((30 20 1 2, 10 40 1 2, 45 40 1 2, 30 20 1 2))") as geom) dummy;
+1 # rows (not including the header row)
+3 # columns
+GeometryType(geom)
+CoordDimension(geom)
+GeometryAliasType(geom)
+MULTILINESTRING ZM
+XYZM
+MULTILINESTRING

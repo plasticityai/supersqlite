@@ -1,0 +1,7 @@
+ST_MakeValidDiscarded - already valid Polygon
+:memory: #use in-memory database
+SELECT ST_MakeValidDiscarded(GeomFromText('POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))'));
+1 # rows (not including the header row)
+1 # columns
+ST_MakeValidDiscarded(GeomFromText('POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))'))
+(NULL)

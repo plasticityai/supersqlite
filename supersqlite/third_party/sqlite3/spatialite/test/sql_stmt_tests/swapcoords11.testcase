@@ -1,0 +1,7 @@
+swapcoords11
+:memory: #use in-memory database
+SELECT AsText(SwapCoords(GeomFromText("POLYGONZM((10 10 100 1, 20 10 101 2, 20 20 102 3, 10 20 103 4, 10 10 100 1), (14 14 100 1, 16 14 101 2, 16 16 102 3, 14 16 103 4, 14 14 100 1))")));
+1 # rows (not including the header row)
+1 # columns
+AsText(SwapCoords(GeomFromText("POLYGONZM((10 10 100 1, 20 10 101 2, 20 20 102 3, 10 20 103 4, 10 10 100 1), (14 14 100 1, 16 14 101 2, 16 16 102 3, 14 16 103 4, 14 14 100 1))")));
+POLYGON ZM((10 10 100 1, 10 20 101 2, 20 20 102 3, 20 10 103 4, 10 10 100 1), (14 14 100 1, 14 16 101 2, 16 16 102 3, 16 14 103 4, 14 14 100 1))

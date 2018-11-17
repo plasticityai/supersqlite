@@ -1,0 +1,8 @@
+HausdorffDistance - bad blob second arg
+:memory: #use in-memory database
+SELECT HausdorffDistance(GeomFromText("LINESTRING(0 0, 10 0)"), zeroblob(40))
+1 # rows (not including the header row)
+1 # columns
+HausdorffDistance(GeomFromText("LINESTRING(0 0, 10 0)"), zeroblob(40))
+(NULL)
+

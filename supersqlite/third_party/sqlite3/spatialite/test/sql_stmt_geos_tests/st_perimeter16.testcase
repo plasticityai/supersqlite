@@ -1,0 +1,7 @@
+ST_Perimeter - GeometryCollection  (Long/Lat metric - GreatCircle)
+:memory: #use in-memory database
+SELECT ST_Perimeter(GeomFromText("GEOMETRYCOLLECTION(POINT(0.1 0.1), LINESTRING(0.7 0.7, 0.7 0.8, 0.8 0.8, 0.8 0.7, 0.7 0.8), POLYGON((0.5 0.5, 0.5 0.6, 0.6 0.6, 0.6 0.5, 0.5 0.5),(0.55 0.55, 0.56 0.55, 0.56 0.56, 0.56 0.56, 0.055 0.55)))"), 0);
+1 # rows (not including the header row)
+1 # columns
+ST_Perimeter(GeomFromText("GEOMETRYCOLLECTION(POINT(0.1 0.1), LINESTRING(0.7 0.7, 0.7 0.8, 0.8 0.8, 0.8 0.7, 0.7 0.8), POLYGON((0.5 0.5, 0.5 0.6, 0.6 0.6, 0.6 0.5, 0.5 0.5),(0.55 0.55, 0.56 0.55, 0.56 0.56, 0.56 0.56, 0.055 0.55)))"), 0)
+102862.738784:6

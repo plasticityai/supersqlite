@@ -1,0 +1,11 @@
+geometrytype - MULTIPOINTZM
+:memory: #use in-memory database
+SELECT GeometryType(geom), CoordDimension(geom), GeometryAliasType(geom) from (SELECT GeomFromText("MULTIPOINTZM (10 40 10 1, 40 30 15 2, 20 20 20 2, 30 10 9 1)") as geom) dummy;
+1 # rows (not including the header row)
+3 # columns
+GeometryType(geom)
+CoordDimension(geom)
+GeometryAliasType(geom)
+MULTIPOINT ZM
+XYZM
+MULTIPOINT

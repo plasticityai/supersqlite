@@ -1,0 +1,7 @@
+makepoint4
+:memory: #use in-memory database
+SELECT AsText(MakePoint(-71, 42, 4326));
+1 # rows (not including the header row)
+1 # columns
+AsText(MakePoint(-71, 42, 4326))
+POINT(-71 42)

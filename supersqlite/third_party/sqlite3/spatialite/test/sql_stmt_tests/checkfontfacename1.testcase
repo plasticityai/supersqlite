@@ -1,0 +1,7 @@
+CheckFontFaceName - NULL facename
+NEW:memory: #use in-memory database
+SELECT CheckFontFaceName(NULL, zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+CheckFontFaceName(NULL, zeroblob(4))
+-1

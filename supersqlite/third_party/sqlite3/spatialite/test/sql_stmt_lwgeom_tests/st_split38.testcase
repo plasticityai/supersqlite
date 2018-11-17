@@ -1,0 +1,7 @@
+ST_SplitlRight - Line-Point (split)
+:memory: #use in-memory database
+SELECT AsText(ST_SplitRight(GeomFromText('LINESTRING(0 0, 10 0)'), MakePoint(7, 0)));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_SplitRight(GeomFromText('LINESTRING(0 0, 10 0)'), MakePoint(7, 0)))
+LINESTRING(7 0, 10 0)

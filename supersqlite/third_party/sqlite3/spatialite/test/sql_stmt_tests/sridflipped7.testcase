@@ -1,0 +1,7 @@
+SridHasFlippedAxes() - 32632
+:memory: #use in-memory database
+SELECT SridHasFlippedAxes(32632)
+1 # rows (not including the header row)
+1 # columns
+SridHasFlippedAxes(32632)
+0

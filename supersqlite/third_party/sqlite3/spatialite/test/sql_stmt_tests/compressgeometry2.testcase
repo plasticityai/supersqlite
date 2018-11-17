@@ -1,0 +1,7 @@
+CompressGeometry - bad blob
+:memory: #use in-memory database
+SELECT CompressGeometry(zeroblob(50))
+1 # rows (not including the header row)
+1 # columns
+CompressGeometry(zeroblob(50))
+(NULL)

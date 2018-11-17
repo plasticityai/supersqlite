@@ -1,0 +1,9 @@
+PointOnSurface - null blob
+:memory: #use in-memory database
+SELECT PointOnSurface(zeroblob(40));
+1 # rows (not including the header row)
+1 # columns
+PointOnSurface(zeroblob(40))
+(NULL)
+
+

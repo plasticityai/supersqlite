@@ -1,0 +1,7 @@
+SridIsGeographic() - 32632
+:memory: #use in-memory database
+SELECT SridIsGeographic(32632)
+1 # rows (not including the header row)
+1 # columns
+SridIsGeographic(32632)
+0

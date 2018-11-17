@@ -1,0 +1,7 @@
+polygonfromtext1
+:memory: #use in-memory database
+SELECT AsWkt(PolygonFromText("POLYGON((-71 42, -70 41, -70 42, -70 42, -71 42))"), 4);
+1 # rows (not including the header row)
+1 # columns
+AsWkt(PolygonFromText("POLYGON((-71 42, -70 41, -70 42, -70 42, -71 42))"), 4)
+POLYGON((-71 42,-70 41,-70 42,-70 42,-71 42))

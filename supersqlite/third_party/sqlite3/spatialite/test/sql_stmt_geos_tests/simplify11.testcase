@@ -1,0 +1,8 @@
+SimplifyPreserveTopology - zeroblob arg
+:memory: #use in-memory database
+SELECT SimplifyPreserveTopology(zeroblob(1000), 0)
+1 # rows (not including the header row)
+1 # columns
+SimplifyPreserveTopology(zeroblob(1000), 0)
+(NULL)
+

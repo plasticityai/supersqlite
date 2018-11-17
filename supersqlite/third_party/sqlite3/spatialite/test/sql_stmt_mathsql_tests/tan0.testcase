@@ -1,0 +1,7 @@
+tan(0)
+:memory: #use in-memory database
+SELECT tan(0);
+1 # rows (not including the header row)
+1 # columns
+tan(0) # header
+0.0 #result

@@ -1,0 +1,7 @@
+isclosed4
+:memory: #use in-memory database
+SELECT IsClosed(zeroblob(10));
+1 # rows (not including the header row)
+1 # columns
+IsClosed(zeroblob(10))
+-1

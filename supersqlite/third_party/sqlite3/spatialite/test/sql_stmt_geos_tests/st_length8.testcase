@@ -1,0 +1,7 @@
+ST_Length - toxic linestring
+:memory: #use in-memory database
+SELECT ST_Length(GeomFromText('LINESTRING(1 1, 1 1)'));
+1 # rows (not including the header row)
+1 # columns
+ST_Length(GeomFromText('LINESTRING(1 1, 1 1)'))
+0.0

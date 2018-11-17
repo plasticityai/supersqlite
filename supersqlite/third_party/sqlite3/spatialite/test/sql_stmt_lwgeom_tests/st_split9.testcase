@@ -1,0 +1,7 @@
+ST_Split - Polygon-Multiline (error)
+:memory: #use in-memory database
+SELECT ST_Split(GeomFromText('POLYGON((0 1, 10 1, 10 10, 0 10, 0 1))'), GeomFromText('MULTILINESTRING((3 0, 3 3), (5 0, 5 3))'));
+1 # rows (not including the header row)
+1 # columns
+ST_Split(GeomFromText('POLYGON((0 1, 10 1, 10 10, 0 10, 0 1))'), GeomFromText('MULTILINESTRING((3 0, 3 3), (5 0, 5 3))'))
+(NULL)

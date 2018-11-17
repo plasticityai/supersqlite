@@ -1,0 +1,8 @@
+ShortestLine - non-blob first arg
+:memory: #use in-memory database
+SELECT ShortestLine(3, GeomFromText("POINT(10 2)"))
+1 # rows (not including the header row)
+1 # columns
+ShortestLine(3, GeomFromText("POINT(10 2)"))
+(NULL)
+

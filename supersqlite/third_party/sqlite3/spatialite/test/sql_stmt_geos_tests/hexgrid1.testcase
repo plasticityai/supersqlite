@@ -1,0 +1,9 @@
+HexagonalGrid - NULL geom
+:memory: #use in-memory database
+SELECT HexagonalGrid(NULL, 1.0);
+1 # rows (not including the header row)
+1 # columns
+HexagonalGrid(NULL, 1.0)
+(NULL)
+
+

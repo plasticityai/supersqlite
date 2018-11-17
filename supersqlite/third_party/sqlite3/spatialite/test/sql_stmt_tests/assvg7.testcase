@@ -1,0 +1,7 @@
+assvg - 3 arg negative precision
+:memory: #use in-memory database
+SELECT assvg(GeomFromText("Point(1.3759 2)", 4326), 0, -1)
+1 # rows (not including the header row)
+1 # columns
+assvg(GeomFromText("Point(1.3759 2)", 4326), 0, -1)
+cx="1" cy="-2"

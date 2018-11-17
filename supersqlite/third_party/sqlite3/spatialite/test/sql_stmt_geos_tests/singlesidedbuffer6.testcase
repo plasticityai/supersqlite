@@ -1,0 +1,7 @@
+singlesidedbuffer - bad blob, float radius, right side (error)
+:memory: #use in-memory database
+SELECT AsText(SingleSidedBuffer(zeroblob(20), 3.5, 0));
+1 # rows (not including the header row)
+1 # columns
+AsText(SingleSidedBuffer(zeroblob(20), 3.5, 0))
+(NULL)

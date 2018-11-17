@@ -1,0 +1,7 @@
+bad WKT: Point
+:memory: #use in-memory database
+SELECT GeomFromText("POINT(11.2 12.3");
+1 # rows (not including the header row)
+1 # columns
+GeomFromText("POINT(11.2 12.3");
+(NULL)

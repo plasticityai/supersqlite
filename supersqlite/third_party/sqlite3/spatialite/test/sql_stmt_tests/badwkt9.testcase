@@ -1,0 +1,7 @@
+bad WKT: illegal Point
+:memory: #use in-memory database
+SELECT PointFromText("LINESTRING(11.3 12.4, 11.4 12.4)");
+1 # rows (not including the header row)
+1 # columns
+PointFromText("LINESTRING(11.3 12.4, 11.4 12.4)")
+(NULL)

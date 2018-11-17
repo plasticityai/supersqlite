@@ -1,0 +1,7 @@
+RegisterVectorCoverage - valid - long form
+:memory: #use in-memory database
+SELECT SE_RegisterVectorCoverage('alpha', 'table', 'geom', 'title', 'abstract');
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterVectorCoverage('alpha', 'table', 'geom', 'title', 'abstract')
+0

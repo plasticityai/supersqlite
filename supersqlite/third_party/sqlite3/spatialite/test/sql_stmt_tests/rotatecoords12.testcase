@@ -1,0 +1,19 @@
+rotate coords - Two ring polygonz
+:memory: #use in-memory database
+SELECT AsText(RotateCoords(geom, 0)), AsText(RotateCoords(geom, 90.0)), AsText(RotateCoords(geom, 180.0)), AsText(RotateCoords(geom, -90)), RotateCoords(zeroblob(20), 10), RotateCoords(geom, "hello"), RotateCoords("foo", 30) FROM (SELECT GeomFromText("POLYGONZ((0 0 1, 2 2 2, 2 4 3, -2 2 4, 0 0 1),(0 0 5, 1 1 6, 1 2 7, -1 1 8, 0 0 5))") as geom) dummy;
+1 # rows (not including the header row)
+7 # columns
+AsText(RotateCoords(geom, 0))
+AsText(RotateCoords(geom, 90.0))
+AsText(RotateCoords(geom, 180.0))
+AsText(RotateCoords(geom, -90))
+RotateCoords(zeroblob(20), 10)
+RotateCoords(geom, "hello")
+RotateCoords("foo", 30)
+POLYGON Z((0 0 1, 2 2 2, 2 4 3, -2 2 4, 0 0 1), (0 0 5, 1 1 6, 1 2 7, -1 1 8, 0 0 5))
+POLYGON Z((0 0 1, 2 -2 2, 4 -2 3, 2 2 4, 0 0 1), (0 0 5, 1 -1 6, 2 -1 7, 1 1 8, 0 0 5))
+POLYGON Z((0 0 1, -2 -2 2, -2 -4 3, 2 -2 4, 0 0 1), (0 0 5, -1 -1 6, -1 -2 7, 1 -1 8, 0 0 5))
+POLYGON Z((0 0 1, -2 2 2, -4 2 3, -2 -2 4, 0 0 1), (0 0 5, -1 1 6, -2 1 7, -1 -1 8, 0 0 5))
+(NULL)
+(NULL)
+(NULL)

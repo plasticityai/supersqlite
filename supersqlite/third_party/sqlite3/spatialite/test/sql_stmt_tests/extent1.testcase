@@ -1,0 +1,8 @@
+extent - non-blob
+:memory: #use in-memory database
+SELECT Extent(3)
+1 # rows (not including the header row)
+1 # columns
+Extent(3)
+(NULL)
+

@@ -1,0 +1,7 @@
+ATM_CreateZRoll() - invalid
+:memory: #use in-memory database
+SELECT ATM_CreateZRoll('a')
+1 # rows (not including the header row)
+1 # columns
+ATM_CreateZRoll('a')
+(NULL)

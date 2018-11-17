@@ -1,0 +1,7 @@
+startpoint - bad blob (error)
+:memory: #use in-memory database
+SELECT StartPoint(zeroblob(10));
+1 # rows (not including the header row)
+1 # columns
+StartPoint(zeroblob(10))
+(NULL)

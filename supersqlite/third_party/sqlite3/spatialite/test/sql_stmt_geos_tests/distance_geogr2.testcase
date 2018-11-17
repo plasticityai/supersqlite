@@ -1,0 +1,8 @@
+Distance Long/Lat metric (great circle) - two 3D points
+:memory: #use in-memory database
+SELECT ST_Distance(MakePointZ(11.1, 42.1, 0.1), MakePointZ(11.2, 42.2, 0.2), 0);
+1 # rows (not including the header row)
+1 # columns
+ST_Distance(MakePointZ(11.1, 42.1, 0.1), MakePointZ(11.2, 42.2, 0.2), 0)
+13842.154368:6
+

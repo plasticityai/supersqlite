@@ -1,0 +1,8 @@
+FromGeoJSON - geometry collection, SRID
+:memory: #use in-memory database
+SELECT AsEWkt(GeomFromGeoJSON('{"type":"GeometryCollection","crs":{"type":"name","properties":{"name":"EPSG:3003"}},"bbox":[4,3,13,10],"geometries":[{"type":"Point","coordinates":[4,6]},{"type":"Polygon","coordinates":[[[4,6],[7,10],[13,3],[4,6]]]}]}'))
+1 # rows (not including the header row)
+1 # columns
+AsEWkt(GeomFromGeoJSON('{"type":"GeometryCollection","crs":{"type":"name","properties":{"name":"EPSG:3003"}},"bbox":[4,3,13,10],"geometries":[{"type":"Point","coordinates":[4,6]},{"type":"Polygon","coordinates":[[[4,6],[7,10],[13,3],[4,6]]]}]}')):0
+SRID=3003;GEOMETRYCOLLECTION(POINT(4 6),POLYGON((4 6,7 10,13 3,4 6)))
+

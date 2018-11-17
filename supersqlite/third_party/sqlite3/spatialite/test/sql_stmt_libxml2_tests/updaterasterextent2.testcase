@@ -1,0 +1,8 @@
+UpdateRasterCoverageExtent - NULL coverage
+:memory: #use in-memory database
+SELECT SE_UpdateRasterCoverageExtent(NULL);
+1 # rows (not including the header row)
+1 # columns
+SE_UpdateRasterCoverageExtent(NULL)
+-1
+

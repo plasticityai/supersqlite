@@ -1,0 +1,7 @@
+eval(NULL)
+:memory: #use in-memory database
+SELECT eval(NULL)
+1 # rows (not including the header row)
+1 # columns
+eval(NULL)
+(NULL)

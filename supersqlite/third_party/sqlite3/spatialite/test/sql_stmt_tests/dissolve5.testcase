@@ -1,0 +1,7 @@
+dissolvePoints - zeroblob input
+:memory: #use in-memory database
+SELECT DissolvePoints(zeroblob(126))
+1 # rows (not including the header row)
+1 # columns
+DissolvePoints(zeroblob(126))
+(NULL)

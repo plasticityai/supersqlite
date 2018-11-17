@@ -1,0 +1,8 @@
+makeellipticsector23 - NULL step
+:memory: #use in-memory database
+SELECT MakeEllipticSector(0, 0, 100, 200, 30, 60, 4326, NULL);
+1 # rows (not including the header row)
+1 # columns
+MakeEllipticSector(0, 0, 100, 200, 30, 60, 4326, NULL)
+(NULL)
+

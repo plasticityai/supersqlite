@@ -1,0 +1,7 @@
+casttomultipolygon - bad blob
+:memory: #use in-memory database
+SELECT CastToMultiPolygon(zeroblob(99))
+1 # rows (not including the header row)
+1 # columns
+CastToMultiPolygon(zeroblob(99))
+(NULL)

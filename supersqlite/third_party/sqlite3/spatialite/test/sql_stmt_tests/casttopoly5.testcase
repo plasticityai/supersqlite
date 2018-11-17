@@ -1,0 +1,7 @@
+casttopoly - Geometry collection, point plus polygon
+:memory: #use in-memory database
+SELECT CastToPolygon(GeomFromText("GEOMETRYCOLLECTION(POLYGON((4 3, 4 1, 0 3, 4 3)),POINT(1 2))"))
+1 # rows (not including the header row)
+1 # columns
+CastToPolygon(GeomFromText("GEOMETRYCOLLECTION(POLYGON((4 3, 4 1, 0 3, 4 3)),POINT(1 2))"))
+(NULL)

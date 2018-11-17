@@ -1,0 +1,11 @@
+ST_MakeValid - invalid MultiPolygon [discarded items]
+:memory: #use in-memory database
+SELECT IsValid(v.v), NumGeometries(v.v), GeometryType(v.v) FROM (SELECT MakeValid(g.g) AS v FROM (SELECT GeomFromText ('MULTIPOLYGON(((0 0, 1 0, 1 2, 1 1, 0 1, 0 0)), ((2 2, 3 2, 3 2.5, 2.5 2.5, 3 2.5, 3 3, 2 3, 2 2)))') AS g) AS g) AS v;
+1 # rows (not including the header row)
+3 # columns
+IsValid(v.v)
+NumGeometries(v.v)
+GeometryType(v.v)
+1
+2
+MULTIPOLYGON

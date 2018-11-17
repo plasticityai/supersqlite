@@ -1,0 +1,9 @@
+Collection Extract - Extract POLYGONZ
+:memory: #use in-memory database
+SELECT AsText(CollectionExtract(GeomFromText("POLYGONZ((0 0 1, 10 0 2, 10 10 1, 0 0 1),(1 2 4, 4 3 1, 1 1 1, 1 2 4))"), 3));
+1 # rows (not including the header row)
+1 # columns
+AsText(CollectionExtract(GeomFromText("POLYGONZ((0 0 1, 10 0 2, 10 10 1, 0 0 1),(1 2 4, 4 3 1, 1 1 1, 1 2 4))"), 3))
+POLYGON Z((0 0 1, 10 0 2, 10 10 1, 0 0 1), (1 2 4, 4 3 1, 1 1 1, 1 2 4))
+
+

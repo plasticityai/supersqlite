@@ -1,0 +1,8 @@
+makepolygon - TEXT exterior
+:memory: #use in-memory database
+SELECT MakePolygon('alpha');
+1 # rows (not including the header row)
+1 # columns
+MakePolygon('alpha')
+(NULL)
+

@@ -1,0 +1,8 @@
+makeellipticarc17 - BLOB stop
+:memory: #use in-memory database
+SELECT MakeEllipticArc(0, 0, 100, 200, 30, zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+MakeEllipticArc(0, 0, 100, 200, 30, zeroblob(4))
+(NULL)
+

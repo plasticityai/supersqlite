@@ -1,0 +1,7 @@
+ST_Area - text (error)
+:memory: #use in-memory database
+SELECT ST_Area("hello");
+1 # rows (not including the header row)
+1 # columns
+ST_Area("hello")
+(NULL)

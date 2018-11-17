@@ -1,0 +1,7 @@
+exportKML - NULL description_column
+:memory: #use in-memory database
+SELECT ExportKML('table', 'geom', 'sample.kml', 6, 'name', NULL);
+1 # rows (not including the header row)
+1 # columns
+ExportKML('table', 'geom', 'sample.kml', 6, 'name', NULL)
+(NULL)

@@ -1,0 +1,7 @@
+ST_Area Geodesic - valid Polygon - Sphere/Equator
+:memory: #use in-memory database
+SELECT ST_Area(GeomFromText("POLYGON((-0.4 -0.4, -0.4 4, 4 4, 4 -0.4, -0.4 -0.4),(1 1, 1 3, 3 3, 3 1, 1 1))"), 0);
+1 # rows (not including the header row)
+1 # columns
+ST_Area(GeomFromText("POLYGON((-0.4 -0.4, -0.4 4, 4 4, 4 -0.4, -0.4 -0.4),(1 1, 1 3, 3 3, 3 1, 1 1))"), 0)
+189884187084.89:2

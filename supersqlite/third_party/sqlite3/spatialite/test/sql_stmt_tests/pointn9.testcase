@@ -1,0 +1,7 @@
+pointN - regular LINESTRINGZM (last point)
+:memory: #use in-memory database
+SELECT AsText(PointN(GeomFromText("LINESTRINGZM(4 0 4.4 9, 4 4 2.2 8, 8 4 3.3 7)"), -1));
+1 # rows (not including the header row)
+1 # columns
+AsText(PointN(GeomFromText("LINESTRINGZM(4 0 4.4 9, 4 4 2.2 8, 8 4 3.3 7)"), -1))
+POINT ZM(8 4 3.3 7)

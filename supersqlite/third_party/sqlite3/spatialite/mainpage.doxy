@@ -1,0 +1,140 @@
+/** \mainpage Introduction
+
+\section Generalities
+
+SpatiaLite is an open source library intended to extend basic SQLite
+core in order to support full fledged Spatial SQL capabilities.
+
+\n\n SQLite is intrinsically simple and lighweight:
+- a single ligthweight library implementing the full SQL engine.
+- standard SQL implementation: almost complete SQL-92.
+- no complex client/server architecture.
+- a whole database simply corresponds to a single monolithic file 
+  [no size limits].
+- any DB-file can be safely exchanged across different platforms, because
+  the internal architecture is universally portable.
+- no installation, no configuration.
+
+SpatiaLite is smoothly integrated into SQLite so to deploy a
+complete and powerfull Spatial DBMS [mostly OGC-SFS compliant].
+\n All this fully preserving the lightness and simplicity typical
+of SQLite itself.
+\n That's not all: SpatiaLite supports direct SQL access to several
+commonly used \e external \e datasources, this including:
+- ESRI \b Shapefiles.
+- \b DBF Archive Files.
+- \b TXT/CSV structured text files.
+- \b Spreadsheets [.xls format].
+
+And SpatiaLite actively supports many alternative standard Geometry notations:
+- \b WKT [Well Known Text] and \b WKB [Well Known Binary].
+- PostGIS own \b EWKT and \b EWKB [Extended WKT / WKB].
+- \b GML [Geography Markup Language, both v2 and v3].
+- \b KML [Keyhole Markup Language, used by Google Maps and Google Earth].
+- \b GeoJSON [Geometry Java Script Object Notation].
+- \b SVG [Scalable Vector Graphics].
+
+Conclusion: using SQLite + SpatiaLite you can deploy an
+alternative Spatial DBMS roughly equivalent to PostgreSQL + PostGIS.
+\n The main difference between them isn't in powerness, but mainly
+relies on architecture:
+- PostgrSQL + PostGIS fully supports a client/server architecture.
+  \n This is well fit for complex and sophisticated Spatial Data 
+  infrastructures, but surely implies a certain degree of complexity.
+- SQLite + SpatiaLite supports a much more simplest personal architecture.
+  \n This is most appropriate for desktop, stand-alone, personal activities.
+
+Choosing the one or the other simply depends on your very specific
+requirements:
+- no one is better than the other one:
+  they are simply optimized for different envoronments.
+- both them can roughly support the same Spatial Data processing capabilities.
+- feel free to choose the best fit one accordingly to your effective goals.
+
+\section Building
+
+Building and installing the SpatiaLite library is straightforward:
+\verbatim
+./configure
+make
+make install
+\endverbatim
+
+Please note: SpatiaLite depends on the following open source libraries:
+- GNU \b ICONV
+  \n locale charset encodings support
+- \b GEOS
+  \n Geometry engine
+- \b PROJ.4
+  \n Spatial Reference System handling [coordinate re-projection]
+- \b FreeXL
+  \n Spreadsheet input support [.xls format]
+
+The library comes in two different flavors:
+- \b libspatialite
+  \n standard, canonical library: the best and safest way to deploy SpatiaLite.
+  \n this obviously depends on \e external \b libsqlite: thus ensuring full
+  coherence between libraries.
+  \n warmly reccomended, mostly on Unix-like systems.\n
+- \b libspatialite-amalgamation
+  \n The whole library is \e amalgamated into a single monolithic file
+  and includes an \e internal \e private \e copy of \b libsqlite.
+  \n Using the \e amalgamated library may strongly simplify any following
+  installation process, and nicely supports \b static \b linkage.
+  \n Anyway, you can safely apply the \e amalgamated approch only to 
+  self-standing apps.
+  \n Attempting to use the \e amalgated library on complex frameworks or on 
+  data connectors / language bindings 
+  \n may easily cause serious conflicts.
+
+\section Deployment
+
+You can deploy SpatiaLite in two alternative ways:
+- you can load the SpatiaLite library as a \b dynamic \b extension to SQLite.
+  \n This allows SQLite to support SQL Spatial Data [Geometry] and SQL 
+  Spatial Functions.
+  \n Theorically, any generic tool or language connector supporting SQLite
+  can support this \e extension mechanism;
+  \n sadly enough, sometimes this feature is intentionally disabled:
+  I'm sorry for you if this is your specific case.
+  \n\n How to load SpatiaLite as a dynamic extension to SQLite:
+\verbatim
+SELECT load_extension('spatialite_dynamic_library_name');
+\endverbatim
+  \n
+- you can directly link the SpatiaLite library to any application of your own.
+  \n This allows you to ship a complete, powerfull, self-contained Spatial 
+  SQL engine directly supporting your app.
+  \n And such Spatial SQL engine doesn't requires any installation or 
+  configuration at all.
+  \n That's not all: linking the SpatiaLite to your own C/C++ code you aren't
+  simply constrained to use SQL: 
+  \n adopting this approach you can directly access the complete C API.
+  \n\n Linking SpatiaLite to your own code is usually simple:
+\verbatim
+gcc my_program.c -o my_program -lspatialite
+\endverbatim
+  \n On some systems you may have to provide a slightly more complex arrangement:
+\verbatim
+gcc -I/usr/local/include my_program.c -o my_program \
+  -L/usr/local/lib -lpsatialite -lsqlite -lgeos_c -lgeos \
+  -lproj -lfreexl -liconv -lm -lstdc++
+\endverbatim
+  \n SpatiaLite also provides pkg-config support, so you can also do
+\verbatim
+gcc -I/usr/local/include my_program.c -o my_program \
+  `pkg-config --libs spatialite`
+\endverbatim
+
+
+\section License
+
+SpatiaLite is licensed under the MPL tri-license terms: you are free to choose 
+the best-fit license between:
+ - the MPL 1.1
+ - the GPL v2.0 or any subsequent version
+ - the LGPL v2.1  or any subsequent version
+
+Enjoy, and happy coding
+*/
+

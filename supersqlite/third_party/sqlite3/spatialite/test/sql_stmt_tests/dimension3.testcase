@@ -1,0 +1,7 @@
+dimension3 - linestring
+:memory: #use in-memory database
+SELECT Dimension(GeomFromText("LINESTRING(4 0, 4 4, 8 4)"))
+1 # rows (not including the header row)
+1 # columns
+Dimension(GeomFromText("LINESTRING(4 0, 4 4, 8 4)"))
+1

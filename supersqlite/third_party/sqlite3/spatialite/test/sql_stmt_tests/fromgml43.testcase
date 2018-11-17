@@ -1,0 +1,7 @@
+FromGML - multipoint, multiple SRID - bad second SRID, no namespace
+:memory: #use in-memory database
+SELECT AsText(GeomFromGml('<MultiPoint><pointMember><Point srsName="EPSG:4326"><coordinates>1,2,3.2</coordinates></Point></pointMember><pointMember><Point srsName="EPSG:9999"><coordinates>2,4,4.2</coordinates></Point></pointMember></MultiPoint>'))
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromGml('<MultiPoint><pointMember><Point srsName="EPSG:4326"><coordinates>1,2,3.2</coordinates></Point></pointMember><pointMember><Point srsName="EPSG:9999"><coordinates>2,4,4.2</coordinates></Point></pointMember></MultiPoint>')):0
+MULTIPOINT Z(1 2 3.2, 2 4 4.2)

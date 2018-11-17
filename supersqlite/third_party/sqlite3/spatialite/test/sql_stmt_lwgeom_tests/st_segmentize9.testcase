@@ -1,0 +1,7 @@
+ST_Segmentize - text geometry (error)
+:memory: #use in-memory database
+SELECT ST_AsText(ST_Segmentize('alpha', 0));
+1 # rows (not including the header row)
+1 # columns
+ST_AsText(ST_Segmentize('alpha', 0))
+(NULL)

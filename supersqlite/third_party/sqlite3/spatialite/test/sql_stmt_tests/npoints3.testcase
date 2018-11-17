@@ -1,0 +1,7 @@
+npoints - single point
+:memory: #use in-memory database
+SELECT ST_NPoints(MakePoint(2,3))
+1 # rows (not including the header row)
+1 # columns
+ST_NPoints(MakePoint(2,3))
+1

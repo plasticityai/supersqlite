@@ -1,0 +1,8 @@
+union - null second point
+:memory: #use in-memory database
+SELECT AsText(GUnion(MakePoint(2,3), null));
+1 # rows (not including the header row)
+1 # columns
+AsText(GUnion(MakePoint(2,3), null))
+(NULL)
+

@@ -1,0 +1,8 @@
+linesubstring - int limits
+:memory: #use in-memory database
+SELECT AsText(Line_Substring(GeomFromText("LINESTRING(0 0, 10 0)"), 0, 1))
+1 # rows (not including the header row)
+1 # columns
+AsText(Line_Substring(GeomFromText("LINESTRING(0 0, 10 0)"), 0, 1))
+LINESTRING(0 0, 10 0)
+

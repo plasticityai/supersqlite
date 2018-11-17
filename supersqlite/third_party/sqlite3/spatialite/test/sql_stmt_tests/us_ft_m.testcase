@@ -1,0 +1,7 @@
+US feet to metres
+:memory: #use in-memory database
+SELECT CvtFromUsFt(10);
+1 # rows (not including the header row)
+1 # columns
+CvtFromUsFt(10);
+3.048:5

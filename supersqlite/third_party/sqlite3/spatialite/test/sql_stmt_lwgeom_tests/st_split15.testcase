@@ -1,0 +1,7 @@
+ST_Split - MultiLine-Point (split)
+:memory: #use in-memory database
+SELECT AsText(ST_Split(GeomFromText('MULTILINESTRING((0 2, 10 2), (0 0, 10 0))'), MakePoint(7, 0)));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_Split(GeomFromText('MULTILINESTRING((0 2, 10 2), (0 0, 10 0))'), MakePoint(7, 0)))
+MULTILINESTRING((0 2, 10 2), (0 0, 7 0), (7 0, 10 0))

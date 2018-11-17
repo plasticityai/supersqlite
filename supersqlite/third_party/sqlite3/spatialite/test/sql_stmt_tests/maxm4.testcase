@@ -1,0 +1,8 @@
+MaxM - Linestring XYZ
+:memory: #use in-memory database
+SELECT ST_MaxM(GeomFromText('LINESTRINGZ(1 2 100, 3 4 103, 5 6 101)'));
+1 # rows (not including the header row)
+1 # columns
+ST_MaxM(GeomFromText('LINESTRINGZ(1 2 100, 3 4 103, 5 6 101)'))
+(NULL)
+

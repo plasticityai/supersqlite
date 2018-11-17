@@ -1,0 +1,8 @@
+makeline9
+:memory: #use in-memory database
+SELECT AsText(MakeLine(GeomFromText("POINTZ(0 0 0.2)"), GeomFromText("POINT(1 2)")));
+1 # rows (not including the header row)
+1 # columns
+AsText(MakeLine(GeomFromText("POINTZ(0 0 0.2)"), GeomFromText("POINT(1 2)")))
+LINESTRING Z(0 0 0.2, 1 2 0)
+

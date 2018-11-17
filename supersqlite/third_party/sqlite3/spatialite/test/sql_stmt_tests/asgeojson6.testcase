@@ -1,0 +1,7 @@
+asgeojson - bad args (3 arg, non-blob type)
+:memory: #use in-memory database
+SELECT asgeojson("hello", 4, 2);
+1 # rows (not including the header row)
+1 # columns
+asgeojson("hello", 4, 2)
+(NULL)

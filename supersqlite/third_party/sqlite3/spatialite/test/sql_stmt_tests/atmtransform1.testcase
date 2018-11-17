@@ -1,0 +1,7 @@
+ATM_Transform() - int geom
+:memory: #use in-memory database
+SELECT ATM_Transform(1, ATM_Create())
+1 # rows (not including the header row)
+1 # columns
+ATM_Transform(1, ATM_Create())
+(NULL)

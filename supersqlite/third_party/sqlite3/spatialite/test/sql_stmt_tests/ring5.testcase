@@ -1,0 +1,7 @@
+ExteriorRing - Bad blob (error)
+:memory: #use in-memory database
+SELECT ExteriorRing(zeroblob(27));
+1 # rows (not including the header row)
+1 # columns
+ExteriorRing(zeroblob(27))
+(NULL)

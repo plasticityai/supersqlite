@@ -1,0 +1,7 @@
+PtDistWithin - LINESTRING and POINT, first arg WGS-84
+:memory: #use in-memory database
+SELECT PtDistWithin(GeomFromText("LINESTRING(4 2, 3 2)", 4326), MakePoint(4,4), 5)
+1 # rows (not including the header row)
+1 # columns
+PtDistWithin(GeomFromText("LINESTRING(4 2, 3 2)", 4326), MakePoint(4,4), 5)
+1

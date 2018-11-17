@@ -1,0 +1,7 @@
+ST_MakeValid - text (error)
+:memory: #use in-memory database
+SELECT ST_MakeValid('alpha');
+1 # rows (not including the header row)
+1 # columns
+ST_MakeValid('alpha')
+(NULL)

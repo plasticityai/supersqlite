@@ -1,0 +1,7 @@
+fromWkb - float
+:memory: #use in-memory database
+SELECT GeomFromWkb(1.67)
+1 # rows (not including the header row)
+1 # columns
+GeomFromWkb(1.67)
+(NULL)

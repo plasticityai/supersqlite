@@ -1,0 +1,7 @@
+UnregisterRasterCoverageSrid - Text srid
+:memory: #use in-memory database
+SELECT SE_UnregisterRasterCoverageSrid('alpha', 'beta');
+1 # rows (not including the header row)
+1 # columns
+SE_UnregisterRasterCoverageSrid('alpha', 'beta')
+-1

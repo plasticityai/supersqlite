@@ -1,0 +1,7 @@
+FromGML - Curve <gml:pos>
+:memory: #use in-memory database
+SELECT AsText(GeomFromGml('<gml:Curve><gml:segments><gml:LineStringSegment><gml:pos>1 2</gml:pos><gml:pos>3 4</gml:pos><gml:pos>5 6</gml:pos><gml:pos>7 8</gml:pos></gml:LineStringSegment></gml:segments></gml:Curve>'));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromGml('<gml:Curve><gml:segments><gml:LineStringSegment><gml:pos>1 2</gml:pos><gml:pos>3 4</gml:pos><gml:pos>5 6</gml:pos><gml:pos>7 8</gml:pos></gml:LineStringSegment></gml:segments></gml:Curve>')):0
+LINESTRING(1 2, 3 4, 5 6, 7 8)

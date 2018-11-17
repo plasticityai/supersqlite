@@ -1,0 +1,7 @@
+ST_RemovePoint() - not a line
+:memory: #use in-memory database
+SELECT ST_RemovePoint(GeomFromText('MULTIPOINT(0 0, 1 0, 1 1)'), 1)
+1 # rows (not including the header row)
+1 # columns
+ST_RemovePoint(GeomFromText('MULTIPOINT(0 0, 1 0, 1 1)'), 1)
+(NULL)

@@ -1,0 +1,25 @@
+isXblob - zeroblob, 0 bytes
+:memory: #use in-memory database
+SELECT IsPngBlob(blob), IsGifBlob(blob), IsGeometryBlob(blob), IsZipBlob(blob), IsPdfBlob(blob), IsTiffBlob(blob), IsJpegBlob(blob), IsExifBlob(blob), IsExifGpsBlob(blob), IsWebpBlob(blob) FROM (SELECT zeroblob(0) as blob) dummy 
+1 # rows (not including the header row)
+10 # columns
+IsPngBlob(blob)
+IsGifBlob(blob)
+IsGeometryBlob(blob)
+IsZipBlob(blob)
+IsPdfBlob(blob)
+IsTiffBlob(blob)
+IsJpegBlob(blob)
+IsExifBlob(blob)
+IsExifGpsBlob(blob)
+IsWebpBlob(blob)
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0

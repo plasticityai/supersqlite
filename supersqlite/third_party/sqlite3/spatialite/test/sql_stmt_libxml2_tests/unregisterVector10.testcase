@@ -1,0 +1,8 @@
+UnRegisterVectorStyledLayer - Double style_id
+:memory: #use in-memory database
+SELECT SE_UnRegisterVectorStyledLayer('alpha', 1.1);
+1 # rows (not including the header row)
+1 # columns
+SE_UnRegisterVectorStyledLayer('alpha', 1.1)
+-1
+

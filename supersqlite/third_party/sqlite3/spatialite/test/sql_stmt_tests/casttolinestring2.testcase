@@ -1,0 +1,7 @@
+casttolinestring - non blob
+:memory: #use in-memory database
+SELECT CastToLineString(99)
+1 # rows (not including the header row)
+1 # columns
+CastToLineString(99)
+(NULL)

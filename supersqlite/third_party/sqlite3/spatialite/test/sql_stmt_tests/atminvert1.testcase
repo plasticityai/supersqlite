@@ -1,0 +1,7 @@
+ATM_Invert() - NULL arg
+:memory: #use in-memory database
+SELECT ATM_Invert(NULL)
+1 # rows (not including the header row)
+1 # columns
+ATM_Invert(NULL)
+(NULL)

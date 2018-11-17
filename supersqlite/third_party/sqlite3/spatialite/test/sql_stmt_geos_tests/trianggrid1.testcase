@@ -1,0 +1,9 @@
+TriangularGrid - NULL geom
+:memory: #use in-memory database
+SELECT TriangularGrid(NULL, 1.0);
+1 # rows (not including the header row)
+1 # columns
+TriangularGrid(NULL, 1.0)
+(NULL)
+
+

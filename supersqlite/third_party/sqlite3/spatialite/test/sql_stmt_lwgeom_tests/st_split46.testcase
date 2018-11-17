@@ -1,0 +1,7 @@
+ST_SplitRigt - MultiLine-Point (not split)
+:memory: #use in-memory database
+SELECT ST_SplitRight(GeomFromText('MULTILINESTRING((0 2, 10 2), (0 0, 10 0))'), MakePoint(-1, 0));
+1 # rows (not including the header row)
+1 # columns
+ST_SplitRight(GeomFromText('MULTILINESTRING((0 2, 10 2), (0 0, 10 0))'), MakePoint(-1, 0))
+(NULL)

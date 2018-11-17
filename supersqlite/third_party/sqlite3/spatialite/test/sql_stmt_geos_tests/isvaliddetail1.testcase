@@ -1,0 +1,7 @@
+isvaliddetail1
+:memory: #use in-memory database
+SELECT IsValidDetail(zeroblob(10));
+1 # rows (not including the header row)
+1 # columns
+IsValidDetail(zeroblob(10))
+(NULL)

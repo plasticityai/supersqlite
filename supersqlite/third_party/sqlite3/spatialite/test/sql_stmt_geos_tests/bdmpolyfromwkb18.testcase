@@ -1,0 +1,8 @@
+BdMPolyFromWKB - zeroblob, invalid SRID
+:memory: #use in-memory database
+SELECT BdMPolyFromWKB(zeroblob(25), 'a');
+1 # rows (not including the header row)
+1 # columns
+BdMPolyFromWKB(zeroblob(25), 'a')
+(NULL)
+

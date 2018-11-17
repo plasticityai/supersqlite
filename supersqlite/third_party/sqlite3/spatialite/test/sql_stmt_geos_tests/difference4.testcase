@@ -1,0 +1,8 @@
+difference - null second point
+:memory: #use in-memory database
+SELECT AsText(Difference(MakePoint(2,3), null));
+1 # rows (not including the header row)
+1 # columns
+AsText(Difference(MakePoint(2,3), null))
+(NULL)
+

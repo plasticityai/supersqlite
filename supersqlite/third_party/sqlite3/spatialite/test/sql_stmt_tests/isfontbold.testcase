@@ -1,0 +1,7 @@
+IsFontBold - standard
+NEW:memory: #use in-memory database
+SELECT IsFontBold(zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+IsFontBold(zeroblob(4))
+-1

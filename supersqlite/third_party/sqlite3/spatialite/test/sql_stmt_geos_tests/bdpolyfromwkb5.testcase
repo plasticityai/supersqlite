@@ -1,0 +1,9 @@
+BdPolyFromWKB - null, SRID
+:memory: #use in-memory database
+SELECT BdPolyFromWKB(null, 4326);
+1 # rows (not including the header row)
+1 # columns
+BdPolyFromWKB(null, 4326)
+(NULL)
+
+

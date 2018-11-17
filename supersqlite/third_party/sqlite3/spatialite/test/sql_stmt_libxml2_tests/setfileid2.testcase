@@ -1,0 +1,8 @@
+XB_SetFileId - not ISO Metadata XmlBLOB
+:memory: #use in-memory database
+SELECT XB_SetFileId(XB_Create(CastToBlob('<alpha><fileIdentifier><CharacterString>a</CharacterString></fileIdentifier></alpha>')), 'alpha');
+1 # rows (not including the header row)
+1 # columns
+XB_SetFileId(XB_Create(CastToBlob('<alpha><fileIdentifier><CharacterString>a</CharacterString></fileIdentifier></alpha>')), 'alpha')
+(NULL)
+

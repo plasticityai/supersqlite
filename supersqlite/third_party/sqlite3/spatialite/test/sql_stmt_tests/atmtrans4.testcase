@@ -1,0 +1,7 @@
+ATM_Translate() - 2d invalid 2nd arg
+:memory: #use in-memory database
+SELECT ATM_Translate(ATM_Create(), 1.0, 'a')
+1 # rows (not including the header row)
+1 # columns
+ATM_Translate(ATM_Create(), 1.0, 'a')
+(NULL)

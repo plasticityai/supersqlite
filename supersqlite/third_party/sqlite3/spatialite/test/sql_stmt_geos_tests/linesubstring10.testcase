@@ -1,0 +1,8 @@
+linesubstring - geometry collection - line
+:memory: #use in-memory database
+SELECT AsText(Line_Substring(GeomFromText("GeometryCollection(LINESTRING(0 0, 1 2))"), 0.2, 0.6))
+1 # rows (not including the header row)
+1 # columns
+AsText(Line_Substring(GeomFromText("GeometryCollection(LINESTRING(0 0, 1 2))"), 0.2, 0.6))
+LINESTRING(0.2 0.4, 0.6 1.2)
+

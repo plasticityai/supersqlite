@@ -1,0 +1,7 @@
+SridIsProjected() - 4326
+:memory: #use in-memory database
+SELECT SridIsProjected(4326)
+1 # rows (not including the header row)
+1 # columns
+SridIsProjected(4326)
+0

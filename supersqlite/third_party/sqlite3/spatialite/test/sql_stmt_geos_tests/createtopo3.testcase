@@ -1,0 +1,7 @@
+CreateTopology - 3 arguments, 2D
+NEW:memory: #use in-memory database
+SELECT CreateTopologyTables("my_prefix", 4326, "XY");
+1 # rows (not including the header row)
+1 # columns
+CreateTopologyTables("my_prefix", 4326, "XY")
+1

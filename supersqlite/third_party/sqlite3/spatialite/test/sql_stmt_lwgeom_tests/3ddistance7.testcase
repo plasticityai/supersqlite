@@ -1,0 +1,8 @@
+3DDistance - parallel 2D lines
+:memory: #use in-memory database
+SELECT ST_3DDistance(GeomFromText("LINESTRING(0 0, 10 0)"), GeomFromText("LINESTRING(0 2, 10 2)"))
+1 # rows (not including the header row)
+1 # columns
+ST_3DDistance(GeomFromText("LINESTRING(0 0, 10 0)"), GeomFromText("LINESTRING(0 2, 10 2)"))
+2.0
+

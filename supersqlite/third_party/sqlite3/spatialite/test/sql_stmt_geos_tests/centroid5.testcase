@@ -1,0 +1,8 @@
+Centroid - zeroblob
+:memory: #use in-memory database
+SELECT centroid(zeroblob(40));
+1 # rows (not including the header row)
+1 # columns
+centroid(zeroblob(40))
+(NULL)
+

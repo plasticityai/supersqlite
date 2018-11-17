@@ -1,0 +1,7 @@
+importDXFfromDir - invalid dimensions
+:memory: #use in-memory database
+SELECT ImportDXFfromDir('.', 4326, 1, '123D', 'DISTINCT', 'UNLINKED', 'prefix', 'layer');
+1 # rows (not including the header row)
+1 # columns
+ImportDXFfromDir('.', 4326, 1, '123D', 'DISTINCT', 'UNLINKED', 'prefix', 'layer')
+(NULL)

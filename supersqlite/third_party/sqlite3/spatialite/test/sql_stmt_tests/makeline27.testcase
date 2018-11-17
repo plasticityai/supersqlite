@@ -1,0 +1,7 @@
+makeline - MULTIPOINT (XYZ valid - reverse order)
+:memory: #use in-memory database
+SELECT AsText(MakeLine(GeomFromText("MULTIPOINTZ(1 2 10,3 4 11)"), 0))
+1 # rows (not including the header row)
+1 # columns
+AsText(MakeLine(GeomFromText("MULTIPOINTZ(1 2 10,3 4 11)"), 0))
+LINESTRING Z(3 4 11, 1 2 10)

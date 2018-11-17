@@ -1,0 +1,7 @@
+buffer4
+:memory: #use in-memory database
+SELECT Buffer(GeomFromText("LINESTRING(0 0, 100 0)"), "foo");
+1 # rows (not including the header row)
+1 # columns
+Buffer(GeomFromText("LINESTRING(0 0, 100 0)"), "foo")
+(NULL)

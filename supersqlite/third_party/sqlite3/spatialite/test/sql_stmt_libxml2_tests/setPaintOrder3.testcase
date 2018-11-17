@@ -1,0 +1,8 @@
+SetStyledGroupLayerPaintOrder - BLOB item ID
+:memory: #use in-memory database
+SELECT SE_SetStyledGroupLayerPaintOrder(zeroblob(4), 1);
+1 # rows (not including the header row)
+1 # columns
+SE_SetStyledGroupLayerPaintOrder(zeroblob(4), 1)
+-1
+

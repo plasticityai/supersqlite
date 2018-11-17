@@ -1,0 +1,9 @@
+casttolinestring - GEOMETRY COLLECTION, POINT and LINESTRING
+:memory: #use in-memory database
+SELECT AsText(CastToLineString(GeomFromText("GEOMETRYCOLLECTION(POINT(1 2),LINESTRING(4 1, 3 4))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(CastToLineString(GeomFromText("GEOMETRYCOLLECTION(POINT(1 2),LINESTRING(4 1, 3 4))")))
+(NULL)
+
+

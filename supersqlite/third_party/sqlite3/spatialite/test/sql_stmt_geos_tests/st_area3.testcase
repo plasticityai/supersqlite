@@ -1,0 +1,7 @@
+ST_Area - Linestring
+:memory: #use in-memory database
+SELECT ST_Area(GeomFromText("LINESTRING(0 0, 0 4, 4 4, 4 0, 0 0)"));
+1 # rows (not including the header row)
+1 # columns
+ST_Area(GeomFromText("LINESTRING(0 0, 0 4, 4 4, 4 0, 0 0)"))
+0.0

@@ -1,0 +1,7 @@
+importSHP - NULL table
+:memory: #use in-memory database
+SELECT ImportSHP('shapefile', NULL, 'UTF-8');
+1 # rows (not including the header row)
+1 # columns
+ImportSHP('shapefile', NULL, 'UTF-8')
+(NULL)

@@ -1,0 +1,8 @@
+MinM - Linestring XYZ
+:memory: #use in-memory database
+SELECT ST_MinM(GeomFromText('LINESTRINGZ(1 2 100, 3 4 99, 5 6 101)'));
+1 # rows (not including the header row)
+1 # columns
+ST_MinM(GeomFromText('LINESTRINGZ(1 2 100, 3 4 99, 5 6 101)'))
+(NULL)
+

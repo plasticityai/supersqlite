@@ -1,0 +1,9 @@
+Centroid - toxic
+:memory: #use in-memory database
+SELECT astext(centroid(GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))")));
+1 # rows (not including the header row)
+1 # columns
+astext(centroid(GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))")))
+POINT(135.733333 -34.9)
+
+

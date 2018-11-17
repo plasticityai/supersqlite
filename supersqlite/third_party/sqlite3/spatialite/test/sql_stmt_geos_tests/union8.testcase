@@ -1,0 +1,8 @@
+union - toxic second point
+:memory: #use in-memory database
+SELECT AsText(GUnion(MakePoint(136,-35), GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))")));
+1 # rows (not including the header row)
+1 # columns
+AsText(GUnion(MakePoint(136,-35), GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))")))
+(NULL)
+

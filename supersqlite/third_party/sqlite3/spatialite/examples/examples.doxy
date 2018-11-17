@@ -1,0 +1,611 @@
+/** \example demo1.c
+
+This is a sample C source showing how to use SQLite / SpatiaLite 
+from C. 
+
+This program shows the  basic functionality that will be required for most
+SpatiaLite programs:
+ - how to connect an SQLite+SpatiaLite database
+ - executing an SQL query 
+ - fetching values from a result set
+ - transforming BLOB-values into GEOMETRY
+ - elementary processing GEOMETRY 
+
+The typical output of this demo is shown below, when run against the sample
+database.
+\verbatim
+$ ./demo1 test-2.3.sqlite 
+SQLite version: 3.7.4
+SpatiaLite version: 3.0.0-beta1
+
+
+========= table 'HighWays' ========================
+row #1
+        PK_UID     = 1
+        Name       = 'Unknown'
+        Geometry   = LINESTRING SRID=32632 length=8697.57
+row #2
+        PK_UID     = 2
+        Name       = 'Unknown'
+        Geometry   = LINESTRING SRID=32632 length=39.79
+row #3
+        PK_UID     = 3
+        Name       = 'Unknown'
+        Geometry   = LINESTRING SRID=32632 length=14610.39
+row #4
+        PK_UID     = 4
+        Name       = 'Unknown'
+        Geometry   = LINESTRING SRID=32632 length=878.01
+row #5
+        PK_UID     = 5
+        Name       = 'Unknown'
+        Geometry   = LINESTRING SRID=32632 length=10.05
+
+
+========= table 'Regions' ========================
+row #1
+        PK_UID     = 1
+        Name       = 'VENETO'
+        Geometry   = MULTIPOLYGON SRID=32632 area=646397.81
+row #2
+        PK_UID     = 2
+        Name       = 'VENETO'
+        Geometry   = MULTIPOLYGON SRID=32632 area=1290337.69
+row #3
+        PK_UID     = 3
+        Name       = 'VENETO'
+        Geometry   = MULTIPOLYGON SRID=32632 area=8784619.92
+row #4
+        PK_UID     = 4
+        Name       = 'VENETO'
+        Geometry   = MULTIPOLYGON SRID=32632 area=530524.68
+row #5
+        PK_UID     = 5
+        Name       = 'LIGURIA'
+        Geometry   = MULTIPOLYGON SRID=32632 area=5450277374.12
+
+
+========= table 'Towns' ========================
+row #1
+        PK_UID     = 1
+        Name       = 'Brozolo'
+        Peoples    = 435
+        LocalCounc = 1
+        County     = 0
+        Region     = 0
+        Geometry   = POINT SRID=32632
+row #2
+        PK_UID     = 2
+        Name       = 'Campiglione-Fenile'
+        Peoples    = 1284
+        LocalCounc = 1
+        County     = 0
+        Region     = 0
+        Geometry   = POINT SRID=32632
+row #3
+        PK_UID     = 3
+        Name       = 'Canischio'
+        Peoples    = 274
+        LocalCounc = 1
+        County     = 0
+        Region     = 0
+        Geometry   = POINT SRID=32632
+row #4
+        PK_UID     = 4
+        Name       = 'Cavagnolo'
+        Peoples    = 2281
+        LocalCounc = 1
+        County     = 0
+        Region     = 0
+        Geometry   = POINT SRID=32632
+row #5
+        PK_UID     = 5
+        Name       = 'Magliano Alfieri'
+        Peoples    = 1674
+        LocalCounc = 1
+        County     = 0
+        Region     = 0
+        Geometry   = POINT SRID=32632
+
+
+
+
+sample successfully terminated
+\endverbatim
+
+*/
+
+/** \example demo2.c
+
+This is a sample C source showing how to manipulate GEOMETRY within
+Spatialite. It essentially follows on from the functionality shown in the
+demo1.c example, and covers:
+ - creating geometries
+ - exploring geometries
+ - querying the basic properties of a geometry
+ 
+ Note that this does not require a database command line argument. Here is a
+ typical run:
+\verbatim
+$ ./demo2 
+step#1: POINT           Dimension=0 IsValid=1
+                        POINT 0/1 x=1.5000 y=2.7500
+
+step#2: LINESTRING      Dimension=1 IsValid=1
+                        LINESTRING 0/1 has 5 vertices
+                                vertex 0/5 x=1.0000 y=1.0000
+                                vertex 1/5 x=2.0000 y=1.0000
+                                vertex 2/5 x=2.0000 y=2.0000
+                                vertex 3/5 x=100.0000 y=2.0000
+                                vertex 4/5 x=100.0000 y=100.0000
+
+step#3: POLYGON Dimension=2 IsValid=1
+                        POLYGON 0/1 has 2 holes
+                                ExteriorRing has 5 vertices
+                                        vertex 0/5 x=0.0000 y=0.0000
+                                        vertex 1/5 x=50.0000 y=0.0000
+                                        vertex 2/5 x=50.0000 y=50.0000
+                                        vertex 3/5 x=0.0000 y=50.0000
+                                        vertex 4/5 x=0.0000 y=0.0000
+                                InteriorRing 0/2 has 5 vertices
+                                        vertex 0/5 x=40.0000 y=40.0000
+                                        vertex 1/5 x=41.0000 y=40.0000
+                                        vertex 2/5 x=41.0000 y=41.0000
+                                        vertex 3/5 x=40.0000 y=41.0000
+                                        vertex 4/5 x=40.0000 y=40.0000
+                                InteriorRing 1/2 has 5 vertices
+                                        vertex 0/5 x=30.0000 y=30.0000
+                                        vertex 1/5 x=31.0000 y=30.0000
+                                        vertex 2/5 x=31.0000 y=31.0000
+                                        vertex 3/5 x=30.0000 y=31.0000
+                                        vertex 4/5 x=30.0000 y=30.0000
+
+step#4: MULTIPOINT      Dimension=0 IsValid=1
+                        POINT 0/5 x=5.0000 y=5.0000
+                        POINT 1/5 x=15.0000 y=5.0000
+                        POINT 2/5 x=5.0000 y=15.0000
+                        POINT 3/5 x=25.0000 y=5.0000
+                        POINT 4/5 x=5.0000 y=25.0000
+
+step#5: MULTILINESTRING Dimension=1 IsValid=1
+                        LINESTRING 0/2 has 2 vertices
+                                vertex 0/2 x=30.0000 y=10.0000
+                                vertex 1/2 x=10.0000 y=30.0000
+                        LINESTRING 1/2 has 2 vertices
+                                vertex 0/2 x=40.0000 y=50.0000
+                                vertex 1/2 x=50.0000 y=40.0000
+
+step#6: MULTIPOLYGON    Dimension=2 IsValid=1
+                        POLYGON 0/2 has 0 holes
+                                ExteriorRing has 5 vertices
+                                        vertex 0/5 x=60.0000 y=60.0000
+                                        vertex 1/5 x=70.0000 y=60.0000
+                                        vertex 2/5 x=70.0000 y=70.0000
+                                        vertex 3/5 x=60.0000 y=70.0000
+                                        vertex 4/5 x=60.0000 y=60.0000
+                        POLYGON 1/2 has 0 holes
+                                ExteriorRing has 5 vertices
+                                        vertex 0/5 x=80.0000 y=80.0000
+                                        vertex 1/5 x=90.0000 y=80.0000
+                                        vertex 2/5 x=90.0000 y=90.0000
+                                        vertex 3/5 x=80.0000 y=90.0000
+                                        vertex 4/5 x=80.0000 y=80.0000
+
+step#7: GEOMETRYCOLLECTION      Dimension=2 IsValid=1
+                        POINT 0/2 x=100.0000 y=100.0000
+                        POINT 1/2 x=100.0000 y=0.0000
+                        LINESTRING 0/2 has 2 vertices
+                                vertex 0/2 x=130.0000 y=110.0000
+                                vertex 1/2 x=110.0000 y=130.0000
+                        LINESTRING 1/2 has 2 vertices
+                                vertex 0/2 x=140.0000 y=150.0000
+                                vertex 1/2 x=150.0000 y=140.0000
+                        POLYGON 0/2 has 0 holes
+                                ExteriorRing has 5 vertices
+                                        vertex 0/5 x=160.0000 y=160.0000
+                                        vertex 1/5 x=170.0000 y=160.0000
+                                        vertex 2/5 x=170.0000 y=170.0000
+                                        vertex 3/5 x=160.0000 y=170.0000
+                                        vertex 4/5 x=160.0000 y=160.0000
+                        POLYGON 1/2 has 0 holes
+                                ExteriorRing has 5 vertices
+                                        vertex 0/5 x=180.0000 y=180.0000
+                                        vertex 1/5 x=190.0000 y=180.0000
+                                        vertex 2/5 x=190.0000 y=190.0000
+                                        vertex 3/5 x=180.0000 y=190.0000
+                                        vertex 4/5 x=180.0000 y=180.0000
+
+step#8: checking WKT representations
+
+GEOMETRYCOLLECTION(POINT(1.5 2.75))
+
+GEOMETRYCOLLECTION(LINESTRING(1 1, 2 1, 2 2, 100 2, 100 100))
+
+GEOMETRYCOLLECTION(POLYGON((0 0, 50 0, 50 50, 0 50, 0 0), (40 40, 41 40, 41 41, 40 41, 40 40), (30 30, 31 30, 31 31, 30 31, 30 30)))
+
+GEOMETRYCOLLECTION(POINT(5 5), POINT(15 5), POINT(5 15), POINT(25 5), POINT(5 25))
+
+GEOMETRYCOLLECTION(LINESTRING(30 10, 10 30), LINESTRING(40 50, 50 40))
+
+GEOMETRYCOLLECTION(POLYGON((60 60, 70 60, 70 70, 60 70, 60 60)), POLYGON((80 80, 90 80, 90 90, 80 90, 80 80)))
+
+GEOMETRYCOLLECTION(POINT(100 100), POINT(100 0), LINESTRING(130 110, 110 130), LINESTRING(140 150, 150 140), POLYGON((160 160, 170 160, 170 170, 160 170, 160 160)), POLYGON((180 180, 190 180, 190 190, 180 190, 180 180)))
+\endverbatim
+*/
+
+/** \example demo3.c
+
+This is a sample C source showing how to use the SQLite / SpatiaLite 
+Spatial Index [RTree].
+
+It follows on from demo1.c.
+
+The main steps in this example are:
+ - creating a new database
+ - creating a sample geo-table 
+ - inserting 1 million rows into this table
+ - performing some spatial queries without Spatial Indexing
+ - performing the same queries using the Spatial Index
+
+The typical output of this demo is shown below (where test.sqlite does not
+exist before the run).
+
+\verbatim
+$ ./demo3 test.sqlite
+SQLite version: 3.7.4
+SpatiaLite version: 3.0.0-beta1
+
+
+
+now we are going to insert 1 million POINTs; wait, please ...
+
+insert row: 25000               [elapsed time: 1.910]
+insert row: 50000               [elapsed time: 4.050]
+insert row: 75000               [elapsed time: 6.270]
+insert row: 100000              [elapsed time: 8.460]
+insert row: 125000              [elapsed time: 10.740]
+insert row: 150000              [elapsed time: 12.910]
+insert row: 175000              [elapsed time: 15.080]
+insert row: 200000              [elapsed time: 17.350]
+insert row: 225000              [elapsed time: 19.610]
+insert row: 250000              [elapsed time: 21.890]
+insert row: 275000              [elapsed time: 24.170]
+insert row: 300000              [elapsed time: 26.380]
+insert row: 325000              [elapsed time: 28.650]
+insert row: 350000              [elapsed time: 30.900]
+insert row: 375000              [elapsed time: 33.130]
+insert row: 400000              [elapsed time: 35.340]
+insert row: 425000              [elapsed time: 37.540]
+insert row: 450000              [elapsed time: 39.760]
+insert row: 475000              [elapsed time: 41.980]
+insert row: 500000              [elapsed time: 44.220]
+insert row: 525000              [elapsed time: 46.500]
+insert row: 550000              [elapsed time: 48.740]
+insert row: 575000              [elapsed time: 50.960]
+insert row: 600000              [elapsed time: 53.190]
+insert row: 625000              [elapsed time: 55.430]
+insert row: 650000              [elapsed time: 57.670]
+insert row: 675000              [elapsed time: 59.900]
+insert row: 700000              [elapsed time: 62.130]
+insert row: 725000              [elapsed time: 64.400]
+insert row: 750000              [elapsed time: 66.660]
+insert row: 775000              [elapsed time: 68.900]
+insert row: 800000              [elapsed time: 71.140]
+insert row: 825000              [elapsed time: 73.410]
+insert row: 850000              [elapsed time: 75.670]
+insert row: 875000              [elapsed time: 77.940]
+insert row: 900000              [elapsed time: 80.230]
+insert row: 925000              [elapsed time: 82.540]
+insert row: 950000              [elapsed time: 84.840]
+insert row: 975000              [elapsed time: 87.150]
+insert row: 1000000             [elapsed time: 89.450]
+
+performing test#0 - not using Spatial Index
+Count(*) = 25           [elapsed time: 1.2700]
+
+performing test#1 - not using Spatial Index
+Count(*) = 25           [elapsed time: 1.2700]
+
+performing test#2 - not using Spatial Index
+Count(*) = 25           [elapsed time: 1.2900]
+
+performing test#0 - using the R*Tree Spatial Index
+Count(*) = 25           [elapsed time: 0.0000]
+
+performing test#1 - using the R*Tree Spatial Index
+Count(*) = 25           [elapsed time: 0.0000]
+
+performing test#2 - using the R*Tree Spatial Index
+Count(*) = 25           [elapsed time: 0.0000]
+
+
+sample successfully terminated
+\endverbatim
+
+Note the significant difference in elapsed time associated with use of an 
+appropriate index.
+
+*/
+
+/** \example demo4.c
+
+This is a sample C source showing how to use the SQLite / SpatiaLite 
+Spatial Index [MbrCache].
+
+It is very similar to demo3.c, but uses a different indexing approach
+
+The main steps in this example are:
+ - creating a new database
+ - creating a sample geo-table 
+ - inserting 1 million rows into this table
+ - performing some spatial queries without Spatial Indexing
+ - performing the same queries using the Spatial Index
+
+The typical output of this demo is shown below (where test.sqlite does not
+exist before the run).
+
+\verbatim
+$ ./demo4 test.sqlite
+SQLite version: 3.7.4
+SpatiaLite version: 3.0.0-beta1
+
+
+
+now we are going to insert 1 million POINTs; wait, please ...
+
+insert row: 25000               [elapsed time: 0.370]
+insert row: 50000               [elapsed time: 0.820]
+insert row: 75000               [elapsed time: 1.280]
+insert row: 100000              [elapsed time: 1.750]
+insert row: 125000              [elapsed time: 2.210]
+insert row: 150000              [elapsed time: 2.690]
+insert row: 175000              [elapsed time: 3.180]
+insert row: 200000              [elapsed time: 3.670]
+insert row: 225000              [elapsed time: 4.210]
+insert row: 250000              [elapsed time: 4.720]
+insert row: 275000              [elapsed time: 5.240]
+insert row: 300000              [elapsed time: 5.780]
+insert row: 325000              [elapsed time: 6.330]
+insert row: 350000              [elapsed time: 6.910]
+insert row: 375000              [elapsed time: 7.510]
+insert row: 400000              [elapsed time: 8.120]
+insert row: 425000              [elapsed time: 8.750]
+insert row: 450000              [elapsed time: 9.420]
+insert row: 475000              [elapsed time: 10.120]
+insert row: 500000              [elapsed time: 10.850]
+insert row: 525000              [elapsed time: 11.610]
+insert row: 550000              [elapsed time: 12.390]
+insert row: 575000              [elapsed time: 13.200]
+insert row: 600000              [elapsed time: 14.040]
+insert row: 625000              [elapsed time: 14.900]
+insert row: 650000              [elapsed time: 15.790]
+insert row: 675000              [elapsed time: 16.700]
+insert row: 700000              [elapsed time: 17.650]
+insert row: 725000              [elapsed time: 18.620]
+insert row: 750000              [elapsed time: 19.610]
+insert row: 775000              [elapsed time: 20.650]
+insert row: 800000              [elapsed time: 21.700]
+insert row: 825000              [elapsed time: 22.760]
+insert row: 850000              [elapsed time: 23.860]
+insert row: 875000              [elapsed time: 25.060]
+insert row: 900000              [elapsed time: 26.290]
+insert row: 925000              [elapsed time: 27.480]
+insert row: 950000              [elapsed time: 28.760]
+insert row: 975000              [elapsed time: 30.020]
+insert row: 1000000             [elapsed time: 31.280]
+
+performing test#0 - not using Spatial Index
+Count(*) = 25           [elapsed time: 1.2500]
+
+performing test#1 - not using Spatial Index
+Count(*) = 25           [elapsed time: 1.2400]
+
+performing test#2 - not using Spatial Index
+Count(*) = 25           [elapsed time: 1.2400]
+
+performing test#0 - using the MBR cache Spatial Index
+Count(*) = 25           [elapsed time: 0.0000]
+
+performing test#1 - using the MBR cache Spatial Index
+Count(*) = 25           [elapsed time: 0.0000]
+
+performing test#2 - using the MBR cache Spatial Index
+Count(*) = 25           [elapsed time: 0.0000]
+
+
+sample successfully terminated
+\endverbatim
+
+As for demo3.c, note the significant speed difference between the indexed
+and non-indexed queries.
+*/
+
+/** \example demo5.c
+
+This is a sample C source showing how to use the SpatiaLite's API 
+gaiaGetVectorLayersList(), i.e. the one gathering statistic infos
+for Vector Layers.
+The typical output of this demo is shown below.
+
+By simply specifying a DB-path demo5 will print the complete list
+of all Vector Layers found in that DB:
+
+\verbatim
+$ ./demo5 /home/sandro/db-4.0.sqlite 
+SQLite version: 3.7.11
+SpatiaLite version: 4.0.0-RC2
+
+****** VectorLayersList (mode=FAST) *********
+VectorLayer: Type=BasedOnSqlTable TableName=com2011
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=8094
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220492.095518
+	ReadOnly=FALSE Hidden=FALSE
+VectorLayer: Type=BasedOnSqlTable TableName=prov2011
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=110
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220491.200018
+	ReadOnly=FALSE Hidden=FALSE
+VectorLayer: Type=BasedOnSqlTable TableName=reg2011
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=20
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220491.200018
+	ReadOnly=FALSE Hidden=FALSE
+VectorLayer: Type=BasedOnSqlView TableName=com_prov
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=8094
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220492.095518
+	ReadOnly=FALSE Hidden=FALSE
+VectorLayer: Type=BasedOnSqlView TableName=prov_reg
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=110
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220491.200018
+	ReadOnly=TRUE Hidden=FALSE
+VectorLayer: Type=BasedOnVirtualShape TableName=com2011a
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=8094
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220492.095518
+VectorLayer: Type=BasedOnVirtualShape TableName=prov2011a
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=110
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220491.200018
+VectorLayer: Type=BasedOnVirtualShape TableName=reg2011a
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=20
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220491.200018
+
+
+****** VectorLayersList (mode=PRECISE) *********
+VectorLayer: Type=BasedOnSqlTable TableName=com2011
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=8094
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220492.095518
+	ReadOnly=FALSE Hidden=FALSE
+VectorLayer: Type=BasedOnSqlTable TableName=prov2011
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=110
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220491.200018
+	ReadOnly=FALSE Hidden=FALSE
+VectorLayer: Type=BasedOnSqlTable TableName=reg2011
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=20
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220491.200018
+	ReadOnly=FALSE Hidden=FALSE
+VectorLayer: Type=BasedOnSqlView TableName=com_prov
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=8094
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220492.095518
+	ReadOnly=FALSE Hidden=FALSE
+VectorLayer: Type=BasedOnSqlView TableName=prov_reg
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=110
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220491.200018
+	ReadOnly=TRUE Hidden=FALSE
+VectorLayer: Type=BasedOnVirtualShape TableName=com2011a
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=8094
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220492.095518
+VectorLayer: Type=BasedOnVirtualShape TableName=prov2011a
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=110
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220491.200018
+VectorLayer: Type=BasedOnVirtualShape TableName=reg2011a
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=20
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220491.200018
+
+sample successfully terminated
+\endverbatim
+
+By optionally specifying a Layer name  demo5 will print a more detailed
+list for that single Layer:
+
+\verbatim
+$ ./demo5 /home/sandro/db-4.0.sqlite com2011
+SQLite version: 3.7.11
+SpatiaLite version: 4.0.0-RC2
+
+****** VectorLayersList (mode=FAST) *********
+VectorLayer: Type=BasedOnSqlTable TableName=com2011
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=8094
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220492.095518
+	ReadOnly=FALSE Hidden=FALSE
+		Field #0) FieldName=PRO_COM
+			IntegerValues=8094 
+			IntRange 1001 / 110010
+		Field #1) FieldName=COD_REG
+			IntegerValues=8094 
+			IntRange 1 / 20
+		Field #2) FieldName=COD_PRO
+			IntegerValues=8094 
+			IntRange 1 / 110
+		Field #3) FieldName=NOME_COM
+			TextValues=8094 
+			MaxSize/Length=35
+		Field #4) FieldName=NOME_TED
+			TextValues=8094 
+			MaxSize/Length=36
+		Field #5) FieldName=SHAPE_Leng
+			DoubleValues=8094 
+			DoubleRange 1566.303618 / 327044.574999
+		Field #6) FieldName=SHAPE_Area
+			DoubleValues=8094 
+			DoubleRange 120613.967719 / 1287358944.600000
+		Field #7) FieldName=Geometry
+			BlobValues=8094 
+			MaxSize/Length=222151
+
+
+****** VectorLayersList (mode=PRECISE) *********
+VectorLayer: Type=BasedOnSqlTable TableName=com2011
+	GeometryName=geometry SRID=23032 GeometryType=MULTIPOLYGON Dims=XY
+	RowCount=8094
+	ExtentMin 313360.999831 / 3933878.175118
+	ExtentMax 1312106.500031 / 5220492.095518
+	ReadOnly=FALSE Hidden=FALSE
+		Field #0) FieldName=PRO_COM
+			IntegerValues=8094 
+			IntRange 1001 / 110010
+		Field #1) FieldName=COD_REG
+			IntegerValues=8094 
+			IntRange 1 / 20
+		Field #2) FieldName=COD_PRO
+			IntegerValues=8094 
+			IntRange 1 / 110
+		Field #3) FieldName=NOME_COM
+			TextValues=8094 
+			MaxSize/Length=35
+		Field #4) FieldName=NOME_TED
+			TextValues=8094 
+			MaxSize/Length=36
+		Field #5) FieldName=SHAPE_Leng
+			DoubleValues=8094 
+			DoubleRange 1566.303618 / 327044.574999
+		Field #6) FieldName=SHAPE_Area
+			DoubleValues=8094 
+			DoubleRange 120613.967719 / 1287358944.600000
+		Field #7) FieldName=Geometry
+			BlobValues=8094 
+			MaxSize/Length=222151
+
+sample successfully terminated
+\endverbatim
+*/

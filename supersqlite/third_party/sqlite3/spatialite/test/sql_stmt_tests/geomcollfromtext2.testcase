@@ -1,0 +1,7 @@
+geometrycollectionfromtext2
+:memory: #use in-memory database
+SELECT AsWkt(GeometryCollectionFromText("GEOMETRYCOLLECTION(POINT(4 6),LINESTRING(4 6,7 10))"))
+1 # rows (not including the header row)
+1 # columns
+AsWkt(GeometryCollectionFromText("GEOMETRYCOLLECTION(POINT(4 6),LINESTRING(4 6,7 10))"))
+GEOMETRYCOLLECTION(POINT(4 6),LINESTRING(4 6,7 10))

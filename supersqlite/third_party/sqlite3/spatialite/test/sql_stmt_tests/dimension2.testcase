@@ -1,0 +1,7 @@
+dimension 2 - float (error)
+:memory: #use in-memory database
+SELECT Dimension(3.14);
+1 # rows (not including the header row)
+1 # columns
+Dimension(3.14)
+(NULL)

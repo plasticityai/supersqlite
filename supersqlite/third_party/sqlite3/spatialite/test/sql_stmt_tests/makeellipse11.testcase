@@ -1,0 +1,8 @@
+makeellipse11 - text y_axis
+:memory: #use in-memory database
+SELECT MakeEllipse(0, 0, 100, 'alpha');
+1 # rows (not including the header row)
+1 # columns
+MakeEllipse(0, 0, 100, 'alpha')
+(NULL)
+

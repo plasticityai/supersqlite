@@ -1,0 +1,8 @@
+collect - second arg null
+:memory: #use in-memory database
+SELECT AsText(COLLECT(Makepoint(1,2), null));
+1 # rows (not including the header row)
+1 # columns
+AsText(COLLECT(Makepoint(1,2), null))
+(NULL)
+

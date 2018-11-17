@@ -1,0 +1,8 @@
+GML GeometryCollection Z (Point, Linestring) - no SRID
+:memory: #use in-memory database
+SELECT AsGML(3, GeomFromText("GEOMETRYCOLLECTIONZ(POINTZ(3 8 100), LINESTRINGZ(1 2 100, 3 4 101))"));
+1 # rows (not including the header row)
+1 # columns
+AsGML(3, GeomFromText("GEOMETRYCOLLECTIONZ(POINTZ(3 8 100), LINESTRINGZ(1 2 100, 3 4 101))"))
+<gml:MultiGeometry><gml:geometryMember><gml:Point><gml:pos srsDimension="3">3 8 100</gml:pos></gml:Point></gml:geometryMember><gml:geometryMember><gml:Curve><gml:segments><gml:LineStringSegment><gml:posList srsDimension="3">1 2 100 3 4 101</gml:posList></gml:LineStringSegment></gml:segments></gml:Curve></gml:geometryMember></gml:MultiGeometry>:0 # trailing ":0" required to avoid truncation !!!
+

@@ -1,0 +1,7 @@
+shared paths - non-blob second arg
+:memory: #use in-memory database
+SELECT SharedPaths(GeomFromText("LINESTRING(5 0, 15 0)"), 3.4)
+1 # rows (not including the header row)
+1 # columns
+SharedPaths(GeomFromText("LINESTRING(5 0, 15 0)"), 3.4)
+(NULL)

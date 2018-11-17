@@ -1,0 +1,7 @@
+ST_GeoHash - text geometry
+:memory: #use in-memory database
+SELECT ST_GeoHash('alpha');
+1 # rows (not including the header row)
+1 # columns
+ST_GeoHash('alpha')
+(NULL)

@@ -1,0 +1,7 @@
+radians(pi()) # test of radians() 
+:memory: #use in-memory database
+SELECT radians(180.0);
+1 # rows (not including the header row)
+1 # columns
+radians(180.0) # header
+3.1415:6 #result

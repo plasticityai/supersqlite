@@ -1,0 +1,8 @@
+XB_SetFileId - valid
+:memory: #use in-memory database
+SELECT XB_GetFileId(XB_SetFileId(XB_Create(CastToBlob('<MD_Metadata><fileIdentifier><CharacterString>a</CharacterString></fileIdentifier></MD_Metadata>')), 'newfileid'));
+1 # rows (not including the header row)
+1 # columns
+XB_GetFileId(XB_SetFileId(XB_Create(CastToBlob('<MD_Metadata><fileIdentifier><CharacterString>a</CharacterString></fileIdentifier></MD_Metadata>')), 'newfileid'))
+newfileid
+

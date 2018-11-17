@@ -1,0 +1,8 @@
+intersection - zeroblob second point
+:memory: #use in-memory database
+SELECT AsText(Intersection(MakePoint(2,3), zeroblob(48)));
+1 # rows (not including the header row)
+1 # columns
+AsText(Intersection(MakePoint(2,3), zeroblob(48)))
+(NULL)
+

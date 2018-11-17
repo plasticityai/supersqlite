@@ -1,0 +1,7 @@
+normalizelonlat- bad blob
+:memory: #use in-memory database
+SELECT NormalizeLonLat(zeroblob(100))
+1 # rows (not including the header row)
+1 # columns
+NormalizeLonLat(zeroblob(100))
+(NULL)

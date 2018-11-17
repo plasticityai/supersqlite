@@ -1,0 +1,8 @@
+geometry constraints - 4 arg, POINT vs XYM
+:memory: #use in-memory database
+SELECT GeometryConstraints(GeomFromText("Point(1 2)", 4326), "POINT", 4326, "XYM")
+1 # rows (not including the header row)
+1 # columns
+GeometryConstraints(GeomFromText("Point(1 2)", 4326), "POINT", 4326, "XYM")
+0
+

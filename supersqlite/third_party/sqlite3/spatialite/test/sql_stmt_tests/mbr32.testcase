@@ -1,0 +1,7 @@
+MbrDisjoint - Line + Line right
+:memory: #use in-memory database
+SELECT MbrDisjoint(GeomFromText("LINESTRING(0 0, 1 2)"), GeomFromText("LINESTRING(3 1, 4 0)"));
+1 # rows (not including the header row)
+1 # columns
+MbrDisjoint(GeomFromText("LINESTRING(0 0, 1 2)"), GeomFromText("LINESTRING(3 1, 4 0)")) # header
+1

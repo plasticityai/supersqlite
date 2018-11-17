@@ -1,0 +1,7 @@
+importDXFfromDir - existing file
+:memory: #use in-memory database
+SELECT ImportDXFfromDir('.', 32632, 1, '3D', 'DISTINCT', 'NONE', 'prefix_', NULL);
+1 # rows (not including the header row)
+1 # columns
+ImportDXFfromDir('.', 32632, 1, '3D', 'DISTINCT', 'NONE', 'prefix_', NULL)
+9

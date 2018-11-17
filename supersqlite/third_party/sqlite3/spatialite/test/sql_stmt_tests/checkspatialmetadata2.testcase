@@ -1,0 +1,7 @@
+checkspatialmetadata - pure sqlite3
+sql_stmt_tests/trivial.sqlite_RO #use special test database, read only
+SELECT CheckSpatialMetaData()
+1 # rows (not including the header row)
+1 # columns
+CheckSpatialMetaData()
+0

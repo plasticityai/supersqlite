@@ -1,0 +1,7 @@
+bad EWKT: illegal GeometryCollection
+:memory: #use in-memory database
+SELECT GeomFromEWKT("SRID=4326;GEOMETRYCOLLECTION()");
+1 # rows (not including the header row)
+1 # columns
+GeomFromEWKT("SRID=4326;GEOMETRYCOLLECTION()")
+(NULL)

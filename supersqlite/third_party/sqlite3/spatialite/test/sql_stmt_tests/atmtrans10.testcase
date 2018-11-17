@@ -1,0 +1,7 @@
+ATM_Translate() - invalid blob
+:memory: #use in-memory database
+SELECT ATM_Translate(zeroblob(10), 1.0, 2.0)
+1 # rows (not including the header row)
+1 # columns
+ATM_Translate(zeroblob(10), 1.0, 2.0)
+(NULL)

@@ -1,0 +1,7 @@
+UpdateLayerStatistics - TEXT, TEXT
+:memory: #use in-memory database
+SELECT UpdateLayerStatistics('table', 'column');
+1 # rows (not including the header row)
+1 # columns
+UpdateLayerStatistics('table', 'column');
+1

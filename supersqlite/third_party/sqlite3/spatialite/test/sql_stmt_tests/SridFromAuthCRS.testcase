@@ -1,0 +1,7 @@
+SridFromAuthCRS
+:memory: #use in-memory database
+SELECT SridFromAuthCRS("EPSG", 4326)
+1 # rows (not including the header row)
+1 # columns
+SridFromAuthCRS("EPSG", 4326)
+4326

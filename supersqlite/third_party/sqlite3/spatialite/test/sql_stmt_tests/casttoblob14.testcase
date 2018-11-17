@@ -1,0 +1,9 @@
+CastToBlob() - Valid (2) hex_input
+:memory: #use in-memory database
+SELECT Hex(CastToBlob(CastToBlob('0123456789aBcDeFfEdCbA9876543210'), 1))
+1 # rows (not including the header row)
+1 # columns
+Hex(CastToBlob(CastToBlob('0123456789aBcDeFfEdCbA9876543210'), 1))
+0123456789ABCDEFFEDCBA9876543210
+
+

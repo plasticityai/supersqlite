@@ -1,0 +1,8 @@
+Centroid - polygon
+:memory: #use in-memory database
+SELECT astext(centroid(geomFromText("POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))", 4326)));
+1 # rows (not including the header row)
+1 # columns
+astext(centroid(geomFromText("POLYGON((0 0, 0 2, 2 2, 2 0, 0 0))", 4326)));
+POINT(1 1)
+

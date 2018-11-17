@@ -1,0 +1,9 @@
+TriangularGrid - Collection (Point - Polygon) geom
+:memory: #use in-memory database
+SELECT TriangularGrid(GeomFromText('GEOMETRYCOLLECTION(POINT(0 0), POLYGON((3 3, 3 4, 4 4, 4 3, 3 3)))', 4326), 1.0);
+1 # rows (not including the header row)
+1 # columns
+TriangularGrid(GeomFromText('GEOMETRYCOLLECTION(POINT(0 0), POLYGON((3 3, 3 4, 4 4, 4 3, 3 3)))', 4326), 1.0)
+(NULL)
+
+

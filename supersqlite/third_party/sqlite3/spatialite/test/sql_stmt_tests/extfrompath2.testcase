@@ -1,0 +1,7 @@
+FileExtFromPath - INTEGER
+:memory: #use in-memory database
+SELECT FileExtFromPath(1);
+1 # rows (not including the header row)
+1 # columns
+FileExtFromPath(1)
+(NULL)

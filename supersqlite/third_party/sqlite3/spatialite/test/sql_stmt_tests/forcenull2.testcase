@@ -1,0 +1,7 @@
+ForceAsNull() - INTEGER/TEXT
+:memory: #use in-memory database
+SELECT ForceAsNull(1, 'alpha')
+1 # rows (not including the header row)
+1 # columns
+ForceAsNull(1, 'alpha')
+1

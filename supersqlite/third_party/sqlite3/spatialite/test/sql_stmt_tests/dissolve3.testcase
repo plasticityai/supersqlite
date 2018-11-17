@@ -1,0 +1,7 @@
+dissolve - text input
+:memory: #use in-memory database
+SELECT DissolveSegments("hell0")
+1 # rows (not including the header row)
+1 # columns
+DissolveSegments("hell0")
+(NULL)

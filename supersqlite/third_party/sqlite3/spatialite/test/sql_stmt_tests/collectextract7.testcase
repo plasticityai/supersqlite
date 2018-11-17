@@ -1,0 +1,8 @@
+Collection Extract - text arg
+:memory: #use in-memory database
+SELECT CollectionExtract("text", 1);
+1 # rows (not including the header row)
+1 # columns
+CollectionExtract("text", 1)
+(NULL)
+

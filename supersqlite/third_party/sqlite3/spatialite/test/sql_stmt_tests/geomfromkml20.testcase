@@ -1,0 +1,7 @@
+From KML - MultiGeometry POLYGON [hole] x 2 - 2D
+:memory:
+SELECT AsText(GeomFromKML("<MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>10,10 15,10 15,15 10,15 10,10</coordinates></LinearRing></outerBoundaryIs><innerBoundaryIs><LinearRing><coordinates>11,11 12,11 12,12 11,12 11,11</coordinates></LinearRing></innerBoundaryIs></Polygon><Polygon><outerBoundaryIs><LinearRing><coordinates>16,16 17,16 17,17 16,17 16,16</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>"))
+1 # rows
+1 # column
+AsText(GeomFromKML("<MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>10,10 15,10 15,15 10,15 10,10</coordinates></LinearRing></outerBoundaryIs><innerBoundaryIs><LinearRing><coordinates>11,11 12,11 12,12 11,12 11,11</coordinates></LinearRing></innerBoundaryIs></Polygon><Polygon><outerBoundaryIs><LinearRing><coordinates>16,16 17,16 17,17 16,17 16,16</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>"))
+MULTIPOLYGON(((10 10, 15 10, 15 15, 10 15, 10 10), (11 11, 12 11, 12 12, 11 12, 11 11)), ((16 16, 17 16, 17 17, 16 17, 16 16)))

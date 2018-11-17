@@ -1,0 +1,8 @@
+GML Polygon Z: no SRID
+:memory: #use in-memory database
+SELECT AsGML(3, GeomFromText("POLYGONZ((10 10 100, 20 10 101, 20 20 102, 10 20 103, 10 10 100), (15 15 80, 16 15 90, 16 16 95, 15 16 90, 15 15 80))"));
+1 # rows (not including the header row)
+1 # columns
+AsGML(3, GeomFromText("POLYGONZ((10 10 100, 20 10 101, 20 20 102, 10 20 103, 10 10 100), (15 15 80, 16 15 90, 16 16 95, 15 16 90, 15 15 80))"))
+<gml:Polygon><gml:exterior><gml:LinearRing><gml:posList srsDimension="3">10 10 100 20 10 101 20 20 102 10 20 103 10 10 100</gml:posList></gml:LinearRing></gml:exterior><gml:interior><gml:LinearRing><gml:posList srsDimension="3">15 15 80 16 15 90 16 16 95 15 16 90 15 15 80</gml:posList></gml:LinearRing></gml:interior></gml:Polygon>:0 # trailing ":0" required to avoid truncation !!!
+

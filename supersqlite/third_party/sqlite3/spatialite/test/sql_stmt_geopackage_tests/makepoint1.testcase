@@ -1,0 +1,7 @@
+gpkgmakepoint1
+:memory: #use in-memory database
+SELECT Hex(gpkgMakePoint(136, -35))
+1 # rows (not including the header row)
+1 # columns
+Hex(gpkgMakePoint(136, -35))
+47500003000000000000000000006140000000000000614000000000008041C000000000008041C00101000000000000000000614000000000008041C0

@@ -1,0 +1,9 @@
+HexagonalGrid - Point geom
+:memory: #use in-memory database
+SELECT HexagonalGrid(MakePoint(1, 1, 4326), 1.0);
+1 # rows (not including the header row)
+1 # columns
+HexagonalGrid(MakePoint(1, 1, 4326), 1.0)
+(NULL)
+
+

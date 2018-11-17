@@ -1,0 +1,7 @@
+locate point - NULL second arg
+:memory: #use in-memory database
+SELECT Line_Locate_Point(GeomFromText("LINESTRING(0 1, 1 2)"), NULL)
+1 # rows (not including the header row)
+1 # columns
+Line_Locate_Point(GeomFromText("LINESTRING(0 1, 1 2)"), NULL)
+(NULL)

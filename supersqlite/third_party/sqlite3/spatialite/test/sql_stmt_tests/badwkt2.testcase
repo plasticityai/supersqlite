@@ -1,0 +1,7 @@
+bad WKT: Linestring
+:memory: #use in-memory database
+SELECT GeomFromText("LINESTRING(11.2 12.3, 11.3 12.4, 11.4 12.5");
+1 # rows (not including the header row)
+1 # columns
+GeomFromText("LINESTRING(11.2 12.3, 11.3 12.4, 11.4 12.5")
+(NULL)

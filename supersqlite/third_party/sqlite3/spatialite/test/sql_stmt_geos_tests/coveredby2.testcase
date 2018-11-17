@@ -1,0 +1,7 @@
+CoveredBy - non-geom2
+:memory: #use in-memory database
+SELECT CoveredBy(geom1,geom2) from (SELECT "hello" as geom2,GeomFromText("POLYGON((0 0, 2 0, 2 2, 0 2, 0 0))") as geom1) dummy;
+1 # rows (not including the header row)
+1 # columns
+CoveredBy(geom1,geom2)
+-1

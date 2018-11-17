@@ -1,0 +1,7 @@
+bad EWKT: Point
+:memory: #use in-memory database
+SELECT GeomFromEWKT("SRID=4326;POINT(11.2 12.3");
+1 # rows (not including the header row)
+1 # columns
+GeomFromEWKT("SRID=4326;POINT(11.2 12.3")
+(NULL)

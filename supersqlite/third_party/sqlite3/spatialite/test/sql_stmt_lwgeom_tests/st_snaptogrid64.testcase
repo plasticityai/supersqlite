@@ -1,0 +1,7 @@
+ST_SnapToGrid - MultiLinestring M
+:memory: #use in-memory database
+SELECT AsText(ST_SnapToGrid(GeomFromText('MULTILINESTRINGM((1.2 2.3 10.1, 1.21 2.31 10.11, 1.22 2.32 10.1, 2.1 3.9 10.11), (2.11 3.11 10, 2.12 3.12 10.1), (3.2 4.2 10.1, 4.2 3.2 10.4))'), MakePoint(0, 0), 0.25, 0.25, 0.25, 0.25));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_SnapToGrid(GeomFromText('MULTILINESTRINGM((1.2 2.3 10.1, 1.21 2.31 10.11, 1.22 2.32 10.1, 2.1 3.9 10.11), (2.11 3.11 10, 2.12 3.12 10.1), (3.2 4.2 10.1, 4.2 3.2 10.4))'), MakePoint(0, 0), 0.25, 0.25, 0.25, 0.25))
+MULTILINESTRING M((1.25 2.25 10, 2 4 10), (3.25 4.25 10, 4.25 3.25 10.5))

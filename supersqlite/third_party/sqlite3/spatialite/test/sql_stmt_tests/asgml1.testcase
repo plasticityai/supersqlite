@@ -1,0 +1,7 @@
+asgml - bad args (broken blob)
+:memory: #use in-memory database
+SELECT asgml(zeroblob(20));
+1 # rows (not including the header row)
+1 # columns
+asgml(zeroblob(20))
+(NULL)

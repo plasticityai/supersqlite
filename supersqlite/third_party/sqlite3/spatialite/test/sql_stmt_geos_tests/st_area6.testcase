@@ -1,0 +1,7 @@
+ST_Area - bad blob (error)
+:memory: #use in-memory database
+SELECT ST_Area(zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+ST_Area(zeroblob(4))
+(NULL)

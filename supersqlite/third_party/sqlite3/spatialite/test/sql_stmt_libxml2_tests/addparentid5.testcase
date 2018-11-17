@@ -1,0 +1,8 @@
+XB_AddParentId - valid - no namespaces
+:memory: #use in-memory database
+SELECT XB_GetParentId(XB_AddParentId(XB_Create(CastToBlob('<MD_Metadata><fileIdentifier><CharacterString>a</CharacterString></fileIdentifier></MD_Metadata>')), 'newparentid', NULL, NULL, NULL, NULL));
+1 # rows (not including the header row)
+1 # columns
+XB_GetParentId(XB_AddParentId(XB_Create(CastToBlob('<MD_Metadata><fileIdentifier><CharacterString>a</CharacterString></fileIdentifier></MD_Metadata>')), 'newparentid', NULL, NULL, NULL, NULL))
+newparentid
+

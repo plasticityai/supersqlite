@@ -1,0 +1,7 @@
+ST_Segmentize - Point Z
+:memory: #use in-memory database
+SELECT ST_AsText(ST_Segmentize(GeomFromText('POINTZ(0 0 10)'), 0.5));
+1 # rows (not including the header row)
+1 # columns
+ST_AsText(ST_Segmentize(GeomFromText('POINTZ(0 0 10)'), 0.5))
+POINT Z(0 0 10)

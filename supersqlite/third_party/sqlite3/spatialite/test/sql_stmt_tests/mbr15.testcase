@@ -1,0 +1,7 @@
+MbrEqual - Line + Polygon
+:memory: #use in-memory database
+SELECT MbrEqual(GeomFromText("LINESTRING(0 0, 1 2)"), GeomFromText("POLYGON((0 0, 0 2, 1 2, 1 0, 0 0))"));
+1 # rows (not including the header row)
+1 # columns
+MbrEqual(GeomFromText("LINESTRING(0 0, 1 2)"), GeomFromText("POLYGON((0 0, 0 2, 1 2, 1 0, 0 0))"))
+1

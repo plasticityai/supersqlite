@@ -1,0 +1,7 @@
+asbinary - multipointz
+:memory: #use in-memory database
+SELECT Hex(AsBinary(GeomFromText("MultiPointZ(1 2 3,2 4 4)", 4326)))
+1 # rows (not including the header row)
+1 # columns
+Hex(AsBinary(GeomFromText("MultiPointZ(1 2 3,2 4 4)", 4326)))
+01EC0300000200000001E9030000000000000000F03F0000000000000040000000000000084001E9030000000000000000004000000000000010400000000000001040

@@ -1,0 +1,7 @@
+RegisterRasterStyledLayer - BLOB style
+:memory: #use in-memory database
+SELECT SE_RegisterRasterStyledLayer('alpha', zeroblob(100));
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterRasterStyledLayer('alpha', zeroblob(100))
+-1

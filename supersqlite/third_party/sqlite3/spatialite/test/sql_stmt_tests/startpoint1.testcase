@@ -1,0 +1,7 @@
+startpoint - regular LINESTRING
+:memory: #use in-memory database
+SELECT AsText(StartPoint(GeomFromText("LINESTRING(4 0, 4 4, 8 4)")));
+1 # rows (not including the header row)
+1 # columns
+AsText(StartPoint(GeomFromText("LINESTRING(4 0, 4 4, 8 4)")))
+POINT(4 0)

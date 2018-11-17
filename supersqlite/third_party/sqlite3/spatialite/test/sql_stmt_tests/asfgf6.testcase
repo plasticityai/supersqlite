@@ -1,0 +1,7 @@
+asfgf - pointxy, 0 dim
+:memory: #use in-memory database
+SELECT Hex(AsFGF(GeomFromText("POINT(1 2)"), 0))
+1 # rows (not including the header row)
+1 # columns
+Hex(AsFGF(GeomFromText("POINT(1 2)"), 0))
+0100000000000000000000000000F03F0000000000000040

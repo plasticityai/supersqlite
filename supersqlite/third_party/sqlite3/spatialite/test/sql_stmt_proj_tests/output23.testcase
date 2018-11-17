@@ -1,0 +1,19 @@
+Output format tests - MULTILINESTRING via EWKB, WGS-84
+:memory: #use in-memory database
+SELECT AsText(geom), AsKML(geom), AsGML(geom), AsGeoJSON(geom), AsWkt(geom), AsEWkt(geom), Hex(AsEWKB(geom)) FROM (SELECT GeomFromEWkt("SRID=4326;MULTILINESTRING((-1 1, 2 3, 4 1),(0 2, 2 0, 0 0, 1 1))") as geom) dummy;
+1 # rows (not including the header row)
+7 # columns
+AsText(geom)
+AsKML(geom)
+AsGML(geom)
+AsGeoJSON(geom)
+AsWkt(geom)
+AsEWkt(geom)
+Hex(AsEWKB(geom))
+MULTILINESTRING((-1 1, 2 3, 4 1), (0 2, 2 0, 0 0, 1 1))
+<MultiGeometry><LineString><coordinates>-1,1 2,3 4,1</coordinates></LineString><LineString><coordinates>0,2 2,0 0,0 1,1</coordinates></LineString></MultiGeometry>
+<gml:MultiLineString srsName="EPSG:4326"><gml:lineStringMember><gml:LineString><gml:coordinates>-1,1 2,3 4,1</gml:coordinates></gml:LineString></gml:lineStringMember><gml:lineStringMember><gml:LineString><gml:coordinates>0,2 2,0 0,0 1,1</gml:coordinates></gml:LineString></gml:lineStringMember></gml:MultiLineString>:0
+{"type":"MultiLineString","coordinates":[[[-1,1],[2,3],[4,1]],[[0,2],[2,0],[0,0],[1,1]]]}:0
+MULTILINESTRING((-1 1,2 3,4 1),(0 2,2 0,0 0,1 1))
+SRID=4326;MULTILINESTRING((-1 1,2 3,4 1),(0 2,2 0,0 0,1 1))
+30313035303030303230453631303030303030323030303030303031303230303030303030333030303030303030303030303030303030304630424630303030303030303030303046303346303030303030303030303030303034303030303030303030303030303038343030303030303030303030303031303430303030303030303030303030463033463031303230303030303030343030303030303030303030303030303030303030303030303030303030303030303030303430303030303030303030303030303034303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030304630334630303030303030303030303046303346

@@ -1,0 +1,8 @@
+union - POINTM
+:memory: #use in-memory database
+SELECT AsText(GUnion(GeomFromText("POINTM(1 3 4)"),GeomFromText("POINTM(2 5 9)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(GUnion(GeomFromText("POINTM(1 3 4)"),GeomFromText("POINTM(2 5 9)")))
+MULTIPOINT M(1 3 0, 2 5 0)
+

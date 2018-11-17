@@ -1,0 +1,7 @@
+pointn - text input (error)
+:memory: #use in-memory database
+SELECT PointN("hello world", 0);
+1 # rows (not including the header row)
+1 # columns
+PointN("hello world", 0)
+(NULL)

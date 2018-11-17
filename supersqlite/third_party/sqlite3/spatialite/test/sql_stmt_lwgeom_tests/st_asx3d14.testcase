@@ -1,0 +1,7 @@
+ST_AsX3D - 2D multipolygon
+:memory: #use in-memory database
+SELECT ST_AsX3D(GeomFromText('MULTIPOLYGON(((10 10, 11 10, 11 11, 10 11, 10 10)), ((20 20, 21 20, 21 21, 20 21, 20 20)))'));
+1 # rows (not including the header row)
+1 # columns
+ST_AsX3D(GeomFromText('MULTIPOLYGON(((10 10, 11 10, 11 11, 10 11, 10 10)), ((20 20, 21 20, 21 21, 20 21, 20 20)))'))
+<IndexedFaceSet  coordIndex='0 1 2 3 -1 4 5 6 7'>10 10 11 10 11 11 10 11 20 20 21 20 21 21 20 21 ' />:0

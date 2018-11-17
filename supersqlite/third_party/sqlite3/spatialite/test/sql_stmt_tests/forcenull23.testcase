@@ -1,0 +1,7 @@
+ForceAsNull() - DOUBLE - mismatching
+:memory: #use in-memory database
+SELECT ForceAsNull(1.5, 1.6)
+1 # rows (not including the header row)
+1 # columns
+ForceAsNull(1.5, 1.6)
+1.5

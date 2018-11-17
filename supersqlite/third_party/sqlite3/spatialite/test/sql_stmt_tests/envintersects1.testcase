@@ -1,0 +1,7 @@
+ST_EnvIntersects - bad arg #1
+:memory: #use in-memory database
+SELECT ST_EnvIntersects("alpha", 2, 2, 3, 3)
+1 # rows (not including the header row)
+1 # columns
+ST_EnvIntersects("alpha", 2, 2, 3, 3)
+(NULL)

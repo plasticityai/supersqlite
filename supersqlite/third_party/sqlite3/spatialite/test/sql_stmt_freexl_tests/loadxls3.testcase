@@ -1,0 +1,7 @@
+ImportXLS - NULL worksheet_index
+:memory: #use in-memory database
+SELECT ImportXLS('spreadsheet.xls', 'table', NULL);
+1 # rows (not including the header row)
+1 # columns
+ImportXLS('spreadsheet.xls', 'table', NULL);
+(NULL)

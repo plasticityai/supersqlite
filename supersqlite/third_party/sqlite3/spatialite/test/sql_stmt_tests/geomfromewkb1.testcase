@@ -1,0 +1,7 @@
+From EWKB - bad text
+:memory:
+SELECT GeomFromEwkb("Hello!")
+1 # rows
+1 # column
+GeomFromEwkb("Hello!")
+(NULL)

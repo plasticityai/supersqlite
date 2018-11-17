@@ -1,0 +1,7 @@
+ST_Segmentize - NULL distance (error)
+:memory: #use in-memory database
+SELECT ST_AsText(ST_Segmentize(GeomFromText('LINESTRING(1 1, 2 2)'), NULL));
+1 # rows (not including the header row)
+1 # columns
+ST_AsText(ST_Segmentize(GeomFromText('LINESTRING(1 1, 2 2)'), NULL))
+(NULL)

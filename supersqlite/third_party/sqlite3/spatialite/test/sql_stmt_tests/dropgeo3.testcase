@@ -1,0 +1,7 @@
+DropGeoTable - prefix, NULL table
+:memory: #use in-memory database
+SELECT DropGeoTable('prefix', NULL);
+1 # rows (not including the header row)
+1 # columns
+DropGeoTable('prefix', NULL)
+(NULL)

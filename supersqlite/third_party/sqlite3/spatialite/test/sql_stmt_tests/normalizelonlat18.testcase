@@ -1,0 +1,8 @@
+normalizelonlat- out of range positive lat linestring
+:memory: #use in-memory database
+SELECT AsText(NormalizeLonLat(GeomFromText("LINESTRING(120 140, 130 150)", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(NormalizeLonLat(GeomFromText("LINESTRING(120 140, 130 150)", 4326)))
+LINESTRING(120 40, 130 30)
+

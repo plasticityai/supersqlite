@@ -1,0 +1,11 @@
+Relate - POINTs identical
+:memory: #use in-memory database
+SELECT Relate(geom1, geom2, "T*T***T**"), Relate(geom1, geom2, "T*F**FFF*"), Relate(geom1, geom2, "FF*FF****") FROM (SELECT GeomFromText("POINT(1 2)") as geom1, GeomFromText("POINT(1 2)") as geom2) dummy;
+1 # rows (not including the header row)
+3 # columns
+Relate(geom1, geom2, "T*T***T**") # overlaps
+Relate(geom1, geom2, "T*F**FFF*") # equal
+Relate(geom1, geom2, "FF*FF****") # disjoint
+0
+1
+0

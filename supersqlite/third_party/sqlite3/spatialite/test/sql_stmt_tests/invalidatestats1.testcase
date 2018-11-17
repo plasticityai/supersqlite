@@ -1,0 +1,7 @@
+InvalidateLayerStatistics - NULL, NULL
+:memory: #use in-memory database
+SELECT InvalidateLayerStatistics(NULL, NULL);
+1 # rows (not including the header row)
+1 # columns
+InvalidateLayerStatistics(NULL, NULL);
+0

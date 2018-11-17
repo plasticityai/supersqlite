@@ -1,0 +1,8 @@
+askml - 4 arg blob descriptions, GDA94
+:memory: #use in-memory database
+SELECT askml(zeroblob(10), zeroblob(12), GeomFromText("Point(1 2)", 4283), 4)
+1 # rows (not including the header row)
+1 # columns
+askml(zeroblob(10), zeroblob(12), GeomFromText("Point(1 2)", 4283), 4)
+<Placemark><name>BLOB</name><description>BLOB</description><Point><coordinates>1,2</coordinates></Point></Placemark>
+

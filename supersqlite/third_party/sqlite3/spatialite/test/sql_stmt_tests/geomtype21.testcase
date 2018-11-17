@@ -1,0 +1,11 @@
+geometrytype - POLYGON
+:memory: #use in-memory database
+SELECT GeometryType(geom), CoordDimension(geom), GeometryAliasType(geom) from (SELECT GeomFromText("POLYGON ((30 20, 10 40, 45 40, 30 20),(15 5, 40 10, 10 20, 5 10, 15 5))") as geom) dummy;
+1 # rows (not including the header row)
+3 # columns
+GeometryType(geom)
+CoordDimension(geom)
+GeometryAliasType(geom)
+POLYGON
+XY
+POLYGON

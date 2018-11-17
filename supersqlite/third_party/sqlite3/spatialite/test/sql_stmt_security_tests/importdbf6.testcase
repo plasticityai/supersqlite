@@ -1,0 +1,7 @@
+importDBF - not existing file
+:memory: #use in-memory database
+SELECT ImportDBF('test.dbf', 'table', 'UTF-8', 'id', 1);
+1 # rows (not including the header row)
+1 # columns
+ImportDBF('test.dbf', 'table', 'UTF-8', 'id', 1)
+(NULL)

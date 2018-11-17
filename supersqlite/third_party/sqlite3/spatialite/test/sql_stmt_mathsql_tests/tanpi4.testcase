@@ -1,0 +1,7 @@
+tan(pi/4)
+:memory: #use in-memory database
+SELECT tan(pi()/4);
+1 # rows (not including the header row)
+1 # columns
+tan(pi()/4) # header
+1.0 #result

@@ -1,0 +1,7 @@
+ST_Split - Polygon-Line (split)
+:memory: #use in-memory database
+SELECT AsText(ST_Split(GeomFromText('POLYGON((0 1, 10 1, 10 10, 0 10, 0 1))'), GeomFromText('LINESTRING(7 0, 7 20)')));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_Split(GeomFromText('POLYGON((0 1, 10 1, 10 10, 0 10, 0 1))'), GeomFromText('LINESTRING(7 0, 7 20)')))
+MULTIPOLYGON(((7 1, 0 1, 0 10, 7 10, 7 1)), ((7 10, 10 10, 10 1, 7 1, 7 10)))

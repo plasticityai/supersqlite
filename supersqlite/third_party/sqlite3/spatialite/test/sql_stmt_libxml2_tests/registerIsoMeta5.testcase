@@ -1,0 +1,8 @@
+RegisterIsoMetadata - NULL metadata
+:memory: #use in-memory database
+SELECT RegisterIsoMetadata('series', NULL);
+1 # rows (not including the header row)
+1 # columns
+RegisterIsoMetadata('series', NULL)
+-1
+

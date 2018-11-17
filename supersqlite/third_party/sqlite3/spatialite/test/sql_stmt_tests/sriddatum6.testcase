@@ -1,0 +1,7 @@
+SridGetDatum() - 32632
+:memory: #use in-memory database
+SELECT SridGetDatum(32632)
+1 # rows (not including the header row)
+1 # columns
+SridGetDatum(32632)
+WGS_1984

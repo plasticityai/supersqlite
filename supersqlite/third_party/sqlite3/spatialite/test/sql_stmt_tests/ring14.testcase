@@ -1,0 +1,7 @@
+NumInteriorRings - bad blob (error)
+:memory: #use in-memory database
+SELECT NumInteriorRings(zeroblob(12));
+1 # rows (not including the header row)
+1 # columns
+NumInteriorRings(zeroblob(12))
+(NULL)

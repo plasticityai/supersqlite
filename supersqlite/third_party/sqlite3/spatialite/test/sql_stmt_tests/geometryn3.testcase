@@ -1,0 +1,7 @@
+Geometry N - text input (error)
+:memory: #use in-memory database
+SELECT GeometryN("text", 2);
+1 # rows (not including the header row)
+1 # columns
+GeometryN("text", 2)
+(NULL)

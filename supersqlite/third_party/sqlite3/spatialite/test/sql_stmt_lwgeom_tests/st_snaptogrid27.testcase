@@ -1,0 +1,7 @@
+ST_SnapToGrid - six args - text grid origin (error)
+:memory: #use in-memory database
+SELECT ST_SnapToGrid(MakePoint(1.25, 2.35), 'alpha', 1, 2, 3, 4);
+1 # rows (not including the header row)
+1 # columns
+ST_SnapToGrid(MakePoint(1.25, 2.35), 'alpha', 1, 2, 3, 4)
+(NULL)

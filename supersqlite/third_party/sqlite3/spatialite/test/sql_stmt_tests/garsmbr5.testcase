@@ -1,0 +1,7 @@
+garsmbr - out of bounds longitude
+:memory: #use in-memory database
+SELECT GARSMbr("721AA")
+1 # rows (not including the header row)
+1 # columns
+GARSMbr("721AA")
+(NULL)

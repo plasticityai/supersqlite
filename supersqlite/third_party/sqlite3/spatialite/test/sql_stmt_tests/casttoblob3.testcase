@@ -1,0 +1,9 @@
+CastToBlob() - TEXT
+:memory: #use in-memory database
+SELECT Hex(CastToBlob('alpha')), TypeOf(CastToBlob('alpha'))
+1 # rows (not including the header row)
+2 # columns
+Hex(CastToBlob('alpha'))
+TypeOf(CastToBlob('alpha'))
+616C706861
+blob

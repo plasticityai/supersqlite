@@ -1,0 +1,10 @@
+shiftcoords - text shift (error)
+:memory: #use in-memory database
+SELECT ShiftCoords(GeomFromText("POINT(1 2)"), 1, "three");
+1 # rows (not including the header row)
+1 # columns
+ShiftCoords(GeomFromText("POINT(1 2)"), 1, "three")
+(NULL)
+
+
+

@@ -1,0 +1,8 @@
+GML MultiPolygon Z
+:memory: #use in-memory database
+SELECT AsGML(3, GeomFromText("MULTIPOLYGONZ(((10 10 100, 20 10 101, 20 20 102, 10 20 103, 10 10 100)), ((85 85 80, 90 85 90, 90 90 95, 85 90 90, 85 85 80)))", 4326));
+1 # rows (not including the header row)
+1 # columns
+AsGML(3, GeomFromText("MULTIPOLYGONZ(((10 10 100, 20 10 101, 20 20 102, 10 20 103, 10 10 100)), ((85 85 80, 90 85 90, 90 90 95, 85 90 90, 85 85 80)))", 4326))
+<gml:MultiSurface srsName="EPSG:4326"><gml:surfaceMember><gml:Polygon><gml:exterior><gml:LinearRing><gml:posList srsDimension="3">10 10 100 20 10 101 20 20 102 10 20 103 10 10 100</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></gml:surfaceMember><gml:surfaceMember><gml:Polygon><gml:exterior><gml:LinearRing><gml:posList srsDimension="3">85 85 80 90 85 90 90 90 95 85 90 90 85 85 80</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></gml:surfaceMember></gml:MultiSurface>:0 # trailing ":0" required to avoid truncation !!!
+

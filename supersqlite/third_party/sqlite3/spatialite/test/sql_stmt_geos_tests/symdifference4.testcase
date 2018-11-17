@@ -1,0 +1,9 @@
+symdifference - zeroblob second arg
+:memory: #use in-memory database
+SELECT AsText(SymDifference(MakePoint(1,2),zeroblob(50)))
+1 # rows (not including the header row)
+1 # columns
+AsText(SymDifference(MakePoint(1,2),zeroblob(50)))
+(NULL)
+
+

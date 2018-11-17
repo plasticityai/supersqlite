@@ -1,0 +1,7 @@
+CastToInteger() - BLOB
+:memory: #use in-memory database
+SELECT CastToInteger(zeroblob(4))
+1 # rows (not including the header row)
+1 # columns
+CastToInteger(zeroblob(4))
+(NULL)

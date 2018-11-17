@@ -1,0 +1,8 @@
+exp-text # test of exp() function, with text argument
+:memory: #use in-memory database
+SELECT exp("hello world");
+1 # rows (not including the header row)
+1 # columns
+exp("hello world") # header
+(NULL)  #result
+

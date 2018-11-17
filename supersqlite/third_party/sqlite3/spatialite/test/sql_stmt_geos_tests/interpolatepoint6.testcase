@@ -1,0 +1,7 @@
+interpolate point - bad blob
+:memory: #use in-memory database
+SELECT Line_Interpolate_Point(zeroblob(100), 0.5)
+1 # rows (not including the header row)
+1 # columns
+Line_Interpolate_Point(zeroblob(100), 0.5)
+(NULL)

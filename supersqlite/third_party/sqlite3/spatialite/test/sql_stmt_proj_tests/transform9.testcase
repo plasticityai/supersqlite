@@ -1,0 +1,7 @@
+transform - Linestring Z
+:memory: #use in-memory database
+SELECT AsText(Transform(GeomFromText('LINESTRINGZ(11 43 100, 12 43 101, 12 42 102)', 4326), 32632))
+1 # rows (not including the header row)
+1 # columns
+AsText(Transform(GeomFromText('LINESTRINGZ(11 43 100, 12 43 101, 12 42 102)', 4326), 32632))
+LINESTRING Z(663019.070082 4762755.64169 100, 744533.019451 4765182.932802 101, 748464.920716 4654130.891324 102)

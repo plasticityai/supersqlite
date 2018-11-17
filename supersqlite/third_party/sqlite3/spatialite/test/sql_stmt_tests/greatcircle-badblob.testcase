@@ -1,0 +1,7 @@
+great circle length - bad blob
+:memory:
+SELECT GreatCircleLength(zeroblob(34));
+1 # rows
+1 # column
+GreatCircleLength(zeroblob(34))
+(NULL)

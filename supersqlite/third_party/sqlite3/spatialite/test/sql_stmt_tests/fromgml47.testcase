@@ -1,0 +1,7 @@
+FromGML - MultiPolygon v2
+:memory: #use in-memory database
+SELECT AsEwkt(GeomFromGml('<gml:MultiPolygon srsName="EPSG:4326"><gml:polygonMembers><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>0,0 5,0 5,5 0,5 0,0</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs><gml:innerBoundaryIs><gml:LinearRing><gml:coordinates>1,1 2,1 2,2 1,2 1,1</gml:coordinates></gml:LinearRing></gml:innerBoundaryIs></gml:Polygon><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>6,6 7,6 7,7 6,7 6,6</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></gml:polygonMembers></gml:MultiPolygon>'));
+1 # rows (not including the header row)
+1 # columns
+AsEwkt(GeomFromGml('<gml:MultiPolygon srsName="EPSG:4326"><gml:polygonMembers><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>0,0 5,0 5,5 0,5 0,0</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs><gml:innerBoundaryIs><gml:LinearRing><gml:coordinates>1,1 2,1 2,2 1,2 1,1</gml:coordinates></gml:LinearRing></gml:innerBoundaryIs></gml:Polygon><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>6,6 7,6 7,7 6,7 6,6</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></gml:polygonMembers></gml:MultiPolygon>')):0
+SRID=4326;MULTIPOLYGON(((0 0,5 0,5 5,0 5,0 0),(1 1,2 1,2 2,1 2,1 1)),((6 6,7 6,7 7,6 7,6 6)))

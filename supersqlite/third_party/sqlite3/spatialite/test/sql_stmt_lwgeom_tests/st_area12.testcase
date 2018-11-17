@@ -1,0 +1,7 @@
+ST_Area Geodesic - valid Polygon - Sphere
+:memory: #use in-memory database
+SELECT ST_Area(GeomFromText("POLYGON((50.4 50.4, 50.4 54, 54 54, 54 50.4, 50.4 50.4),(51 51, 51 53, 53 53, 53 51, 51 51))"), 0);
+1 # rows (not including the header row)
+1 # columns
+ST_Area(GeomFromText("POLYGON((50.4 50.4, 50.4 54, 54 54, 54 50.4, 50.4 50.4),(51 51, 51 53, 53 53, 53 51, 51 51))"), 0)
+67724290215.61:2

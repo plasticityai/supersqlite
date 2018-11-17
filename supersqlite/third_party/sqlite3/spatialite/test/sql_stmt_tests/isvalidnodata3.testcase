@@ -1,0 +1,8 @@
+IsValidPixel - NULL sample-type
+NEW:memory: #use in-memory database
+SELECT IsValidPixel(zeroblob(4), NULL, 1);
+1 # rows (not including the header row)
+1 # columns
+IsValidPixel(zeroblob(4), NULL, 1)
+-1
+

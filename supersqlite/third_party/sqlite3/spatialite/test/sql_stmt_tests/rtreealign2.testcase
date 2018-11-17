@@ -1,0 +1,7 @@
+rtreealign - non-int second arg
+:memory: #use in-memory database
+SELECT RTreeAlign("notreal", "non-int", 2)
+1 # rows (not including the header row)
+1 # columns
+RTreeAlign("notreal", "non-int", 2)
+-1

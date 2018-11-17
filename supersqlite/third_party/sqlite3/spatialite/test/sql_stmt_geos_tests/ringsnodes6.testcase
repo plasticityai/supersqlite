@@ -1,0 +1,7 @@
+RingsCutAtNodes - non-polygon (linestring)
+:memory: #use in-memory database
+SELECT RingsCutAtNodes(GeomFromText("LINESTRING(1 3, 2 6)"))
+1 # rows (not including the header row)
+1 # columns
+RingsCutAtNodes(GeomFromText("LINESTRING(1 3, 2 6)"))
+(NULL)

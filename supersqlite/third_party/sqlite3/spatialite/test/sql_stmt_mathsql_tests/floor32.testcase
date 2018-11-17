@@ -1,0 +1,7 @@
+floor(3.2) # you can use the SQL if you're not feeling imaginative.
+:memory:
+SELECT floor(3.2);
+1 # rows
+1 # columns
+floor(3.2) # this is the header row
+3.0 # this is really the result

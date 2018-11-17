@@ -1,0 +1,7 @@
+CompressGeometry - MULTIPOLYGON (1 Polygon)
+:memory: #use in-memory database
+SELECT AsText(CompressGeometry(GeomFromText("MULTIPOLYGON(((10 10, 11 10, 11 11, 10 11, 10 10)))", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(CompressGeometry(GeomFromText("MULTIPOLYGON(((10 10, 11 10, 11 11, 10 11, 10 10)))", 4326)))
+MULTIPOLYGON(((10 10, 11 10, 11 11, 10 11, 10 10)))

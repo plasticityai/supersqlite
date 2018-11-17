@@ -1,0 +1,8 @@
+UnRegisterStyledGroupRaster - NULL group
+:memory: #use in-memory database
+SELECT SE_UnRegisterStyledGroupRaster(NULL, 'beta');
+1 # rows (not including the header row)
+1 # columns
+SE_UnRegisterStyledGroupRaster(NULL, 'beta')
+-1
+

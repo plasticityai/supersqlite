@@ -1,0 +1,8 @@
+Centroid - point
+:memory: #use in-memory database
+SELECT astext(centroid(geomFromText("POINT(1,1)", 4326)));
+1 # rows (not including the header row)
+1 # columns
+astext(centroid(geomFromText("POINT(1,1)", 4326)))
+(NULL)
+

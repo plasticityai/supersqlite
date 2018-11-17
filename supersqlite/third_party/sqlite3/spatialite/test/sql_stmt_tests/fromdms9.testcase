@@ -1,0 +1,9 @@
+fromdms - valid DMS expression-4
+:memory: #use in-memory database
+SELECT LongitudeFromDMS('40d26''47"S 079d58''36"E'), LatitudeFromDMS('40d26''47"S 079d58''36"E');
+1 # rows (not including the header row)
+2 # columns
+LongitudeFromDMS('40d26''47"S 079d58''36"E')
+LatitudeFromDMS('40d26''47"S 079d58''36"E')
+79.97666:5
+-40.44638:5

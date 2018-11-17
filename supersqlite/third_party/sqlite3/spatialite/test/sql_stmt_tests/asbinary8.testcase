@@ -1,0 +1,7 @@
+asbinary - POINTM
+:memory: #use in-memory database
+SELECT Hex(AsBinary(GeomFromText("POINTM(1 2 3)", 4326)))
+1 # rows (not including the header row)
+1 # columns
+Hex(AsBinary(GeomFromText("POINTM(1 2 3)", 4326)))
+01D1070000000000000000F03F00000000000000400000000000000840

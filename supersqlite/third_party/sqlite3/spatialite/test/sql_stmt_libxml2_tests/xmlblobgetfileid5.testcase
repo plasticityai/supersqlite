@@ -1,0 +1,8 @@
+XB_GetFileId - invalid XmlBLOB
+:memory: #use in-memory database
+SELECT XB_GetFileId(zeroblob(100));
+1 # rows (not including the header row)
+1 # columns
+XB_GetFileId(zeroblob(100))
+(NULL)
+

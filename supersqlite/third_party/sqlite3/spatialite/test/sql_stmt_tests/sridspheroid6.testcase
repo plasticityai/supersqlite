@@ -1,0 +1,7 @@
+SridGetSpheroid() - 4326
+:memory: #use in-memory database
+SELECT SridGetSpheroid(4326)
+1 # rows (not including the header row)
+1 # columns
+SridGetSpheroid(4326)
+WGS 84

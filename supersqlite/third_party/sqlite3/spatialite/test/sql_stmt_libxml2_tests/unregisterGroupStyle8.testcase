@@ -1,0 +1,7 @@
+UnRegisterGroupStyle - Text force
+:memory: #use in-memory database
+SELECT SE_UnRegisterGroupStyle('alpha', 'beta');
+1 # rows (not including the header row)
+1 # columns
+SE_UnRegisterGroupStyle('alpha', 'beta')
+-1

@@ -1,0 +1,7 @@
+FromGML - MultiPolygon v2 3D (no namespace)
+:memory: #use in-memory database
+SELECT AsEwkt(GeomFromGml('<MultiPolygon srsName="EPSG:4326"><polygonMember><Polygon><outerBoundaryIs><LinearRing><coordinates>0,0,10 5,0,11 5,5,13 0,5,13 0,0,10</coordinates></LinearRing></outerBoundaryIs><innerBoundaryIs><LinearRing><coordinates>1,1,5 2,1,5 2,2,5 1,2,5 1,1,5</coordinates></LinearRing></innerBoundaryIs></Polygon></polygonMember><polygonMember><Polygon><outerBoundaryIs><LinearRing><coordinates>2,2,10 3,2,11 3,3,13 2,3,13 2,2,10</coordinates></LinearRing></outerBoundaryIs></Polygon></polygonMember></MultiPolygon>'));
+1 # rows (not including the header row)
+1 # columns
+AsEwkt(GeomFromGml('<MultiPolygon srsName="EPSG:4326"><polygonMember><Polygon><outerBoundaryIs><LinearRing><coordinates>0,0,10 5,0,11 5,5,13 0,5,13 0,0,10</coordinates></LinearRing></outerBoundaryIs><innerBoundaryIs><LinearRing><coordinates>1,1,5 2,1,5 2,2,5 1,2,5 1,1,5</coordinates></LinearRing></innerBoundaryIs></Polygon></polygonMember><polygonMember><Polygon><outerBoundaryIs><LinearRing><coordinates>2,2,10 3,2,11 3,3,13 2,3,13 2,2,10</coordinates></LinearRing></outerBoundaryIs></Polygon></polygonMember></MultiPolygon>')):0
+SRID=4326;MULTIPOLYGON(((0 0 10,5 0 11,5 5 13,0 5 13,0 0 10),(1 1 5,2 1 5,2 2 5,1 2 5,1 1 5)),((2 2 10,3 2 11,3 3 13,2 3 13,2 2 10)))

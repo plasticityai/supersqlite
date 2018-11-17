@@ -1,0 +1,7 @@
+ST_GeoHash - WGS84 Polygon
+:memory: #use in-memory database
+SELECT ST_GeoHash(GeomFromText('POLYGON((7 10, 7.0001 10, 7.0001 10.0001, 7 10.0001, 7 10))', 4326));
+1 # rows (not including the header row)
+1 # columns
+ST_GeoHash(GeomFromText('POLYGON((7 10, 7.0001 10, 7.0001 10.0001, 7 10.0001, 7 10))', 4326))
+s1ubzk3

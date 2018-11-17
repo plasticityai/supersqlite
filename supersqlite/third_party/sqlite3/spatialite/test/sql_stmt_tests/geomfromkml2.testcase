@@ -1,0 +1,7 @@
+From KML - bad text
+:memory:
+SELECT GeomFromKML("Hell0!")
+1 # rows
+1 # column
+GeomFromKML("Hell0!")
+(NULL)

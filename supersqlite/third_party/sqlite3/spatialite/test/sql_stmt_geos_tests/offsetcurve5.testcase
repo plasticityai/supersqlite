@@ -1,0 +1,9 @@
+OffsetCurve - non-number radius
+:memory: #use in-memory database
+SELECT AsText(OffsetCurve(GeomFromText('LINESTRING(0 0, 0 1, 4 1, 4 0)'), "not a number"));
+1 # rows (not including the header row)
+1 # columns
+AsText(OffsetCurve(GeomFromText('LINESTRING(0 0, 0 1, 4 1, 4 0)'), "not a number"))
+(NULL)
+
+

@@ -1,0 +1,7 @@
+GetLayerExtent - BLOB, TEXT
+:memory: #use in-memory database
+SELECT GetLayerExtent(zeroblob(4), 'column');
+1 # rows (not including the header row)
+1 # columns
+GetLayerExtent(zeroblob(4), 'column');
+(NULL)

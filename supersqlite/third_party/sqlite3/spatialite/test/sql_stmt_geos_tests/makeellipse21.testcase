@@ -1,0 +1,8 @@
+makeellipse21 - valid step
+:memory: #use in-memory database
+SELECT ST_Length(MakeEllipse(0.0, 0.0, 100.0, 200.0, 4326, 1.0));
+1 # rows (not including the header row)
+1 # columns
+ST_Length(MakeEllipse(0.0, 0.0, 100.0, 200.0, 4326, 1.0))
+968.8325:4
+

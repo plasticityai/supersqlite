@@ -1,0 +1,8 @@
+XB_SetParentId - not ISO Metadata XmlBLOB
+:memory: #use in-memory database
+SELECT XB_SetParentId(XB_Create(CastToBlob('<alpha><parentIdentifier><CharacterString>a</CharacterString></parentIdentifier></alpha>')), 'alpha');
+1 # rows (not including the header row)
+1 # columns
+XB_SetParentId(XB_Create(CastToBlob('<alpha><parentIdentifier><CharacterString>a</CharacterString></parentIdentifier></alpha>')), 'alpha')
+(NULL)
+

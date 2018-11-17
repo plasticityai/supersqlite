@@ -1,0 +1,7 @@
+FullFileNameFromPath - DOUBLE
+:memory: #use in-memory database
+SELECT FullFileNameFromPath(zeroblob(10));
+1 # rows (not including the header row)
+1 # columns
+FullFileNameFromPath(zeroblob(10))
+(NULL)

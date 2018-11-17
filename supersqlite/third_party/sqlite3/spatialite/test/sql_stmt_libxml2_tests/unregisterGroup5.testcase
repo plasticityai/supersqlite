@@ -1,0 +1,7 @@
+UnRegisterStyledGroup - Text group name
+:memory: #use in-memory database
+SELECT SE_UnRegisterStyledGroup('alpha');
+1 # rows (not including the header row)
+1 # columns
+SE_UnRegisterStyledGroup('alpha')
+0

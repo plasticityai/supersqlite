@@ -1,0 +1,7 @@
+geomfromtext6
+:memory: #use in-memory database
+SELECT AsEWkt(GeomFromText("POINT(-72 42)", 4326));
+1 # rows (not including the header row)
+1 # columns
+AsEWkt(GeomFromText("POINT(-72 42)", 4326))
+SRID=4326;POINT(-72 42)

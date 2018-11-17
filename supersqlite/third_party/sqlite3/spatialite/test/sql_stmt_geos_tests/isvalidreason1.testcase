@@ -1,0 +1,7 @@
+isvalidreason1
+:memory: #use in-memory database
+SELECT IsValidReason(zeroblob(10));
+1 # rows (not including the header row)
+1 # columns
+IsValidReason(zeroblob(10))
+Invalid: NULL Geometry

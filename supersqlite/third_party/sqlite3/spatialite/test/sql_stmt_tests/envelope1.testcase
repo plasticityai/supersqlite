@@ -1,0 +1,7 @@
+Envelope
+:memory: #use in-memory database
+SELECT AsText(Envelope(GeomFromText("Point(1 2)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(Envelope(GeomFromText("Point(1 2)")))
+POLYGON((1 2, 1 2, 1 2, 1 2, 1 2))

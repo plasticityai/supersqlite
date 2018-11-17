@@ -1,0 +1,7 @@
+swapcoords3
+:memory: #use in-memory database
+SELECT SwapCoords(zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+SwapCoords(zeroblob(4));
+(NULL)

@@ -1,0 +1,7 @@
+importDXFfromDir - NULL special_rings
+:memory: #use in-memory database
+SELECT ImportDXFfromDir('.', 4326, 1, 'AUTO', 'MIXED', NULL, 'prefix', 'layer');
+1 # rows (not including the header row)
+1 # columns
+ImportDXFfromDir('.', 4326, 1, 'AUTO', 'MIXED', NULL, 'prefix', 'layer')
+(NULL)

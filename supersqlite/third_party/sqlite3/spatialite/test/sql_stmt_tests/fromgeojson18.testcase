@@ -1,0 +1,8 @@
+FromGeoJSON - multipoint, SRID
+:memory: #use in-memory database
+SELECT AsEWkt(GeomFromGeoJSON('{"type":"MultiPoint","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:EPSG:3003"}},"bbox":[1,2,4,6],"coordinates":[[1,2],[4,6]]}'))
+1 # rows (not including the header row)
+1 # columns
+AsEWkt(GeomFromGeoJSON('{"type":"MultiPoint","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:EPSG:3003"}},"bbox":[1,2,4,6],"coordinates":[[1,2],[4,6]]}')):0
+SRID=3003;MULTIPOINT(1 2,4 6)
+

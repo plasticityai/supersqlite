@@ -1,0 +1,7 @@
+bad KML: Linestring
+:memory: #use in-memory database
+SELECT GeomFromKML('<LineString><coordinates>1.1,2.2 3.3,4.4</coordinates></LineString');
+1 # rows (not including the header row)
+1 # columns
+GeomFromKML('<LineString><coordinates>1.1,2.2 3.3,4.4</coordinates></LineString'):0
+(NULL)

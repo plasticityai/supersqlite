@@ -1,0 +1,7 @@
+ST_SetPoint() - Z
+:memory: #use in-memory database
+SELECT AsText(SetPoint(GeomFromText('LINESTRINGZ(0 0 1, 1 0 2, 1 1 3)'), 1, MakePoint(2, 3)))
+1 # rows (not including the header row)
+1 # columns
+AsText(SetPoint(GeomFromText('LINESTRINGZ(0 0 1, 1 0 2, 1 1 3)'), 1, MakePoint(2, 3)))
+LINESTRING Z(0 0 1, 2 3 0, 1 1 3)

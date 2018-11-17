@@ -1,0 +1,7 @@
+ST_SnapToGrid - Point Z
+:memory: #use in-memory database
+SELECT AsText(ST_SnapToGrid(GeomFromText('POINTZ(1.2 2.3 10.1)'), MakePoint(0, 0), 0.25, 0.25, 0.25, 0.25));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_SnapToGrid(GeomFromText('POINTZ(1.2 2.3 10.1)'), MakePoint(0, 0), 0.25, 0.25, 0.25, 0.25))
+POINT Z(1.25 2.25 10)

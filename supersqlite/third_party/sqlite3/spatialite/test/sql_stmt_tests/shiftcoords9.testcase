@@ -1,0 +1,7 @@
+shiftcoords - Linestring XYZ
+:memory: #use in-memory database
+SELECT AsText(ShiftCoords(GeomFromText("LINESTRINGZ(1 2 10, 3 4 10)"), 1.4, 3.9));
+1 # rows (not including the header row)
+1 # columns
+AsText(ShiftCoords(GeomFromText("LINESTRINGZ(1 2 10, 3 4 10)"), 1.4, 3.9))
+LINESTRING Z(2.4 5.9 10, 4.4 7.9 10)

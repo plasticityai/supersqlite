@@ -1,0 +1,7 @@
+UnregisterRasterCoverageKeyword - Text keyword
+:memory: #use in-memory database
+SELECT SE_UnregisterRasterCoverageKeyword('alpha', 'beta');
+1 # rows (not including the header row)
+1 # columns
+SE_UnregisterRasterCoverageKeyword('alpha', 'beta')
+0

@@ -1,0 +1,11 @@
+CastToText() - INTEGER
+:memory: #use in-memory database
+SELECT CastToText(123), TypeOf(CastToText(123))
+1 # rows (not including the header row)
+2 # columns
+CastToText(123)
+TypeOf(CastToText(123))
+123
+text
+
+

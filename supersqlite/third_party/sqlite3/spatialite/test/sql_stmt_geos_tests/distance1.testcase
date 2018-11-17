@@ -1,0 +1,8 @@
+Distance - two points
+:memory: #use in-memory database
+SELECT ST_Distance(MakePoint(1, 2), MakePoint(4, 6))
+1 # rows (not including the header row)
+1 # columns
+ST_Distance(MakePoint(1, 2), MakePoint(4, 6))
+5.0
+

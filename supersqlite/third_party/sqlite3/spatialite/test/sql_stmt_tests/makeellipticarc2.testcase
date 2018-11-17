@@ -1,0 +1,8 @@
+makeellipticarc2 - text cx
+:memory: #use in-memory database
+SELECT MakeEllipticArc('alpha', 0, 100, 200, 30, 60);
+1 # rows (not including the header row)
+1 # columns
+MakeEllipticArc('alpha', 0, 100, 200, 30, 60)
+(NULL)
+

@@ -1,0 +1,10 @@
+CastToInteger() - TEXT valid decimals
+:memory: #use in-memory database
+SELECT CastToInteger('123.88'), TypeOf(CastToInteger('123.88'))
+1 # rows (not including the header row)
+2 # columns
+CastToInteger('123.88')
+TypeOf(CastToInteger('123.88'))
+124
+integer
+

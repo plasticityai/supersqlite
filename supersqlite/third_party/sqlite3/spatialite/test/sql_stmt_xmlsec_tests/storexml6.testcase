@@ -1,0 +1,7 @@
+XB_LoadXML - valid BLOB payload
+:memory: #use in-memory database
+SELECT XB_StoreXML(XB_Create(XB_LoadXML('books.xml')), 'xml-test-out-noindent.xml');
+1 # rows (not including the header row)
+1 # columns
+XB_StoreXML(XB_Create(XB_LoadXML('books.xml')), 'xml-test-out-noindent.xml');
+1

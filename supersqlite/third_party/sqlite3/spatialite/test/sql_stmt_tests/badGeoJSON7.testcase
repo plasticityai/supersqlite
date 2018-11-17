@@ -1,0 +1,7 @@
+bad GeoJSON: GeometryCollection
+:memory: #use in-memory database
+SELECT GeomFromGeoJSON('{"type":"GeometryCollection","geometries":[{"type":"Point","coordinates":[3,3]},{"type":"LineString","coordinates":[[4,4],[5,5]]},{"type":"Polygon","coordinates":[[[0,0],[1,0],[1,1],[0,1],[0,0]]]}]');
+1 # rows (not including the header row)
+1 # columns
+GeomFromGeoJSON('{"type":"GeometryCollection","geometries":[{"type":"Point","coordinates":[3,3]},{"type":"LineString","coordinates":[[4,4],[5,5]]},{"type":"Polygon","coordinates":[[[0,0],[1,0],[1,1],[0,1],[0,0]]]}]'):0
+(NULL)

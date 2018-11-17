@@ -1,0 +1,8 @@
+CreateStylingTables - TEXT
+:memory: #use in-memory database
+SELECT CreateStylingTables('alpha');
+1 # rows (not including the header row)
+1 # columns
+CreateStylingTables('alpha')
+-1
+

@@ -1,0 +1,7 @@
+casttopoint - POINT
+:memory: #use in-memory database
+SELECT AsText(CastToPoint(GeomFromText("POINT(4 3)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(CastToPoint(GeomFromText("POINT(4 3)")))
+POINT(4 3)

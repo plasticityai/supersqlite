@@ -1,0 +1,8 @@
+RegisterIsoMetadata - TEXT fileIdentifier
+:memory: #use in-memory database
+SELECT RegisterIsoMetadata('series', zeroblob(4), 'alpha');
+1 # rows (not including the header row)
+1 # columns
+RegisterIsoMetadata('series', zeroblob(4), 'alpha')
+0
+

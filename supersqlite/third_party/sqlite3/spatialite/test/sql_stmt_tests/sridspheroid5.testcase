@@ -1,0 +1,7 @@
+SridGetSpheroid() - BLOB SRID
+:memory: #use in-memory database
+SELECT SridGetSpheroid(zeroblob(10))
+1 # rows (not including the header row)
+1 # columns
+SridGetSpheroid(zeroblob(10))
+(NULL)

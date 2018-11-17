@@ -1,0 +1,7 @@
+casttoxyz - non-blob
+:memory: #use in-memory database
+SELECT CastToXYZ(4)
+1 # rows (not including the header row)
+1 # columns
+CastToXYZ(4)
+(NULL)

@@ -1,0 +1,9 @@
+geometrytype - MULTIPOLYGONZM
+:memory: #use in-memory database
+SELECT GeometryType(geom), CoordDimension(geom) from (SELECT GeomFromText("MULTIPOLYGONZM(((30 20 1 2, 10 40 1 2, 45 40 1 2, 30 20 1 2)),((15 5 2 3, 40 10 2 3, 10 20 2 3, 5 10 2 3, 15 5 2 3)))") as geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+GeometryType(geom)
+CoordDimension(geom)
+MULTIPOLYGON ZM
+XYZM

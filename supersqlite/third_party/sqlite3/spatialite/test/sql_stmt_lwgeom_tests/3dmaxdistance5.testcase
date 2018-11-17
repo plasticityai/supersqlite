@@ -1,0 +1,8 @@
+3DMaxDistance - non-blob first arg
+:memory: #use in-memory database
+SELECT ST_3DMaxDistance(3, MakePoint(1, 2))
+1 # rows (not including the header row)
+1 # columns
+ST_3DMaxDistance(3, MakePoint(1, 2))
+(NULL)
+

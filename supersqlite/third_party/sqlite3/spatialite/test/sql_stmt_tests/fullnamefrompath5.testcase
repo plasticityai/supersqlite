@@ -1,0 +1,7 @@
+FullFileNameFromPath - ok
+:memory: #use in-memory database
+SELECT FullFileNameFromPath('/home/user/file.txt');
+1 # rows (not including the header row)
+1 # columns
+FullFileNameFromPath('/home/user/file.txt'))
+file.txt

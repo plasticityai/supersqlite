@@ -1,0 +1,7 @@
+SetVectorCoverageInfos - Int title
+:memory: #use in-memory database
+SELECT SE_SetVectorCoverageInfos('alpha', 1, 'abstract');
+1 # rows (not including the header row)
+1 # columns
+SE_SetVectorCoverageInfos('alpha', 1, 'abstract')
+-1

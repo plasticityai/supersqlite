@@ -1,0 +1,7 @@
+ST_Azimuth - WGS84 points
+:memory: #use in-memory database
+SELECT ST_Azimuth(MakePoint(10.5, 10, 4326), MakePoint(11.5, 11, 4326));
+1 # rows (not including the header row)
+1 # columns
+ST_Azimuth(MakePoint(10.5, 10, 4326), MakePoint(11.5, 11, 4326))
+0.778630:6 

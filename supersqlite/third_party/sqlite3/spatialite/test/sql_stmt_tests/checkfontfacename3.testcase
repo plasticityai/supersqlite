@@ -1,0 +1,7 @@
+CheckFontFaceName - standard
+NEW:memory: #use in-memory database
+SELECT CheckFontFaceName('arial', zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+CheckFontFaceName('arial', zeroblob(4))
+0

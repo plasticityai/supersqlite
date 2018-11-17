@@ -1,0 +1,7 @@
+ReloadGroupStyle - NULL style ID
+:memory: #use in-memory database
+SELECT SE_ReloadGroupStyle(NULL, zeroblob(100));
+1 # rows (not including the header row)
+1 # columns
+SE_ReloadGroupStyle(NULL, zeroblob(100))
+-1

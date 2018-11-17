@@ -1,0 +1,8 @@
+GML GeometryCollection (Point, Polygon): no SRID
+:memory: #use in-memory database
+SELECT AsGML(3, GeomFromText("GEOMETRYCOLLECTION(POINT(4 8), POLYGON((10 10, 20 10, 20 20, 10 20, 10 10)))"));
+1 # rows (not including the header row)
+1 # columns
+AsGML(3, GeomFromText("GEOMETRYCOLLECTION(POINT(4 8), POLYGON((10 10, 20 10, 20 20, 10 20, 10 10)))"))
+<gml:MultiGeometry><gml:geometryMember><gml:Point><gml:pos srsDimension="2">4 8</gml:pos></gml:Point></gml:geometryMember><gml:geometryMember><gml:Polygon><gml:exterior><gml:LinearRing><gml:posList srsDimension="2">10 10 20 10 20 20 10 20 10 10</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></gml:geometryMember></gml:MultiGeometry>:0 # trailing ":0" required to avoid truncation !!!
+

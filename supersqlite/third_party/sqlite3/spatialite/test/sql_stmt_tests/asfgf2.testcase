@@ -1,0 +1,7 @@
+asfgf - bad blob input
+:memory: #use in-memory database
+SELECT AsFGF(zeroblob(100), 1)
+1 # rows (not including the header row)
+1 # columns
+AsFGF(zeroblob(100), 1)
+(NULL)

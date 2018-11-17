@@ -1,0 +1,8 @@
+XB_Create - valid XMLDocument, TEXT compression
+:memory: #use in-memory database
+SELECT XB_Create(x'3C613E3C623E746578743C2F623E3C2F613E', 'yes');
+1 # rows (not including the header row)
+1 # columns
+XB_Create(x'3C613E3C623E746578743C2F623E3C2F613E', 'yes')
+(NULL)
+

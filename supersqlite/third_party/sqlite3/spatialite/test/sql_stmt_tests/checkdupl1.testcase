@@ -1,0 +1,7 @@
+CheckDuplicateRows() - NULL table
+:memory: #use in-memory database
+SELECT CheckDuplicateRows(NULL);
+1 # rows (not including the header row)
+1 # columns
+CheckDuplicateRows(NULL)
+(NULL)

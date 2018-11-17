@@ -1,0 +1,7 @@
+ST_SplitRight - Collection-Line (split)
+:memory: #use in-memory database
+SELECT AsText(ST_SplitRight(GeomFromText('GEOMETRYCOLLECTION(LINESTRING(0 11, 10 11), POLYGON((0 1, 10 1, 10 10, 0 10, 0 1), (5 5, 9 5, 9 9, 5 9, 5 5)))'), GeomFromText('LINESTRING(7 0, 7 20)')));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_SplitRight(GeomFromText('GEOMETRYCOLLECTION(LINESTRING(0 11, 10 11), POLYGON((0 1, 10 1, 10 10, 0 10, 0 1), (5 5, 9 5, 9 9, 5 9, 5 5)))'), GeomFromText('LINESTRING(7 0, 7 20)')))
+GEOMETRYCOLLECTION(LINESTRING(7 11, 10 11), POLYGON((7 10, 10 10, 10 1, 7 1, 7 5, 9 5, 9 9, 7 9, 7 10)))

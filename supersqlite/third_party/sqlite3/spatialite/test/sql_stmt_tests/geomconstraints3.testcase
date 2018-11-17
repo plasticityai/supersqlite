@@ -1,0 +1,8 @@
+geometry constraints - 3 arg, POINT / LINESTRING
+:memory: #use in-memory database
+SELECT GeometryConstraints(GeomFromText("Point(1 2)", 4326), "LINESTRING", 4326)
+1 # rows (not including the header row)
+1 # columns
+GeometryConstraints(GeomFromText("Point(1 2)", 4326), "LINESTRING", 4326)
+0
+

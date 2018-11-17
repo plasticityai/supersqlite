@@ -1,0 +1,7 @@
+pow(0, -3.6) # test of pow() function
+:memory: #use in-memory database
+SELECT pow(0, -3.6);
+1 # rows (not including the header row)
+1 # columns
+pow(0, -3.6) # header
+(NULL) # result - its basically division by zero.

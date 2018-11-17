@@ -1,0 +1,7 @@
+ATM_Transform() - int matrix
+:memory: #use in-memory database
+SELECT ATM_Transform(GeomFromText('GEOMETRYCOLLECTION(POINT(0 0), LINESTRING(1 1, 2 2), POLYGON((10 10, 20 10, 20 20, 10 20, 10 10), (14 14, 16 14, 16 16, 14 16, 14 14)))'), 1);
+1 # rows (not including the header row)
+1 # columns
+ATM_Transform(GeomFromText('GEOMETRYCOLLECTION(POINT(0 0), LINESTRING(1 1, 2 2), POLYGON((10 10, 20 10, 20 20, 10 20, 10 10), (14 14, 16 14, 16 16, 14 16, 14 14)))'), 1);
+(NULL)

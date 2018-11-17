@@ -1,0 +1,9 @@
+dissolve - Overlap points POLYGON
+:memory: #use in-memory database
+SELECT AsText(DissolveSegments(geom)),AsText(DissolvePoints(geom)) from (SELECT GeomFromText("POLYGON((-10 0, -10 10, -10 10, 10 10, 10 10, 10 10, 10 -10, -10 -10, -9 -9, -10 0),(0 1, 0 2, 1 2, 1 2, 2 3, 1 2, 0 1))") as geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+AsText(DissolveSegments(geom))
+AsText(DissolvePoints(geom))
+MULTILINESTRING((-10 0, -10 10), (-10 10, 10 10), (10 10, 10 -10), (10 -10, -10 -10), (-10 -10, -9 -9), (-9 -9, -10 0), (0 1, 0 2), (0 2, 1 2), (1 2, 2 3), (2 3, 1 2), (1 2, 0 1))
+MULTIPOINT(-10 0, -10 10, -10 10, 10 10, 10 10, 10 10, 10 -10, -10 -10, -9 -9, -10 0, 0 1, 0 2, 1 2, 1 2, 2 3, 1 2, 0 1)

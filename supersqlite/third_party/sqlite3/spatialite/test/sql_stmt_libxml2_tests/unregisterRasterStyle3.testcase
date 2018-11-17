@@ -1,0 +1,8 @@
+UnRegisterRasterStyle - BLOB style_id
+:memory: #use in-memory database
+SELECT SE_UnRegisterRasterStyle(zeroblob(100));
+1 # rows (not including the header row)
+1 # columns
+SE_UnRegisterRasterStyle(zeroblob(100))
+-1
+

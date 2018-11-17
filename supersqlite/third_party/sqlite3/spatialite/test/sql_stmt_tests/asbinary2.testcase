@@ -1,0 +1,7 @@
+asbinary - bad blob
+:memory: #use in-memory database
+SELECT AsBinary(zeroblob(20))
+1 # rows (not including the header row)
+1 # columns
+AsBinary(zeroblob(20))
+(NULL)

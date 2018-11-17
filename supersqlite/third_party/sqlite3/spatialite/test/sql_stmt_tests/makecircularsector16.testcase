@@ -1,0 +1,8 @@
+makecircularsector16 - NULL srid
+:memory: #use in-memory database
+SELECT MakeCircularSector(0, 0, 100, 30, 60, NULL);
+1 # rows (not including the header row)
+1 # columns
+MakeCircularSector(0, 0, 100, 30, 60, NULL)
+(NULL)
+

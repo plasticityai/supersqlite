@@ -1,0 +1,7 @@
+ST_RemovePoint() - TEXT line
+:memory: #use in-memory database
+SELECT ST_RemovePoint('alpha', NULL)
+1 # rows (not including the header row)
+1 # columns
+ST_RemovePoint('alpha', NULL)
+(NULL)

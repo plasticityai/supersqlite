@@ -1,0 +1,7 @@
+Hex Wkb: GeometryCollection XY (2 points)
+:memory: #use in-memory database
+SELECT Hex(AsBinary(GeomFromText("GEOMETRYCOLLECTION(POINT(1.2 3.4), POINT(5.6 7.8))", 4326)));
+1 # rows (not including the header row)
+1 # columns
+Hex(AsBinary(GeomFromText("GEOMETRYCOLLECTION(POINT(1.2 3.4), POINT(5.6 7.8))", 4326)));
+0107000000020000000101000000333333333333F33F3333333333330B40010100000066666666666616403333333333331F40

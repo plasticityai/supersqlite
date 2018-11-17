@@ -1,0 +1,7 @@
+FromGML - Linestring v3
+:memory: #use in-memory database
+SELECT AsEwkt(GeomFromGml('<gml:Curve srsName="EPSG:4326"><gml:segments><gml:LineStringSegment><gml:posList srsDimension="2">1 2 3 4</gml:posList></gml:LineStringSegment></gml:segments></gml:Curve>'));
+1 # rows (not including the header row)
+1 # columns
+AsEwkt(GeomFromGml('<gml:Curve srsName="EPSG:4326"><gml:segments><gml:LineStringSegment><gml:posList srsDimension="2">1 2 3 4</gml:posList></gml:LineStringSegment></gml:segments></gml:Curve>')):0
+SRID=4326;LINESTRING(1 2,3 4)

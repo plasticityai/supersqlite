@@ -1,0 +1,7 @@
+XB_LoadXML - filepath input - invalid
+:memory: #use in-memory database
+SELECT XB_LoadXML('not-existing-books.xml');
+1 # rows (not including the header row)
+1 # columns
+XB_LoadXML('not-existing-books.xml')
+(NULL)

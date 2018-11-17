@@ -1,0 +1,7 @@
+ST_Perimeter - Empty linestring
+:memory: #use in-memory database
+SELECT ST_Perimeter(GeomFromText("LINESTRING()"));
+1 # rows (not including the header row)
+1 # columns
+ST_Perimeter(GeomFromText("LINESTRING()"))
+(NULL)

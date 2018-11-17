@@ -1,0 +1,7 @@
+casttomultipoint - MULTIPOINT - 1 point
+:memory: #use in-memory database
+SELECT AsText(CastToMultiPoint(GeomFromText("MULTIPOINT(1 2)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(CastToMultiPoint(GeomFromText("MULTIPOINT(1 2)")))
+MULTIPOINT(1 2)

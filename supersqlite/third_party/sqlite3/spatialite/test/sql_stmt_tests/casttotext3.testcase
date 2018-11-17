@@ -1,0 +1,9 @@
+CastToText() - TEXT
+:memory: #use in-memory database
+SELECT CastToText('alpha'), TypeOf(CastToText('alpha'))
+1 # rows (not including the header row)
+2 # columns
+CastToText('alpha')
+TypeOf(CastToText('alpha'))
+alpha
+text

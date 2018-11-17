@@ -1,0 +1,7 @@
+ST_Locate_Between_Measures - MultiPointZM - no match
+:memory: #use in-memory database
+SELECT ST_Locate_Between_Measures(GeomFromText('MULTIPOINTZM(0 1 100 2.1, 1 0 101 1, 2 1 102 2.1, 3 0 103 2.2, 4 1 104 4, 5 0 105 2.5)'), 20.1, 30);
+1 # rows (not including the header row)
+1 # columns
+ST_Locate_Between_Measures(GeomFromText('MULTIPOINTZM(0 1 100 2.1, 1 0 101 1, 2 1 102 2.1, 3 0 103 2.2, 4 1 104 4, 5 0 105 2.5)'), 20.1, 30)
+(NULL)

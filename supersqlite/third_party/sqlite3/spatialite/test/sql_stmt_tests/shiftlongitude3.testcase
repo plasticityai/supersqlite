@@ -1,0 +1,7 @@
+shiftlongitude - bad blob
+:memory: #use in-memory database
+SELECT ST_Shift_Longitude(zeroblob(100))
+1 # rows (not including the header row)
+1 # columns
+ST_Shift_Longitude(zeroblob(100))
+(NULL)

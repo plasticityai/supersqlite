@@ -1,0 +1,7 @@
+asfgf - non-int second arg
+:memory: #use in-memory database
+SELECT AsFGF(GeomFromText("POINT(1 2)"), "world")
+1 # rows (not including the header row)
+1 # columns
+AsFGF(GeomFromText("POINT(1 2)"), "world")
+(NULL)

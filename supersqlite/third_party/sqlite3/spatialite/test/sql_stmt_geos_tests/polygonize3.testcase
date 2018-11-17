@@ -1,0 +1,10 @@
+POLYGONIZE - bad blob
+:memory: #use in-memory database
+SELECT Polygonize(zeroblob(9));
+1 # rows (not including the header row)
+1 # columns
+Polygonize(zeroblob(9))
+(NULL)
+
+
+

@@ -1,0 +1,8 @@
+LinesFromRings - Simple polygon, non-int select
+:memory: #use in-memory database
+SELECT AsText(LinesFromRings(GeomFromText("POLYGON((0 0, 1 1, 0 2, -1 1, 0 0))"), "hello"));
+1 # rows (not including the header row)
+1 # columns
+AsText(LinesFromRings(GeomFromText("POLYGON((0 0, 1 1, 0 2, -1 1, 0 0))"), "hello"))
+LINESTRING(0 0, 1 1, 0 2, -1 1, 0 0)
+

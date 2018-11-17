@@ -1,0 +1,7 @@
+interpolate equidistant points - basic line
+:memory: #use in-memory database
+SELECT AsText(Line_Interpolate_Equidistant_Points(GeomFromText("LINESTRING(0 0, 10 6)"), 5))
+1 # rows (not including the header row)
+1 # columns
+AsText(Line_Interpolate_Equidistant_Points(GeomFromText("LINESTRING(0 0, 10 6)"), 5))
+MULTIPOINT M(4.287465 2.572479 5, 8.574929 5.144958 10)

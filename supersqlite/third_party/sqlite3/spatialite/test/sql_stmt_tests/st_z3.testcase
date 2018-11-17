@@ -1,0 +1,7 @@
+ST_Z - text
+:memory: #use in-memory database
+SELECT Z("hello world");
+1 # rows (not including the header row)
+1 # columns
+Z("hello world")
+(NULL)

@@ -1,0 +1,7 @@
+numgeometries - non-blob
+:memory: #use in-memory database
+SELECT NumGeometries("hello")
+1 # rows (not including the header row)
+1 # columns
+NumGeometries("hello")
+(NULL)

@@ -1,0 +1,7 @@
+FromGeoJSON - polygon Z
+:memory: #use in-memory database
+SELECT AsText(GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[1,2,2.3],[4,5,1.2],[2,2,1.6],[1,2,2.3]],[[1.5,2.5,2],[3.5,4.5,9],[2.5,3,1],[1.5,2.5,2]]]}'));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromGeoJSON('{"type":"Polygon","coordinates":[[[1,2,2.3],[4,5,1.2],[2,2,1.6],[1,2,2.3]],[[1.5,2.5,2],[3.5,4.5,9],[2.5,3,1],[1.5,2.5,2]]]}')):0
+POLYGON Z((1 2 2.3, 4 5 1.2, 2 2 1.6, 1 2 2.3), (1.5 2.5 2, 3.5 4.5 9, 2.5 3 1, 1.5 2.5 2))

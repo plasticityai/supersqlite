@@ -1,0 +1,8 @@
+makeellipticsector22 - WGS84 sid 
+:memory: #use in-memory database
+SELECT ST_Area(MakeEllipticSector(0, 0, 100, 200, 30, 60, 4326));
+1 # rows (not including the header row)
+1 # columns
+ST_Area(MakeEllipticSector(0, 0, 100, 200, 30, 60, 4326))
+5209.4453:4
+

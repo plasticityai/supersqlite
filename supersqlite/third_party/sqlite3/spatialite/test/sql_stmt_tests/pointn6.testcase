@@ -1,0 +1,7 @@
+pointN - text arg (error)
+:memory: #use in-memory database
+SELECT PointN("hello", 1);
+1 # rows (not including the header row)
+1 # columns
+PointN("hello", 1)
+(NULL)

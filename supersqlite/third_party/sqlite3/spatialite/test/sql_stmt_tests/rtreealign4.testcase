@@ -1,0 +1,7 @@
+rtreealign - null geometry
+:memory: #use in-memory database
+SELECT RTreeAlign("notreal", 2, zeroblob(100))
+1 # rows (not including the header row)
+1 # columns
+RTreeAlign("notreal", 2, zeroblob(100))
+1

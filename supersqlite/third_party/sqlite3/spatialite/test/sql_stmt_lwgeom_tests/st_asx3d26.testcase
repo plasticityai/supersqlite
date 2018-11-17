@@ -1,0 +1,7 @@
+ST_AsX3D - 3D linestring, 6 digit precision, long SRS
+:memory: #use in-memory database
+SELECT ST_AsX3D(GeomFromText('GEOMETRYCOLLECTIONZ(LINESTRINGZ(10.12345678 10.98765432 101.123, 11 10 102, 11.321 11.12 103.6453128), POINTZ(15.1234567 14.7654321 7.654321))', 4326), 6, 1);
+1 # rows (not including the header row)
+1 # columns
+ST_AsX3D(GeomFromText('GEOMETRYCOLLECTIONZ(LINESTRINGZ(10.12345678 10.98765432 101.123, 11 10 102, 11.321 11.12 103.6453128), POINTZ(15.1234567 14.7654321 7.654321))', 4326), 6, 1)
+<MultiGeometry srsName="urn:ogc:def:crs:epsg::4326"><geometryMember>15.123457 14.765432 7.654321</geometryMember><geometryMember><LineSet  vertexCount='3'><Coordinate point='10.123457 10.987654 101.123 11 10 102 11.321 11.12 103.645313' /></LineSet></geometryMember></MultiGeometry>:0

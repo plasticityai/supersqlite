@@ -1,0 +1,18 @@
+GEOS_Error - valid self-intersecting Linestring 
+:memory: #use in-memory database
+SELECT ST_IsValid(ST_GeomFromText('LINESTRING(0 0, 2 1, 1 2, 0 1, 2 0)')), GEOS_GetLastWarningMsg(), GEOS_GetLastErrorMsg(), GEOS_GetLastAuxErrorMsg(), ST_AsText(GEOS_GetCriticalPointFromMsg());
+1 # rows (not including the header row)
+5 # columns
+ST_IsValid(ST_GeomFromText('LINESTRING(0 0, 2 1, 1 2, 0 1, 2 0)'))
+GEOS_GetLastWarningMsg()
+GEOS_GetLastErrorMsg()
+GEOS_GetLastAuxErrorMsg()
+ST_AsText(GEOS_GetCriticalPointFromMsg())
+1
+(NULL)
+(NULL)
+(NULL)
+(NULL)
+
+
+

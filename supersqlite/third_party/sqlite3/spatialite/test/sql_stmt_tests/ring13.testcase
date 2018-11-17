@@ -1,0 +1,7 @@
+NumInteriorRings - float input (error)
+:memory: #use in-memory database
+SELECT NumInteriorRings(3.14);
+1 # rows (not including the header row)
+1 # columns
+NumInteriorRings(3.14)
+(NULL)

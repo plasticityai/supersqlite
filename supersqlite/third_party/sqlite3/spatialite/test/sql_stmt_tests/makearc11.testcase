@@ -1,0 +1,8 @@
+makearc11 - BLOB start
+:memory: #use in-memory database
+SELECT MakeArc(0, 0, 100, zeroblob(4), 60);
+1 # rows (not including the header row)
+1 # columns
+MakeArc(0, 0, 100, zeroblob(4), 60)
+(NULL)
+

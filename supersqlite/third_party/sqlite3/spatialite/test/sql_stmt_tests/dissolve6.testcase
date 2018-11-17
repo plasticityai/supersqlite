@@ -1,0 +1,7 @@
+dissolve points - text input
+:memory: #use in-memory database
+SELECT DissolvePoints("hell0")
+1 # rows (not including the header row)
+1 # columns
+DissolvePoints("hell0")
+(NULL)

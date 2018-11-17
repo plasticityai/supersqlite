@@ -1,0 +1,9 @@
+CastToBlob() - Invalid (1) hex_input
+:memory: #use in-memory database
+SELECT CastToBlob('0129abCFzZ', 1)
+1 # rows (not including the header row)
+1 # columns
+CastToBlob('0129abCFzZ', 1)
+(NULL)
+
+

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Books xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="books.xsd"><author firstName="Charles" lastName="Dickens">
+<title>The Pickwick Papers</title><title>Oliver Twist</title><title>David Copperfield</title>
+<title>A Christmas Carol</title><title>Hard Times</title></author>
+<ERRORauthor firstName="Nathaniel" lastName="Hawthorne"><title>The Scarlet Letter</title></author>
+<author firstName="William Makepeace" lastName="Thackeray"><title>Vanity Fair</title>
+<title>The Luck of Barry Lyndon</title></author><author firstName="Joseph" lastName="Conrad">
+<title>Lord Jim</title><title>The Secret Agent</title><title>Heart of Darkness</title>
+</author></Books>

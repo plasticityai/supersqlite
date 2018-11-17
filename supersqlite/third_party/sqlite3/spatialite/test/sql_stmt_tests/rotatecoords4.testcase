@@ -1,0 +1,19 @@
+rotate coords - LINESTRING Z
+:memory: #use in-memory database
+SELECT AsText(RotateCoords(geom, 0)), AsText(RotateCoords(geom, 90.0)), AsText(RotateCoords(geom, 180.0)), AsText(RotateCoords(geom, -90)), RotateCoords(zeroblob(20), 10), RotateCoords(geom, "hello"), RotateCoords("foo", 30) FROM (SELECT GeomFromText("LINESTRINGZ(0 0 2, 1 1 3)") as geom) dummy;
+1 # rows (not including the header row)
+7 # columns
+AsText(RotateCoords(geom, 0))
+AsText(RotateCoords(geom, 90.0))
+AsText(RotateCoords(geom, 180.0))
+AsText(RotateCoords(geom, -90))
+RotateCoords(zeroblob(20), 10)
+RotateCoords(geom, "hello")
+RotateCoords("foo", 30)
+LINESTRING Z(0 0 2, 1 1 3)
+LINESTRING Z(0 0 2, 1 -1 3)
+LINESTRING Z(0 0 2, -1 -1 3)
+LINESTRING Z(0 0 2, -1 1 3)
+(NULL)
+(NULL)
+(NULL)

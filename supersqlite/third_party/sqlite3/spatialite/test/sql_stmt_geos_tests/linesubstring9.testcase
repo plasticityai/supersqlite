@@ -1,0 +1,9 @@
+linesubstring - wrong type of limits 2
+:memory: #use in-memory database
+SELECT AsText(Line_Substring(GeomFromText("LINESTRING(0 0, 10 0)"), 0, null))
+1 # rows (not including the header row)
+1 # columns
+AsText(Line_Substring(GeomFromText("LINESTRING(0 0, 10 0)"), 0, null))
+(NULL)
+
+

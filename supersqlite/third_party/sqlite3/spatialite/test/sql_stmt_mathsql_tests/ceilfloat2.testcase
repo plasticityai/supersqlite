@@ -1,0 +1,7 @@
+ceil-float2
+:memory:
+SELECT ceil(3.1); # the SQL to run
+1 # rows
+1 # column
+ceil(3.1) # this is the header row
+4.0 # this is really the result

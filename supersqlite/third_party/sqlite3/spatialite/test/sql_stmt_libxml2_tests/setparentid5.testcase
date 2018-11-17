@@ -1,0 +1,8 @@
+XB_SetParentId - valid
+:memory: #use in-memory database
+SELECT XB_GetParentId(XB_SetParentId(XB_Create(CastToBlob('<MD_Metadata><parentIdentifier><CharacterString>a</CharacterString></parentIdentifier></MD_Metadata>')), 'newparentid'));
+1 # rows (not including the header row)
+1 # columns
+XB_GetParentId(XB_SetParentId(XB_Create(CastToBlob('<MD_Metadata><parentIdentifier><CharacterString>a</CharacterString></parentIdentifier></MD_Metadata>')), 'newparentid'))
+newparentid
+

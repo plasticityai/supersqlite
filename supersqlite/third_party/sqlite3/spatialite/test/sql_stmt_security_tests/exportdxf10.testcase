@@ -1,0 +1,7 @@
+exportDXF - invalid BBOX
+:memory: #use in-memory database
+SELECT ExportDXF('testdir', 'test.dxf', 'sql', 'layer', 'geom', 'label', 'height', 'rotation', zeroblob(100), 1);
+1 # rows (not including the header row)
+1 # columns
+ExportDXF('testdir', 'test.dxf', 'sql', 'layer', 'geom', 'label', 'height', 'rotation', zeroblob(100), 1)
+0

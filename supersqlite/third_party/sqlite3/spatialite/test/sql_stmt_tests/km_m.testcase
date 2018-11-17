@@ -1,0 +1,7 @@
+kilometres to metres
+:memory: #use in-memory database
+SELECT CvtFromKm(6.76);
+1 # rows (not including the header row)
+1 # columns
+CvtFromKm(6.76);
+6760.0

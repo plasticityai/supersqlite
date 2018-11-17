@@ -1,0 +1,8 @@
+makecircularsector19 - WGS84 srid
+:memory: #use in-memory database
+SELECT ST_Area(MakeCircularSector(0, 0, 100, 30, 60, 4326));
+1 # rows (not including the header row)
+1 # columns
+ST_Area(MakeCircularSector(0, 0, 100, 30, 60, 4326))
+2604.7226:4
+

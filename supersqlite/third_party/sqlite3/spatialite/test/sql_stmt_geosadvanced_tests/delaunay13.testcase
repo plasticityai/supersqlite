@@ -1,0 +1,7 @@
+ST_DelaunayTriangulation XY - (only_edges=yes)
+:memory: #use in-memory database
+SELECT ST_Equals(ST_DelaunayTriangulation(GeomFromText('MULTIPOINT(0 0, 1 1, 2 2, 0 1, 2 1)'), 1), GeomFromText('MULTILINESTRING((0 1, 2 2), (0 0, 0 1), (0 0, 2 1), (2 1, 2 2), (1 1, 2 1), (1 1, 2 2), (0 1, 1 1), (0 0, 1 1))'));
+1 # rows (not including the header row)
+1 # columns
+ST_Equals(ST_DelaunayTriangulation(GeomFromText('MULTIPOINT(0 0, 1 1, 2 2, 0 1, 2 1)'), 1), GeomFromText('MULTILINESTRING((0 1, 2 2), (0 0, 0 1), (0 0, 2 1), (2 1, 2 2), (1 1, 2 1), (1 1, 2 2), (0 1, 1 1), (0 0, 1 1))'))
+1

@@ -1,0 +1,7 @@
+degrees45
+:memory: #use in-memory database
+SELECT degrees(pi()/4);
+1 # rows (not including the header row)
+1 # columns
+degrees(pi()/4) # header
+45.0 #result

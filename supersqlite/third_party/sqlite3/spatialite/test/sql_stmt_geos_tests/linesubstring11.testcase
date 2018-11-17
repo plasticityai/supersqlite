@@ -1,0 +1,8 @@
+linesubstring - bad blob
+:memory: #use in-memory database
+SELECT AsText(Line_Substring(zeroblob(10), 0.2, 0.6))
+1 # rows (not including the header row)
+1 # columns
+AsText(Line_Substring(zeroblob(10), 0.2, 0.6))
+(NULL)
+

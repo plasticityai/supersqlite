@@ -1,0 +1,7 @@
+makepoint6
+:memory: #use in-memory database
+SELECT AsEWkt(MakePoint(-71.1043443253470, 42.3150676015829));
+1 # rows (not including the header row)
+1 # columns
+AsEWkt(MakePoint(-71.1043443253470, 42.3150676015829))
+SRID=0;POINT(-71.104344325347 42.3150676015829)

@@ -1,0 +1,9 @@
+BdPolyFromText - null, no SRID
+:memory: #use in-memory database
+SELECT BdPolyFromText(null);
+1 # rows (not including the header row)
+1 # columns
+BdPolyFromText(null)
+(NULL)
+
+

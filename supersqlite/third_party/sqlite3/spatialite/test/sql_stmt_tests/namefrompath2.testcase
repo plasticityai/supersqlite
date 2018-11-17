@@ -1,0 +1,7 @@
+FileNameFromPath - INTEGER
+:memory: #use in-memory database
+SELECT FileNameFromPath(1);
+1 # rows (not including the header row)
+1 # columns
+FileNameFromPath(1)
+(NULL)

@@ -1,0 +1,8 @@
+Distance - bad blob second arg
+:memory: #use in-memory database
+SELECT Distance(MakePoint(1, 2), zeroblob(100))
+1 # rows (not including the header row)
+1 # columns
+Distance(MakePoint(1, 2), zeroblob(100))
+(NULL)
+

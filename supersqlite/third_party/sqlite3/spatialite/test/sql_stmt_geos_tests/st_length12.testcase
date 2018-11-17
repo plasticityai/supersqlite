@@ -1,0 +1,7 @@
+ST_Length - Polygon with 1 interior (Long/Lat metric - GreatCircle)
+:memory: #use in-memory database
+SELECT ST_Length(GeomFromText("POLYGON((0.5 0.5, 0.5 0.6, 0.6 0.6, 0.6 0.5, 0.5 0.5),(0.55 0.55, 0.56 0.55, 0.56 0.56, 0.56 0.56, 0.055 0.55))"), 0);
+1 # rows (not including the header row)
+1 # columns
+ST_Length(GeomFromText("POLYGON((0.5 0.5, 0.5 0.6, 0.6 0.6, 0.6 0.5, 0.5 0.5),(0.55 0.55, 0.56 0.55, 0.56 0.56, 0.56 0.56, 0.055 0.55))"), 0)
+0.0

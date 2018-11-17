@@ -1,0 +1,9 @@
+LinesFromRings - Simple polygon, explicit multi
+:memory: #use in-memory database
+SELECT AsText(LinesFromRings(GeomFromText("POLYGON((0 0, 1 1, 0 2, -1 1, 0 0))"), 1));
+1 # rows (not including the header row)
+1 # columns
+AsText(LinesFromRings(GeomFromText("POLYGON((0 0, 1 1, 0 2, -1 1, 0 0))"), 1))
+MULTILINESTRING((0 0, 1 1, 0 2, -1 1, 0 0))
+
+

@@ -1,0 +1,7 @@
+isempty - text
+:memory: #use in-memory database
+SELECT IsEmpty("hello")
+1 # rows (not including the header row)
+1 # columns
+IsEmpty("hello")
+-1

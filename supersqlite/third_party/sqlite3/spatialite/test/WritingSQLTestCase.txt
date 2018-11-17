@@ -1,0 +1,202 @@
+Building a SQL statement test case
+
+This probably requires that you're using the "autoconf" build system at the
+moment. This is the case if you're running on Linux or some other Unix variant,
+including Mac OS X. It is the case for some kinds of Windows builds too (using
+MinGW / MSYS).
+
+I assume that you're mostly OK with building from fossil. If not, start
+at http://www.gaia-gis.it/gaia-sins/about-fossil.html. There are detailed
+build instructions linked off http://www.gaia-gis.it/gaia-sins/ for each
+major platform.
+
+Make sure you have all the dependencies. It is a bit of work but it will pay off
+in the long run.
+
+Once you've got that far, its time to start with the testing.
+
+Step 1. Just get the tests building. 
+If you're in the build directory (i.e. where you ran the "./configure" and
+"make" steps), you should be able to run "make check" and have the tests
+build and run. Towards the end, it should report something like:
+============================================================================
+Testsuite summary for libspatialite 4.3.0-devel
+============================================================================
+# TOTAL: 83
+# PASS:  83
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+
+If any of them fail, please let us know ASAP.
+
+Step 2. After that works, its time to set up the coverage testing. Obviously we
+want to understand which code isn't being tested, then write a test to check
+that code, and finally make sure that the code is being tested. Fortunately,
+there are nice tools to check which code is being run. On Unix / Linux, you 
+should have no problem obtaining "gcov" and "lcov" - they're probably available
+using your package / build system.
+
+Clean up the build:
+make distclean
+and then run configure with the --enable-gcov=yes option:
+./configure --enable-gcov=yes
+You can add in any other options for configure at the same time (just as you
+did for the initial build). Then build as normal:
+make check
+
+You don't need to install (and probably don't want to install this version).
+
+Then zero out the coverage numbers:
+make coverage-init
+
+and build the tests:
+make check
+
+and finally do the coverage summary:
+make coverage
+
+At the end, you should see something like:
+Writing directory view page.
+Overall coverage rate:
+  lines......: 64.9% (64946 of 100079 lines)
+  functions..: 16.4% (218 of 1329 functions)
+  branches...: 8.2% (1929 of 23468 branches)
+
+Step 3. Find some untested code.
+The results of the testing are converted into nice HTML, which is in the
+covresults/ directory. Point your web browser at covresults/index.html.
+Untested functions are the most important, then untested branches. Don't worry
+too much about untested lines. The colour coding should help.
+
+Step 4. Decide to do something about it.
+This is really the only hard part. 
+
+Step 5. Think about how to test the code using SQL.
+Lets say you notice that the fnct_math_floor() function isn't being tested.
+[It is in src/spatialite/spatialite.c if you're looking for it]. Now further
+inspection shows its being mapped to the SQL floor function using:
+sqlite3_create_function (db, "floor", 1, SQLITE_ANY, 0, fnct_math_floor, 0, 0);
+So something like "SELECT floor(3.2);" would give us a test case. However
+libspatialite doesn't include the command line tools, so we have a simple test
+harness in the test directory called "check_sql_stmt". It basically loads test
+cases from a directory (test/sql_stmt_tests/). Any file ending with .testcase
+will be checked.
+
+A quick overview of the format:
+* anything after a # character is a comment.
+Line 1: the name of the test
+Line 2: the database file to use. ":memory:" is usually the best option, but 
+you can load a pre-existing database if you need source data.
+Line 3: the SQL to run.
+Line 4: the number of rows of results you're expecting (not including the
+header row)
+Line 5: the number of columns of results you're expecting.
+remaining lines: the results, one line per cell.
+
+So lets write such a file:
+floor(3.2) # you can use the SQL if you're not feeling imaginative.
+:memory:
+SELECT floor(3.2);
+1 # rows
+1 # columns
+floor(3.2) # this is the header row
+3.0 # this is really the result
+
+and save it (in test/sql_stmt_tests/ - I called mine floor32.testcase, but you 
+can use anything that doesn't already exist and ends with .testcase).
+
+Now when you run "make check" you should see your new test being run, marked by
+an entry just above the PASS: check_sql_stmt that looks like:
+Test case: floor(3.2)
+
+[It won't change the total number of test cases reported by "make check" because
+that is just the number of unique programs that were run, and this is an extra
+test file within an existing program]
+
+Step 6. Re-run the coverage programs:
+make coverage-init && make check && make coverage
+and check the results with the browser. You should now see some green lines in
+fnct_math_floor. However you might notice that there are still some red lines
+(and red - and # marks on the left side, which indicate branches not taken). We
+can see that we're testing the case where we have SQLITE_FLOAT input, but not
+integer or some other inputs.
+
+Step 7. Write another test file:
+
+floor(integer) # integer input - this is just the name remember
+:memory:
+SELECT floor(3); # the SQL to run
+1 # rows
+1 # columns
+floor(3) # this is the header row
+3.0 # this is really the result
+
+Save it, again in test/sql_stmt_tests/ - I called mine floorint.testcase, but
+anything will do.
+Then run the tests again:
+make check
+and you should see your new test case as well:
+Test case: floor(3.2)
+Test case: floor(integer)
+
+Step 8. Repeat the coverage program runs:
+make coverage-init && make check && make coverage
+and check the results with the browser. You should now see even more green lines
+in fnct_math_floor. However there is still the case for what happens if the
+input is neither integer nor float. For example, what happens if we put in a
+test entry.
+
+Step 9. Write another test file.
+floor(null) # text input, expecting null output
+:memory:
+SELECT floor("some text"); # the SQL to run
+1 # rows
+1 # columns
+floor("some text") # this is the header row
+(NULL) # this is really the result - special case for null value
+
+and do the save / check / check coverage things again.
+
+You should see pretty much all of that function is now being tested. 
+
+Step 10. Send the results to be added to libspatialite!
+You can make a svn diff output if you're familiar with SVN, but you can just
+send the new files that you're written (e.g. as a tar.gz or zip file) to me
+(bradh@frogmouth.net) or to the spatialite-users mailing list.
+
+
+Hints:
+1. If your test results in a null value, use "(NULL)" as the expected cell
+value.
+
+2. If your test result is a floating point value, and it might vary at the least
+significant values, then you can make the test more reliable by limiting how
+close things need to be. You do this by adding a : character, then the number
+of characters to compare. So if you're looking for 2.7182818, but the result 
+could vary a bit, then write the result as 2.7182818:8. If you need to put a
+colon (:) character in the value, you can use :0 at the end, to indicate that
+the precision should be "absolute match".
+
+3. If you want to run the tests under valgrind, change into the test/ directory
+and use:
+libtool --mode=execute valgrind --track-origins=yes  --tool=memcheck --num-callers=20  --leak-check=full --show-reachable=yes ./check_sql_stmt
+
+4. Don't worry about the not-taken branch for GAIA_UNUSED(). This is just to 
+avoid a warning, and isn't a problem.
+
+5. Don't worry about not being able to write a test for every possible scenario.
+Even a little extra coverage helps.
+
+6. If your test shows a problem, think twice before fixing the test to match
+the code. It could be that you've just found a bug, and that is really important
+news - we have a reliable way to reproduce the problem, and a way to make sure
+it doesn't sneak back in later. Please raise these issues separately.
+
+7. You can "hold" failing test cases by renaming the file (I usually add
+".on-hold", so pow00.testcase becomes pow00.testcase.on-hold). This allows you
+to keep testing without loosing the problem test cases. You can use that to 
+"remove" the test cases for fnct_math_floor() if you want to reproduce this.

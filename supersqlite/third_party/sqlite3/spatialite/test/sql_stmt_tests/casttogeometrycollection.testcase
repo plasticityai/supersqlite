@@ -1,0 +1,7 @@
+casttogeometrycollection - bad blob
+:memory: #use in-memory database
+SELECT CastToGeometryCollection(zeroblob(99))
+1 # rows (not including the header row)
+1 # columns
+CastToGeometryCollection(zeroblob(99))
+(NULL)

@@ -1,0 +1,8 @@
+garsmbr - 361HN38
+:memory: #use in-memory database
+SELECT AsText(GARSMbr("361HN38"))
+1 # rows (not including the header row)
+1 # columns
+AsText(GARSMbr("361HN38"))
+POLYGON((0.083333 0, 0.166667 0, 0.166667 0.083333, 0.083333 0.083333, 0.083333 0))
+

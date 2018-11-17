@@ -1,0 +1,7 @@
+RegisterVectorCoverageKeyword - BLOB coverage
+:memory: #use in-memory database
+SELECT SE_RegisterVectorCoverageKeyword(zeroblob(4), 'keyword');
+1 # rows (not including the header row)
+1 # columns
+SE_RegisterVectorCoverageKeyword(zeroblob(4), 'keyword')
+-1

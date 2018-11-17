@@ -1,0 +1,7 @@
+normalizelonlat- out of range negative lat huge
+:memory: #use in-memory database
+SELECT AsText(NormalizeLonLat(GeomFromText("POINT(4 -390)", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(NormalizeLonLat(GeomFromText("POINT(4 -390)", 4326)))
+POINT(4 -30)

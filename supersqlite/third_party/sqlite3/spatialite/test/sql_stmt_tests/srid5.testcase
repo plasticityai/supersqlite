@@ -1,0 +1,7 @@
+SRID - non-geometry
+:memory: #use in-memory database
+SELECT SRID(100)
+1 # rows (not including the header row)
+1 # columns
+SRID(100)
+(NULL)

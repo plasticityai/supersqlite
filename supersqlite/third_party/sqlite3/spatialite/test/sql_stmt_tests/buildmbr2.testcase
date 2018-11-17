@@ -1,0 +1,7 @@
+buildmbr - text args 
+:memory: #use in-memory database
+SELECT BuildMbr('a', 'b', 'c', 'd', 'e')
+1 # rows (not including the header row)
+1 # columns
+BuildMbr('a', 'b', 'c', 'd', 'e')
+(NULL)

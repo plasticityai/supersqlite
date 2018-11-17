@@ -1,0 +1,9 @@
+union - non-blob
+:memory: #use in-memory database
+SELECT GUnion(4.78)
+1 # rows (not including the header row)
+1 # columns
+GUnion(4.78)
+(NULL)
+
+

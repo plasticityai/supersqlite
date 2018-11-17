@@ -1,0 +1,9 @@
+decimal precision - 10
+:memory:
+SELECT SetDecimalPrecision(10), GetDecimalPrecision();
+1 # rows
+2 # column
+SetDecimalPrecision(10)
+GetDecimalPrecision()
+(NULL)
+-1

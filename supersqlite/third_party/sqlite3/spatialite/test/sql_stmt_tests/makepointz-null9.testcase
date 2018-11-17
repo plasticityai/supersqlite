@@ -1,0 +1,7 @@
+makepointz-null9
+:memory: #use in-memory database
+SELECT MakePointZ(26.0, 42.3150676015829, 'alpha', 3389)
+1 # rows (not including the header row)
+1 # columns
+MakePointZ(26.0, 42.3150676015829, 'alpha', 3389)
+(NULL)

@@ -1,0 +1,9 @@
+BdPolyFromText - point, SRID
+:memory: #use in-memory database
+SELECT BdPolyFromText("Point(1 2)", 4);
+1 # rows (not including the header row)
+1 # columns
+BdPolyFromText("Point(1 2)", 4)
+(NULL)
+
+

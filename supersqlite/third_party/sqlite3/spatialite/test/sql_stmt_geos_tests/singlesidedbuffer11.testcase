@@ -1,0 +1,7 @@
+singlesidedbuffer - closed LINESTRING, int radius, left side
+:memory: #use in-memory database
+SELECT AsText(SingleSidedBuffer(GeomFromText("LINESTRING(0 0, 0 20, 1 20, 1 0, 0 0)"), 3, 1))
+1 # rows (not including the header row)
+1 # columns
+AsText(SingleSidedBuffer(GeomFromText("LINESTRING(0 0, 0 20, 1 20, 1 0, 0 0)"), 3, 1))
+(NULL)

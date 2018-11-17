@@ -1,0 +1,7 @@
+Expand
+:memory: #use in-memory database
+SELECT AsText(ST_Expand(GeomFromText("Point(1 2)"), 0.5))
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_Expand(GeomFromText("Point(1 2)"), 0.5))
+POLYGON((0.5 1.5, 1.5 1.5, 1.5 2.5, 0.5 2.5, 0.5 1.5))

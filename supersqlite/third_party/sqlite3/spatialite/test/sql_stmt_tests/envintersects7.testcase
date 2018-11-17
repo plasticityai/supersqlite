@@ -1,0 +1,7 @@
+ST_EnvIntersects - no [int coords]
+:memory: #use in-memory database
+SELECT ST_EnvIntersects(GeomFromText('POINT(3.5 3.8)'), 2, 2, 3, 3)
+1 # rows (not including the header row)
+1 # columns
+ST_EnvIntersects(GeomFromText('POINT(3.5 3.8)'), 2, 2, 3, 3)
+0

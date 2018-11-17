@@ -1,0 +1,8 @@
+CreateIsoMetadataTables - DOUBLE
+:memory: #use in-memory database
+SELECT CreateIsoMetadataTables(1.1);
+1 # rows (not including the header row)
+1 # columns
+CreateIsoMetadataTables(1.1)
+-1
+

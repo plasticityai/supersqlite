@@ -1,0 +1,10 @@
+POLYGONIZE - simple polygonz
+:memory: #use in-memory database
+SELECT AsText(Polygonize(GeomFromText("LINESTRINGZ(0 0 5, 1 1 6, 0 2 7, -1 1 6, 0 0 5)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(Polygonize(GeomFromText("LINESTRINGZ(0 0 5, 1 1 6, 0 2 7, -1 1 6, 0 0 5)")))
+POLYGON Z((0 0 5, -1 1 6, 0 2 7, 1 1 6, 0 0 5))
+
+
+

@@ -1,0 +1,8 @@
+makepolygon - INTEGER exterior
+:memory: #use in-memory database
+SELECT MakePolygon(1);
+1 # rows (not including the header row)
+1 # columns
+MakePolygon(1)
+(NULL)
+

@@ -1,0 +1,7 @@
+ST_Segmentize - Multilinestring
+:memory: #use in-memory database
+SELECT ST_AsText(ST_Segmentize(GeomFromText('MULTILINESTRING((1 1, 1 2), (3 3, 4 3))'), 0.5));
+1 # rows (not including the header row)
+1 # columns
+ST_AsText(ST_Segmentize(GeomFromText('MULTILINESTRING((1 1, 1 2), (3 3, 4 3))'), 0.5))
+MULTILINESTRING((1 1, 1 1.5, 1 2), (3 3, 3.5 3, 4 3))

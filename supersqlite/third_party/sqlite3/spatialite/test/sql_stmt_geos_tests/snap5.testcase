@@ -1,0 +1,7 @@
+Snap - non blob first arg
+:memory: #use in-memory database
+SELECT Snap("hello", GeomFromText("LINESTRING(0 0, 0 10, 10 10, 10 0, 0 0)"), 2)
+1 # rows (not including the header row)
+1 # columns
+Snap("hello", GeomFromText("LINESTRING(0 0, 0 10, 10 10, 10 0, 0 0)"), 2)
+(NULL)

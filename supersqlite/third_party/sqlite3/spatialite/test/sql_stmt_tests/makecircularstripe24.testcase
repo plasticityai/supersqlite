@@ -1,0 +1,8 @@
+makecircularstripe24 - NULL radius #2
+:memory: #use in-memory database
+SELECT MakeCircularStripe(0, 0, 100, NULL, 30, 60);
+1 # rows (not including the header row)
+1 # columns
+MakeCircularStripe(0, 0, 100, NULL, 30, 60)
+(NULL)
+

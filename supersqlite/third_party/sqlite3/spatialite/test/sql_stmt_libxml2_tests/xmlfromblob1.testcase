@@ -1,0 +1,8 @@
+XB_GetPayload - NULL XmlBLOB
+:memory: #use in-memory database
+SELECT XB_GetPayload(NULL);
+1 # rows (not including the header row)
+1 # columns
+XB_GetPayload(NULL)
+(NULL)
+

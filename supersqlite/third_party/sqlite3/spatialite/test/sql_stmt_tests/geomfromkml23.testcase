@@ -1,0 +1,7 @@
+From KML - MultiGeometry [Point, Line, Polygon] - 3D
+:memory:
+SELECT AsText(GeomFromKML("<MultiGeometry><Point><coordinates>1,1,100</coordinates></Point><LineString><coordinates>2,2,100 3,3,101</coordinates></LineString><Polygon><outerBoundaryIs><LinearRing><coordinates>4,4,101 10,4,102 10,10,103 4,10,104 4,4,101</coordinates></LinearRing></outerBoundaryIs><innerBoundaryIs><LinearRing><coordinates>5,5,100 6,5,101 6,6,102 5,6,103 5,5,100</coordinates></LinearRing></innerBoundaryIs></Polygon></MultiGeometry>"))
+1 # rows
+1 # column
+AsText(GeomFromKML("<MultiGeometry><Point><coordinates>1,1,100</coordinates></Point><LineString><coordinates>2,2,100 3,3,101</coordinates></LineString><Polygon><outerBoundaryIs><LinearRing><coordinates>4,4,101 10,4,102 10,10,103 4,10,104 4,4,101</coordinates></LinearRing></outerBoundaryIs><innerBoundaryIs><LinearRing><coordinates>5,5,100 6,5,101 6,6,102 5,6,103 5,5,100</coordinates></LinearRing></innerBoundaryIs></Polygon></MultiGeometry>"))
+GEOMETRYCOLLECTION Z(POINT Z(1 1 100), LINESTRING Z(2 2 100, 3 3 101), POLYGON Z((4 4 101, 10 4 102, 10 10 103, 4 10 104, 4 4 101), (5 5 100, 6 5 101, 6 6 102, 5 6 103, 5 5 100)))

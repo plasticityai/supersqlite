@@ -1,0 +1,30 @@
+routing: alphanumeric ids (Dijkstra)
+sql_stmt_tests/testdb1.sqlite
+SELECT Algorithm, ArcRowid, NodeFrom, NodeTo, Cost FROM alpha_roads_net WHERE NodeFrom = 'NODE_72' AND NodeTo = 'NODE_30';
+4 # rows (not including the header row)
+5 # columns
+Algorithm
+ArcRowid
+NodeFrom
+NodeTo
+Cost
+Dijkstra
+(NULL)
+NODE_72
+NODE_30
+0.001575:6
+Dijkstra
+72
+NODE_72
+NODE_73
+0.000162:6
+Dijkstra
+73
+NODE_73
+NODE_48
+0.000810:6
+Dijkstra
+48
+NODE_48
+NODE_30
+0.000602:6

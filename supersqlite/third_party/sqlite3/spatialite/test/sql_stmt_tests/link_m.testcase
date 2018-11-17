@@ -1,0 +1,7 @@
+links to metres
+:memory: #use in-memory database
+SELECT CvtFromLink(4971);
+1 # rows (not including the header row)
+1 # columns
+CvtFromLink(4971)
+1000:4

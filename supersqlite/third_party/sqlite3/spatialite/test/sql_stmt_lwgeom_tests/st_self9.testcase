@@ -1,0 +1,7 @@
+ST_SelfIntersections - Invalid MultiPoint 3D input 
+:memory: #use in-memory database
+SELECT ST_AsText(ST_SelfIntersections(ST_GeomFromText('MULTIPOINTZ(0 0 0, 10 10 10, 0 10 5, 10 0 3)')));
+1 # rows (not including the header row)
+1 # columns
+ST_AsText(ST_SelfIntersections(ST_GeomFromText('MULTIPOINTZ(0 0 0, 10 10 10, 0 10 5, 10 0 3)')))
+(NULL)

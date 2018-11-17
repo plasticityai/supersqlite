@@ -1,0 +1,7 @@
+SridGetUnit() - NULL SRID
+:memory: #use in-memory database
+SELECT SridGetUnit(NULL)
+1 # rows (not including the header row)
+1 # columns
+SridGetUnit(NULL)
+(NULL)

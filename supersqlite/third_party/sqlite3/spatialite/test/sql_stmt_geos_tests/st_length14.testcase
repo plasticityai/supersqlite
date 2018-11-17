@@ -1,0 +1,7 @@
+ST_Length - Linestring  (Long/Lat metric - GreatCircle)
+:memory: #use in-memory database
+SELECT ST_Length(GeomFromText("LINESTRING(0.7 0.7, 0.7 0.8, 0.8 0.8, 0.8 0.7, 0.7 0.8)"), 0);
+1 # rows (not including the header row)
+1 # columns
+ST_Length(GeomFromText("LINESTRING(0.7 0.7, 0.7 0.8, 0.8 0.8, 0.8 0.7, 0.7 0.8)"), 0)
+49082.124419:6

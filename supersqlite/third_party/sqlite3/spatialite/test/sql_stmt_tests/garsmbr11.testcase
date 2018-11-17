@@ -1,0 +1,7 @@
+garsmbr - bad coords
+:memory: #use in-memory database
+SELECT GARSMbr("AA123")
+1 # rows (not including the header row)
+1 # columns
+GARSMbr("AA123")
+(NULL)

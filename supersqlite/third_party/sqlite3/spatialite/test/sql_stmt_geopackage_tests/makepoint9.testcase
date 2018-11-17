@@ -1,0 +1,7 @@
+gpkgmakepoint9
+:memory: #use in-memory database
+SELECT gpkgMakePoint(136.0, -35.0, 3.5)
+1 # rows (not including the header row)
+1 # columns
+gpkgMakePoint(136.0, -35.0, 3.5)
+(NULL)

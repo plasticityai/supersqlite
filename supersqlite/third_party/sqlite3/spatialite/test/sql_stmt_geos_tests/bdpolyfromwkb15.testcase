@@ -1,0 +1,9 @@
+BdPolyFromWKB
+:memory: #use in-memory database
+SELECT AsText(BdPolyFromWKB(AsBinary(GeomFromText('MULTILINESTRING((0 0, 10 0, 10 10, 0 10, 0 0),(2 2, 2 8, 8 8, 8 2, 2 2))'))));
+1 # rows (not including the header row)
+1 # columns
+AsText(BdPolyFromWKB(AsBinary(GeomFromText('MULTILINESTRING((0 0, 10 0, 10 10, 0 10, 0 0),(2 2, 2 8, 8 8, 8 2, 2 2))'))))
+POLYGON((0 0, 0 10, 10 10, 10 0, 0 0), (2 2, 8 2, 8 8, 2 8, 2 2))
+
+

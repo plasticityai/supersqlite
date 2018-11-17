@@ -1,0 +1,8 @@
+linesubstring - basic
+:memory: #use in-memory database
+SELECT AsText(Line_Substring(GeomFromText("LINESTRINGZ(0 0 10, 10 0 10)"), 0, 0.4))
+1 # rows (not including the header row)
+1 # columns
+AsText(Line_Substring(GeomFromText("LINESTRINGZ(0 0 10, 10 0 10)"), 0, 0.4))
+LINESTRING Z(0 0 10, 4 0 10)
+

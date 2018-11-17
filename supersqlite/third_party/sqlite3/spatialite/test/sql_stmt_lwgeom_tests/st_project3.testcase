@@ -1,0 +1,7 @@
+ST_Project - DOUBLE start Point
+:memory: #use in-memory database
+SELECT ST_Project(1.1, 100000, Radians(45));
+1 # rows (not including the header row)
+1 # columns
+ST_Project(1.1, 100000, Radians(45))
+(NULL)

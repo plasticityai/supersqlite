@@ -1,0 +1,8 @@
+MaxDistance - bad blob second arg
+:memory: #use in-memory database
+SELECT ST_MaxDistance(MakePoint(1, 2), "hello")
+1 # rows (not including the header row)
+1 # columns
+ST_MaxDistance(MakePoint(1, 2), "hello")
+(NULL)
+

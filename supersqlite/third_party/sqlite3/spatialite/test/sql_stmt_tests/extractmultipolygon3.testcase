@@ -1,0 +1,7 @@
+extractmultipolygon - POINT
+:memory: #use in-memory database
+SELECT AsText(ExtractMultiPolygon(GeomFromText("GEOMETRYCOLLECTION(POINT(4 3), LINESTRING(5 6, 6 7), POLYGON((10 10, 11 10, 11 11, 10 11, 10 10)))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(ExtractMultiPolygon(GeomFromText("GEOMETRYCOLLECTION(POINT(4 3), LINESTRING(5 6, 6 7), POLYGON((10 10, 11 10, 11 11, 10 11, 10 10)))")))
+MULTIPOLYGON(((10 10, 11 10, 11 11, 10 11, 10 10)))

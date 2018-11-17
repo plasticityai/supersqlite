@@ -1,0 +1,8 @@
+geomfromgpb5
+:memory: #use in-memory database
+SELECT GeomFromGPB(x'4750100000000000')
+1 # rows (not including the header row)
+1 # columns
+GeomFromGPB(x'4750100000000000')
+(NULL)
+

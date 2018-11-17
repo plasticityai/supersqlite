@@ -1,0 +1,7 @@
+From EWKB - non text
+:memory:
+SELECT GeomFromEwkb(26)
+1 # rows
+1 # column
+GeomFromEwkb(26)
+(NULL)

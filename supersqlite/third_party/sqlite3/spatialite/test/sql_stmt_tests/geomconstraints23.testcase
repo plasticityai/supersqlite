@@ -1,0 +1,8 @@
+geometry constraints - MULTIPOLYGONM
+:memory: #use in-memory database
+SELECT GeometryConstraints(GeomFromText("MULTIPOLYGONM(((0 0 0, 1 0 0, 1 1 0, 0 0 0)),((0 0 0, -1 0 0, -1 -1 0, 0 0 0)))", 4326), "MULTIPOLYGON", 4326, "XYM")
+1 # rows (not including the header row)
+1 # columns
+GeometryConstraints(GeomFromText("MULTIPOLYGONM(((0 0 0, 1 0 0, 1 1 0, 0 0 0)),((0 0 0, -1 0 0, -1 -1 0, 0 0 0)))", 4326), "MULTIPOLYGON", 4326, "XYM")
+1
+

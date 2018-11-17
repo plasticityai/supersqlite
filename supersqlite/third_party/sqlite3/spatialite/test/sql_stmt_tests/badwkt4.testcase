@@ -1,0 +1,7 @@
+bad WKT: MultiPoint
+:memory: #use in-memory database
+SELECT GeomFromText("MULTIPOINT(11.2 12.3, 11.3 12.4");
+1 # rows (not including the header row)
+1 # columns
+GeomFromText("MULTIPOINT(11.2 12.3, 11.3 12.4")
+(NULL)

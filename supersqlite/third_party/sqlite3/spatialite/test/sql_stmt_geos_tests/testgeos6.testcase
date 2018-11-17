@@ -1,0 +1,7 @@
+GEOS test - Touches
+test_geos_x.sqlite
+SELECT Count(*) FROM comuni AS a, comuni AS b WHERE a.ROWID = 2 AND b.ROWID <> 2 AND ST_Touches(a.geometry, b.geometry) = 1;
+1 # rows (not including the header row)
+1 # columns
+Count(*)
+9

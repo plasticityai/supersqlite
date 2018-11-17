@@ -1,0 +1,7 @@
+importDXF - existing file
+:memory: #use in-memory database
+SELECT ImportDXF('./f06.dxf');
+1 # rows (not including the header row)
+1 # columns
+ImportDXF('./f06.dxf')
+1

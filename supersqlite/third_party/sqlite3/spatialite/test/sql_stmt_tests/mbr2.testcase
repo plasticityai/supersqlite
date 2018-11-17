@@ -1,0 +1,7 @@
+MbrContains - Line + Point 
+:memory: #use in-memory database
+SELECT MbrContains(GeomFromText("LINESTRING(0 0, 1 2)"), GeomFromText("POINT(1 1)"));
+1 # rows (not including the header row)
+1 # columns
+MbrContains(GeomFromText("LINESTRING(0 0, 1 2)"), GeomFromText("POINT(1 1)")) # header
+1

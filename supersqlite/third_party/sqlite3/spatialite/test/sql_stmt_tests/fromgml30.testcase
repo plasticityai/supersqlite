@@ -1,0 +1,7 @@
+FromGML - MULTIPOINT, single pointZ
+:memory: #use in-memory database
+SELECT AsText(GeomFromGml('<gml:MultiPoint><gml:pointMember><gml:Point><gml:coordinates>1,2,3.2</gml:coordinates></gml:Point></gml:pointMember></gml:MultiPoint>'))
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromGml('<gml:MultiPoint><gml:pointMember><gml:Point><gml:coordinates>1,2,3.2</gml:coordinates></gml:Point></gml:pointMember></gml:MultiPoint>')):0
+MULTIPOINT Z(1 2 3.2)

@@ -1,0 +1,7 @@
+ST_AsX3D - text geometry
+:memory: #use in-memory database
+SELECT ST_AsX3D('alpha');
+1 # rows (not including the header row)
+1 # columns
+ST_AsX3D('alpha')
+(NULL)

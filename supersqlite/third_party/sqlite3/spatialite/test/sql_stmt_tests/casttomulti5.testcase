@@ -1,0 +1,7 @@
+casttomulti - POLYGON
+:memory: #use in-memory database
+SELECT AsText(CastToMulti(GeomFromText("POLYGON((0 1, 2 1, 2 4, 0 4, 0 1))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(CastToMulti(GeomFromText("POLYGON((0 1, 2 1, 2 4, 0 4, 0 1))")))
+MULTIPOLYGON(((0 1, 2 1, 2 4, 0 4, 0 1)))

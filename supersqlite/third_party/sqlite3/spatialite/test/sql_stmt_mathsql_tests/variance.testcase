@@ -1,0 +1,21 @@
+variance
+sql_stmt_tests/testdb1.sqlite
+SELECT var_pop(a), var_pop(b), var_pop(nulls), var_pop(blobs), var_samp(a), var_samp(b), var_samp(blobs), var_samp(nulls) from data1;
+1 # rows (not including the header row)
+8 # columns
+var_pop(a)
+var_pop(b)
+var_pop(nulls)
+var_pop(blobs)
+var_samp(a)
+var_samp(b)
+var_samp(blobs)
+var_samp(nulls)
+104.472222222222:10
+150.12888888888:10
+(NULL)
+(NULL)
+125.36666666666:10
+180.15466666666:10
+(NULL)
+(NULL)

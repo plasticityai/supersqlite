@@ -1,0 +1,9 @@
+geometrytype - MULTIPOINT
+:memory: #use in-memory database
+SELECT GeometryType(geom), CoordDimension(geom) from (SELECT GeomFromText("MULTIPOINT(-71 42, 4 22)") as geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+GeometryType(geom)
+CoordDimension(geom)
+MULTIPOINT
+XY

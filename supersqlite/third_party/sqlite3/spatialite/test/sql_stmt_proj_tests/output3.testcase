@@ -1,0 +1,20 @@
+Output format tests - bad blob input
+:memory: #use in-memory database
+SELECT AsText(geom), AsKML(geom), AsKML("myname", "mydesc", geom), AsGML(geom), AsGeoJSON(geom), AsWkt(geom), AsEWkt(geom) FROM (SELECT zeroblob(40) as geom) dummy;
+1 # rows (not including the header row)
+7 # columns
+AsText(geom)
+AsKML(geom)
+AsKML("myname", "mydesc", geom)
+AsGML(geom)
+AsGeoJSON(geom)
+AsWkt(geom)
+AsEWkt(geom)
+(NULL)
+(NULL)
+(NULL)
+(NULL)
+(NULL)
+(NULL)
+(NULL)
+

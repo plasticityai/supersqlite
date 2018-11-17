@@ -1,0 +1,7 @@
+bad EWKT: Polygon
+:memory: #use in-memory database
+SELECT GeomFromEWKT("SRID=4326;POLYGON((11.2 12.3, 11.3 12.3, 11.3 12.4, 11.2 12.4, 11.2 12.3)");
+1 # rows (not including the header row)
+1 # columns
+GeomFromEWKT("SRID=4326;POLYGON((11.2 12.3, 11.3 12.3, 11.3 12.4, 11.2 12.4, 11.2 12.3)")
+(NULL)

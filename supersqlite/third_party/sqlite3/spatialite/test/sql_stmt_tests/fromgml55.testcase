@@ -1,0 +1,7 @@
+FromGML - MultiLinestring v3 3D (no namespace)
+:memory: #use in-memory database
+SELECT AsEwkt(GeomFromGml('<MultiCurve srsName="EPSG:4326"><curveMembers><Curve><segments><LineStringSegment><posList srsDimension="3">1 2 10 3 4 11 5 6 13</posList></LineStringSegment></segments></Curve><Curve><segments><LineStringSegment><posList srsDimension="3">7 8 13 9 10 13</posList></LineStringSegment></segments></Curve></curveMembers></MultiCurve>'));
+1 # rows (not including the header row)
+1 # columns
+AsEwkt(GeomFromGml('<MultiCurve srsName="EPSG:4326"><curveMembers><Curve><segments><LineStringSegment><posList srsDimension="3">1 2 10 3 4 11 5 6 13</posList></LineStringSegment></segments></Curve><Curve><segments><LineStringSegment><posList srsDimension="3">7 8 13 9 10 13</posList></LineStringSegment></segments></Curve></curveMembers></MultiCurve>')):0
+SRID=4326;MULTILINESTRING((1 2 10,3 4 11,5 6 13),(7 8 13,9 10 13))

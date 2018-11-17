@@ -1,0 +1,8 @@
+XB_GetPayload - invalid BLOB XmlBLOB
+:memory: #use in-memory database
+SELECT XB_GetPayload(zeroblob(100));
+1 # rows (not including the header row)
+1 # columns
+XB_GetPayload(zeroblob(100))
+(NULL)
+

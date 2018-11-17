@@ -1,0 +1,7 @@
+normalizelonlat- normal range
+:memory: #use in-memory database
+SELECT AsText(NormalizeLonLat(GeomFromText("POINT(1 2)", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(NormalizeLonLat(GeomFromText("POINT(1 2)", 4326)))
+POINT(1 2)

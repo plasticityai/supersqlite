@@ -1,0 +1,7 @@
+nautical miles to metres
+:memory: #use in-memory database
+SELECT CvtFromKmi(1);
+1 # rows (not including the header row)
+1 # columns
+CvtFromKmi(1);
+1852.0

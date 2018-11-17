@@ -1,0 +1,7 @@
+FromGML - MultiPoint v3 3D
+:memory: #use in-memory database
+SELECT AsEwkt(GeomFromGml('<gml:MultiPoint srsName="EPSG:4326"><gml:pointMember><gml:Point><gml:pos srsDimension="3">1 2 10</gml:pos></gml:Point></gml:pointMember><gml:pointMember><gml:Point><gml:pos srsDimension="3">3 4 11</gml:pos></gml:Point></gml:pointMember></gml:MultiPoint>'));
+1 # rows (not including the header row)
+1 # columns
+AsEwkt(GeomFromGml('<gml:MultiPoint srsName="EPSG:4326"><gml:pointMember><gml:Point><gml:pos srsDimension="3">1 2 10</gml:pos></gml:Point></gml:pointMember><gml:pointMember><gml:Point><gml:pos srsDimension="3">3 4 11</gml:pos></gml:Point></gml:pointMember></gml:MultiPoint>')):0
+SRID=4326;MULTIPOINT(1 2 10,3 4 11)

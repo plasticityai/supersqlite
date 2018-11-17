@@ -1,0 +1,7 @@
+UpdateLayerStatistics - BLOB, TEXT
+:memory: #use in-memory database
+SELECT UpdateLayerStatistics(zeroblob(4), 'column');
+1 # rows (not including the header row)
+1 # columns
+UpdateLayerStatistics(zeroblob(4), 'column');
+0

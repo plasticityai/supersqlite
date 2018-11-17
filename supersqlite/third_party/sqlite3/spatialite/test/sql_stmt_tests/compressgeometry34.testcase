@@ -1,0 +1,7 @@
+CompressGeometry - MULTIPOINT
+:memory: #use in-memory database
+SELECT AsText(CompressGeometry(GeomFromText("MULTIPOINT(10 10, 11 11)", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(CompressGeometry(GeomFromText("MULTIPOINT(10 10, 11 11)", 4326)))
+MULTIPOINT(10 10, 11 11)

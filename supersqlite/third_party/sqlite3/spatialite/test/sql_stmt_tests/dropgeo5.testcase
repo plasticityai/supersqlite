@@ -1,0 +1,7 @@
+DropGeoTable - table (not existing)
+:memory: #use in-memory database
+SELECT DropGeoTable('table');
+1 # rows (not including the header row)
+1 # columns
+DropGeoTable('table')
+0

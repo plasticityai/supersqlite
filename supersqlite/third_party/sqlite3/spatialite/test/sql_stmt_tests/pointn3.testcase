@@ -1,0 +1,7 @@
+pointN - regular LINESTRING (second point)
+:memory: #use in-memory database
+SELECT AsText(PointN(GeomFromText("LINESTRING(4 0, 4 4, 8 4)"), 2));
+1 # rows (not including the header row)
+1 # columns
+AsText(PointN(GeomFromText("LINESTRING(4 0, 4 4, 8 4)"), 2))
+POINT(4 4)

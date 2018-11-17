@@ -1,0 +1,7 @@
+dimension6 - POLYGON
+:memory: #use in-memory database
+SELECT Dimension(PolygonFromText("POLYGON((-71 42, -70 41, -70 42, -70 42, -71 42))", 4326));
+1 # rows (not including the header row)
+1 # columns
+Dimension(PolygonFromText("POLYGON((-71 42, -70 41, -70 42, -70 42, -71 42))", 4326))
+2

@@ -1,0 +1,7 @@
+metres to chains
+:memory: #use in-memory database
+SELECT CvtToCh(1000);
+1 # rows (not including the header row)
+1 # columns
+CvtToCh(1000)
+49.7096954:9

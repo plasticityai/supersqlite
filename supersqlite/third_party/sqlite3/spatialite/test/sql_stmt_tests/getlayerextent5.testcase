@@ -1,0 +1,7 @@
+GetLayerExtent - DOUBLE, TEXT
+:memory: #use in-memory database
+SELECT GetLayerExtent(1.1, 'column');
+1 # rows (not including the header row)
+1 # columns
+GetLayerExtent(1.1, 'column');
+(NULL)

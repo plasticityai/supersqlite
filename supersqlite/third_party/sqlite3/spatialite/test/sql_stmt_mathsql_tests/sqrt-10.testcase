@@ -1,0 +1,7 @@
+sqrt(-1.0)
+:memory:
+SELECT sqrt(-1.0); # the SQL to run
+1 # rows
+1 # column
+sqrt(-1.0) # this is the header row
+(NULL) # this is really the result

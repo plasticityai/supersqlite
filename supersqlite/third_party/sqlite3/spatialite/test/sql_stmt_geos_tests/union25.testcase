@@ -1,0 +1,7 @@
+union - MULTILINESTRING (two Lines)
+:memory: #use in-memory database
+SELECT AsText(GUnion(GeomFromText("LINESTRING(30 30, 31 31)"), GeomFromText("LINESTRING(20 20, 10 10)")));
+1 # rows (not including the header row)
+1 # columns
+AsText(GUnion(GeomFromText("LINESTRING(30 30, 31 31)"), GeomFromText("LINESTRING(20 20, 10 10)")))
+MULTILINESTRING((30 30, 31 31), (20 20, 10 10))

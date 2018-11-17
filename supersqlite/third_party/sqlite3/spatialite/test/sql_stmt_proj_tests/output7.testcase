@@ -1,0 +1,19 @@
+Output format tests - Linestring, NAD83
+:memory: #use in-memory database
+SELECT AsText(geom), AsKML(geom, 6), AsGML(2, geom, 7), AsGML(3, geom, 8), AsGeoJSON(geom, 6), AsGeoJSON(geom, 5, 4), AsWkt(geom, 5) FROM (SELECT GeomFromEwkt("SRID=3636;LINESTRING(1065407.0674 116445.5897, 2968193.5686 805860.5650)") as geom) dummy;
+1 # rows (not including the header row)
+7 # columns
+AsText(geom)
+AsKML(geom, 6)
+AsGML(2, geom, 7)
+AsGML(3, geom, 8)
+AsGeoJSON(geom, 6)
+AsGeoJSON(geom, 5, 4)
+AsWkt(geom, 5)
+LINESTRING(1065407.0674 116445.5897, 2968193.5686 805860.565)
+<LineString><coordinates>-104.05,45.93 -96.430658,47.805216</coordinates></LineString>
+<gml:LineString srsName="EPSG:3636"><gml:coordinates>1065407.0674,116445.5897 2968193.5686,805860.565</gml:coordinates></gml:LineString>:0
+<gml:Curve srsName="EPSG:3636"><gml:segments><gml:LineStringSegment><gml:posList srsDimension="2">1065407.0674 116445.5897 2968193.5686 805860.565</gml:posList></gml:LineStringSegment></gml:segments></gml:Curve>:0
+{"type":"LineString","coordinates":[[1065407.0674,116445.5897],[2968193.5686,805860.565]]}:0
+{"type":"LineString","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:EPSG:3636"}},"coordinates":[[1065407.0674,116445.5897],[2968193.5686,805860.565]]}:0
+LINESTRING(1065407.0674 116445.5897,2968193.5686 805860.565)

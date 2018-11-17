@@ -1,0 +1,7 @@
+buildmbr - null args, no SRID
+:memory: #use in-memory database
+SELECT BuildMbr(5, NULL, NULL, NULL)
+1 # rows (not including the header row)
+1 # columns
+BuildMbr(5, NULL, NULL, NULL)
+(NULL)

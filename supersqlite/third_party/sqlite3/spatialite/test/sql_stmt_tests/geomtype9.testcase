@@ -1,0 +1,9 @@
+geometrytype - LINESTRINGM
+:memory: #use in-memory database
+SELECT GeometryType(geom), CoordDimension(geom) from (SELECT GeomFromText("LINESTRINGM(4 0 1, 4 4 2, 8 4 3)") as geom) dummy;
+1 # rows (not including the header row)
+2 # columns
+GeometryType(geom)
+CoordDimension(geom)
+LINESTRING M
+XYM

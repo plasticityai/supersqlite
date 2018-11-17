@@ -1,0 +1,9 @@
+Sanitize Geometry - MULTIPOINT ZM
+:memory: #use in-memory database
+SELECT AsEWkt(SanitizeGeometry(GeomFromText("MULTIPOINTZM(-75 42 2 0, -70 39 2 0, -70 42 3 0, -70 42 4 0, -75 42 2 0)", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsEWkt(SanitizeGeometry(GeomFromText("MULTIPOINTZM(-75 42 2 0, -70 39 2 0, -70 42 3 0, -70 42 4 0, -75 42 2 0)", 4326)))
+SRID=4326;MULTIPOINT(-75 42 2 0,-70 39 2 0,-70 42 3 0,-70 42 4 0,-75 42 2 0)
+
+

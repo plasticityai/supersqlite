@@ -1,0 +1,7 @@
+shiftlongitude - positive and negative longitude linestringzm
+:memory: #use in-memory database
+SELECT AsText(ST_Shift_Longitude(GeomFromText("LINESTRINGZM(-170 0 1 -2, -175 2 2.4 -4, -179 4 3.2 -5, 175.3 5 4.7 -9)", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_Shift_Longitude(GeomFromText("LINESTRINGZM(-170 0 1 -2, -175 2 2.4 -4, -179 4 3.2 -5, 175.3 5 4.7 -9)", 4326)))
+LINESTRING ZM(190 0 1 -2, 185 2 2.4 -4, 181 4 3.2 -5, 175.3 5 4.7 -9)

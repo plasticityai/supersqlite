@@ -1,0 +1,8 @@
+todms - Integer longitude
+:memory: #use in-memory database
+SELECT LongLatToDMS(11, 42.5);
+1 # rows (not including the header row)
+1 # columns
+LongLatToDMS(11, 42.5)
+42°30′00″N 011°00′00″E
+

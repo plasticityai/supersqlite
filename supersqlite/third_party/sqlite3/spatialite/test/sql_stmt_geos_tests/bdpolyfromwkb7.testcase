@@ -1,0 +1,9 @@
+BdPolyFromWKB - zeroblob(58), no SRID
+:memory: #use in-memory database
+SELECT BdPolyFromWKB(zeroblob(58));
+1 # rows (not including the header row)
+1 # columns
+BdPolyFromWKB(zeroblob(58))
+(NULL)
+
+

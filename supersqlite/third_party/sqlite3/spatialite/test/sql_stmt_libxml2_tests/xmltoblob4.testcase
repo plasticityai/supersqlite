@@ -1,0 +1,8 @@
+XB_Create - BLOB XMLDocument
+:memory: #use in-memory database
+SELECT XB_Create(zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+XB_Create(zeroblob(4))
+(NULL)
+

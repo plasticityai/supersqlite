@@ -1,0 +1,8 @@
+makeline - GEOMETRYCOLLECTION with polygon (error)
+:memory: #use in-memory database
+SELECT MakeLine(GeomFromText("GEOMETRYCOLLECTION(POINT(1 2),POLYGON((0 0, 2 2, 0 2, 0 0)))"))
+1 # rows (not including the header row)
+1 # columns
+MakeLine(GeomFromText("GEOMETRYCOLLECTION(POINT(1 2),POLYGON((0 0, 2 2, 0 2, 0 0)))"))
+(NULL)
+

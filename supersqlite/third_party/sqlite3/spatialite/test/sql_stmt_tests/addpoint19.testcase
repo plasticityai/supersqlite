@@ -1,0 +1,7 @@
+ST_AddPoint() - append (no index)
+:memory: #use in-memory database
+SELECT AsText(AddPoint(GeomFromText('LINESTRING(0 0, 1 0)'), MakePoint(1, 1)))
+1 # rows (not including the header row)
+1 # columns
+AsText(AddPoint(GeomFromText('LINESTRING(0 0, 1 0)'), MakePoint(1, 1)))
+LINESTRING(0 0, 1 0, 1 1)

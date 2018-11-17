@@ -1,0 +1,8 @@
+makeellipticarc10 - text y_axis
+:memory: #use in-memory database
+SELECT MakeEllipticArc(0, 0, 100, 'alpha', 30, 60);
+1 # rows (not including the header row)
+1 # columns
+MakeEllipticArc(0, 0, 100, 'alpha', 30, 60)
+(NULL)
+

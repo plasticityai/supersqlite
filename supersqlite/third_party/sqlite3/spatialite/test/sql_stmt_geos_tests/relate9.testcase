@@ -1,0 +1,7 @@
+Relate - toxic second arg
+:memory: #use in-memory database
+SELECT Relate(geom1, geom2, "T*T***T**") FROM (SELECT GeomFromText("LINESTRING(1 1, 2 2)") as geom1, GeomFromText('LINESTRING(1 1, 1 1)') as geom2) dummy;
+1 # rows (not including the header row)
+1 # columns
+Relate(geom1, geom2, "T*T***T**")
+0

@@ -1,0 +1,7 @@
+casttosingle - POINT
+:memory: #use in-memory database
+SELECT AsText(CastToSingle(GeomFromText("POINT(3 1)")))
+1 # rows (not including the header row)
+1 # columns
+AsText(CastToSingle(GeomFromText("POINT(3 1)")))
+POINT(3 1)

@@ -1,0 +1,7 @@
+ST_GeoHash - WGS84 Linestring
+:memory: #use in-memory database
+SELECT ST_GeoHash(GeomFromText('LINESTRING(10 -20, 10.0001 -19.9899, 10.0002 -19.9899)', 4326));
+1 # rows (not including the header row)
+1 # columns
+ST_GeoHash(GeomFromText('LINESTRING(10 -20, 10.0001 -19.9899, 10.0002 -19.9899)', 4326))
+khrn

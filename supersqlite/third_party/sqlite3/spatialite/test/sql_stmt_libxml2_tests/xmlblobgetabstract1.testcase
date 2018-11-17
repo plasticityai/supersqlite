@@ -1,0 +1,8 @@
+XB_GetAbstract - NULL XmlDocument
+:memory: #use in-memory database
+SELECT XB_GetAbstract(NULL);
+1 # rows (not including the header row)
+1 # columns
+XB_GetAbstract(NULL)
+(NULL)
+

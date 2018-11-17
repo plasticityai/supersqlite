@@ -1,0 +1,7 @@
+ForceAsNull() - DOUBLE/BLOB
+:memory: #use in-memory database
+SELECT ForceAsNull(1.5, zeroblob(4))
+1 # rows (not including the header row)
+1 # columns
+ForceAsNull(1.5, zeroblob(4))
+1.5

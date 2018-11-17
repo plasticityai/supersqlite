@@ -1,0 +1,8 @@
+makeellipse6 - BLOB cy
+:memory: #use in-memory database
+SELECT MakeEllipse(0, zeroblob(4), 100, 200);
+1 # rows (not including the header row)
+1 # columns
+MakeEllipse(0, zeroblob(4), 100, 200)
+(NULL)
+

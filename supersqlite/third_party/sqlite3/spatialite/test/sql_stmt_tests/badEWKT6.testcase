@@ -1,0 +1,7 @@
+bad EWKT: MultiPolygon
+:memory: #use in-memory database
+SELECT GeomFromEWKT("SRID=4326;MULTIPOLYGON(((11.2 12.3, 11.3 12.3, 11.3 12.4, 11.2 12.4, 11.2 12.3)), ((10.2 11.3, 10.3 11.3, 10.3 11.4, 10.2 11.4, 10.2 11.3))");
+1 # rows (not including the header row)
+1 # columns
+GeomFromEWKT("SRID=4326;MULTIPOLYGON(((11.2 12.3, 11.3 12.3, 11.3 12.4, 11.2 12.4, 11.2 12.3)), ((10.2 11.3, 10.3 11.3, 10.3 11.4, 10.2 11.4, 10.2 11.3))")
+(NULL)

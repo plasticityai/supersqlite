@@ -1,0 +1,7 @@
+ST_Segmentize - MultiPoint
+:memory: #use in-memory database
+SELECT ST_AsText(ST_Segmentize(GeomFromText('MULTIPOINT(0 1, 2 3, 4 5)'), 0.5));
+1 # rows (not including the header row)
+1 # columns
+ST_AsText(ST_Segmentize(GeomFromText('MULTIPOINT(0 1, 2 3, 4 5)'), 0.5))
+MULTIPOINT(0 1, 2 3, 4 5) 

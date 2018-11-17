@@ -1,0 +1,8 @@
+XB_GetGeometry - BLOB XmlDocument
+:memory: #use in-memory database
+SELECT XB_GetGeometry(zeroblob(100));
+1 # rows (not including the header row)
+1 # columns
+XB_GetGeometry(zeroblob(100))
+(NULL)
+

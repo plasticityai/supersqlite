@@ -1,0 +1,7 @@
+pointN - empty LINESTRINGZ (error)
+:memory: #use in-memory database
+SELECT PointN(GeomFromText("LINESTRINGZ()"), 0);
+1 # rows (not including the header row)
+1 # columns
+PointN(GeomFromText("LINESTRINGZ()"), 0)
+(NULL)

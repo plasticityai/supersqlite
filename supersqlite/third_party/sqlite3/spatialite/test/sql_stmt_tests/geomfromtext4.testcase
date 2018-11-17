@@ -1,0 +1,7 @@
+geomfromtext4
+:memory: #use in-memory database
+SELECT GeomFromText("POINT(0 1 2 3)");
+1 # rows (not including the header row)
+1 # columns
+GeomFromText("POINT(0 1 2 3)")
+(NULL)

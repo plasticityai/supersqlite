@@ -1,0 +1,8 @@
+SetStyledGroupLayerPaintOrder - ID - NULL order
+:memory: #use in-memory database
+SELECT SE_SetStyledGroupLayerPaintOrder(1, NULL);
+1 # rows (not including the header row)
+1 # columns
+SE_SetStyledGroupLayerPaintOrder(1, NULL)
+-1
+

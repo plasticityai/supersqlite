@@ -1,0 +1,7 @@
+CreateStylingTables - BLOB transaction
+NEW:memory: #use in-memory database
+SELECT CreateStylingTables(1, zeroblob(100));
+1 # rows (not including the header row)
+1 # columns
+CreateStylingTables(1, zeroblob(100))
+-1

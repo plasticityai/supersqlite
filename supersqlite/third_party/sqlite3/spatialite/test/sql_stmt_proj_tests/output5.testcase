@@ -1,0 +1,20 @@
+Output format tests - POINT input, no SRID
+:memory: #use in-memory database
+SELECT AsText(geom), AsKML(geom), AsKML("myname", "mydesc", geom), AsGML(geom), AsGeoJSON(geom), AsWkt(geom), AsEWkt(geom) FROM (SELECT MakePoint(1,2) as geom) dummy;
+1 # rows (not including the header row)
+7 # columns
+AsText(geom)
+AsKML(geom)
+AsKML("myname", "mydesc", geom)
+AsGML(geom)
+AsGeoJSON(geom)
+AsWkt(geom)
+AsEWkt(geom)
+POINT(1 2)
+(NULL)
+(NULL)
+<gml:Point><gml:coordinates>1,2</gml:coordinates></gml:Point>:0" required to avoid truncation !!
+{"type":"Point","coordinates":[1,2]}:0" required to avoid truncation !!
+POINT(1 2)
+SRID=0;POINT(1 2)
+

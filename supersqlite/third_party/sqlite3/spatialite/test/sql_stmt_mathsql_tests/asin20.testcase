@@ -1,0 +1,7 @@
+asin(2.0)
+:memory: #use in-memory database
+SELECT asin(2.0);
+1 # rows (not including the header row)
+1 # columns
+asin(2.0) # header
+(NULL) #result

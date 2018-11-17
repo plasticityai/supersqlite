@@ -1,0 +1,7 @@
+collect - toxic blob second arg
+:memory: #use in-memory database
+SELECT AsText(Collect(MakePoint(3,3), GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(Collect(MakePoint(3,3), GeomFromText("POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5))")))
+GEOMETRYCOLLECTION(POINT(3 3), POLYGON((136 -35, 135.2 -34.5, 136 -35.2, 136 -35, 135.2 -34.5)))

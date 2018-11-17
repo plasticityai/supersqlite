@@ -1,0 +1,8 @@
+linemerge - bad blob
+:memory: #use in-memory database
+SELECT LineMerge(zeroblob(44))
+1 # rows (not including the header row)
+1 # columns
+LineMerge(zeroblob(44))
+(NULL)
+

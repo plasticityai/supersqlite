@@ -1,0 +1,7 @@
+ATM_AsText() - NULL
+:memory: #use in-memory database
+SELECT ATM_AsText(NULL)
+1 # rows (not including the header row)
+1 # columns
+ATM_AsText(NULL)
+(NULL)

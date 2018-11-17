@@ -1,0 +1,7 @@
+SridGetProjection() - DOUBLE SRID
+:memory: #use in-memory database
+SELECT SridGetProjection(1.0)
+1 # rows (not including the header row)
+1 # columns
+SridGetProjection(1.0)
+(NULL)

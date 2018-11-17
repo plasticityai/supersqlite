@@ -1,0 +1,7 @@
+translate - Polygon XY
+:memory: #use in-memory database
+SELECT AsText(ST_Translate(GeomFromText("POLYGON((0 0, 10 0, 10 10, 0 10, 0 0), (5 5, 6 5, 6 6, 5 6, 5 5))"), 1.4, 3.9, 5.3));
+1 # rows (not including the header row)
+1 # columns
+AsText(ST_Translate(GeomFromText("POLYGON((0 0, 10 0, 10 10, 0 10, 0 0), (5 5, 6 5, 6 6, 5 6, 5 5))"), 1.4, 3.9, 5.3))
+POLYGON((1.4 3.9, 11.4 3.9, 11.4 13.9, 1.4 13.9, 1.4 3.9), (6.4 8.9, 7.4 8.9, 7.4 9.9, 6.4 9.9, 6.4 8.9))

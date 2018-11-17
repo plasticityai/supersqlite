@@ -1,0 +1,8 @@
+IsValidRasterTile - NULL coverage-name
+NEW:memory: #use in-memory database
+SELECT IsValidRasterTile(NULL, 0, zeroblob(4), zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+IsValidRasterTile(NULL, 0, zeroblob(4), zeroblob(4))
+-1
+

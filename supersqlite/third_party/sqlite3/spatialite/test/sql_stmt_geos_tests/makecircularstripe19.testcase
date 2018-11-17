@@ -1,0 +1,8 @@
+makecircularstrpe19 - WGS84 srid
+:memory: #use in-memory database
+SELECT ST_Area(MakeCircularStripe(0, 0, 100, 90, 30, 60, 4326));
+1 # rows (not including the header row)
+1 # columns
+ST_Area(MakeCircularStripe(0, 0, 100, 90, 30, 60, 4326))
+494.8973:4
+

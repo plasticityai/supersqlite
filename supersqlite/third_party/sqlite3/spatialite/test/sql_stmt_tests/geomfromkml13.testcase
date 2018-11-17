@@ -1,0 +1,7 @@
+From KML - Multigeometry - Point 2D
+:memory:
+SELECT AsText(GeomFromKML("<MultiGeometry><Point><coordinates>-122.0822035425683,37.42228990140251</coordinates></Point></MultiGeometry>"))
+1 # rows
+1 # column
+AsText(GeomFromKML("<MultiGeometry><Point><coordinates>-122.0822035425683,37.42228990140251</coordinates></Point></MultiGeometry>"))
+MULTIPOINT(-122.082204 37.42229)

@@ -1,0 +1,7 @@
+UnregisterVectorCoverageKeyword - BLOB coverage
+:memory: #use in-memory database
+SELECT SE_UnregisterVectorCoverageKeyword(zeroblob(4), 'keyword');
+1 # rows (not including the header row)
+1 # columns
+SE_UnregisterVectorCoverageKeyword(zeroblob(4), 'keyword')
+-1

@@ -1,0 +1,8 @@
+RegisterIsoMetadata - DOUBLE id
+:memory: #use in-memory database
+SELECT RegisterIsoMetadata('series', zeroblob(4), 1.1);
+1 # rows (not including the header row)
+1 # columns
+RegisterIsoMetadata('series', zeroblob(4), 1.1)
+-1
+

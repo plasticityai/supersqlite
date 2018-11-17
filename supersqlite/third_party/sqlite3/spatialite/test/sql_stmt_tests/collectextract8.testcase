@@ -1,0 +1,8 @@
+Collection Extract - Point Float idx (NULL)
+:memory: #use in-memory database
+SELECT CollectionExtract(GeomFromText("POINT(1 2)"), 3.2);
+1 # rows (not including the header row)
+1 # columns
+CollectionExtract(GeomFromText("POINT(1 2)"), 3.2)
+(NULL)
+

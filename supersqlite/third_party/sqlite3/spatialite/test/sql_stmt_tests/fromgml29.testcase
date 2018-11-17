@@ -1,0 +1,7 @@
+FromGML - GeometryCollection, single point
+:memory: #use in-memory database
+SELECT AsEwkt(GeomFromGml('<gml:MultiGeometry><gml:geometryMember><gml:Point><gml:coordinates>1,2</gml:coordinates></gml:Point></gml:geometryMember></gml:MultiGeometry>'))
+1 # rows (not including the header row)
+1 # columns
+AsEwkt(GeomFromGml('<gml:MultiGeometry><gml:geometryMember><gml:Point><gml:coordinates>1,2</gml:coordinates></gml:Point></gml:geometryMember></gml:MultiGeometry>')):0
+SRID=-1;GEOMETRYCOLLECTION(POINT(1 2))

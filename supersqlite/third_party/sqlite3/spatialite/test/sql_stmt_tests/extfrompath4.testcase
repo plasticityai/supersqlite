@@ -1,0 +1,7 @@
+FileExtFromPath - DOUBLE
+:memory: #use in-memory database
+SELECT FileExtFromPath(zeroblob(10));
+1 # rows (not including the header row)
+1 # columns
+FileExtFromPath(zeroblob(10))
+(NULL)

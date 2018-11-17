@@ -1,0 +1,7 @@
+bad KML: MultiPolygon
+:memory: #use in-memory database
+SELECT GeomFromKML('<MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>0,0 1,0 1,1 0,1 0,0</coordinates></LinearRing></outerBoundaryIs><innerBoundaryIs><LinearRing><coordinates>0.1,0.1 0.9,0.1 0.9,0.9 0.1,0.9 0.1,0.1</coordinates></LinearRing></innerBoundaryIs></Polygon><Polygon><outerBoundaryIs><LinearRing><coordinates>5,5 6,5 6,6 5,6 5,5</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry');
+1 # rows (not including the header row)
+1 # columns
+GeomFromKML('<MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>0,0 1,0 1,1 0,1 0,0</coordinates></LinearRing></outerBoundaryIs><innerBoundaryIs><LinearRing><coordinates>0.1,0.1 0.9,0.1 0.9,0.9 0.1,0.9 0.1,0.1</coordinates></LinearRing></innerBoundaryIs></Polygon><Polygon><outerBoundaryIs><LinearRing><coordinates>5,5 6,5 6,6 5,6 5,5</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry'):0
+(NULL)

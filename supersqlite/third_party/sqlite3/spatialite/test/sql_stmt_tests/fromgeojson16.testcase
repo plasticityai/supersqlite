@@ -1,0 +1,7 @@
+FromGeoJSON - bad type, SRID
+:memory: #use in-memory database
+SELECT AsEWkt(GeomFromGeoJSON('{"type":"No such type","crs":{"type":"name","properties":{"name":"EPSG:3003"}},"coordinates":[]}'));
+1 # rows (not including the header row)
+1 # columns
+AsEWkt(GeomFromGeoJSON('{"type":"No such type","crs":{"type":"name","properties":{"name":"EPSG:3003"}},"coordinates":[]}')):0
+(NULL)

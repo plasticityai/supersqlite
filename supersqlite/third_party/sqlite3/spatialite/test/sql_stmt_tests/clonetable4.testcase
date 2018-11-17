@@ -1,0 +1,7 @@
+CloneTable() - NULL transaction
+:memory: #use in-memory database
+SELECT CloneTable('prefix', 'in_table', 'out_table', NULL)
+1 # rows (not including the header row)
+1 # columns
+CloneTable('prefix', 'in_table', 'out_table', NULL)
+(NULL)

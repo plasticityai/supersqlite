@@ -1,0 +1,7 @@
+askml - 2 arg weird SRID (error)
+:memory: #use in-memory database
+SELECT askml(GeomFromText("Point(1 2)", 9999989), 4)
+1 # rows (not including the header row)
+1 # columns
+askml(GeomFromText("Point(1 2)", 9999989), 4)
+(NULL)

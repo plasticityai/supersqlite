@@ -1,0 +1,12 @@
+Coverage testing
+----------------
+You need to have gcov and lcov installed.
+
+Process:
+1. Use --enable-gcov=yes with configure script
+2. Clean and rebuild.
+3. make coverage-init
+4. make check (or whatever other tests you want to check coverage for)
+5. make coverage
+6. check summary on command line output.
+7. review detailed coverage results in covresults/index.html

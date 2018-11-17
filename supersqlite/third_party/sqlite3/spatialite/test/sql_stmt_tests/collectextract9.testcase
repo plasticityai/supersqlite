@@ -1,0 +1,8 @@
+Collection Extract - bad blob (NULL)
+:memory: #use in-memory database
+SELECT CollectionExtract(zeroblob(40), 3);
+1 # rows (not including the header row)
+1 # columns
+CollectionExtract(zeroblob(40), 3)
+(NULL)
+

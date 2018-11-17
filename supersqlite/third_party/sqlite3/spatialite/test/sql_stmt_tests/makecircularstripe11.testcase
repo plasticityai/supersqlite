@@ -1,0 +1,8 @@
+makecircularstripe11 - BLOB start
+:memory: #use in-memory database
+SELECT MakeCircularStripe(0, 0, 100, 90, zeroblob(4), 60);
+1 # rows (not including the header row)
+1 # columns
+MakeCircularStripe(0, 0, 100, 90, zeroblob(4), 60)
+(NULL)
+

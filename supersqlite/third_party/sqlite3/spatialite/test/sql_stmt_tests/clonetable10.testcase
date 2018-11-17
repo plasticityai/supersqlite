@@ -1,0 +1,7 @@
+CloneTable() - NULL option #6
+:memory: #use in-memory database
+SELECT CloneTable('prefix', 'in_table', 'out_table', 1, 'opt1', 'opt2', 'opt3', 'opt4', 'opt5', NULL)
+1 # rows (not including the header row)
+1 # columns
+CloneTable('prefix', 'in_table', 'out_table', 1, 'opt1', 'opt2', 'opt3', 'opt4', 'opt5', NULL)
+(NULL)

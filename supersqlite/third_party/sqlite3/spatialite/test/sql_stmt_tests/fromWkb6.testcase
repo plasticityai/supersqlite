@@ -1,0 +1,7 @@
+fromWkb - mandatory LINESTRING, but POINT type
+:memory: #use in-memory database
+SELECT LinestringFromWkb(AsBinary(GeomFromText("Point(1 2)", 4326)))
+1 # rows (not including the header row)
+1 # columns
+LinestringFromWkb(AsBinary(GeomFromText("Point(1 2)", 4326)))
+(NULL)

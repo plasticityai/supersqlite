@@ -1,0 +1,7 @@
+bad KML: GeometryCollection
+:memory: #use in-memory database
+SELECT GeomFromKML('<MultiGeometry><Point><coordinates>1.1,1.1</coordinates></Point><LineString><coordinates>2.2,2.2 3.3,3.3</coordinates></LineString><Polygon><outerBoundaryIs><LinearRing><coordinates>0,0 1,0 1,1 0,1 0,0</coordinates></LinearRing></outerBoundaryIs><innerBoundaryIs><LinearRing><coordinates>0.1,0.1 0.9,0.1 0.9,0.9 0.1,0.9 0.1,0.1</coordinates></LinearRing></innerBoundaryIs></Polygon></MultiGeometry');
+1 # rows (not including the header row)
+1 # columns
+GeomFromKML('<MultiGeometry><Point><coordinates>1.1,1.1</coordinates></Point><LineString><coordinates>2.2,2.2 3.3,3.3</coordinates></LineString><Polygon><outerBoundaryIs><LinearRing><coordinates>0,0 1,0 1,1 0,1 0,0</coordinates></LinearRing></outerBoundaryIs><innerBoundaryIs><LinearRing><coordinates>0.1,0.1 0.9,0.1 0.9,0.9 0.1,0.9 0.1,0.1</coordinates></LinearRing></innerBoundaryIs></Polygon></MultiGeometry'):0
+(NULL)

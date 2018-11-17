@@ -1,0 +1,8 @@
+linesubstring - zero length 2d
+:memory: #use in-memory database
+SELECT AsText(Line_Substring(GeomFromText("LINESTRING(1 1, 1 1)"), 0, 1))
+1 # rows (not including the header row)
+1 # columns
+AsText(Line_Substring(GeomFromText("LINESTRING(1 1, 1 1)"), 0, 1))
+LINESTRING(1 1, 1 1)
+

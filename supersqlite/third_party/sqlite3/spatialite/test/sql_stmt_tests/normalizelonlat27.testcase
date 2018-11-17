@@ -1,0 +1,7 @@
+normalizelonlat- out of range negative lat polygon
+:memory: #use in-memory database
+SELECT AsText(NormalizeLonLat(GeomFromText("POLYGON((120 -140, 120 -150, 130 -150, 130 -140, 120 -140), (122 -142, 124 -142, 124 -144, 122 -144, 122 -142))", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(NormalizeLonLat(GeomFromText("POLYGON((120 -140, 120 -150, 130 -150, 130 -140, 120 -140), (122 -142, 124 -142, 124 -144, 122 -144, 122 -142))", 4326)))42 0))", 4326)))
+POLYGON((120 -40, 120 -30, 130 -30, 130 -40, 120 -40), (122 -38, 124 -38, 124 -36, 122 -36, 122 -38))

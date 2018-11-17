@@ -1,0 +1,8 @@
+collect - LineString, LineString
+:memory: #use in-memory database
+SELECT AsText(COLLECT(GeomFromText("Linestring(1 2, 3 4)"), GeomFromText("LINESTRING(4 5, 1 2, 4 2)")));
+1 # rows (not including the header row)
+1 # columns
+AsText(COLLECT(GeomFromText("Linestring(1 2, 3 4)"), GeomFromText("LINESTRING(4 5, 1 2, 4 2)")))
+MULTILINESTRING((1 2, 3 4), (4 5, 1 2, 4 2))
+

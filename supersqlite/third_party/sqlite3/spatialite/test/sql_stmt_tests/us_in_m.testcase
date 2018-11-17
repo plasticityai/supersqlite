@@ -1,0 +1,7 @@
+us inches to metres
+:memory: #use in-memory database
+SELECT CvtFromUsIn(10);
+1 # rows (not including the header row)
+1 # columns
+CvtFromUsIn(10);
+0.254:5

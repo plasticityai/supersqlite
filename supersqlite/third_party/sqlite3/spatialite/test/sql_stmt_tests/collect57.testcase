@@ -1,0 +1,7 @@
+collect - step point
+:memory: #use in-memory database
+SELECT AsText(Collect(geom)) FROM (SELECT MakePoint(1,2) as geom) dummy;
+1 # rows (not including the header row)
+1 # columns
+AsText(Collect(geom))
+POINT(1 2)

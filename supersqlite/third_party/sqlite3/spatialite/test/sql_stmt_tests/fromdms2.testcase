@@ -1,0 +1,10 @@
+fromdms - Integer DMS expression
+:memory: #use in-memory database
+SELECT LongitudeFromDMS(1), LatitudeFromDMS(1);
+1 # rows (not including the header row)
+2 # columns
+LongitudeFromDMS(1)
+LatitudeFromDMS(1)
+(NULL)
+(NULL)
+

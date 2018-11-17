@@ -1,0 +1,9 @@
+FromGeoJSON - multilinestringz, SRID
+:memory: #use in-memory database
+SELECT AsEWkt(GeomFromGeoJSON('{"type":"MultiLineString","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:EPSG:3003"}},"bbox":[-3,2,4,25],"coordinates":[[[1,2,3],[4,6,32]],[[2,3,1.4],[-3,25,0.3],[1,2,4]]]}'))
+1 # rows (not including the header row)
+1 # columns
+AsEWkt(GeomFromGeoJSON('{"type":"MultiLineString","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:EPSG:3003"}},"bbox":[-3,2,4,25],"coordinates":[[[1,2,3],[4,6,32]],[[2,3,1.4],[-3,25,0.3],[1,2,4]]]}')):0
+SRID=3003;MULTILINESTRING((1 2 3,4 6 32),(2 3 1.4,-3 25 0.3,1 2 4))
+
+

@@ -1,0 +1,7 @@
+fromewkt20
+:memory: #use in-memory database
+SELECT AsText(GeomFromEWKT('SRID=4326;MULTIPOINTM((0 1 9), (2 3 9), (4 5 9))'));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromEWKT('SRID=4326;MULTIPOINTM((0 1 9), (2 3 9), (4 5 9))'));
+MULTIPOINT M(0 1 9, 2 3 9, 4 5 9)

@@ -1,0 +1,8 @@
+makeellipticarc22 - WGS84 sid 
+:memory: #use in-memory database
+SELECT ST_Length(MakeEllipticArc(0, 0, 100, 200, 30, 60, 4326));
+1 # rows (not including the header row)
+1 # columns
+ST_Length(MakeEllipticArc(0, 0, 100, 200, 30, 60, 4326))
+82.3891:4
+

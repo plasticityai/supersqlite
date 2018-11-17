@@ -1,0 +1,7 @@
+ST_SetStartPoint() - M
+:memory: #use in-memory database
+SELECT AsText(SetStartPoint(GeomFromText('LINESTRINGM(0 0 1, 1 0 2, 1 1 3)'), MakePoint(2, 3)))
+1 # rows (not including the header row)
+1 # columns
+AsText(SetStartPoint(GeomFromText('LINESTRINGM(0 0 1, 1 0 2, 1 1 3)'), MakePoint(2, 3)))
+LINESTRING M(2 3 0, 1 0 2, 1 1 3)

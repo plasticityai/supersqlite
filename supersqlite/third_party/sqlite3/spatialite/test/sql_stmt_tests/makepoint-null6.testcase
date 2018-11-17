@@ -1,0 +1,7 @@
+makepoint-null6
+:memory: #use in-memory database
+SELECT AsText(MakePoint(-26.0, 42.3150676015829, "WGS84"));
+1 # rows (not including the header row)
+1 # columns
+AsText(MakePoint(-26.0, 42.3150676015829, "WGS84"))
+(NULL)

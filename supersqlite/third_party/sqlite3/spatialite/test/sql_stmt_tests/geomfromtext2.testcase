@@ -1,0 +1,7 @@
+geomfromtext2
+:memory: #use in-memory database
+SELECT GeomFromText(3.14);
+1 # rows (not including the header row)
+1 # columns
+GeomFromText(3.14)
+(NULL)

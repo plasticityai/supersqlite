@@ -1,0 +1,7 @@
+TriangularGrid - valid - with Origin, edges_only
+:memory: #use in-memory database
+SELECT ST_Length(TriangularGrid(GeomFromText('POLYGON((0.2 0.2, 2.2 0.2, 2.2 1.2, 0.2 1.2, 0.2 0.2))', 4326), 1.0, 1, GeomFromText('POINT(0.1 0.1)')));
+1 # rows (not including the header row)
+1 # columns
+ST_Length(TriangularGrid(GeomFromText('POLYGON((0.2 0.2, 2.2 0.2, 2.2 1.2, 0.2 1.2, 0.2 0.2))', 4326), 1.0, 1, GeomFromText('POINT(0.1 0.1)')))
+18.0

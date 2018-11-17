@@ -1,0 +1,7 @@
+NumInteriorRings - non-Polygon
+:memory: #use in-memory database
+SELECT NumInteriorRings(GeomFromText("LINESTRING(136 -35, 135.2 -34.5, 136 -35.2)"))
+1 # rows (not including the header row)
+1 # columns
+NumInteriorRings(GeomFromText("LINESTRING(136 -35, 135.2 -34.5, 136 -35.2)"))
+(NULL)

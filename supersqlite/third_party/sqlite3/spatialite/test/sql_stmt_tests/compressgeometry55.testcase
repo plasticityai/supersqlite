@@ -1,0 +1,7 @@
+CompressGeometry - GEOMETRYCOLLECTION Z (2 Linestrings)
+:memory: #use in-memory database
+SELECT AsText(CompressGeometry(GeomFromText("GEOMETRYCOLLECTIONZ(LINESTRINGZ(1 2 100, 3 4 101, 5 6 102), LINESTRINGZ(7 7 101, 8 8 102, 9 9 103))", 4326)))
+1 # rows (not including the header row)
+1 # columns
+AsText(CompressGeometry(GeomFromText("GEOMETRYCOLLECTIONZ(LINESTRINGZ(1 2 100, 3 4 101, 5 6 102), LINESTRINGZ(7 7 101, 8 8 102, 9 9 103))", 4326)))
+GEOMETRYCOLLECTION Z(LINESTRING Z(1 2 100, 3 4 101, 5 6 102), LINESTRING Z(7 7 101, 8 8 102, 9 9 103))

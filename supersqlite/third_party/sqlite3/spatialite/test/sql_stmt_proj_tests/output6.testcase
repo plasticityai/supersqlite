@@ -1,0 +1,20 @@
+Output format tests - POINT input, WGS-84
+:memory: #use in-memory database
+SELECT AsText(geom), AsKML(geom), AsKML("myname", "mydesc", geom), AsGML(geom), AsGeoJSON(geom), AsWkt(geom), AsEWkt(geom) FROM (SELECT MakePoint(1, 2, 4326) as geom) dummy;
+1 # rows (not including the header row)
+7 # columns
+AsText(geom)
+AsKML(geom)
+AsKML("myname", "mydesc", geom)
+AsGML(geom)
+AsGeoJSON(geom)
+AsWkt(geom)
+AsEWkt(geom)
+POINT(1 2)
+<Point><coordinates>1,2</coordinates></Point>
+<Placemark><name>myname</name><description>mydesc</description><Point><coordinates>1,2</coordinates></Point></Placemark>
+<gml:Point srsName="EPSG:4326"><gml:coordinates>1,2</gml:coordinates></gml:Point>:0
+{"type":"Point","coordinates":[1,2]}:0
+POINT(1 2)
+SRID=4326;POINT(1 2)
+

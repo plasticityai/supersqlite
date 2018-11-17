@@ -1,0 +1,8 @@
+IsValidPixel - NULL pixel
+NEW:memory: #use in-memory database
+SELECT IsValidPixel(NULL, 'UINT8', 1);
+1 # rows (not including the header row)
+1 # columns
+IsValidPixel(NULL, 'UINT8', 1)
+-1
+

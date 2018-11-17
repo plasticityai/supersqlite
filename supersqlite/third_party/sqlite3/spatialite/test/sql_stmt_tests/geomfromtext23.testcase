@@ -1,0 +1,7 @@
+geomfromtext23
+:memory: #use in-memory database
+SELECT AsText(GeomFromText('GEOMETRYCOLLECTIONM(MULTIPOINTM((0 1 9), (2 3 9), (4 5 9)))'));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeomFromText('GEOMETRYCOLLECTIONM(MULTIPOINTM((0 1 9), (2 3 9), (4 5 9)))'));
+GEOMETRYCOLLECTION M(POINT M(0 1 9), POINT M(2 3 9), POINT M(4 5 9))

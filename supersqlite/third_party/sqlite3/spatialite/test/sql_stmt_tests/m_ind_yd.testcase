@@ -1,0 +1,7 @@
+metres to Indian yards
+:memory: #use in-memory database
+SELECT CvtToIndYd(1.0);
+1 # rows (not including the header row)
+1 # columns
+CvtToIndYd(1.0);
+1.0936190:8

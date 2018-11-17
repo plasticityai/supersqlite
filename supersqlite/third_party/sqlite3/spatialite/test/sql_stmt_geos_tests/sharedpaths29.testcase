@@ -1,0 +1,7 @@
+shared paths - multilineM - prepend
+:memory: #use in-memory database
+SELECT AsText(SharedPaths(GeomFromText("MULTILINESTRINGM((5 0 10, 15 0 30),(5 0 10, 5 5 10))"),GeomFromText("MULTILINESTRINGM((0 0 0, 4 0 8, 6 0 12, 10 0 20),(11 0 22, 5 0 10),(5 0 10, 5 5 10))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(SharedPaths(GeomFromText("MULTILINESTRINGM((5 0 10, 15 0 30),(5 0 10, 5 5 10))"),GeomFromText("MULTILINESTRINGM((0 0 0, 4 0 8, 6 0 12, 10 0 20),(11 0 22, 5 0 10),(5 0 10, 5 5 10))")))
+MULTILINESTRING M((5 5 0, 5 0 0, 6 0 0, 10 0 0, 11 0 0))

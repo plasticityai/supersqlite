@@ -1,0 +1,7 @@
+ST_AddPoint() - TEXT line
+:memory: #use in-memory database
+SELECT ST_AddPoint('alpha', NULL)
+1 # rows (not including the header row)
+1 # columns
+ST_AddPoint('alpha', NULL)
+(NULL)

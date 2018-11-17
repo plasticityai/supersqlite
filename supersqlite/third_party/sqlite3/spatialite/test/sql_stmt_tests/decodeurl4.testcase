@@ -1,0 +1,7 @@
+DecodeURL - BLOB
+:memory: #use in-memory database
+SELECT DecodeURL(zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+DecodeURL(zeroblob(4))
+(NULL)

@@ -1,0 +1,8 @@
+makearc1 - text cx
+:memory: #use in-memory database
+SELECT MakeArc('alpha', 0, 100, 30, 60);
+1 # rows (not including the header row)
+1 # columns
+MakeArc('alpha', 0, 100, 30, 60)
+(NULL)
+

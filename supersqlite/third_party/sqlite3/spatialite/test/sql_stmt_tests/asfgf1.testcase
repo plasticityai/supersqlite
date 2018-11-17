@@ -1,0 +1,7 @@
+asfgf - non-blob input
+:memory: #use in-memory database
+SELECT AsFGF("hello", 1)
+1 # rows (not including the header row)
+1 # columns
+AsFGF("hello", 1)
+(NULL)

@@ -1,0 +1,8 @@
+CreateIsoMetadataTables - BLOB
+:memory: #use in-memory database
+SELECT CreateIsoMetadataTables(zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+CreateIsoMetadataTables(zeroblob(4))
+-1
+

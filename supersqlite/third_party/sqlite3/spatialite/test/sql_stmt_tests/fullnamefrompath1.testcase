@@ -1,0 +1,7 @@
+FullFileNameFromPath - NULL
+:memory: #use in-memory database
+SELECT FullFileNameFromPath(NULL);
+1 # rows (not including the header row)
+1 # columns
+FullFileNameFromPath(NULL)
+(NULL)

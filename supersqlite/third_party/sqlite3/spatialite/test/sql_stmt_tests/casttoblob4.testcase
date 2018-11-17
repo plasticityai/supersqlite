@@ -1,0 +1,9 @@
+CastToBlob() - INTEGER
+:memory: #use in-memory database
+SELECT CastToBlob(123)
+1 # rows (not including the header row)
+1 # columns
+CastToBlob(123)
+(NULL)
+
+

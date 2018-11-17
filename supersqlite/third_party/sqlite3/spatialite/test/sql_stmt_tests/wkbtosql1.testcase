@@ -1,0 +1,7 @@
+ST_WKBToSQL 
+:memory: #use in-memory database
+SELECT Hex(ST_WKBToSQL(AsBinary(GeomFromText("Point(1 2)", 4326))))
+1 # rows (not including the header row)
+1 # columns
+Hex(ST_WKBToSQL(AsBinary(GeomFromText("Point(1 2)", 4326))))
+000100000000000000000000F03F0000000000000040000000000000F03F00000000000000407C01000000000000000000F03F0000000000000040FE

@@ -1,0 +1,9 @@
+CastToText() - DOUBLE, BLOB zero_pad
+:memory: #use in-memory database
+SELECT CastToText(123.456, zeroblob(4))
+1 # rows (not including the header row)
+1 # columns
+CastToText(123.456, zeroblob(4))
+(NULL)
+
+

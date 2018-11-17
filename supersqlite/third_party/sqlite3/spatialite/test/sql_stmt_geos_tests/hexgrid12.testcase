@@ -1,0 +1,9 @@
+HexagonalGrid - Polygon geom - BLOB edges_only
+:memory: #use in-memory database
+SELECT HexagonalGrid(GeomFromText('POLYGON((3 3, 3 4, 4 4, 4 3, 3 3))', 4326), 1.0, zeroblob(4));
+1 # rows (not including the header row)
+1 # columns
+HexagonalGrid(GeomFromText('POLYGON((3 3, 3 4, 4 4, 4 3, 3 3))', 4326), 1.0, zeroblob(4))
+(NULL)
+
+

@@ -1,0 +1,7 @@
+RemoveDuplicateRows() - not existing table
+:memory: #use in-memory database
+SELECT RemoveDuplicateRows('table');
+1 # rows (not including the header row)
+1 # columns
+RemoveDuplicateRows('table')
+(NULL)

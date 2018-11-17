@@ -1,0 +1,7 @@
+ATM_CreateTranslate() - 3d invalid 1st arg
+:memory: #use in-memory database
+SELECT ATM_CreateTranslate('a', 2.0, 3.0)
+1 # rows (not including the header row)
+1 # columns
+ATM_CreateTranslate('a', 2.0, 3.0)
+(NULL)

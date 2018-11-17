@@ -1,0 +1,7 @@
+isvalid Geometry Collection of one polygon
+:memory: #use in-memory database
+SELECT IsValid(GeomFromText("GEOMETRYCOLLECTION(POLYGON((0 0, 10 0, 10 10, 0 10, 0 0)))"))
+1 # rows (not including the header row)
+1 # columns
+IsValid(GeomFromText("GEOMETRYCOLLECTION(POLYGON((0 0, 10 0, 10 10, 0 10, 0 0)))"))
+1

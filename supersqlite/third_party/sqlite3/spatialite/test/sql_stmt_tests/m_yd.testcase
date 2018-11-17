@@ -1,0 +1,7 @@
+metres to yards
+:memory: #use in-memory database
+SELECT CvtToYd(1.0);
+1 # rows (not including the header row)
+1 # columns
+CvtToYd(1.0);
+1.0936133:8

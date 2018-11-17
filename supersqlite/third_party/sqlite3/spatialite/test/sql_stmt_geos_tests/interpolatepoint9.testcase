@@ -1,0 +1,7 @@
+interpolate point - wrong geometry type
+:memory: #use in-memory database
+SELECT Line_Interpolate_Point(GeomFromText("POINT(10 6)"), 0.6)
+1 # rows (not including the header row)
+1 # columns
+Line_Interpolate_Point(GeomFromText("POINT(10 6)"), 0.6)
+(NULL)

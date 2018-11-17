@@ -1,0 +1,7 @@
+Geometry N - bad blob input (error)
+:memory: #use in-memory database
+SELECT GeometryN(zeroblob(2), 1);
+1 # rows (not including the header row)
+1 # columns
+GeometryN(zeroblob(2), 1)
+(NULL)

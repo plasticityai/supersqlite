@@ -1,0 +1,7 @@
+eval('SELECT 1 + 10, 2 * 10, sqrt(225)', ';')
+:memory: #use in-memory database
+SELECT eval('SELECT 1 + 10, 2 * 10, sqrt(225)', ';')
+1 # rows (not including the header row)
+1 # columns
+eval('SELECT 1 + 10, 2 * 10, sqrt(225)', ';')
+11;20;15.0

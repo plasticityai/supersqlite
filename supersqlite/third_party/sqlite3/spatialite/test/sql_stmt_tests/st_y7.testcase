@@ -1,0 +1,7 @@
+ST_Y7
+:memory: #use in-memory database
+SELECT ST_Y(MakePointZ(-71.1043443253471, 42.3150676015829, 0.0038723129645, 4326));
+1 # rows (not including the header row)
+1 # columns
+ST_Y(MakePointZ(-71.1043443253471, 42.3150676015829, 0.0038723129645, 4326))
+42.3150676015829

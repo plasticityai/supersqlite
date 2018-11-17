@@ -1,0 +1,7 @@
+extractmultipoint - non-blob
+:memory: #use in-memory database
+SELECT ExtractMultiPoint(4)
+1 # rows (not including the header row)
+1 # columns
+ExtractMultiPoint(4)
+(NULL)

@@ -1,0 +1,8 @@
+collect - two pointZs
+:memory: #use in-memory database
+SELECT AsText(COLLECT(GeomFromText("POINTZ(1 2 3)"), GeomFromText("POINTZ(4 5 3.2)")));
+1 # rows (not including the header row)
+1 # columns
+AsText(COLLECT(GeomFromText("POINTZ(1 2 3)"), GeomFromText("POINTZ(4 5 3.2)")))
+MULTIPOINT Z(1 2 3, 4 5 3.2)
+

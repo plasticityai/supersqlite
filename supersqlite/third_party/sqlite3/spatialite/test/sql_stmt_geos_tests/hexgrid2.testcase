@@ -1,0 +1,9 @@
+HexagonalGrid - zeroblob geom
+:memory: #use in-memory database
+SELECT HexagonalGrid(zeroblob(4), 1.0);
+1 # rows (not including the header row)
+1 # columns
+HexagonalGrid(zeroblob(4), 1.0)
+(NULL)
+
+

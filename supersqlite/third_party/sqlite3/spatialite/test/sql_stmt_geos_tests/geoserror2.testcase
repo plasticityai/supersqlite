@@ -1,0 +1,18 @@
+GEOS_Error - valid Polygon
+:memory: #use in-memory database
+SELECT ST_IsValid(ST_GeomFromText('POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))')), GEOS_GetLastWarningMsg(), GEOS_GetLastErrorMsg(), GEOS_GetLastAuxErrorMsg(), ST_AsText(GEOS_GetCriticalPointFromMsg());
+1 # rows (not including the header row)
+5 # columns
+ST_IsValid(ST_GeomFromText('POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))'))
+GEOS_GetLastWarningMsg()
+GEOS_GetLastErrorMsg()
+GEOS_GetLastAuxErrorMsg()
+ST_AsText(GEOS_GetCriticalPointFromMsg())
+1
+(NULL)
+(NULL)
+(NULL)
+(NULL)
+
+
+

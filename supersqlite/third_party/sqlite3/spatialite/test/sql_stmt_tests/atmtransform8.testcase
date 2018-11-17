@@ -1,0 +1,7 @@
+ATM_Transform() - XYZM
+:memory: #use in-memory database
+SELECT AsText(ATM_Transform(GeomFromText('GEOMETRYCOLLECTIONZM(POINTZM(0 0 0 0), LINESTRINGZM(1 1 1 1, 2 2 3 3), POLYGONZM((10 10 1 1, 20 10 2 2, 20 20 3 3, 10 20 2 2, 10 10 1 1), (14 14 1 1, 16 14 2 2, 16 16 2 2, 14 16 2 2, 14 14 1 1)))'), ATM_Create()));
+1 # rows (not including the header row)
+1 # columns
+AsText(ATM_Transform(GeomFromText('GEOMETRYCOLLECTIONZM(POINTZM(0 0 0 0), LINESTRINGZM(1 1 1 1, 2 2 3 3), POLYGONZM((10 10 1 1, 20 10 2 2, 20 20 3 3, 10 20 2 2, 10 10 1 1), (14 14 1 1, 16 14 2 2, 16 16 2 2, 14 16 2 2, 14 14 1 1)))'), ATM_Create()));
+GEOMETRYCOLLECTION ZM(POINT ZM(0 0 0 0), LINESTRING ZM(1 1 1 1, 2 2 3 3), POLYGON ZM((10 10 1 1, 20 10 2 2, 20 20 3 3, 10 20 2 2, 10 10 1 1), (14 14 1 1, 16 14 2 2, 16 16 2 2, 14 16 2 2, 14 14 1 1)))

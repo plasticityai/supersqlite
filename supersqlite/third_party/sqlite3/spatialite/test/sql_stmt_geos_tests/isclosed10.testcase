@@ -1,0 +1,7 @@
+isclosed - multilinestring, first not closed
+:memory: #use in-memory database
+SELECT IsClosed(GeomFromText("MULTILINESTRING((136 -35, 135.2 -34.5, 136 -35.2, 136 -35.4),(10 10, 0 10, 0 0, 10 10))"))
+1 # rows (not including the header row)
+1 # columns
+IsClosed(GeomFromText("MULTILINESTRING((136 -35, 135.2 -34.5, 136 -35.2, 136 -35.4),(10 10, 0 10, 0 0, 10 10))"))
+0

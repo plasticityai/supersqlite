@@ -1,0 +1,7 @@
+swapcoords1
+:memory: #use in-memory database
+SELECT AsText(SwapCoords(GeomFromText("POINT(1 2)")));
+1 # rows (not including the header row)
+1 # columns
+AsText(SwapCoords(GeomFromText("POINT(1 2)")))
+POINT(2 1)

@@ -1,0 +1,17 @@
+Covers / Covered
+:memory: #use in-memory database
+SELECT Covers(geom1,geom2),CoveredBy(geom1,geom2),Covers(geom2,geom1),CoveredBy(geom2,geom1) from (SELECT GeomFromText("POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))") as geom1,GeomFromText("POLYGON((0 0, 2 0, 2 2, 0 2, 0 0))") as geom2) dummy;
+1 # rows (not including the header row)
+4 # columns
+Covers(geom1,geom2)
+CoveredBy(geom1,geom2)
+Covers(geom2,geom1)
+CoveredBy(geom2,geom1)
+0
+1
+1
+0
+
+
+
+

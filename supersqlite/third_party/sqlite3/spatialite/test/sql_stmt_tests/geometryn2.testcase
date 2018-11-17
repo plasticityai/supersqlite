@@ -1,0 +1,7 @@
+Geometry N - multipoint - out of range 2
+:memory: #use in-memory database
+SELECT AsText(GeometryN(GeomFromText("MULTIPOINT(1 2)"), 2));
+1 # rows (not including the header row)
+1 # columns
+AsText(GeometryN(GeomFromText("MULTIPOINT(1 2)"), 2))
+(NULL)

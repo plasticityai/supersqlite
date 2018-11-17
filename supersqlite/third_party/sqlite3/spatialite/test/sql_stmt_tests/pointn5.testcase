@@ -1,0 +1,7 @@
+pointN - text index (error)
+:memory: #use in-memory database
+SELECT AsText(PointN(GeomFromText("LINESTRING(4 0, 4 4, 8 4)"), "three"));
+1 # rows (not including the header row)
+1 # columns
+AsText(PointN(GeomFromText("LINESTRING(4 0, 4 4, 8 4)"), "three"))
+(NULL)

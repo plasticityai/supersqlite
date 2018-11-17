@@ -1,0 +1,8 @@
+ShortestLine - zeroblob second arg
+:memory: #use in-memory database
+SELECT ShortestLine(GeomFromText("LINESTRING(0 0, 10 0)"), zeroblob(487))
+1 # rows (not including the header row)
+1 # columns
+ShortestLine(GeomFromText("LINESTRING(0 0, 10 0)"), zeroblob(487))
+(NULL)
+

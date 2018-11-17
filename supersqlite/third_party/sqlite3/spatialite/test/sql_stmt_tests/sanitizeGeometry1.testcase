@@ -1,0 +1,9 @@
+Sanitize Geometry - Multilinestring
+:memory: #use in-memory database
+SELECT AsText(SanitizeGeometry(GeomFromText('MULTILINESTRING((0 0, 1 0, 1 1, 0 1, 0 0))')));
+1 # rows (not including the header row)
+1 # columns
+AsText(SanitizeGeometry(GeomFromText('MULTILINESTRING((0 0, 1 0, 1 1, 0 1, 0 0))')))
+MULTILINESTRING((0 0, 1 0, 1 1, 0 1, 0 0))
+
+

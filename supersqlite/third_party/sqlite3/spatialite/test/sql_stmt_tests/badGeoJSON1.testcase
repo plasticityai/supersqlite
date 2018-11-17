@@ -1,0 +1,7 @@
+bad GeoJSON: Point
+:memory: #use in-memory database
+SELECT GeomFromGeoJSON('{"type":"Point","coordinates":[1.1,2.2]');
+1 # rows (not including the header row)
+1 # columns
+GeomFromGeoJSON('{"type":"Point","coordinates":[1.1,2.2]'):0
+(NULL)

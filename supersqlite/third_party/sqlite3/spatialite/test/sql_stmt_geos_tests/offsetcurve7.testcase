@@ -1,0 +1,10 @@
+OffsetCurve - zeroblob
+:memory: #use in-memory database
+SELECT AsText(OffsetCurve(zeroblob(40), 1));
+1 # rows (not including the header row)
+1 # columns
+AsText(OffsetCurve(zeroblob(40), 1))
+(NULL)
+
+
+

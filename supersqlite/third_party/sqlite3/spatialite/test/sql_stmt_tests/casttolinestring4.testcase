@@ -1,0 +1,8 @@
+casttolinestring - MULTILINESTRING, 1 linestring
+:memory: #use in-memory database
+SELECT AsText(CastToLineString(GeomFromText("MULTILINESTRING((4 1, 3 4))")))
+1 # rows (not including the header row)
+1 # columns
+AsText(CastToLineString(GeomFromText("MULTILINESTRING((4 1, 3 4))")))
+LINESTRING(4 1, 3 4)
+

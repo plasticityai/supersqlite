@@ -1,0 +1,7 @@
+casttopoint - non-blob
+:memory: #use in-memory database
+SELECT CastToPoint(4)
+1 # rows (not including the header row)
+1 # columns
+CastToPoint(4)
+(NULL)

@@ -1,0 +1,7 @@
+geomfromtext7
+:memory: #use in-memory database
+SELECT AsEWkt(GeomFromText("POINT(-71.1043443253471 42.315067601582900)", "WGS-84"));
+1 # rows (not including the header row)
+1 # columns
+AsEWkt(GeomFromText("POINT(-71.1043443253471 42.315067601582900)", "WGS-84"))
+(NULL)

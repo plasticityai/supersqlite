@@ -1,0 +1,8 @@
+MaxDistance - two 3D linestring
+:memory: #use in-memory database
+SELECT ST_MaxDistance(GeomFromText("LINESTRINGZ(0 0 1, 10 2 5)"), GeomFromText("LINESTRINGZ(0 2 3, 10 3 4)"));
+1 # rows (not including the header row)
+1 # columns
+ST_MaxDistance(GeomFromText("LINESTRINGZ(0 0 1, 10 2 5)"), GeomFromText("LINESTRINGZ(0 2 3, 10 3 4)"));
+10.440306:6
+

@@ -1,0 +1,9 @@
+GPKG amphibious mode - disable
+:memory:
+SELECT DisableGpkgAmphibiousMode(), GetGpkgAmphibiousMode();
+1 # rows
+2 # column
+DisableGpkgAmphibiousMode()
+GetGpkgAmphibiousMode();
+(NULL)
+0

@@ -1,0 +1,7 @@
+buildarea - polygon-hole
+:memory: #use in-memory database
+SELECT AsText(BuildArea(GeomFromText('MULTILINESTRING((0 0, 10 0, 10 10), (10 10, 0 10, 0 0), (5 5, 6 5, 6 6), (6 6, 5 6, 5 5))')))
+1 # rows (not including the header row)
+1 # columns
+AsText(BuildArea(GeomFromText('MULTILINESTRING((0 0, 10 0, 10 10), (10 10, 0 10, 0 0), (5 5, 6 5, 6 6), (6 6, 5 6, 5 5))')))
+POLYGON((10 10, 10 0, 0 0, 0 10, 10 10), (5 5, 6 5, 6 6, 5 6, 5 5))

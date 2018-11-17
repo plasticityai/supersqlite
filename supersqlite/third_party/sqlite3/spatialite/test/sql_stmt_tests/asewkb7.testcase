@@ -1,0 +1,10 @@
+asewkb - float
+:memory: #use in-memory database
+SELECT AsEWKB(3.2)
+1 # rows (not including the header row)
+1 # columns
+AsEWKB(3.2)
+(NULL)
+
+
+

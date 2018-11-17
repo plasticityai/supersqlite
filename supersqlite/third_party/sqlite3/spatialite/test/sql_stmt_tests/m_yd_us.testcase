@@ -1,0 +1,7 @@
+metres to US yards
+:memory: #use in-memory database
+SELECT CvtToUsYd(100.0);
+1 # rows (not including the header row)
+1 # columns
+CvtToUsYd(100.0);
+109.36:6

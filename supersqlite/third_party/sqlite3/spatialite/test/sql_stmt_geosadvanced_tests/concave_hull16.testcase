@@ -1,0 +1,7 @@
+ST_ConcaveHull - allow_holes
+:memory: #use in-memory database
+SELECT ST_Area(ST_ConcaveHull(GeomFromText('MULTIPOINT(10 10, 10 12, 10 14, 10 16, 10 18, 10 20, 12 10, 12 12, 12 14, 12 16, 12 18, 12 20, 14 10, 14 12, 14 14, 14 18, 14 20, 17 10, 17 12, 17 14, 17 16, 17 18, 17 20, 16 10, 16 12, 16 14, 16 16, 16 18, 16 20, 18 10, 18 20, 20 10, 20 20)'), 3, 1));
+1 # rows (not including the header row)
+1 # columns
+ST_Area(ST_ConcaveHull(GeomFromText('MULTIPOINT(10 10, 10 12, 10 14, 10 16, 10 18, 10 20, 12 10, 12 12, 12 14, 12 16, 12 18, 12 20, 14 10, 14 12, 14 14, 14 18, 14 20, 17 10, 17 12, 17 14, 17 16, 17 18, 17 20, 16 10, 16 12, 16 14, 16 16, 16 18, 16 20, 18 10, 18 20, 20 10, 20 20)'), 3, 1))
+64.0

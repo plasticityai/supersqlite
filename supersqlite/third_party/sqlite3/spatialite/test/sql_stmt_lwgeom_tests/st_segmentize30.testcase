@@ -1,0 +1,7 @@
+ST_Segmentize - Collection - two Linestrings
+:memory: #use in-memory database
+SELECT ST_AsText(ST_Segmentize(GeomFromText('GEOMETRYCOLLECTION(LINESTRING(1 1, 1 2), LINESTRING(3 3, 4 3))'), 0.5));
+1 # rows (not including the header row)
+1 # columns
+ST_AsText(ST_Segmentize(GeomFromText('GEOMETRYCOLLECTION(LINESTRING(1 1, 1 2), LINESTRING(3 3, 4 3))'), 0.5))
+GEOMETRYCOLLECTION(LINESTRING(1 1, 1 1.5, 1 2), LINESTRING(3 3, 3.5 3, 4 3))
