@@ -513,7 +513,15 @@ THIRD_PARTY = PROJ_PATH + '/' + PACKAGE_NAME + '/third_party'
 BUILD_PATH = PROJ_PATH + '/build'
 BUILD_THIRD_PARTY = BUILD_PATH + '/lib/' + PACKAGE_NAME + '/third_party'
 INTERNAL = THIRD_PARTY + '/internal'
-BINARY_EXTENSIONS = ('.so', '.pyd', '.dll', '.o', '.obj', '.lib', '.dylib', '.a')
+BINARY_EXTENSIONS = (
+    '.so',
+    '.pyd',
+    '.dll',
+    '.o',
+    '.obj',
+    '.lib',
+    '.dylib',
+    '.a')
 
 # Get the package version
 __version__ = None
