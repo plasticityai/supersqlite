@@ -8,7 +8,7 @@ There are a few components that need updating when updating the version of `sqli
 
 3. **Update SQLite3 Extensions:** Download the latest SQLite source code package from the [SQLite website](https://www.sqlite.org/download.html). Update the `third_party/sqlite3/ext` with the `ext` folder from the SQLite source code package. Also copy all of the files from the `src` folder to `third_party/sqlite3/raw`. Also copy `opcodes.c` and `opcodes.h` to `third_party/sqlite3/raw`.
 
-4. **Update SQLite3 Extension Functions:** Download the latest `extension-functions.c` from the [SQLite website](https://www.sqlite.org/contrib) and place it in `third_party/sqlite3/ext/misc`.
+4. **Update SQLite3 Extension Functions:** Download the latest `extension-functions.c` from the [SQLite website](https://www.sqlite.org/contrib) and place it in `third_party/sqlite3/ext/misc` as `extension_functions.c` and replace `sqlite3_extension_init` with `sqlite3_extension_functions_init`.
 
 5. **Copy `shell.c`:** Copy `shell.c` from the root of `third_party/_apsw` (which was updated in step #1) to `third_party/sqlite3/apsw_shell.c`.
 

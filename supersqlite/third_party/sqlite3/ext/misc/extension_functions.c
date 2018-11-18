@@ -1835,7 +1835,7 @@ int RegisterExtensionFunctions(sqlite3 *db){
 }
 
 #ifdef COMPILE_SQLITE_EXTENSIONS_AS_LOADABLE_MODULE
-int sqlite3_extension_init(
+int sqlite3_extension_functions_init(
     sqlite3 *db, char **pzErrMsg, const sqlite3_api_routines *pApi){
   SQLITE_EXTENSION_INIT2(pApi);
   RegisterExtensionFunctions(db);
