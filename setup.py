@@ -94,7 +94,11 @@ def copy_sqlite(src, dest, apsw=False):
         }''' + '\n')
         outfile.write('''
         int sqlite3_enable_shared_cache(int a) {
-            return SQLITE_ERROR;
+            if (a) {
+                return SQLITE_ERROR;
+            } else {
+                return SQLITE_OK;
+            }
         }
         ''' + '\n')
         outfile.write('#endif\n')
@@ -135,50 +139,7 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
     SQLITE_EXT = os.path.relpath(
         os.path.join(SQLITE3, 'ext'), PROJ_PATH)
 
-    with open(ICU_POST, 'w+') as outfile:
-        outfile.write(
-            '''
-            # ifndef PLASTICITY_SUPERSQLITE_ICU_CPP
-            # define PLASTICITY_SUPERSQLITE_ICU_CPP 1
-
-            #define UDATA_DEBUG 1
-            #define U_STATIC_IMPLEMENTATION 1
-            #define UCONFIG_NO_REGULAR_EXPRESSIONS 0
-            #define U_DISABLE_RENAMING 1
-            #define U_COMMON_IMPLEMENTATION
-            #define U_COMBINED_IMPLEMENTATION
-
-            ''' + '\n'.join(
-                ['#include "' + source + '"' for source in icu_sources]
-            ) + '''
-
-            int _supersqlite_load_icu_data(void) {
-                UErrorCode _PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS;
-                udata_setCommonData((const void*)"", &_PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS);
-                return (int) _PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS;
-            }
-            # endif
-        ''')
-    with open(SQLITE_H_POST, 'w+') as outfile:
-        with open(SQLITE_H_PRE, 'r') as infile:
-            for line in infile:
-                outfile.write(line)
-        outfile.write(
-            '''
-            # ifndef PLASTICITY_SUPERSQLITE_SQLITE3_H
-            # define PLASTICITY_SUPERSQLITE_SQLITE3_H 1
-                #ifdef __cplusplus
-                extern "C" {
-                #endif
-
-                    int _supersqlite_load_icu_data(void);
-
-                #ifdef __cplusplus
-                }
-                #endif
-            # endif
-            ''')
-    with open(SQLITE_POST, 'w+') as outfile:
+    def sqlite_config(outfile):
         outfile.write('#define U_DISABLE_RENAMING 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_DBPAGE_VTAB 1' + '\n')
         outfile.write('#define SQLITE_ENABLE_DBSTAT_VTAB 1' + '\n')
@@ -230,6 +191,53 @@ def get_modules(THIRD_PARTY, INTERNAL, PROJ_PATH,
         outfile.write('#define SQLITE_MAX_ATTACHED 125' + '\n')
         outfile.write('#define SQLITE_MAX_PAGE_COUNT 2147483646' + '\n')
         outfile.write('\n\n\n')
+
+    with open(ICU_POST, 'w+') as outfile:
+        outfile.write(
+            '''
+            # ifndef PLASTICITY_SUPERSQLITE_ICU_CPP
+            # define PLASTICITY_SUPERSQLITE_ICU_CPP 1
+
+            #define UDATA_DEBUG 1
+            #define U_STATIC_IMPLEMENTATION 1
+            #define UCONFIG_NO_REGULAR_EXPRESSIONS 0
+            #define U_DISABLE_RENAMING 1
+            #define U_COMMON_IMPLEMENTATION
+            #define U_COMBINED_IMPLEMENTATION
+
+            ''' + '\n'.join(
+                ['#include "' + source + '"' for source in icu_sources]
+            ) + '''
+
+            int _supersqlite_load_icu_data(void) {
+                UErrorCode _PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS;
+                udata_setCommonData((const void*)"", &_PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS);
+                return (int) _PLASTICITY_SUPERSQLITE_SET_COMMON_DATA_STATUS;
+            }
+            # endif
+        ''')
+    with open(SQLITE_H_POST, 'w+') as outfile:
+        sqlite_config(outfile)
+        with open(SQLITE_H_PRE, 'r') as infile:
+            for line in infile:
+                outfile.write(line)
+        outfile.write(
+            '''
+            # ifndef PLASTICITY_SUPERSQLITE_SQLITE3_H
+            # define PLASTICITY_SUPERSQLITE_SQLITE3_H 1
+                #ifdef __cplusplus
+                extern "C" {
+                #endif
+
+                    int _supersqlite_load_icu_data(void);
+
+                #ifdef __cplusplus
+                }
+                #endif
+            # endif
+            ''')
+    with open(SQLITE_POST, 'w+') as outfile:
+        sqlite_config(outfile)
         with open(SQLITE_PRE, 'r') as infile:
             for line in infile:
                 outfile.write(line)
