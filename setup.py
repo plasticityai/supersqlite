@@ -16,6 +16,7 @@ from icu_sources import icu_sources
 from setuptools import find_packages
 from distutils.core import setup, Extension
 from setuptools.command.install import install
+from setuptools.command.build_ext import build_ext
 from setuptools.command.egg_info import egg_info
 from setuptools import setup, Distribution
 from multiprocessing import Process
@@ -928,7 +929,20 @@ class CustomInstallCommand(install):
             self.install_lib = self.install_platlib
 
 
+class CustomBuildExtCommand(build_ext):
+    def run(self):
+        if not(download_and_install_wheel()):
+            print("Running build_ext...")
+            p = Process(target=build_ext.run, args=(self,))
+            p.start()
+            p.join()
+            print("Done running build_ext")
+        else:
+            print("Skipping build_ext...")
+
+
 cmdclass['install'] = CustomInstallCommand
+cmdclass['build_ext'] = CustomBuildExtCommand
 
 
 class BinaryDistribution(Distribution):
