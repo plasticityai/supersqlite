@@ -645,10 +645,10 @@ class apsw_build_ext(beparent):
                 e=e.strip()
                 if e.lower()=="load_extension":
                     load_extension=False
-                ext.define_macros.append( ("SQLITE_OMIT_"+e.upper(), 1) )
+                # ext.define_macros.append( ("SQLITE_OMIT_"+e.upper(), 1) ) PLASTICITY
 
         if not load_extension:
-            ext.define_macros.append( ("SQLITE_OMIT_LOAD_EXTENSION", 1) )
+            # ext.define_macros.append( ("SQLITE_OMIT_LOAD_EXTENSION", 1) ) PLASTICITY
 
         # icu
         if addicuinclib and False: # PLASTICITY

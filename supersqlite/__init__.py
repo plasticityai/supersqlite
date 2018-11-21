@@ -15,6 +15,7 @@ import time
 import types
 import uuid
 
+from collections import deque
 from time import sleep
 
 try:
@@ -45,10 +46,11 @@ except Exception:
 try:
     import supersqlite.third_party.internal.apsw as apsw
     db = apsw.Connection(':memory:')
+    apswCursorClass = db.cursor().__class__
     db.close()
     APSW_LIB = 'internal'
-except Exception as e:
-    raise(e)
+except Exception:
+    raise
     APSW_LIB = 'none'
 
 # Exportable modules
@@ -56,20 +58,162 @@ pysqlite = sqlite3
 apsw = apsw
 
 
+def _error(message):
+    raise RuntimeError(message)
+
+
+def _pget(self):
+    _error("You cannot get this property with SuperSQLite.")
+
+
+def _pset(self, value):
+    _error("You cannot set this property with SuperSQLite.")
+
+
 class SuperSQLite():
     pass
 
 
 class SuperSQLiteConnection(apsw.Connection):
-    pass
+    def __init__(self, *args, **kwargs):
+        timeout = None
+        if 'timeout' in kwargs:
+            timeout = kwargs['timeout']
+            del kwargs['timeout']
+        cached_statements = None
+        if 'cached_statements' in kwargs:
+            kwargs['statementcachesize'] = kwargs['cached_statements']
+            del kwargs['cached_statements']
+        if 'isolation_level' in kwargs:
+            if 'isolation_level' is None:
+                del kwargs['isolation_level']
+            else:
+                raise RuntimeError(
+                    "You cannot use isolation_level with SuperSQLite.")
+        if 'check_same_thread' in kwargs:
+            if 'check_same_thread' is False:
+                del kwargs['check_same_thread']
+            else:
+                raise RuntimeError(
+                    "You cannot use check_same_thread with SuperSQLite.")
+        if 'factory' in kwargs:
+            raise RuntimeError("You cannot use factory with SuperSQLite.")
+        if 'detect_types' in kwargs:
+            raise RuntimeError("You cannot use detect_types with SuperSQLite.")
+
+        apsw.Connection.__init__(self, *args, **kwargs)
+
+        self.timeout = timeout
+        if self.timeout:
+            self.setbusytimeout(timeout * 1000)
+        self.cached_statements = cached_statements
+
+        self.isolation_level = property(_pget, _pset)
+        self.text_factory = property(_pget, _pset)
+        self.row_factory = property(SuperSQLiteConnection._get_row_factory,
+                                    SuperSQLiteConnection._set_row_factory)
+        # self.enable_load_extension = apsw.Connection.enableloadextension
+        # self.load_extension = apsw.Connection.loadextension
+        self.set_authorizer = apsw.Connection.setauthorizer
+        self.total_changes = property(lambda: self.totalchanges())
+
+    def cursor(self, factory=None):
+        if factory:
+            raise RuntimeError("You cannot use factory with SuperSQLite.")
+        cursor = apsw.Connection.cursor(self)
+
+        return cursor
+
+    def set_progress_handler(self, handler, n):
+        return self.setprogresshandler(handler, n)
+
+    def iterdump(self):
+        class IterDumpInput():
+            def __init__(self):
+                self.read = False
+
+            def readline(self):
+                if self.read:
+                    return ''
+                else:
+                    self.read = True
+                    return '.dump'
+
+        class IterDumpOutput():
+            def __init__(self):
+                self.done = False
+                self.buffer = deque()
+
+            def write(self, data):
+                self.buffer.append(data)
+
+            def flush(self):
+                pass
+
+            def iter(self):
+                while not self.done or len(self.buffer) > 0:
+                    try:
+                        yield self.buffer.popleft()
+                    except BaseException:
+                        sleep(1)
+                        pass
+        dump_in = IterDumpInput()
+        dump_out = IterDumpOutput()
+
+        def dump_routine():
+            shell = apsw.Shell(stdin=dump_in, stdout=dump_out, db=self)
+            shell.cmdloop()
+            dump_out.done = True
+        dump_thread = threading.Thread(target=dump_routine)
+        dump_thread.daemon = True
+        dump_thread.start()
+        return dump_out.iter()
+
+    def create_function(self, name, num_params, func):
+        return self.createscalarfunction(name, func, numargs=num_params)
+
+    def create_aggregate(self, name, num_params, aggregate_class):
+        def factory():
+            instance = aggregate_class()
+            return (instance, aggregate_class.step, aggregate_class.finalize)
+        return self.createaggregatefunction(name, factory, numargs=num_params)
+
+    def create_collation(self, name, func):
+        return self.createcollation(name, func)
+
+    def _get_row_factory(self):
+        return self.getrowtrace()
+
+    def _set_row_factory(self, value):
+        return self.setrowtrace(value)
 
 
 for prop in dir(apsw):
     value = getattr(apsw, prop)
     if prop.startswith('__') or isinstance(value, types.ModuleType):
         continue
-    setattr(SuperSQLite, prop, value)
+    if not hasattr(SuperSQLite):
+        setattr(SuperSQLite, prop, value)
+
 setattr(SuperSQLite, 'connect', SuperSQLiteConnection)
+setattr(SuperSQLite, 'version', pysqlite.version)
+setattr(SuperSQLite, 'version_info', pysqlite.version_info)
+setattr(SuperSQLite, 'sqlite_version', pysqlite.sqlite_version)
+setattr(SuperSQLite, 'sqlite_version_info', pysqlite.sqlite_version_info)
+setattr(SuperSQLite, 'complete_statement', pysqlite.complete_statement)
+setattr(SuperSQLite, 'complete_statement', pysqlite.complete_statement)
+setattr(SuperSQLite, 'enable_callback_tracebacks', lambda *dargs: None)
+setattr(
+    SuperSQLite,
+    'register_converter',
+    lambda *dargs: _error("You cannot use register_converter "
+                          "with SuperSQLite."))
+setattr(
+    SuperSQLite,
+    'register_adapter',
+    lambda *dargs: _error("You cannot use register_adapter with SuperSQLite."))
+setattr(SuperSQLite, 'PARSE_DECLTYPES', property(_pget, _pset))
+setattr(SuperSQLite, 'PARSE_COLNAMES', property(_pget, _pset))
 
 # KeyList helper class
 
