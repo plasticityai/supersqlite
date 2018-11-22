@@ -192,7 +192,7 @@ for prop in dir(apsw):
     value = getattr(apsw, prop)
     if prop.startswith('__') or isinstance(value, types.ModuleType):
         continue
-    if not hasattr(SuperSQLite):
+    if not hasattr(SuperSQLite, prop):
         setattr(SuperSQLite, prop, value)
 
 setattr(SuperSQLite, 'connect', SuperSQLiteConnection)
