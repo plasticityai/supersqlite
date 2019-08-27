@@ -45,7 +45,18 @@ See [Appropriate Uses For SQLite](https://www.sqlite.org/whentouse.html) for mor
 
 ## Using the Library
 
+Instead of 'import sqlite3', use:
+
+    from supersqlite import sqlite3
+
+This retains compatibility with the sqlite3 package, while adding the various
+enhancements.
+
 ### Connecting
+
+Given the above import, connect to a sqlite database file using:
+
+    conn = sqlite3.connect('foo.db')
 
 ### Querying
 
