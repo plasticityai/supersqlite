@@ -86,7 +86,7 @@ Other documentation is not available at this time. See the source file directly 
 Currently, this library only supports Python. There are no plans to port it to any other languages, but since SQLite has a native C implementation and has bindings in most languages, you can use the [export functions](#export-sqlite-resources) to load SuperSQLite's SQLite extensions in the SQLite bindings of other programming languages or link SuperSQLite's version of SQLite to a native binary.
 
 ## Contributing
-The main repository for this project can be found on [GitLab](https://gitlab.com/Plasticity/supersqlite). The [GitHub repository](https://github.com/plasticityai/supersqlite) is only a mirror. Pull requests for more tests, better error-checking, bug fixes, performance improvements, or documentation or adding additional utilties / functionalities are welcome on [GitLab](https://gitlab.com/Plasticity/supersqlite).
+The main repository for this project can be found on [GitLab](https://gitlab.com/Plasticity/supersqlite). The [GitHub repository](https://github.com/plasticityai/supersqlite) is only a mirror. Pull requests for more tests, better error-checking, bug fixes, performance improvements, or documentation or adding additional utilities / functionalities are welcome on [GitLab](https://gitlab.com/Plasticity/supersqlite).
 
 You can contact us at [opensource@plasticity.ai](mailto:opensource@plasticity.ai).
 
